@@ -120,7 +120,7 @@ namespace MattyNotes {
 			this->monthCalendar1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->monthCalendar1->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->monthCalendar1->Location = System::Drawing::Point(47, 315);
+			this->monthCalendar1->Location = System::Drawing::Point(27, 108);
 			this->monthCalendar1->Name = L"monthCalendar1";
 			this->monthCalendar1->TabIndex = 1;
 			// 
@@ -133,9 +133,9 @@ namespace MattyNotes {
 			this->panel1->Controls->Add(this->groupBox1);
 			this->panel1->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->panel1->Location = System::Drawing::Point(264, 148);
+			this->panel1->Location = System::Drawing::Point(244, 108);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(469, 329);
+			this->panel1->Size = System::Drawing::Size(469, 369);
 			this->panel1->TabIndex = 2;
 			// 
 			// groupBox2
@@ -252,12 +252,12 @@ namespace MattyNotes {
 			// 
 			this->Clocks->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->Clocks->AutoSize = true;
-			this->Clocks->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->Clocks->Font = (gcnew System::Drawing::Font(L"Century Gothic", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Clocks->ForeColor = System::Drawing::Color::Indigo;
-			this->Clocks->Location = System::Drawing::Point(18, 216);
+			this->Clocks->Location = System::Drawing::Point(12, 9);
 			this->Clocks->Name = L"Clocks";
-			this->Clocks->Size = System::Drawing::Size(193, 90);
+			this->Clocks->Size = System::Drawing::Size(191, 78);
 			this->Clocks->TabIndex = 3;
 			this->Clocks->Text = L"10:12";
 			this->Clocks->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::Clocks_MouseDoubleClick);
@@ -293,30 +293,35 @@ namespace MattyNotes {
 #pragma endregion
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e)
 	{
-		TimeAndDate^ TimeDate = MattyTime::getCurrTime();
-		Clocks->Text = String::Format("{0}:{1}", TimeDate->hour, TimeDate->minute);
+		streambuf* orig_buf = cout.rdbuf();
+		cout.rdbuf(NULL);
+		// cout.rdbuf(orig_buf); for enabling
+		MattyTime^ temp = gcnew MattyTime();
+		MattyTime::PrintCurrDate();
+		MattyTime::PrintCurrTime();
+		MattyTime::PrintCurrTimeAndDate();
+		MattyTime::PrintCurrTimeFull();
+		MattyTime::PrintCurrTimeFullAndDate();
+		temp->PrintUserDate();
+		temp->PrintUserTime();
+		temp->PrintUserTimeAndDate();
+		temp->PrintUserTimeFull();
+		temp->PrintUserTimeFullAndDate();
+		Clocks->Text = MattyTime::PrintCurrTime();
 	}
 	private: System::Void Clocks_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
 	{
-		TimeAndDate^ TimeDate = MattyTime::getCurrTime();
-		//String^ displayedTime;
-		//displayedTime = Clocks->Text;
-		//if (displayedTime->Length <= 5)
-			//Clocks->Text = String::Format("{0}:{1}:{2}", TimeDate->hour, TimeDate->minute,
-				//TimeDate->second);
-		//else
-			Clocks->Text = String::Format("{0}:{1}", TimeDate->hour, TimeDate->minute);
+		if (Clocks->Text->Length <= 5)
+			Clocks->Text = MattyTime::PrintCurrTimeFull();
+		else
+			Clocks->Text = MattyTime::PrintCurrTime();
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e)
 	{
-		TimeAndDate^ TimeDate = MattyTime::getCurrTime();
-		//String^ displayedTime;
-		//displayedTime = Clocks->Text;
-		//if (displayedTime->Length > 5)
-		//	Clocks->Text = String::Format("{0}:{1}:{2}", currentTime->getCurrHours(), currentTime->getCurrMinutes(),
-			//	currentTime->getCurrSeconds());
-		//else
-		Clocks->Text = String::Format("{0}:{1}", TimeDate->hour, TimeDate->minute);
+		if (Clocks->Text->Length <= 5)
+			Clocks->Text = MattyTime::PrintCurrTime();
+		else
+			Clocks->Text = MattyTime::PrintCurrTimeFull();
 	}
 	};
 }

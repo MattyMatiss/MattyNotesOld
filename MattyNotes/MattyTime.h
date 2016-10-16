@@ -4,6 +4,7 @@ ref struct TimeAndDate
 {
 	int hour;
 	int minute;
+	int second;
 	int day;
 	int month;
 	int year;
@@ -11,6 +12,7 @@ ref struct TimeAndDate
 	TimeAndDate()
 		: hour(0),
 		minute(0),
+		second(0),
 		day(0),
 		month(0),
 		year(0),
@@ -34,9 +36,16 @@ public:
 		int month, int year);
 	void setUserDateAndTime(TimeAndDate^ TimeDate);
 	TimeAndDate^ GetUserDateAndTime();
+	static System::String^ PrintCurrTime();
+	static System::String^ PrintCurrTimeFull();
+	static System::String^ PrintCurrDate();
+	static System::String^ PrintCurrTimeAndDate();
+	static System::String^ PrintCurrTimeFullAndDate();
 	System::String^ PrintUserTime();
+	System::String^ PrintUserTimeFull();
 	System::String^ PrintUserDate();
 	System::String^ PrintUserTimeAndDate();
+	System::String^ PrintUserTimeFullAndDate();
 	~MattyTime();
 };
 
