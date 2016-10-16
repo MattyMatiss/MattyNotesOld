@@ -120,7 +120,7 @@ namespace MattyNotes {
 			this->monthCalendar1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->monthCalendar1->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->monthCalendar1->Location = System::Drawing::Point(27, 108);
+			this->monthCalendar1->Location = System::Drawing::Point(18, 108);
 			this->monthCalendar1->Name = L"monthCalendar1";
 			this->monthCalendar1->TabIndex = 1;
 			// 
@@ -252,10 +252,11 @@ namespace MattyNotes {
 			// 
 			this->Clocks->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->Clocks->AutoSize = true;
+			this->Clocks->BackColor = System::Drawing::Color::Transparent;
 			this->Clocks->Font = (gcnew System::Drawing::Font(L"Century Gothic", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Clocks->ForeColor = System::Drawing::Color::Indigo;
-			this->Clocks->Location = System::Drawing::Point(12, 9);
+			this->Clocks->Location = System::Drawing::Point(5, 21);
 			this->Clocks->Name = L"Clocks";
 			this->Clocks->Size = System::Drawing::Size(191, 78);
 			this->Clocks->TabIndex = 3;
@@ -275,8 +276,8 @@ namespace MattyNotes {
 			this->BackColor = System::Drawing::Color::Ivory;
 			this->ClientSize = System::Drawing::Size(888, 500);
 			this->Controls->Add(this->Clocks);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->monthCalendar1);
+			this->Controls->Add(this->panel1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MainForm";
 			this->Text = L"MattyNotes";
