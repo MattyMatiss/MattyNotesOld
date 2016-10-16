@@ -2,7 +2,7 @@
 
 
 #include "stdafx.h"
-#include "MyTime.h"
+#include "MattyTime.h"
 using namespace std;
 namespace MattyNotes {
 
@@ -293,30 +293,30 @@ namespace MattyNotes {
 #pragma endregion
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e)
 	{
-		MyTime^ currentTime = gcnew MyTime();
-		Clocks->Text = String::Format("{0}:{1}", currentTime->getCurrHours(), currentTime->getCurrMinutes());
+		TimeAndDate^ TimeDate = MattyTime::getCurrTime();
+		Clocks->Text = String::Format("{0}:{1}", TimeDate->hour, TimeDate->minute);
 	}
 	private: System::Void Clocks_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
 	{
-		MyTime^ currentTime = gcnew MyTime();
-		String^ displayedTime;
-		displayedTime = Clocks->Text;
-		if (displayedTime->Length == 5)
-			Clocks->Text = String::Format("{0}:{1}:{2}", currentTime->getCurrHours(), currentTime->getCurrMinutes(),
-				currentTime->getCurrSeconds());
-		else
-			Clocks->Text = String::Format("{0}:{1}", currentTime->getCurrHours(), currentTime->getCurrMinutes());
+		TimeAndDate^ TimeDate = MattyTime::getCurrTime();
+		//String^ displayedTime;
+		//displayedTime = Clocks->Text;
+		//if (displayedTime->Length <= 5)
+			//Clocks->Text = String::Format("{0}:{1}:{2}", TimeDate->hour, TimeDate->minute,
+				//TimeDate->second);
+		//else
+			Clocks->Text = String::Format("{0}:{1}", TimeDate->hour, TimeDate->minute);
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e)
 	{
-		MyTime^ currentTime = gcnew MyTime();
-		String^ displayedTime;
-		displayedTime = Clocks->Text;
-		if (displayedTime->Length > 5)
-			Clocks->Text = String::Format("{0}:{1}:{2}", currentTime->getCurrHours(), currentTime->getCurrMinutes(),
-				currentTime->getCurrSeconds());
-		else
-			Clocks->Text = String::Format("{0}:{1}", currentTime->getCurrHours(), currentTime->getCurrMinutes());
+		TimeAndDate^ TimeDate = MattyTime::getCurrTime();
+		//String^ displayedTime;
+		//displayedTime = Clocks->Text;
+		//if (displayedTime->Length > 5)
+		//	Clocks->Text = String::Format("{0}:{1}:{2}", currentTime->getCurrHours(), currentTime->getCurrMinutes(),
+			//	currentTime->getCurrSeconds());
+		//else
+		Clocks->Text = String::Format("{0}:{1}", TimeDate->hour, TimeDate->minute);
 	}
 	};
 }

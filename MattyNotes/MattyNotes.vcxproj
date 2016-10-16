@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="MattyTime.cpp" />
     <ClCompile Include="MyTime.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MattyTime.h" />
     <ClInclude Include="MyTime.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
