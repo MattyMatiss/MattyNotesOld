@@ -118,6 +118,21 @@ namespace MattyNotes {
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->monthCalendar1 = (gcnew System::Windows::Forms::MonthCalendar());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox3 = (gcnew System::Windows::Forms::RichTextBox());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -125,26 +140,11 @@ namespace MattyNotes {
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->Clocks = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->richTextBox3 = (gcnew System::Windows::Forms::RichTextBox());
-			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
 			this->panel1->SuspendLayout();
-			this->groupBox1->SuspendLayout();
-			this->groupBox2->SuspendLayout();
-			this->groupBox3->SuspendLayout();
 			this->groupBox4->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// monthCalendar1
@@ -173,6 +173,174 @@ namespace MattyNotes {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(472, 496);
 			this->panel1->TabIndex = 2;
+			// 
+			// groupBox4
+			// 
+			this->groupBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox4->BackColor = System::Drawing::Color::Ivory;
+			this->groupBox4->Controls->Add(this->label10);
+			this->groupBox4->Controls->Add(this->label11);
+			this->groupBox4->Controls->Add(this->label12);
+			this->groupBox4->Controls->Add(this->richTextBox4);
+			this->groupBox4->Location = System::Drawing::Point(64, 655);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Size = System::Drawing::Size(326, 172);
+			this->groupBox4->TabIndex = 6;
+			this->groupBox4->TabStop = false;
+			this->groupBox4->Text = L"Header";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(215, 36);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(47, 15);
+			this->label10->TabIndex = 3;
+			this->label10->Text = L"Created";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(110, 36);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(70, 15);
+			this->label11->TabIndex = 2;
+			this->label11->Text = L"Whenabouts";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(16, 36);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(68, 15);
+			this->label12->TabIndex = 1;
+			this->label12->Text = L"Whatabouts";
+			// 
+			// richTextBox4
+			// 
+			this->richTextBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->richTextBox4->BackColor = System::Drawing::Color::Snow;
+			this->richTextBox4->Location = System::Drawing::Point(19, 67);
+			this->richTextBox4->Name = L"richTextBox4";
+			this->richTextBox4->ReadOnly = true;
+			this->richTextBox4->Size = System::Drawing::Size(287, 88);
+			this->richTextBox4->TabIndex = 0;
+			this->richTextBox4->Text = L"The actual note";
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox3->BackColor = System::Drawing::Color::Ivory;
+			this->groupBox3->Controls->Add(this->label7);
+			this->groupBox3->Controls->Add(this->label8);
+			this->groupBox3->Controls->Add(this->label9);
+			this->groupBox3->Controls->Add(this->richTextBox3);
+			this->groupBox3->Location = System::Drawing::Point(64, 450);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(326, 172);
+			this->groupBox3->TabIndex = 5;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Header";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(215, 36);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(47, 15);
+			this->label7->TabIndex = 3;
+			this->label7->Text = L"Created";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(110, 36);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(70, 15);
+			this->label8->TabIndex = 2;
+			this->label8->Text = L"Whenabouts";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(16, 36);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(68, 15);
+			this->label9->TabIndex = 1;
+			this->label9->Text = L"Whatabouts";
+			// 
+			// richTextBox3
+			// 
+			this->richTextBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->richTextBox3->BackColor = System::Drawing::Color::Snow;
+			this->richTextBox3->Location = System::Drawing::Point(19, 67);
+			this->richTextBox3->Name = L"richTextBox3";
+			this->richTextBox3->ReadOnly = true;
+			this->richTextBox3->Size = System::Drawing::Size(287, 88);
+			this->richTextBox3->TabIndex = 0;
+			this->richTextBox3->Text = L"The actual note";
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox2->BackColor = System::Drawing::Color::Ivory;
+			this->groupBox2->Controls->Add(this->label1);
+			this->groupBox2->Controls->Add(this->label5);
+			this->groupBox2->Controls->Add(this->label6);
+			this->groupBox2->Controls->Add(this->richTextBox2);
+			this->groupBox2->Location = System::Drawing::Point(64, 248);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(326, 172);
+			this->groupBox2->TabIndex = 4;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Header";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(215, 36);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(47, 15);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Created";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(110, 36);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(70, 15);
+			this->label5->TabIndex = 2;
+			this->label5->Text = L"Whenabouts";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(16, 36);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(68, 15);
+			this->label6->TabIndex = 1;
+			this->label6->Text = L"Whatabouts";
+			// 
+			// richTextBox2
+			// 
+			this->richTextBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->richTextBox2->BackColor = System::Drawing::Color::Snow;
+			this->richTextBox2->Location = System::Drawing::Point(19, 67);
+			this->richTextBox2->Name = L"richTextBox2";
+			this->richTextBox2->ReadOnly = true;
+			this->richTextBox2->Size = System::Drawing::Size(287, 88);
+			this->richTextBox2->TabIndex = 0;
+			this->richTextBox2->Text = L"The actual note";
 			// 
 			// groupBox1
 			// 
@@ -238,6 +406,7 @@ namespace MattyNotes {
 			this->Clocks->Font = (gcnew System::Drawing::Font(L"Century Gothic", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Clocks->ForeColor = System::Drawing::Color::GhostWhite;
+			this->Clocks->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Clocks.Image")));
 			this->Clocks->Location = System::Drawing::Point(5, 21);
 			this->Clocks->Name = L"Clocks";
 			this->Clocks->Size = System::Drawing::Size(191, 78);
@@ -250,174 +419,6 @@ namespace MattyNotes {
 			this->timer1->Enabled = true;
 			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainForm::timer1_Tick);
-			// 
-			// groupBox2
-			// 
-			this->groupBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->groupBox2->BackColor = System::Drawing::Color::Ivory;
-			this->groupBox2->Controls->Add(this->label1);
-			this->groupBox2->Controls->Add(this->label5);
-			this->groupBox2->Controls->Add(this->label6);
-			this->groupBox2->Controls->Add(this->richTextBox2);
-			this->groupBox2->Location = System::Drawing::Point(64, 248);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(326, 172);
-			this->groupBox2->TabIndex = 4;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Header";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(215, 36);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(47, 15);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Created";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(110, 36);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(70, 15);
-			this->label5->TabIndex = 2;
-			this->label5->Text = L"Whenabouts";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(16, 36);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(68, 15);
-			this->label6->TabIndex = 1;
-			this->label6->Text = L"Whatabouts";
-			// 
-			// richTextBox2
-			// 
-			this->richTextBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->richTextBox2->BackColor = System::Drawing::Color::Snow;
-			this->richTextBox2->Location = System::Drawing::Point(19, 67);
-			this->richTextBox2->Name = L"richTextBox2";
-			this->richTextBox2->ReadOnly = true;
-			this->richTextBox2->Size = System::Drawing::Size(287, 88);
-			this->richTextBox2->TabIndex = 0;
-			this->richTextBox2->Text = L"The actual note";
-			// 
-			// groupBox3
-			// 
-			this->groupBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->groupBox3->BackColor = System::Drawing::Color::Ivory;
-			this->groupBox3->Controls->Add(this->label7);
-			this->groupBox3->Controls->Add(this->label8);
-			this->groupBox3->Controls->Add(this->label9);
-			this->groupBox3->Controls->Add(this->richTextBox3);
-			this->groupBox3->Location = System::Drawing::Point(64, 450);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(326, 172);
-			this->groupBox3->TabIndex = 5;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Header";
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(215, 36);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(47, 15);
-			this->label7->TabIndex = 3;
-			this->label7->Text = L"Created";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(110, 36);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(70, 15);
-			this->label8->TabIndex = 2;
-			this->label8->Text = L"Whenabouts";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(16, 36);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(68, 15);
-			this->label9->TabIndex = 1;
-			this->label9->Text = L"Whatabouts";
-			// 
-			// richTextBox3
-			// 
-			this->richTextBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->richTextBox3->BackColor = System::Drawing::Color::Snow;
-			this->richTextBox3->Location = System::Drawing::Point(19, 67);
-			this->richTextBox3->Name = L"richTextBox3";
-			this->richTextBox3->ReadOnly = true;
-			this->richTextBox3->Size = System::Drawing::Size(287, 88);
-			this->richTextBox3->TabIndex = 0;
-			this->richTextBox3->Text = L"The actual note";
-			// 
-			// groupBox4
-			// 
-			this->groupBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->groupBox4->BackColor = System::Drawing::Color::Ivory;
-			this->groupBox4->Controls->Add(this->label10);
-			this->groupBox4->Controls->Add(this->label11);
-			this->groupBox4->Controls->Add(this->label12);
-			this->groupBox4->Controls->Add(this->richTextBox4);
-			this->groupBox4->Location = System::Drawing::Point(64, 655);
-			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(326, 172);
-			this->groupBox4->TabIndex = 6;
-			this->groupBox4->TabStop = false;
-			this->groupBox4->Text = L"Header";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(215, 36);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(47, 15);
-			this->label10->TabIndex = 3;
-			this->label10->Text = L"Created";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(110, 36);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(70, 15);
-			this->label11->TabIndex = 2;
-			this->label11->Text = L"Whenabouts";
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(16, 36);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(68, 15);
-			this->label12->TabIndex = 1;
-			this->label12->Text = L"Whatabouts";
-			// 
-			// richTextBox4
-			// 
-			this->richTextBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->richTextBox4->BackColor = System::Drawing::Color::Snow;
-			this->richTextBox4->Location = System::Drawing::Point(19, 67);
-			this->richTextBox4->Name = L"richTextBox4";
-			this->richTextBox4->ReadOnly = true;
-			this->richTextBox4->Size = System::Drawing::Size(287, 88);
-			this->richTextBox4->TabIndex = 0;
-			this->richTextBox4->Text = L"The actual note";
 			// 
 			// MainForm
 			// 
@@ -433,14 +434,14 @@ namespace MattyNotes {
 			this->Text = L"MattyNotes";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->panel1->ResumeLayout(false);
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
-			this->groupBox2->ResumeLayout(false);
-			this->groupBox2->PerformLayout();
-			this->groupBox3->ResumeLayout(false);
-			this->groupBox3->PerformLayout();
 			this->groupBox4->ResumeLayout(false);
 			this->groupBox4->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
