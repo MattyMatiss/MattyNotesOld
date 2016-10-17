@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "MattyTime.h"
 #include <msclr\marshal_cppstd.h>
+#include <boost/lambda/lambda.hpp>
+
 System::String^ makeSingleDouble(int incomeInt)
 {
 	System::String^ outcomeStr;
