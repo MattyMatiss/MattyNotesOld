@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "MattyTime.h"
 #include <msclr\marshal_cppstd.h>
-
 System::String^ makeSingleDouble(int incomeInt)
 {
 	System::String^ outcomeStr;
