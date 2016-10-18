@@ -53,6 +53,9 @@
     <ClCompile Include="GeneratedFiles\qrc_mattynotes.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="MattyTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -60,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_mattynotes.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MattyTime.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
