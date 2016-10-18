@@ -24,12 +24,12 @@
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{fbea688a-5435-4482-b09b-7f1ac382a92d}</UniqueIdentifier>
+      <UniqueIdentifier>{550668b2-2910-4a2e-97c1-b0b9428a8bc1}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{addd9b2d-9769-45ee-b5c1-e6f3dc2ee441}</UniqueIdentifier>
+      <UniqueIdentifier>{df48a839-3110-478c-9f59-b90a132c6391}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>

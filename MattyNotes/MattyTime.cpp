@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "MattyTime.h"
-
+using namespace std;
 TimeAndDate* MattyTime::CurrTime = new TimeAndDate();
 
 string makeSingleDouble(int incomeInt)

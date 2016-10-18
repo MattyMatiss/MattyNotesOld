@@ -31,7 +31,7 @@ struct TimeAndDate
 class MattyTime  
 {
 public:
-	static TimeAndDate* CurrTime; // before using MattyTime::CurrTime void initCurrTime() should be called
+	static TimeAndDate* CurrTime; 
 	TimeAndDate* UserTimeAndDate;
 	MattyTime();
 	static void updateCurrTime(); 
