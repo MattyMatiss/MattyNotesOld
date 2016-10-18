@@ -449,6 +449,7 @@ namespace MattyNotes {
 #pragma endregion
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e)
 	{
+		// I'll be gone soon
 		streambuf* orig_buf = cout.rdbuf();
 		cout.rdbuf(NULL);
 		// cout.rdbuf(orig_buf); for enabling
