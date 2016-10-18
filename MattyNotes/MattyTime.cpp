@@ -5,7 +5,7 @@ TimeAndDate* MattyTime::CurrTime = new TimeAndDate();
 
 string makeSingleDouble(int incomeInt)
 {
-	string outcomeStr = "";
+	string outcomeStr = to_string(incomeInt);
 	if (incomeInt < 10)
 		outcomeStr.insert(0, "0");
 	return outcomeStr;
@@ -87,7 +87,9 @@ string MattyTime::PrintCurrTime()
 {
 	updateCurrTime();
 	string CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + ":" + makeSingleDouble(CurrTime->minute);
+	CurrTimeTemp.append(makeSingleDouble(CurrTime->hour));
+	CurrTimeTemp.append(":"); 
+	CurrTimeTemp.append(makeSingleDouble(CurrTime->minute));     
 	cout << "Now is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }

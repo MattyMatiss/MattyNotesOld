@@ -10,10 +10,15 @@ class MattyNotes : public QMainWindow
 
 public:
 	MattyNotes(QWidget *parent = 0);
+	QPushButton pushButton;
 	~MattyNotes();
 
 private:
 	Ui::MattyNotesClass ui;
+	private slots:
+	void on_pushButtonCalendar_clicked();
 };
+
+
 
 #endif // MATTYNOTES_H
