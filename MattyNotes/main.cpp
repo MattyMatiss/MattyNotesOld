@@ -8,4 +8,5 @@ int main(int argc, char *argv[])
 	MattyNotes w;
 	w.show();
 	return a.exec();
+	a.exec();
 }
