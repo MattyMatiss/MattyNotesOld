@@ -1,5 +1,5 @@
-#ifndef MATTYNOTES_H
-#define MATTYNOTES_H
+//#ifndef MATTYNOTES_H
+//#define MATTYNOTES_H
 
 #include <QtWidgets/QMainWindow>
 #include "ui_mattynotes.h"
@@ -21,4 +21,4 @@ private:
 
 
 
-#endif // MATTYNOTES_H
+//#endif // MATTYNOTES_H

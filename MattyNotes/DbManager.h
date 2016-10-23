@@ -1,13 +1,8 @@
-#include <QSqlDatabase>
-
+#pragma once
 class DbManager
 {
 public:
-	DbManager(const QString& path);
-	bool addNote();
-	bool deleteNote();
-	void showNote();
+	DbManager();
 	~DbManager();
-private:
-	QSqlDatabase m_db;
 };
+

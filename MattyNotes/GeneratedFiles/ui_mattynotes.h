@@ -22,6 +22,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -41,6 +42,7 @@ public:
     QPushButton *pushButtonCalendar;
     QCalendarWidget *calendarWidget;
     QSpacerItem *verticalSpacer;
+    QTableView *tableView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -96,6 +98,9 @@ public:
 
         verticalLayout->addItem(verticalSpacer);
 
+        tableView = new QTableView(centralWidget);
+        tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setGeometry(QRect(400, 20, 256, 192));
         MattyNotesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MattyNotesClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
