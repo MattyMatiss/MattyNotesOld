@@ -1,5 +1,7 @@
 #pragma once
-
+#include <QSqlTableModel>
+#include <QMessageBox>
+#include <QSqlError>
 class DbManager
 {
 public:
@@ -7,8 +9,9 @@ public:
 	bool addNote();
 	bool deleteNote();
 	void showNote();
+	QSqlTableModel* getModel(const QString& path);
 	~DbManager();
 private:
-	QSqlDatabase m_db;
+	QSqlDatabase MattyNotesDb;
 };
 

@@ -4,16 +4,13 @@
 
 DbManager::DbManager(const QString& path)
 {
-	m_db = QSqlDatabase::addDatabase("QSQLITE");
-	m_db.setDatabaseName(path);
+	MattyNotesDb = QSqlDatabase::addDatabase("QSQLITE");
+	MattyNotesDb.setDatabaseName(path);
 
-	if (!m_db.open())
+	if (!MattyNotesDb.open())
 	{
-		qDebug() << "Error: connection with database fail";
-	}
-	else
-	{
-		qDebug() << "Database: connection ok";
+		QMessageBox::critical(NULL, QObject::tr("Error"), MattyNotesDb.lastError().text());
+		MattyNotesDb.close();
 	}
 }
 
@@ -28,6 +25,15 @@ bool DbManager::deleteNote()
 void DbManager::showNote()
 {
 
+}
+
+QSqlTableModel * DbManager::getModel(const QString & TableName)
+{
+	QSqlTableModel* MattyNotesModel = new QSqlTableModel();
+	MattyNotesModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	MattyNotesModel->setTable(TableName);
+	MattyNotesModel->select();
+	return MattyNotesModel;
 }
 
 DbManager::~DbManager()
