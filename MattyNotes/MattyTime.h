@@ -25,6 +25,10 @@ struct TimeAndDate
 	{
 
 	}
+	//TimeAndDate(QString TimeQStr, QString DateQStr)
+	//{
+	//
+	//}
 };
 
 class MattyTime  
@@ -35,10 +39,10 @@ public:
 	MattyTime();
 	static void updateCurrTime(); 
 	static TimeAndDate* getCurrTime();
+	void setUserDateAndTime(int second);
 	void setUserDateAndTime(int hour, int minute);
 	void setUserDateAndTime(int day, int month, int year);
-	void setUserDateAndTime(int hour, int minute, int day,
-		int month, int year);
+	void setUserDateAndTime(int hour, int minute, int day, int month, int year);
 	void setUserDateAndTime(TimeAndDate* TimeDate);
 	TimeAndDate* GetUserDateAndTime();
 	static QString PrintCurrTime();
@@ -51,6 +55,8 @@ public:
 	QString PrintUserDate();
 	QString PrintUserTimeAndDate();
 	QString PrintUserTimeFullAndDate();
+	void setUserTimeAndDateNow();
+	void setUserTimeAndDateNull();
 	~MattyTime();
 };
 

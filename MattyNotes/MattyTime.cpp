@@ -48,10 +48,16 @@ TimeAndDate* MattyTime::getCurrTime()
 	return CurrTime;
 }
 
+void MattyTime::setUserDateAndTime(int second)
+{
+	UserTimeAndDate->second = second;
+}
+
 void MattyTime::setUserDateAndTime(int hour, int minute)
 {
 	UserTimeAndDate->hour = hour;
 	UserTimeAndDate->minute = minute;
+	UserTimeAndDate->second = 0; 
 }
 
 void MattyTime::setUserDateAndTime(int day, int month, int year)
@@ -174,6 +180,21 @@ QString MattyTime::PrintUserTimeFullAndDate()
 		makeSingleDouble(UserTimeAndDate->year);
 	//std::cout << "It is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
+}
+void MattyTime::setUserTimeAndDateNow()
+{
+	updateCurrTime();
+	UserTimeAndDate = CurrTime;
+}
+void MattyTime::setUserTimeAndDateNull()
+{
+	UserTimeAndDate->hour = -1;
+	UserTimeAndDate->minute = -1;
+	UserTimeAndDate->second = -1;
+	UserTimeAndDate->day = -1;
+	UserTimeAndDate->month = -1;
+	UserTimeAndDate->year = -1;
+	UserTimeAndDate->dayOfWeek = -1;
 }
 MattyTime::~MattyTime()
 {
