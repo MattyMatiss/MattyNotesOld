@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "DbManager.h"
-
+#include <QSqlQuery>
 
 DbManager::DbManager(const QString& path)
 {
@@ -14,9 +14,18 @@ DbManager::DbManager(const QString& path)
 	}
 }
 
-bool DbManager::addNote()
+bool DbManager::addNote(const MattyNote * Note)
 {
-	return true;
+	QSqlQuery query;
+	query.prepare("INSERT INTO Notes (NoteTitle, NoteType, NoteText, EventTime, EventDate, CrTime, CrDate) values(:NoteTitle, :NoteType, :NoteText, :EventTime, :EventDate, :CrTime, :CrDate)");
+	query.bindValue(":NoteTitle", Note->getTitle);
+	query.bindValue(":NoteType", Note->getType);
+	query.bindValue(":NoteText", Note->getText);
+	query.bindValue(":EventTime", Note->getEventTime);
+	query.bindValue(":EventDate", Note->getEventDate);
+	query.bindValue(":CrTime", Note->getCrTime);
+	query.bindValue(":CrDate", Note->getCrDate);
+	return query.exec();
 }
 bool DbManager::deleteNote()
 {

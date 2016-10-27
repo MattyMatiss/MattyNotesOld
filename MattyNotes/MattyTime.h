@@ -57,6 +57,7 @@ public:
 	QString PrintUserTimeFullAndDate();
 	void setUserTimeAndDateNow();
 	void setUserTimeAndDateNull();
+	void setUserDayOfWeek();
 	~MattyTime();
 };
 

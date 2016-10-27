@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Constants.cpp" />
     <ClCompile Include="DbManager.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_mattynotes.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -185,6 +186,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="DbManager.h" />
     <ClInclude Include="GeneratedFiles\ui_mattynotes.h" />
     <ClInclude Include="MattyNote.h" />

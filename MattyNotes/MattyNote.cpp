@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MattyNote.h"
+#include "Constants.h"
 
 MattyNote::MattyNote()
 {
@@ -33,10 +34,10 @@ void MattyNote::setText(const QString & Text)
 
 void MattyNote::setEventTime(const QString & EventTime)
 {
-	if (EventTime.length() == 5 && EventTime[2] == ":")
+	if (EventTime.length() == Constants::TimeQStringLength && EventTime[2] == Constants::TimeSeparator)
 	{
 		NoteEventTime = EventTime;
-		QStringList TimeTemp = EventTime.split(":");
+		QStringList TimeTemp = EventTime.split(Constants::TimeSeparator);
 		EventTimeAndDate->UserTimeAndDate->hour = TimeTemp[0].toInt();
 		EventTimeAndDate->UserTimeAndDate->minute = TimeTemp[1].toInt();
 		EventTimeAndDate->UserTimeAndDate->second = 0;
@@ -45,14 +46,16 @@ void MattyNote::setEventTime(const QString & EventTime)
 
 void MattyNote::setEventDate(const QString & EventDate)
 {
-	if (EventDate.length() == 10 && EventDate[2] == "." && EventDate[5] == ".")
+	if (EventDate.length() == Constants::DateQStringLength &&
+		EventDate[Constants::PositionOfFirstDateSeparator] == Constants::DateSeparator
+		&& EventDate[Constants::PositionOfSecondDateSeparator] == Constants::DateSeparator)
 	{
 		NoteEventDate = EventDate;
-		QStringList DateTemp = EventDate.split(".");
+		QStringList DateTemp = EventDate.split(Constants::DateSeparator);
 		EventTimeAndDate->UserTimeAndDate->day = DateTemp[0].toInt();
 		EventTimeAndDate->UserTimeAndDate->month = DateTemp[1].toInt();
 		EventTimeAndDate->UserTimeAndDate->year = DateTemp[2].toInt();
-		//EventTimeAndDate->UserTimeAndDate ->dayOfWeek  ÏÐÈÄÓÌÀÒÜ!!!
+		EventTimeAndDate->setUserDayOfWeek();
 	}
 }
 

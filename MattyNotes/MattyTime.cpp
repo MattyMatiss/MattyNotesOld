@@ -1,20 +1,21 @@
 #include "stdafx.h"
 #include "MattyTime.h"
-using namespace std;
+#include "Constants.h"
+
 TimeAndDate* MattyTime::CurrTime = new TimeAndDate();
 
 QString makeSingleDouble(int incomeInt)
 {
 	QString outcomeStr = QString::number(incomeInt);
 	if (incomeInt < 10)
-		outcomeStr.insert(0, "0");
+		outcomeStr.insert(0, Constants::ZeroToFill);
 	return outcomeStr;
 }
 
 inline QString concatUs(vector<QString> parts)
 {
 	using namespace std;
-	QString CurrTimeTemp = "";
+	QString CurrTimeTemp = Constants::EmptyQString;
 	vector<QString>::iterator itStr;
 	for (itStr = parts.begin(); itStr != parts.end(); itStr++)
 	{
@@ -92,9 +93,9 @@ TimeAndDate* MattyTime::GetUserDateAndTime()
 QString MattyTime::PrintCurrTime()
 {
 	updateCurrTime();
-	QString CurrTimeTemp = "";
+	QString CurrTimeTemp = Constants::EmptyQString;
 	CurrTimeTemp.append(makeSingleDouble(CurrTime->hour));
-	CurrTimeTemp.append(":"); 
+	CurrTimeTemp.append(Constants::TimeSeparator);
 	CurrTimeTemp.append(makeSingleDouble(CurrTime->minute));     
 	//cout << "Now is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
@@ -102,81 +103,86 @@ QString MattyTime::PrintCurrTime()
 QString MattyTime::PrintCurrTimeFull()
 {
 	updateCurrTime();
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + ":"
-		+ makeSingleDouble(CurrTime->minute) + ":" + makeSingleDouble(CurrTime->second);
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + Constants::TimeSeparator
+		+ makeSingleDouble(CurrTime->minute) + Constants::TimeSeparator + makeSingleDouble(CurrTime->second);
 	//std::cout << "Now is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintCurrDate()
 {
 	updateCurrTime();
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(CurrTime->day) + "."
-		+ makeSingleDouble(CurrTime->month) + "." + makeSingleDouble(CurrTime->year);
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(CurrTime->day) + Constants::DateSeparator
+		+ makeSingleDouble(CurrTime->month) + Constants::DateSeparator + makeSingleDouble(CurrTime->year);
 	//std::cout << "Now is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintCurrTimeAndDate()
 {
 	updateCurrTime();
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + ":"
-		+ makeSingleDouble(CurrTime->minute) + " " + makeSingleDouble(CurrTime->day) + "."
-		+ makeSingleDouble(CurrTime->month) + "." + makeSingleDouble(CurrTime->year);
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + Constants::TimeSeparator
+		+ makeSingleDouble(CurrTime->minute) + " " + makeSingleDouble(CurrTime->day) + Constants::DateSeparator
+		+ makeSingleDouble(CurrTime->month) + Constants::DateSeparator + makeSingleDouble(CurrTime->year);
 	//std::cout << "Now is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintCurrTimeFullAndDate()
 {
 	updateCurrTime();
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + ":"
-		+ makeSingleDouble(CurrTime->minute) + ":" + makeSingleDouble(CurrTime->second) + " "
-		+ makeSingleDouble(CurrTime->day) + "." + makeSingleDouble(CurrTime->month) + "." +
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(CurrTime->hour) + Constants::TimeSeparator
+		+ makeSingleDouble(CurrTime->minute) + Constants::TimeSeparator + makeSingleDouble(CurrTime->second) + 
+		Constants::Space
+		+ makeSingleDouble(CurrTime->day) + Constants::DateSeparator + makeSingleDouble(CurrTime->month) 
+		+ Constants::DateSeparator +
 		makeSingleDouble(CurrTime->year);
 	//std::cout << "Now is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintUserTime()
 {
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + ":"
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + Constants::TimeSeparator
 		+ makeSingleDouble(UserTimeAndDate->minute);
 	//std::cout << "It is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintUserTimeFull()
 {
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + ":"
-		+ makeSingleDouble(UserTimeAndDate->minute) + ":" + makeSingleDouble(UserTimeAndDate->second);
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + Constants::TimeSeparator
+		+ makeSingleDouble(UserTimeAndDate->minute) + Constants::TimeSeparator + makeSingleDouble(UserTimeAndDate->second);
 	//std::cout << "It is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintUserDate()
 {
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->day) + "."
-		+ makeSingleDouble(UserTimeAndDate->month) + "." + makeSingleDouble(UserTimeAndDate->year);
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->day) + Constants::DateSeparator
+		+ makeSingleDouble(UserTimeAndDate->month) + Constants::DateSeparator + makeSingleDouble(UserTimeAndDate->year);
 	//std::cout << "It is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintUserTimeAndDate()
 {
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + ":"
-		+ makeSingleDouble(UserTimeAndDate->minute) + " " + makeSingleDouble(UserTimeAndDate->day) + "."
-		+ makeSingleDouble(UserTimeAndDate->month) + "." + makeSingleDouble(UserTimeAndDate->year);
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + Constants::TimeSeparator
+		+ makeSingleDouble(UserTimeAndDate->minute) + Constants::Space
+		+ makeSingleDouble(UserTimeAndDate->day) + Constants::DateSeparator
+		+ makeSingleDouble(UserTimeAndDate->month) + Constants::DateSeparator + makeSingleDouble(UserTimeAndDate->year);
 	//std::cout << "It is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
 }
 QString MattyTime::PrintUserTimeFullAndDate()
 {
-	QString CurrTimeTemp = "";
-	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + ":"
-		+ makeSingleDouble(UserTimeAndDate->minute) + ":" + makeSingleDouble(UserTimeAndDate->second) + " " +
-		makeSingleDouble(UserTimeAndDate->day) + "." + makeSingleDouble(UserTimeAndDate->month) + "." +
+	QString CurrTimeTemp = Constants::EmptyQString;
+	CurrTimeTemp = makeSingleDouble(UserTimeAndDate->hour) + Constants::TimeSeparator
+		+ makeSingleDouble(UserTimeAndDate->minute) + Constants::TimeSeparator
+		+ makeSingleDouble(UserTimeAndDate->second) + Constants::Space +
+		makeSingleDouble(UserTimeAndDate->day) + Constants::DateSeparator
+		+ makeSingleDouble(UserTimeAndDate->month) + Constants::DateSeparator +
 		makeSingleDouble(UserTimeAndDate->year);
 	//std::cout << "It is " << CurrTimeTemp << endl;
 	return CurrTimeTemp;
@@ -195,6 +201,15 @@ void MattyTime::setUserTimeAndDateNull()
 	UserTimeAndDate->month = -1;
 	UserTimeAndDate->year = -1;
 	UserTimeAndDate->dayOfWeek = -1;
+}
+void MattyTime::setUserDayOfWeek()
+{
+	int day = UserTimeAndDate->day;
+	int month = UserTimeAndDate->month;
+	int year = UserTimeAndDate->year;
+	static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
+	year -= month < 3;
+	UserTimeAndDate->dayOfWeek = 1 + ((year + year / 4 - year / 100 + year / 400 + t[month - 1] + day) % 7);
 }
 MattyTime::~MattyTime()
 {
