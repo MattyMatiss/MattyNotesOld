@@ -27,7 +27,7 @@ void DbManager::showNote()
 
 }
 
-QSqlTableModel * DbManager::getModel(const QString & TableName)
+QSqlTableModel* DbManager::getModel(const QString & TableName)
 {
 	QSqlTableModel* MattyNotesModel = new QSqlTableModel();
 	MattyNotesModel->setEditStrategy(QSqlTableModel::OnManualSubmit);

@@ -174,6 +174,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MattyNote.cpp" />
     <ClCompile Include="mattynotes.cpp" />
     <ClCompile Include="MattyTime.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClInclude Include="DbManager.h" />
     <ClInclude Include="GeneratedFiles\ui_mattynotes.h" />
+    <ClInclude Include="MattyNote.h" />
     <ClInclude Include="MattyTime.h" />
     <CustomBuild Include="mattynotes.h">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing mattynotes.h...</Message>

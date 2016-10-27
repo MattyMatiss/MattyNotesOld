@@ -10,24 +10,13 @@ MattyNotes::MattyNotes(QWidget *parent)
 	ui.setupUi(this);
 	ui.calendarWidget->hide();
 	MattyTime::updateCurrTime();
-	QString qs = QString::fromUtf8(MattyTime::PrintCurrTime().c_str());
-	ui.label->setText(qs);
+	ui.label->setText(MattyTime::PrintCurrTime());
 	QFont f("Arial", 36, QFont::Bold);
 	ui.label->setFont(f);
-
-	//DbManager MattyDb("C:/Users/Matty/Documents/Visual Studio 2015/Projects/Personal/MattyNotes/MattyNotes/MattyNotes.sqlite");
-	/*QSqlDatabase MattyNotesDb = QSqlDatabase::addDatabase("QSQLITE");
-	MattyNotesDb.setDatabaseName("C:/Users/Matty/Documents/Visual Studio 2015/Projects/Personal/MattyNotes/MattyNotes/MattyNotes.sqlite");
-
-	if (!MattyNotesDb.open())
-	{
-		QMessageBox::critical(NULL, QObject::tr("Error"), MattyNotesDb.lastError().text());
-		MattyNotesDb.close();
-	}*/
 	
-	DbManager* MattyNotesDbManager = new DbManager("C:/Users/Matty/Documents/Visual Studio 2015/Projects/Personal/MattyNotes/MattyNotes/MattyNotes.sqlite");
-
+	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
 	ui.tableView->setModel(MattyNotesDbManager->getModel("Notes"));
+	delete MattyNotesDbManager;
 }
 
 MattyNotes::~MattyNotes()

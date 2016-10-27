@@ -1,10 +1,9 @@
 #pragma once
 using namespace std;
-std::string makeSingleDouble(int incomeInt);
 
 void initCurrTime();
-string makeSingleDouble(int incomeInt);
-inline string concatUs(vector<string> parts);
+QString makeSingleDouble(int incomeInt);
+inline QString concatUs(vector<QString> parts);
 
 struct TimeAndDate
 {
@@ -42,16 +41,16 @@ public:
 		int month, int year);
 	void setUserDateAndTime(TimeAndDate* TimeDate);
 	TimeAndDate* GetUserDateAndTime();
-	static std::string PrintCurrTime();
-	static std::string PrintCurrTimeFull();
-	static std::string PrintCurrDate();
-	static std::string PrintCurrTimeAndDate();
-	static std::string PrintCurrTimeFullAndDate();
-	string PrintUserTime();
-	string PrintUserTimeFull();
-	string PrintUserDate();
-	string PrintUserTimeAndDate();
-	string PrintUserTimeFullAndDate();
+	static QString PrintCurrTime();
+	static QString PrintCurrTimeFull();
+	static QString PrintCurrDate();
+	static QString PrintCurrTimeAndDate();
+	static QString PrintCurrTimeFullAndDate();
+	QString PrintUserTime();
+	QString PrintUserTimeFull();
+	QString PrintUserDate();
+	QString PrintUserTimeAndDate();
+	QString PrintUserTimeFullAndDate();
 	~MattyTime();
 };
 
