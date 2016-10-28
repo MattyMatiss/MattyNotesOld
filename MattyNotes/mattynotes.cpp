@@ -3,6 +3,7 @@
 #include "MattyTime.h"
 #include "DbManager.h"
 #include "MattyNote.h"
+#include "addnotedialog.h"
 
 
 MattyNotes::MattyNotes(QWidget *parent)
@@ -34,6 +35,13 @@ void MattyNotes::on_pushButtonCalendar_clicked()
 }
 
 void MattyNotes::on_addNoteButton_clicked()
+{
+	addNoteDialog* newAddNoteDialog = new addNoteDialog();
+	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
+	newAddNoteDialog->show();
+}
+
+void MattyNotes::on_oldaddNoteButton_clicked()
 {
 	if (ui.noteTitleText->toPlainText()!="")
 	{
