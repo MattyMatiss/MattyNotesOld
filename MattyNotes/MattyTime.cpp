@@ -213,7 +213,7 @@ void MattyTime::setUserDayOfWeek()
 }
 MattyTime::~MattyTime()
 {
-	delete CurrTime;
+	//delete CurrTime;
 }
 
 void initCurrTime()

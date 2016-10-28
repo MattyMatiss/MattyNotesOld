@@ -11,12 +11,19 @@ class MattyNotes : public QMainWindow
 public:
 	MattyNotes(QWidget *parent = 0);
 	QPushButton pushButton;
+	QPushButton addNoteButton;
+	//QTextEdit noteTitleText;
+//	QTextEdit noteTypeText;
+	//QTextEdit noteTextText;
+	//QTimeEdit eventTimeEdit;
+	//QDateEdit eventDateEdit;
 	~MattyNotes();
 
 private:
 	Ui::MattyNotesClass ui;
 	private slots:
 	void on_pushButtonCalendar_clicked();
+	void on_addNoteButton_clicked();
 };
 
 

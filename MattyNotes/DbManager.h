@@ -7,7 +7,7 @@ class DbManager
 {
 public:
 	DbManager(const QString& path);
-	bool addNote(const MattyNote * Note);
+	bool addNote(MattyNote * Note);
 	bool deleteNote();
 	void showNote();
 	QSqlTableModel* getModel(const QString& path);

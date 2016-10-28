@@ -2,6 +2,7 @@
 #include "mattynotes.h"
 #include "MattyTime.h"
 #include "DbManager.h"
+#include "MattyNote.h"
 
 
 MattyNotes::MattyNotes(QWidget *parent)
@@ -30,4 +31,19 @@ void MattyNotes::on_pushButtonCalendar_clicked()
 		ui.calendarWidget->show();
 	else
 		ui.calendarWidget->hide();
+}
+
+void MattyNotes::on_addNoteButton_clicked()
+{
+	if (ui.noteTitleText->toPlainText()!="")
+	{
+		MattyNote* NoteToAdd = new MattyNote();
+		NoteToAdd->setTitle(ui.noteTitleText->toPlainText());
+		NoteToAdd->setType(ui.noteTypeText->toPlainText());
+		NoteToAdd->setText(ui.noteTextText->toPlainText());
+		NoteToAdd->setEventTime(ui.eventTimeEdit->text());
+		NoteToAdd->setEventDate(ui.eventDateEdit->text());
+
+		delete NoteToAdd;
+	}
 }
