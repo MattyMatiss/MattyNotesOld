@@ -12,6 +12,7 @@ public:
 	MattyNotes(QWidget *parent = 0);
 	QPushButton pushButton;
 	QPushButton addNoteButton;
+	QPushButton refreshDb;
 	//QTextEdit noteTitleText;
 //	QTextEdit noteTypeText;
 	//QTextEdit noteTextText;
@@ -24,6 +25,7 @@ private:
 	private slots:
 	void on_pushButtonCalendar_clicked();
 	void on_addNoteButton_clicked();
+	void on_refreshDb_clicked();
 };
 
 

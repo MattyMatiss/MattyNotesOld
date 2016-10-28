@@ -43,7 +43,16 @@ void MattyNotes::on_addNoteButton_clicked()
 		NoteToAdd->setText(ui.noteTextText->toPlainText());
 		NoteToAdd->setEventTime(ui.eventTimeEdit->text());
 		NoteToAdd->setEventDate(ui.eventDateEdit->text());
-
+		DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
+		MattyNotesDbManager->addNote(NoteToAdd);
+		delete MattyNotesDbManager;
 		delete NoteToAdd;
 	}
+}
+
+void MattyNotes::on_refreshDb_clicked()
+{
+	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
+	ui.tableView->setModel(MattyNotesDbManager->getModel("Notes"));
+	delete MattyNotesDbManager;
 }

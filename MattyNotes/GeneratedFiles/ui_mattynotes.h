@@ -37,18 +37,12 @@ class Ui_MattyNotesClass
 {
 public:
     QWidget *centralWidget;
-    QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout_2;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
-    QLabel *label;
-    QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButtonCalendar;
-    QCalendarWidget *calendarWidget;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *refreshDb;
+    QSpacerItem *horizontalSpacer_4;
     QTableView *tableView;
-    QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_4;
     QTextEdit *noteTitleText;
     QTextEdit *noteTypeText;
@@ -60,8 +54,16 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer_6;
     QPushButton *addNoteButton;
-    QSpacerItem *verticalSpacer_2;
     QSpacerItem *horizontalSpacer_3;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *pushButtonCalendar;
+    QCalendarWidget *calendarWidget;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *verticalSpacer;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -70,71 +72,39 @@ public:
     {
         if (MattyNotesClass->objectName().isEmpty())
             MattyNotesClass->setObjectName(QStringLiteral("MattyNotesClass"));
-        MattyNotesClass->resize(694, 570);
+        MattyNotesClass->resize(707, 561);
         MattyNotesClass->setStyleSheet(QStringLiteral("background-color: rgb(255, 194, 11);"));
         centralWidget = new QWidget(MattyNotesClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout_2 = new QGridLayout(centralWidget);
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setContentsMargins(11, 11, 11, 11);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        gridLayout = new QGridLayout();
+        gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        refreshDb = new QPushButton(centralWidget);
+        refreshDb->setObjectName(QStringLiteral("refreshDb"));
 
-        horizontalLayout->addItem(horizontalSpacer);
+        horizontalLayout_2->addWidget(refreshDb);
 
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setFrameShape(QFrame::StyledPanel);
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addWidget(label);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
+        horizontalLayout_2->addItem(horizontalSpacer_4);
 
 
-        verticalLayout->addLayout(horizontalLayout);
-
-        pushButtonCalendar = new QPushButton(centralWidget);
-        pushButtonCalendar->setObjectName(QStringLiteral("pushButtonCalendar"));
-
-        verticalLayout->addWidget(pushButtonCalendar);
-
-        calendarWidget = new QCalendarWidget(centralWidget);
-        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
-        calendarWidget->setStyleSheet(QStringLiteral(""));
-
-        verticalLayout->addWidget(calendarWidget);
-
-
-        verticalLayout_2->addLayout(verticalLayout);
+        verticalLayout_2->addLayout(horizontalLayout_2);
 
         tableView = new QTableView(centralWidget);
         tableView->setObjectName(QStringLiteral("tableView"));
 
         verticalLayout_2->addWidget(tableView);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer);
-
-
-        gridLayout->addLayout(verticalLayout_2, 0, 0, 1, 1);
-
-
-        gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
+        gridLayout->addLayout(verticalLayout_2, 2, 0, 2, 1);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
@@ -192,21 +162,63 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_5);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_4->addItem(verticalSpacer_2);
-
-
-        gridLayout_2->addLayout(verticalLayout_4, 0, 2, 1, 1);
+        gridLayout->addLayout(verticalLayout_4, 0, 2, 3, 1);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_2->addItem(horizontalSpacer_3, 0, 1, 1, 1);
+        gridLayout->addItem(horizontalSpacer_3, 0, 1, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setFrameShape(QFrame::StyledPanel);
+
+        horizontalLayout->addWidget(label);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        pushButtonCalendar = new QPushButton(centralWidget);
+        pushButtonCalendar->setObjectName(QStringLiteral("pushButtonCalendar"));
+        pushButtonCalendar->setMinimumSize(QSize(296, 0));
+
+        verticalLayout->addWidget(pushButtonCalendar);
+
+        calendarWidget = new QCalendarWidget(centralWidget);
+        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
+        calendarWidget->setStyleSheet(QStringLiteral(""));
+
+        verticalLayout->addWidget(calendarWidget);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_3, 1, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 3, 2, 1, 1);
 
         MattyNotesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MattyNotesClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 694, 21));
+        menuBar->setGeometry(QRect(0, 0, 707, 21));
         MattyNotesClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MattyNotesClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -223,9 +235,10 @@ public:
     void retranslateUi(QMainWindow *MattyNotesClass)
     {
         MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
+        refreshDb->setText(QApplication::translate("MattyNotesClass", "\320\236\320\261\320\275\320\276\320\262\320\270\321\202\321\214", 0));
+        addNoteButton->setText(QApplication::translate("MattyNotesClass", "Add Note", 0));
         label->setText(QApplication::translate("MattyNotesClass", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">00:00</span></p></body></html>", 0));
         pushButtonCalendar->setText(QString());
-        addNoteButton->setText(QApplication::translate("MattyNotesClass", "Add Note", 0));
     } // retranslateUi
 
 };
