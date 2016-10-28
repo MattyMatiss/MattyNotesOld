@@ -11,6 +11,9 @@ public:
 	bool deleteNote();
 	void showNote();
 	QSqlTableModel* getModel(const QString& path);
+	QStringList getTypes();
+	QString getTypeName(int TypeId);
+	int getTypeId(const QString & TypeName);
 	~DbManager();
 private:
 	QSqlDatabase MattyNotesDb;

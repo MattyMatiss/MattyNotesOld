@@ -41,23 +41,6 @@ void MattyNotes::on_addNoteButton_clicked()
 	newAddNoteDialog->show();
 }
 
-void MattyNotes::on_oldaddNoteButton_clicked()
-{
-	if (ui.noteTitleText->toPlainText()!="")
-	{
-		MattyNote* NoteToAdd = new MattyNote();
-		NoteToAdd->setTitle(ui.noteTitleText->toPlainText());
-		NoteToAdd->setType(ui.noteTypeText->toPlainText());
-		NoteToAdd->setText(ui.noteTextText->toPlainText());
-		NoteToAdd->setEventTime(ui.eventTimeEdit->text());
-		NoteToAdd->setEventDate(ui.eventDateEdit->text());
-		DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
-		MattyNotesDbManager->addNote(NoteToAdd);
-		delete MattyNotesDbManager;
-		delete NoteToAdd;
-	}
-}
-
 void MattyNotes::on_refreshDb_clicked()
 {
 	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");

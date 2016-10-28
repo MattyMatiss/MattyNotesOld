@@ -7,7 +7,8 @@ public:
 	MattyNote();
 	~MattyNote();
 	void setTitle(const QString & Title);
-	void setType(const QString & Type);
+	void setType(const QString & TypeName);
+	void setType(int TypeId);
 	void setText(const QString & Text);
 	void setEventTime(const QString & EventTime); // Warning! Input format must be: 00:00
 	void setEventDate(const QString & EventDate); // Warning! Input format must be: 00.00.0000
@@ -18,9 +19,11 @@ public:
 	QString getEventDate(); // Format: 00.00.0000
 	QString getCrTime(); // Format: 00:00
 	QString getCrDate(); // Format: 00.00.0000
+	int getTypeId();
 	TimeAndDate* getEventTimeAndDate(); // Returns a pointer to TimeAndDate structure containing ints
 	TimeAndDate* getCrTimeAndDate(); // Returns a pointer to the TimeAndDate structure containing ints
 private:
+	int NoteTypeId;
 	QString NoteTitle;
 	QString NoteType;
 	QString NoteText;

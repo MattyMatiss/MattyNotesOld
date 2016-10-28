@@ -17,8 +17,8 @@ DbManager::DbManager(const QString& path)
 bool DbManager::addNote(MattyNote * Note)
 {
 	QSqlQuery query;
-	query.prepare("INSERT INTO Notes (NoteTitle, NoteType, NoteText, EventTime, EventDate, CrTime, CrDate)"
-		"values(:NoteTitle, :NoteType, :NoteText, :EventTime, :EventDate, :CrTime, :CrDate)");
+	query.prepare("INSERT INTO Notes (NoteTitle, NoteType, NoteText, EventTime, EventDate, CrTime, CrDate, TypeId)"
+		"values(:NoteTitle, :NoteType, :NoteText, :EventTime, :EventDate, :CrTime, :CrDate, :TypeId)");
 	query.bindValue(":NoteTitle", Note->getTitle());
 	query.bindValue(":NoteType", Note->getType());
 	query.bindValue(":NoteText", Note->getText());
@@ -26,6 +26,7 @@ bool DbManager::addNote(MattyNote * Note)
 	query.bindValue(":EventDate", Note->getEventDate());
 	query.bindValue(":CrTime", Note->getCrTime());
 	query.bindValue(":CrDate", Note->getCrDate());
+	query.bindValue(":TypeId", Note->getTypeId());
 	return query.exec();
 
 	//return true;
@@ -46,6 +47,40 @@ QSqlTableModel* DbManager::getModel(const QString & TableName)
 	MattyNotesModel->setTable(TableName);
 	MattyNotesModel->select();
 	return MattyNotesModel;
+}
+
+QStringList DbManager::getTypes()
+{
+	QStringList NoteTypes;
+	QSqlQuery getTypeQuery;
+	getTypeQuery.exec("SELECT TypeName FROM NoteTypes ORDER BY TypeId");
+	while (getTypeQuery.next())
+	{
+		NoteTypes << getTypeQuery.value(0).toString();
+	}
+	return NoteTypes;
+}
+
+QString DbManager::getTypeName(int TypeId)
+{
+	QString TypeName;
+	QSqlQuery getTypeQuery;
+	getTypeQuery.prepare("SELECT TypeName FROM NoteTypes WHERE TypeId=:TypeId");
+	getTypeQuery.bindValue(":TypeId", TypeId);
+	getTypeQuery.exec();
+	TypeName = getTypeQuery.value(0).toString();
+	return TypeName;
+}
+
+int DbManager::getTypeId(const QString & TypeName)
+{
+	int TypeId = 0;
+	QSqlQuery getTypeQuery;
+	getTypeQuery.prepare("SELECT TypeId FROM NoteTypes WHERE TypeName=:TypeName");
+	getTypeQuery.bindValue(":TypeName", TypeName);
+	getTypeQuery.exec();
+	TypeId = getTypeQuery.value(0).toInt();
+	return TypeId;
 }
 
 DbManager::~DbManager()

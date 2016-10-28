@@ -2,8 +2,7 @@
 using namespace std;
 
 void initCurrTime();
-QString makeSingleDouble(int incomeInt);
-inline QString concatUs(vector<QString> parts);
+
 
 struct TimeAndDate
 {

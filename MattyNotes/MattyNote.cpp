@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MattyNote.h"
 #include "Constants.h"
+#include "DbManager.h"
 
 MattyNote::MattyNote()
 {
@@ -22,9 +23,20 @@ void MattyNote::setTitle(const QString & Title)
 	NoteTitle = Title;
 }
 
-void MattyNote::setType(const QString & Type)
+void MattyNote::setType(const QString & TypeName)
 {
-	NoteType = Type;
+	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
+	NoteTypeId = MattyNotesDbManager->getTypeId(TypeName);
+	NoteType = TypeName;
+	delete MattyNotesDbManager;
+}
+
+void MattyNote::setType(int TypeId)
+{
+	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
+	NoteType = MattyNotesDbManager->getTypeName(TypeId);
+	NoteTypeId = TypeId;
+	delete MattyNotesDbManager;
 }
 
 void MattyNote::setText(const QString & Text)
@@ -92,6 +104,11 @@ QString MattyNote::getCrTime()
 QString MattyNote::getCrDate()
 {
 	return CrTimeAndDate->PrintUserDate();
+}
+
+int MattyNote::getTypeId()
+{
+	return NoteTypeId;
 }
 
 TimeAndDate * MattyNote::getEventTimeAndDate()
