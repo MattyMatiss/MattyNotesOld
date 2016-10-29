@@ -2,6 +2,8 @@
 #include "DbManager.h"
 #include <QSqlQuery>
 
+
+
 DbManager::DbManager(const QString& path)
 {
 	MattyNotesDb = QSqlDatabase::addDatabase("QSQLITE");
@@ -81,6 +83,16 @@ int DbManager::getTypeId(const QString & TypeName)
 	getTypeQuery.exec();
 	TypeId = getTypeQuery.value(0).toInt();
 	return TypeId;
+}
+
+int DbManager::getNoteCount()
+{
+	int NoteCount = 0;
+	QSqlQuery getNoteCount;
+	getNoteCount.exec("SELECT Count(*) FROM Notes");
+	if (getNoteCount.next())
+		NoteCount = getNoteCount.value(0).toInt();
+	return NoteCount;
 }
 
 DbManager::~DbManager()

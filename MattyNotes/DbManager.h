@@ -14,6 +14,7 @@ public:
 	QStringList getTypes();
 	QString getTypeName(int TypeId);
 	int getTypeId(const QString & TypeName);
+	int getNoteCount();
 	~DbManager();
 private:
 	QSqlDatabase MattyNotesDb;

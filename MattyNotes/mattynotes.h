@@ -10,6 +10,7 @@ class MattyNotes : public QMainWindow
 
 public:
 	MattyNotes(QWidget *parent = 0);
+	void createNoteGroups(int NoteCount);
 	QPushButton pushButton;
 	QPushButton addNoteButton;
 	QPushButton refreshDb;

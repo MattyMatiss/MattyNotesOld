@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -37,6 +36,14 @@ class Ui_MattyNotesClass
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *pushButtonCalendar;
+    QCalendarWidget *calendarWidget;
+    QSpacerItem *verticalSpacer_2;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *refreshDb;
@@ -52,18 +59,6 @@ public:
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout_4;
-    QGroupBox *groupBox;
-    QGroupBox *groupBox_4;
-    QGroupBox *groupBox_2;
-    QGroupBox *groupBox_3;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
-    QLabel *label;
-    QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButtonCalendar;
-    QCalendarWidget *calendarWidget;
-    QSpacerItem *verticalSpacer_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -72,7 +67,7 @@ public:
     {
         if (MattyNotesClass->objectName().isEmpty())
             MattyNotesClass->setObjectName(QStringLiteral("MattyNotesClass"));
-        MattyNotesClass->resize(524, 478);
+        MattyNotesClass->resize(705, 534);
         MattyNotesClass->setStyleSheet(QStringLiteral("background-color: rgb(255, 194, 11);"));
         centralWidget = new QWidget(MattyNotesClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
@@ -80,6 +75,48 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setFrameShape(QFrame::StyledPanel);
+
+        horizontalLayout->addWidget(label);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        pushButtonCalendar = new QPushButton(centralWidget);
+        pushButtonCalendar->setObjectName(QStringLiteral("pushButtonCalendar"));
+        pushButtonCalendar->setMinimumSize(QSize(296, 0));
+
+        verticalLayout->addWidget(pushButtonCalendar);
+
+        calendarWidget = new QCalendarWidget(centralWidget);
+        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
+        calendarWidget->setStyleSheet(QStringLiteral(""));
+
+        verticalLayout->addWidget(calendarWidget);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -134,11 +171,10 @@ public:
 
         scrollArea = new QScrollArea(centralWidget);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 181, 638));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 336, 428));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -146,30 +182,6 @@ public:
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        groupBox = new QGroupBox(scrollAreaWidgetContents);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setMinimumSize(QSize(150, 150));
-
-        verticalLayout_4->addWidget(groupBox);
-
-        groupBox_4 = new QGroupBox(scrollAreaWidgetContents);
-        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        groupBox_4->setMinimumSize(QSize(150, 150));
-
-        verticalLayout_4->addWidget(groupBox_4);
-
-        groupBox_2 = new QGroupBox(scrollAreaWidgetContents);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setMinimumSize(QSize(150, 150));
-
-        verticalLayout_4->addWidget(groupBox_2);
-
-        groupBox_3 = new QGroupBox(scrollAreaWidgetContents);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        groupBox_3->setMinimumSize(QSize(150, 150));
-
-        verticalLayout_4->addWidget(groupBox_3);
-
 
         gridLayout_2->addLayout(verticalLayout_4, 0, 0, 1, 1);
 
@@ -180,52 +192,10 @@ public:
 
         gridLayout->addLayout(verticalLayout_3, 0, 1, 2, 1);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setFrameShape(QFrame::StyledPanel);
-
-        horizontalLayout->addWidget(label);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        pushButtonCalendar = new QPushButton(centralWidget);
-        pushButtonCalendar->setObjectName(QStringLiteral("pushButtonCalendar"));
-        pushButtonCalendar->setMinimumSize(QSize(296, 0));
-
-        verticalLayout->addWidget(pushButtonCalendar);
-
-        calendarWidget = new QCalendarWidget(centralWidget);
-        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
-        calendarWidget->setStyleSheet(QStringLiteral(""));
-
-        verticalLayout->addWidget(calendarWidget);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
-
-        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
-
         MattyNotesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MattyNotesClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 524, 21));
+        menuBar->setGeometry(QRect(0, 0, 705, 21));
         MattyNotesClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MattyNotesClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -242,14 +212,10 @@ public:
     void retranslateUi(QMainWindow *MattyNotesClass)
     {
         MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
-        refreshDb->setText(QApplication::translate("MattyNotesClass", "\320\236\320\261\320\275\320\276\320\262\320\270\321\202\321\214", 0));
-        addNoteButton->setText(QApplication::translate("MattyNotesClass", "\320\235\320\276\320\262\320\260\321\217 \320\267\320\260\320\274\320\265\321\202\320\272\320\260", 0));
-        groupBox->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
-        groupBox_4->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
-        groupBox_2->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
-        groupBox_3->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
         label->setText(QApplication::translate("MattyNotesClass", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">00:00</span></p></body></html>", 0));
         pushButtonCalendar->setText(QString());
+        refreshDb->setText(QApplication::translate("MattyNotesClass", "\320\236\320\261\320\275\320\276\320\262\320\270\321\202\321\214", 0));
+        addNoteButton->setText(QApplication::translate("MattyNotesClass", "\320\235\320\276\320\262\320\260\321\217 \320\267\320\260\320\274\320\265\321\202\320\272\320\260", 0));
     } // retranslateUi
 
 };
