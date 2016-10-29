@@ -198,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MattyGroupBox.h" />
+    <ClInclude Include="GeneratedFiles\ui_addnotedialog.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="UtilityFunctions.h" />
     <CustomBuild Include="addnotedialog.h">
@@ -220,7 +221,6 @@
     </CustomBuild>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DbManager.h" />
-    <ClInclude Include="GeneratedFiles\ui_addnotedialog.h" />
     <ClInclude Include="GeneratedFiles\ui_mattynotes.h" />
     <ClInclude Include="MattyNote.h" />
     <ClInclude Include="MattyTime.h" />

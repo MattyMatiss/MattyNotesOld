@@ -6,7 +6,10 @@ class MattyGroupBox :
 	//Q_OBJECT
 public:
 	MattyGroupBox();
-	//QLabel* MyLabel;
+	//void fillFrame(MattyNote & ThisNote);
+	~MattyGroupBox();
+private:
+	void buildFrame();
 	QLabel* NoteTitleLabel;
 	QLabel* NoteTypeLabel;
 	QLabel* NoteCrTimeAndDateLabel;
@@ -17,12 +20,10 @@ public:
 	QSpacerItem* verticalSpacer;
 	QPushButton* editNoteButton;
 	QPushButton* deleteNoteButton;
-	//QHBoxLayout* HorizontalLayout;
 	QHBoxLayout* horizontalLayout_1;
 	QHBoxLayout* horizontalLayout_2;
-	//QHBoxLayout* horizontalLayout_3;
 	QVBoxLayout *verticalLayout;
 	QGridLayout *gridLayout;
-	~MattyGroupBox();
+	
 };
 

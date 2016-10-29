@@ -1,11 +1,33 @@
 #include "stdafx.h"
 #include "MattyGroupBox.h"
+//#include "MattyNote.h"
 
 
 MattyGroupBox::MattyGroupBox()
 {
+	buildFrame();
+}
+
+//void MattyGroupBox::fillFrame(MattyNote & ThisNote)
+//{
+	//NoteTitleLabel->setText(ThisNote.getTitle());
+	//NoteTypeLabel->setText(ThisNote.getType());
+	//NoteTextLabel->setText(ThisNote.getText());
+
+	//NoteTitleLabel->setText(QString::fromLocal8Bit("Заголовок"));
+	//NoteTypeLabel->setText(QString::fromLocal8Bit("Тип"));
+	//NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано: ")); // append!
+	//NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
+	//NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
+
+//}
+
+void MattyGroupBox::buildFrame()
+{
 	//groupBox->setObjectName(QStringLiteral("groupBox"));
 	this->setMinimumSize(QSize(150, 200));
+	this->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+
 	gridLayout = new QGridLayout(this);
 
 	verticalLayout = new QVBoxLayout();
@@ -39,7 +61,7 @@ MattyGroupBox::MattyGroupBox()
 
 	NoteCrTimeAndDateLabel = new QLabel(this);
 	NoteCrTimeAndDateLabel->setObjectName(QStringLiteral("NoteCrTimeAndDateLabel"));
-	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано:"));
+	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано: "));
 
 	horizontalSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -84,12 +106,12 @@ MattyGroupBox::MattyGroupBox()
 
 	verticalLayout->addWidget(NoteTextLabel);
 	NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
+	NoteTextLabel->setWordWrap(true);
 
 	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
 	verticalLayout->addItem(verticalSpacer);
 }
-
 
 MattyGroupBox::~MattyGroupBox()
 {
@@ -108,3 +130,4 @@ MattyGroupBox::~MattyGroupBox()
 	delete verticalLayout;
 	delete gridLayout;
 }
+

@@ -17,22 +17,6 @@ MattyNotes::MattyNotes(QWidget *parent)
 	sp_retain.setRetainSizeWhenHidden(true);
 	ui.calendarWidget->setSizePolicy(sp_retain);
 
-	//
-	QHBoxLayout *HorizontalLayout;
-	HorizontalLayout = new QHBoxLayout();
-	HorizontalLayout->setSpacing(6);
-	HorizontalLayout->setStretch(0, 0);
-	HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-	ui.verticalLayout_4->addLayout(HorizontalLayout);
-	MattyGroupBox* MyGroupBox = new MattyGroupBox();
-	HorizontalLayout->addWidget(MyGroupBox);
-	MyGroupBox->setTitle(QApplication::translate("MattyNotesClass", "Experiment", 0));
-	//MyGroupBox->setMinimumSize(QSize(150, 150));
-	//MyGroupBox->setMaximumSize(QSize(2500, 300));
-	//MyGroupBox->setObjectName("MyGroupBox");
-	HorizontalLayout->setObjectName("HorizontalLayoutExperiment");
-	//
-
 	ui.calendarWidget->hide();
 
 	QLCDNumber *ClocksLcdNumber;
@@ -53,7 +37,21 @@ void MattyNotes::createNoteGroups(int NoteCount)
 {
 	for (int i = 0; i < NoteCount;i++)
 	{
+		QString GroupBoxName = "NoteMattyGroupBox" + QString::number(i + 1);
 		QHBoxLayout *HorizontalLayout;
+		HorizontalLayout = new QHBoxLayout();
+		HorizontalLayout->setSpacing(6);
+		HorizontalLayout->setStretch(0, 0);
+		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+		ui.verticalLayout_4->addLayout(HorizontalLayout);
+		MattyGroupBox* MyGroupBox = new MattyGroupBox();
+		HorizontalLayout->addWidget(MyGroupBox);
+		MyGroupBox->setTitle(QApplication::translate("MattyNotesClass", qPrintable(GroupBoxName), 0));
+		//MyGroupBox->setMaximumSize(QSize(2500, 300));
+		MyGroupBox->setObjectName(GroupBoxName);
+		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
+		//////
+		/*QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
 		HorizontalLayout->setSpacing(6);
 		HorizontalLayout->setStretch(0, 0);
@@ -68,7 +66,7 @@ void MattyNotes::createNoteGroups(int NoteCount)
 		groupBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 		groupBox->setTitle(QApplication::translate("MattyNotesClass", qPrintable(GroupBoxName), 0));
 		groupBox->setObjectName(GroupBoxName);
-		HorizontalLayout->setObjectName("HorizontalLayout" + QString::number(i + 1));
+		HorizontalLayout->setObjectName("HorizontalLayout" + QString::number(i + 1));*/
 	}
 }
 
