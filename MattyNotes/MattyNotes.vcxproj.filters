@@ -133,4 +133,7 @@
   <ItemGroup>
     <ResourceCompile Include="MattyNotes.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>

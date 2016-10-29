@@ -1,5 +1,10 @@
+#ifndef MATTYTIME_H
+#define MATTYTIME_H
+
+#ifdef _MSC_VER
 #pragma once
-using namespace std;
+#endif // _MSC_VER
+
 
 void initCurrTime();
 
@@ -61,3 +66,5 @@ public:
 };
 
 void initCurrTime();
+
+#endif

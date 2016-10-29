@@ -1,4 +1,10 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#ifdef _MSC_VER
 #pragma once
+#endif // _MSC_VER
+
 class Constants
 {
 public:
@@ -15,3 +21,4 @@ public:
 	~Constants();
 };
 
+#endif // CONSTANTS_H

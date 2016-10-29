@@ -1,4 +1,10 @@
-﻿#pragma once
+﻿#ifndef ADDNOTEDIALOG_H
+#define ADDNOTEDIALOG_H
+
+#ifdef _MSC_VER
+#pragma once
+#endif // _MSC_VER
+
 #include <QWidget>
 #include "ui_addnotedialog.h"
 
@@ -17,3 +23,5 @@ private:
 	void on_createNoteButton_clicked();
 	void on_cancelAddingNoteButton_clicked();
 };
+
+#endif // ADDNOTEDIALOG_H

@@ -1,4 +1,10 @@
+#ifndef DBMANAGER_H
+#define DBMANAGER_H
+
+#ifdef _MSC_VER
 #pragma once
+#endif // _MSC_VER
+
 #include "MattyNote.h"
 #include <QSqlTableModel>
 #include <QMessageBox>
@@ -20,3 +26,4 @@ private:
 	QSqlDatabase MattyNotesDb;
 };
 
+#endif // DBMANAGER_H

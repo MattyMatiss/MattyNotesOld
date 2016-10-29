@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "MattyGroupBox.h"
-//#include "MattyNote.h"
+#include "MattyNote.h"
 
 
 MattyGroupBox::MattyGroupBox()

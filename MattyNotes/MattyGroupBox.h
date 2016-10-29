@@ -1,4 +1,10 @@
+#ifndef MATTYGROUPBOX_H
+#define MATTYGROUPBOX_H
+
+#ifdef _MSC_VER
 #pragma once
+#endif // _MSC_VER
+
 //#include "C:\Qt\Qt5.7.0\5.7\msvc2015_64\include\QtWidgets\qgroupbox.h"
 class MattyGroupBox :
 	public QGroupBox
@@ -27,3 +33,4 @@ private:
 	
 };
 
+#endif // MATTYGROUPBOX_H

@@ -1,6 +1,10 @@
 #ifndef MATTYNOTES_H
 #define MATTYNOTES_H
 
+#ifdef _MSC_VER
+#pragma once
+#endif // _MSC_VER
+
 #include <QtWidgets/QMainWindow>
 #include "ui_mattynotes.h"
 

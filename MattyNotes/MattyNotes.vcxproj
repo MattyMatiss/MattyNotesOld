@@ -184,7 +184,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MattyGroupBox.cpp" />
+    <ClCompile Include="MattyGroupBox.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ShowIncludes>
+    </ClCompile>
     <ClCompile Include="MattyNote.cpp" />
     <ClCompile Include="mattynotes.cpp" />
     <ClCompile Include="MattyTime.cpp" />
@@ -306,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MattyNotes.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,11 @@
+
+#ifndef MATTYNOTE_H
+#define MATTYNOTE_H
+
+#ifdef _MSC_VER
 #pragma once
+#endif // _MSC_VER
+
 #include "MattyTime.h"
 
 class MattyNote
@@ -33,3 +40,4 @@ private:
 	MattyTime* CrTimeAndDate;  // Automaticly set in constructor of MattyNote
 };
 
+#endif // MATTYNOTE_H
