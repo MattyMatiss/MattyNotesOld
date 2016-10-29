@@ -10,6 +10,12 @@ MattyNotes::MattyNotes(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+
+	// 
+	QSizePolicy sp_retain = ui.calendarWidget->sizePolicy();
+	sp_retain.setRetainSizeWhenHidden(true);
+	ui.calendarWidget->setSizePolicy(sp_retain);
+
 	ui.calendarWidget->hide();
 	MattyTime::updateCurrTime();
 	ui.label->setText(MattyTime::PrintCurrTime());

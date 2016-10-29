@@ -47,7 +47,7 @@ public:
     {
         if (addNoteDialog->objectName().isEmpty())
             addNoteDialog->setObjectName(QStringLiteral("addNoteDialog"));
-        addNoteDialog->resize(534, 397);
+        addNoteDialog->resize(574, 428);
         addNoteDialog->setStyleSheet(QStringLiteral("background-color: rgb(255, 194, 11);"));
         gridLayout = new QGridLayout(addNoteDialog);
         gridLayout->setSpacing(6);
