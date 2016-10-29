@@ -12,7 +12,7 @@ class MattyGroupBox :
 	//Q_OBJECT
 public:
 	MattyGroupBox();
-	//void fillFrame(MattyNote & ThisNote);
+	void fillFrame(class MattyNote & ThisNote);
 	~MattyGroupBox();
 private:
 	void buildFrame();

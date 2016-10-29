@@ -8,8 +8,8 @@ MattyGroupBox::MattyGroupBox()
 	buildFrame();
 }
 
-//void MattyGroupBox::fillFrame(MattyNote & ThisNote)
-//{
+void MattyGroupBox::fillFrame(MattyNote & ThisNote)
+{
 	//NoteTitleLabel->setText(ThisNote.getTitle());
 	//NoteTypeLabel->setText(ThisNote.getType());
 	//NoteTextLabel->setText(ThisNote.getText());
@@ -20,7 +20,7 @@ MattyGroupBox::MattyGroupBox()
 	//NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
 	//NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
 
-//}
+}
 
 void MattyGroupBox::buildFrame()
 {
