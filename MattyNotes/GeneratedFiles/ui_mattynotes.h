@@ -50,7 +50,6 @@ public:
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout_5;
-    QHBoxLayout *horizontalLayout_8;
     QHBoxLayout *horizontalLayout_9;
     QLabel *NoteTitleLabel;
     QLabel *NoteTypeLabel;
@@ -140,12 +139,6 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-
-        verticalLayout_5->addLayout(horizontalLayout_8);
-
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setSpacing(6);
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));

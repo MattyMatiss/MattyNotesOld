@@ -91,9 +91,6 @@
                  <item row="0" column="0">
                   <layout class="QVBoxLayout" name="verticalLayout_5">
                    <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_8"/>
-                   </item>
-                   <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_9">
                      <item>
                       <widget class="QLabel" name="NoteTitleLabel">
