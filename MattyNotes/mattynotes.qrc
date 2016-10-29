@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="MattyNotes">
-    </qresource>
+  <qresource prefix="MattyNotes">
+    <file>edit.png</file>
+    <file>1s-udalenie.png</file>
+  </qresource>
 </RCC>

@@ -17,10 +17,12 @@ MattyNotes::MattyNotes(QWidget *parent)
 	ui.calendarWidget->setSizePolicy(sp_retain);
 
 	ui.calendarWidget->hide();
-	MattyTime::updateCurrTime();
-	ui.label->setText(MattyTime::PrintCurrTime());
-	QFont f("Arial", 36, QFont::Bold);
-	ui.label->setFont(f);
+
+	QLCDNumber *ClocksLcdNumber;
+	ClocksLcdNumber = new QLCDNumber(ui.statusBar);
+	ClocksLcdNumber->setObjectName(QStringLiteral("ClocksLcdNumber"));
+	ui.statusBar->addWidget(ClocksLcdNumber);
+	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
 	
 	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
 	ui.tableView->setModel(MattyNotesDbManager->getModel("Notes"));
