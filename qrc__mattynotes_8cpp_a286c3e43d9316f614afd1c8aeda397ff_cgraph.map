@@ -1,0 +1,5 @@
+<map id="qInitResources_mattynotes" name="qInitResources_mattynotes">
+<area shape="rect" id="node2" href="$qrc__mattynotes_8cpp.html#a2ce5a6cde5b318dc75442940471e05f7" title="qRegisterResourceData" alt="" coords="259,5,418,32"/>
+<area shape="rect" id="node3" href="$qrc__mattynotes_8cpp.html#ac092811392318dce4bfb116d4eb00050" title="qCleanupResources_mattynotes" alt="" coords="233,56,444,83"/>
+<area shape="rect" id="node4" href="$qrc__mattynotes_8cpp.html#a54b96c9f44d004fc0ea13bb581f97a71" title="qUnregisterResourceData" alt="" coords="492,56,663,83"/>
+</map>

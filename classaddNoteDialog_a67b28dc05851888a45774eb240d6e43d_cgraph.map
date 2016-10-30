@@ -1,0 +1,19 @@
+<map id="addNoteDialog::on_createNoteButton_clicked" name="addNoteDialog::on_createNoteButton_clicked">
+<area shape="rect" id="node2" href="$classMattyNote.html#af7909f64608b020b501019cf29796eb0" title="MattyNote::setTitle" alt="" coords="250,5,382,32"/>
+<area shape="rect" id="node3" href="$classMattyNote.html#ac9171fd4faaf0c286c9315a0b4ef4560" title="MattyNote::setType" alt="" coords="248,56,384,83"/>
+<area shape="rect" id="node5" href="$classMattyNote.html#afa0c4ee32401e4a09e8d04fd0b01da0b" title="MattyNote::setText" alt="" coords="249,107,383,133"/>
+<area shape="rect" id="node6" href="$classMattyNote.html#aaeba8670420ab9ad0fb8be660845e0ba" title="MattyNote::setEventTime" alt="" coords="232,157,400,184"/>
+<area shape="rect" id="node7" href="$classUtilityFunctions.html#ac2212f463b34781025e9e0bcfeaad3eb" title="UtilityFunctions::repareTime" alt="" coords="224,208,408,235"/>
+<area shape="rect" id="node8" href="$classMattyNote.html#a70676b1ab215b873c9451a82cc417684" title="MattyNote::setEventDate" alt="" coords="233,259,399,285"/>
+<area shape="rect" id="node10" href="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273" title="DbManager::addNote" alt="" coords="244,385,388,412"/>
+<area shape="rect" id="node4" href="$classDbManager.html#a92ebefd0d5fae643db1fc51cc7ea0c31" title="DbManager::getTypeId" alt="" coords="483,56,635,83"/>
+<area shape="rect" id="node9" href="$classMattyTime.html#a12b0e0b9c4d45248da89e2d4078d4d08" title="MattyTime::setUserDayOfWeek" alt="" coords="456,183,663,209"/>
+<area shape="rect" id="node11" href="$classMattyNote.html#acb4af77f4177a0b17f140d4b4421e32e" title="MattyNote::getTitle" alt="" coords="493,233,625,260"/>
+<area shape="rect" id="node12" href="$classMattyNote.html#ad07b65692d79cf25e5c9008e111bd999" title="MattyNote::getType" alt="" coords="491,284,627,311"/>
+<area shape="rect" id="node13" href="$classMattyNote.html#a9213ac15a09625f59a95ede1b1470308" title="MattyNote::getText" alt="" coords="493,335,626,361"/>
+<area shape="rect" id="node14" href="$classMattyNote.html#a8c7f06ff44ce23f5a9ce6d2364732a24" title="MattyNote::getEventTime" alt="" coords="475,385,643,412"/>
+<area shape="rect" id="node15" href="$classMattyNote.html#a8973578029ab29593061cca235ae84f9" title="MattyNote::getEventDate" alt="" coords="476,436,643,463"/>
+<area shape="rect" id="node16" href="$classMattyNote.html#a2acf19aded7d4b5c29db7af6b0c4b1f6" title="MattyNote::getCrTime" alt="" coords="485,487,634,513"/>
+<area shape="rect" id="node17" href="$classMattyNote.html#ade5ef053d6d9ba158d9842feadd39754" title="MattyNote::getCrDate" alt="" coords="485,537,633,564"/>
+<area shape="rect" id="node18" href="$classMattyNote.html#af5b90028a8e406e41b8c8a6de83685ef" title="MattyNote::getTypeId" alt="" coords="486,588,633,615"/>
+</map>

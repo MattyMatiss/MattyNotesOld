@@ -1,0 +1,7 @@
+<map id="MattyGroupBox::fillFrame" name="MattyGroupBox::fillFrame">
+<area shape="rect" id="node2" href="$classMattyNote.html#acb4af77f4177a0b17f140d4b4421e32e" title="MattyNote::getTitle" alt="" coords="233,5,365,32"/>
+<area shape="rect" id="node3" href="$classMattyNote.html#ad07b65692d79cf25e5c9008e111bd999" title="MattyNote::getType" alt="" coords="231,56,367,83"/>
+<area shape="rect" id="node4" href="$classMattyNote.html#a9213ac15a09625f59a95ede1b1470308" title="MattyNote::getText" alt="" coords="232,107,365,133"/>
+<area shape="rect" id="node5" href="$classMattyNote.html#a2acf19aded7d4b5c29db7af6b0c4b1f6" title="MattyNote::getCrTime" alt="" coords="224,157,373,184"/>
+<area shape="rect" id="node6" href="$classMattyNote.html#ade5ef053d6d9ba158d9842feadd39754" title="MattyNote::getCrDate" alt="" coords="225,208,373,235"/>
+</map>
