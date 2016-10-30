@@ -12,6 +12,7 @@ class MattyNote
 {
 public:
 	MattyNote();
+	MattyNote(QStringList RowFromDb);
 	~MattyNote();
 	void setTitle(const QString & Title);
 	void setType(const QString & TypeName);
@@ -36,8 +37,10 @@ private:
 	QString NoteText;
 	QString NoteEventTime; // Format: 00:00
 	QString NoteEventDate; // Format: 00.00.0000
-	MattyTime* EventTimeAndDate;  // Any unspecified part equals -1
-	MattyTime* CrTimeAndDate;  // Automaticly set in constructor of MattyNote
+	QString NoteCrTime;
+	QString NoteCrDate;
+	MattyTime EventTimeAndDate;  // Any unspecified part equals -1
+	MattyTime CrTimeAndDate;  // Automaticly set in constructor of MattyNote
 };
 
 #endif // MATTYNOTE_H

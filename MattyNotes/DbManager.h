@@ -13,6 +13,7 @@ class DbManager
 {
 public:
 	DbManager(const QString& path);
+	~DbManager();
 	bool addNote(MattyNote * Note);
 	bool deleteNote();
 	void showNote();
@@ -21,7 +22,7 @@ public:
 	QString getTypeName(int TypeId);
 	int getTypeId(const QString & TypeName);
 	int getNoteCount();
-	~DbManager();
+	QVector<QStringList> getAllNotesOrderByCrDate();
 private:
 	QSqlDatabase MattyNotesDb;
 };

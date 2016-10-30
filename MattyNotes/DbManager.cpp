@@ -1,6 +1,10 @@
+
+
+
 #include "stdafx.h"
 #include "DbManager.h"
 #include <QSqlQuery>
+#include <QSqlRecord>
 
 
 
@@ -93,6 +97,24 @@ int DbManager::getNoteCount()
 	if (getNoteCount.next())
 		NoteCount = getNoteCount.value(0).toInt();
 	return NoteCount;
+}
+
+QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
+{
+	QVector<QStringList> VectorOfNotes;
+	QSqlQuery getAllNotesQuery("SELECT * FROM Notes ORDER BY CrDate, CrTime");
+	getAllNotesQuery.exec();
+	while (getAllNotesQuery.next())
+	{
+		//QSqlRecord NoteRecord = getAllNotesQuery.record();
+		QStringList Fields;
+		for (int i = 1;i < 9;i++)
+		{
+			Fields.push_back(getAllNotesQuery.value(i).toString());
+		}
+		VectorOfNotes.push_back(Fields);
+	}
+	return VectorOfNotes;
 }
 
 DbManager::~DbManager()

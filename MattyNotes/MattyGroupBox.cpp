@@ -10,9 +10,12 @@ MattyGroupBox::MattyGroupBox()
 
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 {
-	//NoteTitleLabel->setText(ThisNote.getTitle());
-	//NoteTypeLabel->setText(ThisNote.getType());
-	//NoteTextLabel->setText(ThisNote.getText());
+	NoteTitleLabel->setText(ThisNote.getTitle());
+	NoteTypeLabel->setText(ThisNote.getType());
+	NoteTextLabel->setText(ThisNote.getText());
+	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Заметка создана: ")
+		+ ThisNote.getCrTime() + " " + ThisNote.getCrDate());
+	//NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
 
 	//NoteTitleLabel->setText(QString::fromLocal8Bit("Заголовок"));
 	//NoteTypeLabel->setText(QString::fromLocal8Bit("Тип"));

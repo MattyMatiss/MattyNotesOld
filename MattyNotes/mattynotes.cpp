@@ -5,6 +5,7 @@
 #include "MattyNote.h"
 #include "addnotedialog.h"
 #include "MattyGroupBox.h"
+#include "NoteGroupBoxHolder.h"
 
 
 MattyNotes::MattyNotes(QWidget *parent)
@@ -28,16 +29,18 @@ MattyNotes::MattyNotes(QWidget *parent)
 	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
 	ui.tableView->setModel(MattyNotesDbManager->getModel("Notes"));
 
-	createNoteGroups(MattyNotesDbManager->getNoteCount());
+	//createNoteGroups(MattyNotesDbManager->getNoteCount());
+
+	NoteGroupBoxHolder::showOrderByCrDate(0, ui.verticalLayout_4);
 
 	delete MattyNotesDbManager;
 }
 
 void MattyNotes::createNoteGroups(int NoteCount)
 {
-	for (int i = 0; i < NoteCount;i++)
-	{
-		QString GroupBoxName = "NoteMattyGroupBox" + QString::number(i + 1);
+	//for (int i = 0; i < NoteCount;i++)
+	//{
+		/*QString GroupBoxName = "NoteMattyGroupBox" + QString::number(i + 1);
 		QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
 		HorizontalLayout->setSpacing(6);
@@ -49,7 +52,7 @@ void MattyNotes::createNoteGroups(int NoteCount)
 		MyGroupBox->setTitle(QApplication::translate("MattyNotesClass", qPrintable(GroupBoxName), 0));
 		//MyGroupBox->setMaximumSize(QSize(2500, 300));
 		MyGroupBox->setObjectName(GroupBoxName);
-		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
+		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));*/
 		//////
 		/*QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
@@ -67,7 +70,7 @@ void MattyNotes::createNoteGroups(int NoteCount)
 		groupBox->setTitle(QApplication::translate("MattyNotesClass", qPrintable(GroupBoxName), 0));
 		groupBox->setObjectName(GroupBoxName);
 		HorizontalLayout->setObjectName("HorizontalLayout" + QString::number(i + 1));*/
-	}
+	//}
 }
 
 MattyNotes::~MattyNotes()
