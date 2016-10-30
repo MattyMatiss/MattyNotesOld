@@ -6,8 +6,6 @@
 #endif // _MSC_VER
 
 
-void initCurrTime();
-
 
 struct TimeAndDate
 {
@@ -38,17 +36,17 @@ struct TimeAndDate
 class MattyTime  
 {
 public:
-	static TimeAndDate* CurrTime; 
-	TimeAndDate* UserTimeAndDate;
+	static TimeAndDate CurrTime; 
+	TimeAndDate UserTimeAndDate;
 	MattyTime();
 	static void updateCurrTime(); 
-	static TimeAndDate* getCurrTime();
+	static TimeAndDate getCurrTime();
 	void setUserDateAndTime(int second);
 	void setUserDateAndTime(int hour, int minute);
 	void setUserDateAndTime(int day, int month, int year);
 	void setUserDateAndTime(int hour, int minute, int day, int month, int year);
-	void setUserDateAndTime(TimeAndDate* TimeDate);
-	TimeAndDate* GetUserDateAndTime();
+	void setUserDateAndTime(TimeAndDate TimeDate);
+	TimeAndDate GetUserDateAndTime();
 	static QString PrintCurrTime();
 	static QString PrintCurrTimeFull();
 	static QString PrintCurrDate();
@@ -65,6 +63,5 @@ public:
 	~MattyTime();
 };
 
-void initCurrTime();
 
 #endif

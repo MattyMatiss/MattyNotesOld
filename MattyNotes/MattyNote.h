@@ -28,8 +28,8 @@ public:
 	QString getCrTime(); // Format: 00:00
 	QString getCrDate(); // Format: 00.00.0000
 	int getTypeId();
-	TimeAndDate* getEventTimeAndDate(); // Returns a pointer to TimeAndDate structure containing ints
-	TimeAndDate* getCrTimeAndDate(); // Returns a pointer to the TimeAndDate structure containing ints
+	TimeAndDate getEventTimeAndDate(); // Returns a pointer to TimeAndDate structure containing ints
+	TimeAndDate getCrTimeAndDate(); // Returns a pointer to the TimeAndDate structure containing ints
 private:
 	int NoteTypeId;
 	QString NoteTitle;
