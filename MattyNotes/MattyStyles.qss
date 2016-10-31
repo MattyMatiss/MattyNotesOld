@@ -1,0 +1,11 @@
+#MattyNotesClass{background-color: rgb(255, 255, 127);}
+#centralWidget {background-color:black;}
+#groupBox {background-color: rgb(255, 255, 255);}
+#editNoteButton {background-image: url(:/MattyNotes/edit.png);}
+#deleteNoteButton {background-image: url(:/MattyNotes/1s-udalenie.png);}
+#NoteTextLabel {border-color: rgb(0, 0, 0);}
+#statusBar {background-color: rgb(255, 255, 127); border-color: rgb(255, 255, 255);}
+#scrollArea	{ background - color: black !important; }
+#scrollAreaWidgetContents{ background - color: black !important; }
+#closeProgramButton { background-image: url(:/MattyNotes/CloseWindowButton.png); }
+#closeProgramButton:hover { background-image: url(:/MattyNotes/CloseWindowButtonOnMouseMove.png); }

@@ -30,7 +30,9 @@ void MattyGroupBox::buildFrame()
 {
 	//groupBox->setObjectName(QStringLiteral("groupBox"));
 	this->setMinimumSize(QSize(150, 200));
-	this->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+	this->setStyleSheet(QStringLiteral("QGroupBox { background-color: rgb(255, 255, 222);"
+	"border: 1px solid transparent;"
+	"border-radius: 10px;}"));
 
 	gridLayout = new QGridLayout(this);
 

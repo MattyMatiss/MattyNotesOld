@@ -16,7 +16,9 @@ public:
 	MattyNotes(QWidget *parent = 0);
 	QPushButton pushButton;
 	QPushButton addNoteButton;
-	QPushButton* closeProgramButton;
+	QPushButton* closeWindowButton;
+	QPushButton* maximizeWindowButton;
+	QPushButton* minimizeWindowButton;
 	//QPushButton refreshDb;
 	~MattyNotes();
 
@@ -31,8 +33,9 @@ private:
 	private slots:
 	void on_pushButtonCalendar_clicked();
 	void on_addNoteButton_clicked();
-	//void on_closeProgramButton_clicked();
-	//void on_refreshDb_clicked();
+	void closeWindow();
+	void maximizeWindow();
+	void minimizeWindow();
 };
 
 

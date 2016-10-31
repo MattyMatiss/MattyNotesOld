@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>705</width>
+    <width>702</width>
     <height>534</height>
    </rect>
   </property>
@@ -14,64 +14,14 @@
    <string>MattyNotes</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 194, 11);</string>
+   <string notr="true">#MattyNotesClass{background-color: rgb(255, 255, 127);}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">#centralWidget {
+background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QPushButton" name="pushButtonCalendar">
-          <property name="minimumSize">
-           <size>
-            <width>296</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCalendarWidget" name="calendarWidget">
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
     <item row="0" column="1">
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
@@ -91,6 +41,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="addNoteButton">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>Новая заметка</string>
           </property>
@@ -113,6 +66,10 @@
       </item>
       <item>
        <widget class="QScrollArea" name="scrollArea">
+        <property name="styleSheet">
+         <string notr="true">QScrollArea { background: transparent; border: 0px none transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px none transparent; }</string>
+        </property>
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
@@ -121,8 +78,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>331</width>
-           <height>428</height>
+           <width>330</width>
+           <height>430</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -137,6 +94,17 @@
                   <width>150</width>
                   <height>200</height>
                  </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#groupBox { background-color: rgb(255, 255, 222);
+border: 1px solid transparent;
+border-radius: 10px;}</string>
                 </property>
                 <property name="title">
                  <string>GroupBox</string>
@@ -300,6 +268,60 @@
       </item>
      </layout>
     </item>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButtonCalendar">
+          <property name="minimumSize">
+           <size>
+            <width>296</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCalendarWidget" name="calendarWidget">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -307,7 +329,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>705</width>
+     <width>702</width>
      <height>21</height>
     </rect>
    </property>
@@ -326,6 +348,10 @@
      <width>0</width>
      <height>0</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 127);
+border-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
  </widget>

@@ -1,5 +1,14 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>CloseWindowHover.png</file>
+    <file>MaximizeWindow.png</file>
+    <file>MaximizeWindowHover.png</file>
+    <file>MinimizeWindow.png</file>
+    <file>MinimizeWindowHover.png</file>
+    <file>CloseWindow.png</file>
+    <file>MattyStyles.qss</file>
+    <file>CloseWindowButtonOnMouseMove.png</file>
+    <file>CloseWindowButton.png</file>
     <file>edit.png</file>
     <file>1s-udalenie.png</file>
   </qresource>

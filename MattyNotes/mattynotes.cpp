@@ -12,8 +12,39 @@ MattyNotes::MattyNotes(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-	closeProgramButton = new QPushButton();
-	ui.mainToolBar->addWidget(closeProgramButton);
+
+	closeWindowButton = new QPushButton();
+	closeWindowButton->setObjectName("closeWindowButton");
+	closeWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/CloseWindow.png);"
+		"background-position: center;}"
+" QPushButton:hover { background-image: url(:/MattyNotes/CloseWindowHover.png);background-position: center; }"));
+	closeWindowButton->setMaximumSize(QSize(20, 20));
+	closeWindowButton->setFlat(true);
+
+	maximizeWindowButton = new QPushButton();
+	maximizeWindowButton->setObjectName("maximazeWindowButton");
+	maximizeWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/MaximizeWindow.png);"
+		"background-position: top;}"
+		" QPushButton:hover { background-image: url(:/MattyNotes/MaximizeWindowHover.png);background-position: top; }"));
+	maximizeWindowButton->setMaximumSize(QSize(20, 20));
+	maximizeWindowButton->setFlat(true);
+
+	minimizeWindowButton = new QPushButton();
+	minimizeWindowButton->setObjectName("minimizeWindowButton");
+	minimizeWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/MinimizeWindow.png);"
+		"background-position: center;}"
+		" QPushButton:hover { background-image: url(:/MattyNotes/MinimizeWindowHover.png);background-position: center; }"));
+	minimizeWindowButton->setMaximumSize(QSize(20, 20));
+	minimizeWindowButton->setFlat(true);
+
+	QWidget* spacer = new QWidget();
+	spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+	ui.mainToolBar->addWidget(spacer);
+	ui.mainToolBar->addWidget(minimizeWindowButton);
+	ui.mainToolBar->addWidget(maximizeWindowButton);
+	ui.mainToolBar->addWidget(closeWindowButton);
+
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
 	// 
@@ -31,7 +62,10 @@ MattyNotes::MattyNotes(QWidget *parent)
 	NoteGroupBoxHolder::sortNotesByCrDate();
 	NoteGroupBoxHolder::showNotes(0, ui.verticalLayout_4);
 
-	QObject::connect(closeProgramButton, SIGNAL(clicked()), this, SLOT(close()));
+	QObject::connect(closeWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
+	QObject::connect(maximizeWindowButton, SIGNAL(clicked()), this,
+		SLOT(maximizeWindow()));
+	QObject::connect(minimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
 }
 
 
@@ -53,6 +87,24 @@ void MattyNotes::on_addNoteButton_clicked()
 	addNoteDialog* newAddNoteDialog = new addNoteDialog(ui.verticalLayout_4);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
 	newAddNoteDialog->show();
+}
+
+void MattyNotes::closeWindow()
+{
+	QApplication::quit();
+}
+
+void MattyNotes::maximizeWindow()
+{
+	if (this->isMaximized())
+		this->showNormal();
+	else
+		this->showMaximized();
+}
+
+void MattyNotes::minimizeWindow()
+{
+	this->showMinimized();
 }
 
 /*void MattyNotes::on_closeProgramButton_clicked()
