@@ -12,13 +12,15 @@ class addNoteDialog : public QWidget {
 	Q_OBJECT
 
 public:
-	addNoteDialog(QWidget * parent = 0);
+	addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent = 0);
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
+	QVBoxLayout* GroupBoxLayout;
 	~addNoteDialog();
 
 private:
 	Ui::addNoteDialog addNoteDialogUi;
+
 	private slots:
 	void on_createNoteButton_clicked();
 	void on_cancelAddingNoteButton_clicked();

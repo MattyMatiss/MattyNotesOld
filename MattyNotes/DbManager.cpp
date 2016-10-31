@@ -108,7 +108,7 @@ QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
 	{
 		//QSqlRecord NoteRecord = getAllNotesQuery.record();
 		QStringList Fields;
-		for (int i = 1;i < 9;i++)
+		for (int i = 0;i < 9;i++)
 		{
 			Fields.push_back(getAllNotesQuery.value(i).toString());
 		}

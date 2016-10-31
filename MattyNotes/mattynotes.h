@@ -14,18 +14,19 @@ class MattyNotes : public QMainWindow
 
 public:
 	MattyNotes(QWidget *parent = 0);
-	void createNoteGroups(int NoteCount);
 	QPushButton pushButton;
 	QPushButton addNoteButton;
-	QPushButton refreshDb;
+	//QPushButton refreshDb;
 	~MattyNotes();
 
-private:
 	Ui::MattyNotesClass ui;
+
+private:
+
 	private slots:
 	void on_pushButtonCalendar_clicked();
 	void on_addNoteButton_clicked();
-	void on_refreshDb_clicked();
+	//void on_refreshDb_clicked();
 };
 
 

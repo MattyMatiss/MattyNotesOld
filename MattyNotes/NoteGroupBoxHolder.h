@@ -12,8 +12,8 @@ class NoteGroupBoxHolder
 public:
 	NoteGroupBoxHolder();
 	~NoteGroupBoxHolder();
-	static QVector<class MattyNote> getNotesOrderByCrDate();
-	static void showOrderByCrDate(int orderDirection, QVBoxLayout* ParentLayout);
+	static QVector<class MattyNote> sortNotesByCrDate();
+	static void showNotes(int orderDirection, QVBoxLayout* ParentLayout);
 private:
 	static int NoteCount;
 	static QVector<class MattyNote> ListOfNotes;

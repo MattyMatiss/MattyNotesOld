@@ -16,7 +16,7 @@ public:
 	~MattyGroupBox();
 private:
 	void buildFrame();
-	QLabel* NoteTitleLabel;
+	//QLabel* NoteTitleLabel;
 	QLabel* NoteTypeLabel;
 	QLabel* NoteCrTimeAndDateLabel;
 	QLabel* NoteEventTimeAndDateLabel;

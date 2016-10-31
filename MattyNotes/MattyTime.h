@@ -60,6 +60,7 @@ public:
 	void setUserTimeAndDateNow();
 	void setUserTimeAndDateNull();
 	void setUserDayOfWeek();
+	QString getUserDayOfWeek();
 	~MattyTime();
 };
 

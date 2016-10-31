@@ -16,7 +16,7 @@ NoteGroupBoxHolder::~NoteGroupBoxHolder()
 {
 }
 
-QVector<class MattyNote> NoteGroupBoxHolder::getNotesOrderByCrDate()
+QVector<class MattyNote> NoteGroupBoxHolder::sortNotesByCrDate()
 {
 	NoteCount = 0;
 
@@ -37,14 +37,14 @@ QVector<class MattyNote> NoteGroupBoxHolder::getNotesOrderByCrDate()
 	return ListOfNotes;
 }
 
-void NoteGroupBoxHolder::showOrderByCrDate(int orderDirection, QVBoxLayout * ParentLayout)
+void NoteGroupBoxHolder::showNotes(int orderDirection, QVBoxLayout * ParentLayout)
 {
-	getNotesOrderByCrDate();
+	//getNotesOrderByCrDate();
 	QVector<class MattyNote>::iterator NoteNumber;
 	int i;
 	for (NoteNumber=ListOfNotes.begin(), i=0; NoteNumber < ListOfNotes.end();NoteNumber++, i++)
 	{
-		QString GroupBoxName = "NoteMattyGroupBox" + QString::number(i + 1);
+		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
 		QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
 		HorizontalLayout->setSpacing(6);
@@ -55,7 +55,6 @@ void NoteGroupBoxHolder::showOrderByCrDate(int orderDirection, QVBoxLayout * Par
 		MyGroupBox->fillFrame(*NoteNumber);
 		HorizontalLayout->addWidget(MyGroupBox);
 		MyGroupBox->setTitle(NoteNumber->getTitle());
-		//MyGroupBox->setMaximumSize(QSize(2500, 300));
 		MyGroupBox->setObjectName(GroupBoxName);
 		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
 	}

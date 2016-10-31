@@ -10,11 +10,12 @@ MattyGroupBox::MattyGroupBox()
 
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 {
-	NoteTitleLabel->setText(ThisNote.getTitle());
+	//NoteTitleLabel->setText(ThisNote.getTitle());
 	NoteTypeLabel->setText(ThisNote.getType());
 	NoteTextLabel->setText(ThisNote.getText());
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Заметка создана: ")
 		+ ThisNote.getCrTime() + " " + ThisNote.getCrDate());
+	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() + ", " + ThisNote.getEvDayofWeek() +  " " + ThisNote.getEventTime());
 	//NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
 
 	//NoteTitleLabel->setText(QString::fromLocal8Bit("Заголовок"));
@@ -54,9 +55,9 @@ void MattyGroupBox::buildFrame()
 	gridLayout->setObjectName(QStringLiteral("gridLayout"));
 	gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
 
-	NoteTitleLabel = new QLabel(this);
-	NoteTitleLabel->setObjectName(QStringLiteral("NoteTitleLabel"));
-	NoteTitleLabel->setText(QString::fromLocal8Bit("Заголовок"));
+	//NoteTitleLabel = new QLabel(this);
+	//NoteTitleLabel->setObjectName(QStringLiteral("NoteTitleLabel"));
+	//NoteTitleLabel->setText(QString::fromLocal8Bit("Заголовок"));
 
 	NoteTypeLabel = new QLabel(this);
 	NoteTypeLabel->setObjectName(QStringLiteral("NoteTypeLabel"));
@@ -86,7 +87,7 @@ void MattyGroupBox::buildFrame()
 	deleteNoteButton->setStyleSheet(QStringLiteral("background-image: url(:/MattyNotes/1s-udalenie.png);"));
 	deleteNoteButton->setFlat(true);
 
-	horizontalLayout_1->addWidget(NoteTitleLabel);
+	//horizontalLayout_1->addWidget(NoteTitleLabel);
 	horizontalLayout_1->addWidget(NoteTypeLabel);
 	horizontalLayout_1->addWidget(NoteCrTimeAndDateLabel);
 	horizontalLayout_1->addItem(horizontalSpacer_1);
@@ -118,19 +119,18 @@ void MattyGroupBox::buildFrame()
 
 MattyGroupBox::~MattyGroupBox()
 {
-	delete NoteTitleLabel;
-	delete NoteTypeLabel;
-	delete NoteCrTimeAndDateLabel;
-	delete NoteEventTimeAndDateLabel;
-	delete NoteTextLabel;
-	delete horizontalSpacer_1;
-	delete horizontalSpacer_2;
-	delete verticalSpacer;
-	delete editNoteButton;
-	delete deleteNoteButton;
-	delete horizontalLayout_1;
-	delete horizontalLayout_2;
-	delete verticalLayout;
-	delete gridLayout;
+	//delete NoteTypeLabel;
+	//delete NoteCrTimeAndDateLabel;
+	//delete NoteEventTimeAndDateLabel;
+	//delete NoteTextLabel;
+	//delete horizontalSpacer_1;
+	//delete horizontalSpacer_2;
+	//delete verticalSpacer;
+//	delete editNoteButton;
+//	delete deleteNoteButton;
+//	delete horizontalLayout_1;
+//	delete horizontalLayout_2;
+//	delete verticalLayout;
+//	delete gridLayout;
 }
 

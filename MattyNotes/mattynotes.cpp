@@ -17,7 +17,6 @@ MattyNotes::MattyNotes(QWidget *parent)
 	QSizePolicy sp_retain = ui.calendarWidget->sizePolicy();
 	sp_retain.setRetainSizeWhenHidden(true);
 	ui.calendarWidget->setSizePolicy(sp_retain);
-
 	ui.calendarWidget->hide();
 
 	QLCDNumber *ClocksLcdNumber;
@@ -25,53 +24,11 @@ MattyNotes::MattyNotes(QWidget *parent)
 	ClocksLcdNumber->setObjectName(QStringLiteral("ClocksLcdNumber"));
 	ui.statusBar->addWidget(ClocksLcdNumber);
 	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
-	
-	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
-	ui.tableView->setModel(MattyNotesDbManager->getModel("Notes"));
 
-	//createNoteGroups(MattyNotesDbManager->getNoteCount());
-
-	NoteGroupBoxHolder::showOrderByCrDate(0, ui.verticalLayout_4);
-
-	delete MattyNotesDbManager;
+	NoteGroupBoxHolder::sortNotesByCrDate();
+	NoteGroupBoxHolder::showNotes(0, ui.verticalLayout_4);
 }
 
-void MattyNotes::createNoteGroups(int NoteCount)
-{
-	//for (int i = 0; i < NoteCount;i++)
-	//{
-		/*QString GroupBoxName = "NoteMattyGroupBox" + QString::number(i + 1);
-		QHBoxLayout *HorizontalLayout;
-		HorizontalLayout = new QHBoxLayout();
-		HorizontalLayout->setSpacing(6);
-		HorizontalLayout->setStretch(0, 0);
-		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-		ui.verticalLayout_4->addLayout(HorizontalLayout);
-		MattyGroupBox* MyGroupBox = new MattyGroupBox();
-		HorizontalLayout->addWidget(MyGroupBox);
-		MyGroupBox->setTitle(QApplication::translate("MattyNotesClass", qPrintable(GroupBoxName), 0));
-		//MyGroupBox->setMaximumSize(QSize(2500, 300));
-		MyGroupBox->setObjectName(GroupBoxName);
-		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));*/
-		//////
-		/*QHBoxLayout *HorizontalLayout;
-		HorizontalLayout = new QHBoxLayout();
-		HorizontalLayout->setSpacing(6);
-		HorizontalLayout->setStretch(0, 0);
-		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-		ui.verticalLayout_4->addLayout(HorizontalLayout);
-		QString GroupBoxName = "NoteGroupBox" + QString::number(i+1);
-		QGroupBox *groupBox;
-		groupBox = new QGroupBox();
-		HorizontalLayout->addWidget(groupBox);
-		groupBox->setMinimumSize(QSize(150, 150));
-		groupBox->setMaximumSize(QSize(2500, 300));
-		groupBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-		groupBox->setTitle(QApplication::translate("MattyNotesClass", qPrintable(GroupBoxName), 0));
-		groupBox->setObjectName(GroupBoxName);
-		HorizontalLayout->setObjectName("HorizontalLayout" + QString::number(i + 1));*/
-	//}
-}
 
 MattyNotes::~MattyNotes()
 {
@@ -88,14 +45,8 @@ void MattyNotes::on_pushButtonCalendar_clicked()
 
 void MattyNotes::on_addNoteButton_clicked()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog();
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(ui.verticalLayout_4);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
 	newAddNoteDialog->show();
 }
 
-void MattyNotes::on_refreshDb_clicked()
-{
-	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
-	ui.tableView->setModel(MattyNotesDbManager->getModel("Notes"));
-	delete MattyNotesDbManager;
-}

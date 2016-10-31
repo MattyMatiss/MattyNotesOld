@@ -72,6 +72,7 @@ void MattyTime::setUserDateAndTime(int hour, int minute, int day, int month, int
 	UserTimeAndDate.year = year;
 }
 
+
 void MattyTime::setUserDateAndTime(TimeAndDate TimeDate)
 {
 	UserTimeAndDate.hour = TimeDate.hour;
@@ -214,6 +215,37 @@ void MattyTime::setUserDayOfWeek()
 	static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
 	year -= month < 3;
 	UserTimeAndDate.dayOfWeek = 1 + ((year + year / 4 - year / 100 + year / 400 + t[month - 1] + day) % 7);
+}
+QString MattyTime::getUserDayOfWeek()
+{
+	QString DayOfWeek = "";
+	enum DayOfWeekEnum {Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
+	switch (UserTimeAndDate.dayOfWeek)
+	{
+	case Monday:
+		DayOfWeek = QString::fromLocal8Bit("ом, ");
+		break;
+	case Tuesday:
+		DayOfWeek = QString::fromLocal8Bit("бр, ");
+		break;
+	case Wednesday:
+		DayOfWeek = QString::fromLocal8Bit("яп, ");
+		break;
+	case Thursday:
+		DayOfWeek = QString::fromLocal8Bit("вр, ");
+		break;
+	case Friday:
+		DayOfWeek = QString::fromLocal8Bit("ор, ");
+		break;
+	case Saturday:
+		DayOfWeek = QString::fromLocal8Bit("яа, ");
+		break;
+	case Sunday:
+		DayOfWeek = QString::fromLocal8Bit("бя, ");
+		break;
+	}
+
+	return DayOfWeek;
 }
 MattyTime::~MattyTime()
 {

@@ -20,14 +20,15 @@ MattyNote::MattyNote(QStringList RowFromDb)
 	CrTimeAndDate.setUserTimeAndDateNull();
 	//EventTimeAndDate = new MattyTime();
 	//EventTimeAndDate->setUserTimeAndDateNull();
-	NoteTitle = RowFromDb[0];
-	NoteType = RowFromDb[1];
-	NoteText = RowFromDb[2];
-	NoteEventTime = RowFromDb[3];
-	NoteEventDate = RowFromDb[4];
-	NoteCrTime = RowFromDb[5];
-	NoteCrDate = RowFromDb[6];
-	NoteTypeId = RowFromDb[7].toInt();
+	NoteId = RowFromDb[0].toInt();
+	NoteTitle = RowFromDb[1];
+	NoteType = RowFromDb[2];
+	NoteText = RowFromDb[3];
+	setEventTime(RowFromDb[4]);
+	setEventDate(RowFromDb[5]);
+	NoteCrTime = RowFromDb[6];
+	NoteCrDate = RowFromDb[7];
+	NoteTypeId = RowFromDb[8].toInt();
 }
 
 MattyNote::~MattyNote()
@@ -86,6 +87,7 @@ void MattyNote::setEventDate(const QString & EventDate)
 		EventTimeAndDate.UserTimeAndDate.month = DateTemp[1].toInt();
 		EventTimeAndDate.UserTimeAndDate.year = DateTemp[2].toInt();
 		EventTimeAndDate.setUserDayOfWeek();
+		NoteEvDayOfWeek = EventTimeAndDate.getUserDayOfWeek();
 	}
 }
 
@@ -119,6 +121,11 @@ QString MattyNote::getEventDate()
 	return NoteEventDate;
 }
 
+QString MattyNote::getEvDayofWeek()
+{
+	return NoteEvDayOfWeek;
+}
+
 QString MattyNote::getCrTime()
 {
 	return NoteCrTime;
@@ -127,6 +134,16 @@ QString MattyNote::getCrTime()
 QString MattyNote::getCrDate()
 {
 	return NoteCrDate;
+}
+
+QString MattyNote::getCrDayOfWeek()
+{
+	return NoteCrDayOfWeek;
+}
+
+int MattyNote::getNoteId()
+{
+	return NoteId;
 }
 
 TimeAndDate  MattyNote::getEventTimeAndDate()

@@ -3,13 +3,17 @@
 #include "DbManager.h"
 #include "MattyNote.h"
 #include "UtilityFunctions.h"
+#include "mattynotes.h"
+#include "NoteGroupBoxHolder.h"
 
-addNoteDialog::addNoteDialog(QWidget * parent) : QWidget(parent) 
+addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) : QWidget(parent)
 {
 	addNoteDialogUi.setupUi(this);
 	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(MattyNotesDbManager->getTypes());
+	GroupBoxLayout = new QVBoxLayout();
+	GroupBoxLayout = GroupBoxLayoutSent;
 	delete MattyNotesDbManager;
 }
 
@@ -38,6 +42,9 @@ void addNoteDialog::on_createNoteButton_clicked()
 		delete MattyNotesDbManager;
 		delete NoteToAdd;
 	}
+
+	NoteGroupBoxHolder::sortNotesByCrDate();
+	NoteGroupBoxHolder::showNotes(0, GroupBoxLayout);
 
 	this->close();
 }
