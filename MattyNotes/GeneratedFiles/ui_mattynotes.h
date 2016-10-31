@@ -36,6 +36,12 @@ class Ui_MattyNotesClass
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButtonCalendar;
+    QCalendarWidget *calendarWidget;
+    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_3;
@@ -61,13 +67,6 @@ public:
     QSpacerItem *horizontalSpacer_8;
     QLabel *NoteTextLabel;
     QSpacerItem *verticalSpacer_3;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
-    QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButtonCalendar;
-    QCalendarWidget *calendarWidget;
-    QSpacerItem *verticalSpacer_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -84,6 +83,38 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        pushButtonCalendar = new QPushButton(centralWidget);
+        pushButtonCalendar->setObjectName(QStringLiteral("pushButtonCalendar"));
+        pushButtonCalendar->setMinimumSize(QSize(296, 0));
+
+        verticalLayout->addWidget(pushButtonCalendar);
+
+        calendarWidget = new QCalendarWidget(centralWidget);
+        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
+        calendarWidget->setStyleSheet(QStringLiteral(""));
+
+        verticalLayout->addWidget(calendarWidget);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
+
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -111,7 +142,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 336, 428));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 331, 428));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -223,43 +254,7 @@ public:
         verticalLayout_3->addWidget(scrollArea);
 
 
-        gridLayout->addLayout(verticalLayout_3, 0, 1, 2, 1);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        pushButtonCalendar = new QPushButton(centralWidget);
-        pushButtonCalendar->setObjectName(QStringLiteral("pushButtonCalendar"));
-        pushButtonCalendar->setMinimumSize(QSize(296, 0));
-
-        verticalLayout->addWidget(pushButtonCalendar);
-
-        calendarWidget = new QCalendarWidget(centralWidget);
-        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
-        calendarWidget->setStyleSheet(QStringLiteral(""));
-
-        verticalLayout->addWidget(calendarWidget);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
-
-        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+        gridLayout->addLayout(verticalLayout_3, 0, 1, 1, 1);
 
         MattyNotesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MattyNotesClass);
@@ -282,6 +277,7 @@ public:
     void retranslateUi(QMainWindow *MattyNotesClass)
     {
         MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
+        pushButtonCalendar->setText(QString());
         addNoteButton->setText(QApplication::translate("MattyNotesClass", "\320\235\320\276\320\262\320\260\321\217 \320\267\320\260\320\274\320\265\321\202\320\272\320\260", 0));
         groupBox->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
         NoteTitleLabel->setText(QApplication::translate("MattyNotesClass", "\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272", 0));
@@ -291,7 +287,6 @@ public:
         deleteNoteButton->setText(QString());
         NoteEventTimeAndDateLabel->setText(QApplication::translate("MattyNotesClass", "\320\232\320\276\320\263\320\264\320\260", 0));
         NoteTextLabel->setText(QApplication::translate("MattyNotesClass", "\320\242\320\265\320\272\321\201\321\202", 0));
-        pushButtonCalendar->setText(QString());
     } // retranslateUi
 
 };

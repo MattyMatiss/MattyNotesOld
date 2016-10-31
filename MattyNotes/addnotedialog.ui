@@ -53,10 +53,22 @@
       </widget>
      </item>
      <item>
-      <widget class="QTimeEdit" name="eventTimeEdit"/>
+      <widget class="QTimeEdit" name="eventTimeEdit">
+       <property name="displayFormat">
+        <string>HH:mm</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QDateEdit" name="eventDateEdit"/>
+      <widget class="QDateEdit" name="eventDateEdit">
+       <property name="date">
+        <date>
+         <year>2016</year>
+         <month>11</month>
+         <day>1</day>
+        </date>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">

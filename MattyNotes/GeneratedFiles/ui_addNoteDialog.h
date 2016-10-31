@@ -9,6 +9,7 @@
 #ifndef UI_ADDNOTEDIALOG_H
 #define UI_ADDNOTEDIALOG_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -79,6 +80,7 @@ public:
 
         eventDateEdit = new QDateEdit(addNoteDialog);
         eventDateEdit->setObjectName(QStringLiteral("eventDateEdit"));
+        eventDateEdit->setDate(QDate(2016, 11, 1));
 
         horizontalLayout->addWidget(eventDateEdit);
 
@@ -124,6 +126,7 @@ public:
     void retranslateUi(QWidget *addNoteDialog)
     {
         addNoteDialog->setWindowTitle(QApplication::translate("addNoteDialog", "addNoteDialog", 0));
+        eventTimeEdit->setDisplayFormat(QApplication::translate("addNoteDialog", "HH:mm", 0));
         cancelAddingNoteButton->setText(QApplication::translate("addNoteDialog", "\320\236\321\202\320\274\320\265\320\275\320\260", 0));
         createNoteButton->setText(QApplication::translate("addNoteDialog", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 \320\267\320\260\320\274\320\265\321\202\320\272\321\203", 0));
     } // retranslateUi

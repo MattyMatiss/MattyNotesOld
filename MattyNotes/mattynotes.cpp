@@ -12,6 +12,9 @@ MattyNotes::MattyNotes(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	closeProgramButton = new QPushButton();
+	ui.mainToolBar->addWidget(closeProgramButton);
+	this->setWindowFlags(Qt::FramelessWindowHint);
 
 	// 
 	QSizePolicy sp_retain = ui.calendarWidget->sizePolicy();
@@ -27,6 +30,8 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 	NoteGroupBoxHolder::sortNotesByCrDate();
 	NoteGroupBoxHolder::showNotes(0, ui.verticalLayout_4);
+
+	QObject::connect(closeProgramButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 
 
@@ -50,3 +55,18 @@ void MattyNotes::on_addNoteButton_clicked()
 	newAddNoteDialog->show();
 }
 
+/*void MattyNotes::on_closeProgramButton_clicked()
+{
+	this->close();
+}*/
+
+void MattyNotes::mousePressEvent(QMouseEvent *event) 
+{
+	m_nMouseClick_X_Coordinate = event->x();
+	m_nMouseClick_Y_Coordinate = event->y();
+}
+
+void MattyNotes::mouseMoveEvent(QMouseEvent *event) 
+{
+	move(event->globalX() - m_nMouseClick_X_Coordinate, event->globalY() - m_nMouseClick_Y_Coordinate);
+}
