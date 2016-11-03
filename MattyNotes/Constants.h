@@ -8,6 +8,9 @@
 class Constants
 {
 public:
+	static  QString PathToDb;
+	static const QString AbsolutePathToDb;
+	static const QString RelativePathToDb;
 	static const QString TimeSeparator; // ":"
 	static const QString DateSeparator; // "."
 	static const QString EmptyQString; // ""

@@ -6,7 +6,7 @@
 #include "addnotedialog.h"
 #include "MattyGroupBox.h"
 #include "NoteGroupBoxHolder.h"
-
+#include "Constants.h"
 
 MattyNotes::MattyNotes(QWidget *parent)
 	: QMainWindow(parent)
@@ -76,6 +76,8 @@ MattyNotes::MattyNotes(QWidget *parent)
 	QObject::connect(maximizeWindowButton, SIGNAL(clicked()), this,
 		SLOT(maximizeWindow()));
 	QObject::connect(minimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
+
+	//Constants::PathToDb = Constants::AbsolutePathToDb;
 }
 
 

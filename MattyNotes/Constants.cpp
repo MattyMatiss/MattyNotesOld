@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Constants.h"
 
+  QString Constants::PathToDb = "C:\\Users\\Ogrigorieva\\Visual Studio 2015\\Projects\\Personal\\MattyNotes\\MattyNotes.sqlite";
+ const QString Constants::AbsolutePathToDb = "C:\\Users\\Ogrigorieva\\Visual Studio 2015\\Projects\\Personal\\MattyNotes\\MattyNotes.sqlite";
+ const QString Constants::RelativePathToDb = "MattyNotes.sqlite";
 const QString Constants::TimeSeparator = ":";
 const QString Constants::DateSeparator = ".";
 const QString Constants::EmptyQString = "";

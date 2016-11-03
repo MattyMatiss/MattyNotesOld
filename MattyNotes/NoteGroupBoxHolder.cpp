@@ -3,6 +3,7 @@
 #include "MattyGroupBox.h"
 #include "MattyNote.h"
 #include "DbManager.h"
+#include "Constants.h"
 
 int NoteGroupBoxHolder::NoteCount = 0;
 QVector<class MattyNote> NoteGroupBoxHolder::ListOfNotes = QVector<class MattyNote>();
@@ -20,7 +21,7 @@ QVector<class MattyNote> NoteGroupBoxHolder::sortNotesByCrDate()
 {
 	NoteCount = 0;
 
-	DbManager MattyNotesDbManager("MattyNotes.sqlite");
+	DbManager MattyNotesDbManager(Constants::PathToDb);
 
 	QVector<QStringList> ListOfRows = MattyNotesDbManager.getAllNotesOrderByCrDate();
 
