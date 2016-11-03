@@ -37,10 +37,19 @@ MattyNotes::MattyNotes(QWidget *parent)
 	minimizeWindowButton->setMaximumSize(QSize(20, 20));
 	minimizeWindowButton->setFlat(true);
 
-	QWidget* spacer = new QWidget();
-	spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	QWidget* spacer1 = new QWidget();
+	spacer1->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-	ui.mainToolBar->addWidget(spacer);
+	QWidget* spacer2 = new QWidget();
+	spacer2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+	header = new QLabel();
+	header->setText("MattyNotes");
+	header->setStyleSheet("QLabel { color: black; font-style: italic; font-size: 16px;}");
+
+	ui.mainToolBar->addWidget(spacer1);
+	ui.mainToolBar->addWidget(header);
+	ui.mainToolBar->addWidget(spacer2);
 	ui.mainToolBar->addWidget(minimizeWindowButton);
 	ui.mainToolBar->addWidget(maximizeWindowButton);
 	ui.mainToolBar->addWidget(closeWindowButton);
@@ -48,14 +57,15 @@ MattyNotes::MattyNotes(QWidget *parent)
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
 	// 
-	QSizePolicy sp_retain = ui.calendarWidget->sizePolicy();
+	/*QSizePolicy sp_retain = ui.calendarWidget->sizePolicy();
 	sp_retain.setRetainSizeWhenHidden(true);
 	ui.calendarWidget->setSizePolicy(sp_retain);
-	ui.calendarWidget->hide();
+	ui.calendarWidget->hide();*/
 
 	QLCDNumber *ClocksLcdNumber;
 	ClocksLcdNumber = new QLCDNumber(ui.statusBar);
 	ClocksLcdNumber->setObjectName(QStringLiteral("ClocksLcdNumber"));
+	ClocksLcdNumber->setStyleSheet(QStringLiteral("color: black;"));
 	ui.statusBar->addWidget(ClocksLcdNumber);
 	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
 
@@ -74,13 +84,13 @@ MattyNotes::~MattyNotes()
 
 }
 
-void MattyNotes::on_pushButtonCalendar_clicked()
+/*void MattyNotes::on_pushButtonCalendar_clicked()
 {
 	if (!ui.calendarWidget->isVisible())
 		ui.calendarWidget->show();
 	else
 		ui.calendarWidget->hide();
-}
+}*/
 
 void MattyNotes::on_addNoteButton_clicked()
 {

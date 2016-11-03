@@ -16,10 +16,15 @@ public:
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
 	QVBoxLayout* GroupBoxLayout;
+	QPushButton* closeAddingWindowButton;
 	~addNoteDialog();
 
 private:
 	Ui::addNoteDialog addNoteDialogUi;
+	void mousePressEvent(QMouseEvent *event);
+	void mouseMoveEvent(QMouseEvent *event);
+	int m_nMouseClick_X_Coordinate;
+	int m_nMouseClick_Y_Coordinate;
 
 	private slots:
 	void on_createNoteButton_clicked();

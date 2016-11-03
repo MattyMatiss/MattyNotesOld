@@ -9,6 +9,9 @@
 addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) : QWidget(parent)
 {
 	addNoteDialogUi.setupUi(this);
+	this->setWindowFlags(Qt::FramelessWindowHint);
+	closeAddingWindowButton = new QPushButton();
+	QObject::connect(closeAddingWindowButton, SIGNAL(clicked()), this, SLOT(close()));
 	DbManager* MattyNotesDbManager = new DbManager("MattyNotes.sqlite");
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(MattyNotesDbManager->getTypes());
@@ -26,6 +29,7 @@ void addNoteDialog::on_cancelAddingNoteButton_clicked()
 {
 	this->close();
 }
+
 
 void addNoteDialog::on_createNoteButton_clicked()
 {
@@ -49,3 +53,13 @@ void addNoteDialog::on_createNoteButton_clicked()
 	this->close();
 }
 
+void addNoteDialog::mousePressEvent(QMouseEvent *event)
+{
+	m_nMouseClick_X_Coordinate = event->x();
+	m_nMouseClick_Y_Coordinate = event->y();
+}
+
+void addNoteDialog::mouseMoveEvent(QMouseEvent *event)
+{
+	move(event->globalX() - m_nMouseClick_X_Coordinate, event->globalY() - m_nMouseClick_Y_Coordinate);
+}

@@ -102,7 +102,7 @@ int DbManager::getNoteCount()
 QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
 {
 	QVector<QStringList> VectorOfNotes;
-	QSqlQuery getAllNotesQuery("SELECT * FROM Notes ORDER BY CrDate, CrTime");
+	QSqlQuery getAllNotesQuery("SELECT * FROM Notes ORDER BY NoteId");
 	getAllNotesQuery.exec();
 	while (getAllNotesQuery.next())
 	{

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>Main_icon.ico</file>
     <file>CloseWindowHover.png</file>
     <file>MaximizeWindow.png</file>
     <file>MaximizeWindowHover.png</file>

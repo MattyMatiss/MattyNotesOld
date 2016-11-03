@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>574</width>
-    <height>428</height>
+    <width>395</width>
+    <height>338</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>addNoteDialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 194, 11);</string>
+   <string notr="true">#addNoteDialog  { background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69)); }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -24,6 +24,11 @@
        <width>16777215</width>
        <height>31</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 222);
+border: 1px solid transparent;
+border-radius: 10px</string>
      </property>
     </widget>
    </item>
@@ -50,10 +55,17 @@
          <height>0</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 222);
+border: 1px solid transparent;</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QTimeEdit" name="eventTimeEdit">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 222);</string>
+       </property>
        <property name="displayFormat">
         <string>HH:mm</string>
        </property>
@@ -61,6 +73,9 @@
      </item>
      <item>
       <widget class="QDateEdit" name="eventDateEdit">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 222);</string>
+       </property>
        <property name="date">
         <date>
          <year>2016</year>
@@ -92,6 +107,11 @@
        <width>16777215</width>
        <height>16777215</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 222);
+border: 1px solid transparent;
+border-radius: 10px</string>
      </property>
     </widget>
    </item>
