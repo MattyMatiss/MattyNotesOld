@@ -77,7 +77,10 @@ MattyNotes::MattyNotes(QWidget *parent)
 		SLOT(maximizeWindow()));
 	QObject::connect(minimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
 
-	//Constants::PathToDb = Constants::AbsolutePathToDb;
+	//QString moduleName = GetModuleFileName(NULL, szFileName, MAX_PATH);
+	//if(moduleName.ToLower.Contains("qtagent"))
+
+	Constants::setPathToDb(HomeAbsolute);
 }
 
 

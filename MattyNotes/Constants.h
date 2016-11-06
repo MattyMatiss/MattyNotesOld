@@ -5,12 +5,12 @@
 #pragma once
 #endif // _MSC_VER
 
+enum MattyPathToDbType { HomeAbsolute, WorkAbsolute, Relative };
+
 class Constants
 {
 public:
-	static  QString PathToDb;
-	static const QString AbsolutePathToDb;
-	static const QString RelativePathToDb;
+	static QString PathToDb;
 	static const QString TimeSeparator; // ":"
 	static const QString DateSeparator; // "."
 	static const QString EmptyQString; // ""
@@ -20,6 +20,8 @@ public:
 	static const int DateQStringLength; // 10
 	static const int PositionOfFirstDateSeparator; // 2
 	static const int PositionOfSecondDateSeparator; // 5
+	static void setPathToDb(MattyPathToDbType PathType);
+	static void setPathToDb(QString & Path);
 	Constants();
 	~Constants();
 };

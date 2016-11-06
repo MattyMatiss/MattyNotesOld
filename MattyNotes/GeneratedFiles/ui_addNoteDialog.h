@@ -48,8 +48,11 @@ public:
     {
         if (addNoteDialog->objectName().isEmpty())
             addNoteDialog->setObjectName(QStringLiteral("addNoteDialog"));
-        addNoteDialog->resize(395, 338);
-        addNoteDialog->setStyleSheet(QStringLiteral("#addNoteDialog  { background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69)); }"));
+        addNoteDialog->resize(539, 525);
+        addNoteDialog->setStyleSheet(QLatin1String("QWidget#addNoteDialog { background-image: url(:/MattyNotes/NoteBackground600.png);\n"
+"background-repeat: no-repeat;\n"
+"background-size: cover; }\n"
+"QWidget { background-color: rgb(255, 255, 222) }"));
         gridLayout = new QGridLayout(addNoteDialog);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -57,7 +60,7 @@ public:
         noteTitleText = new QTextEdit(addNoteDialog);
         noteTitleText->setObjectName(QStringLiteral("noteTitleText"));
         noteTitleText->setMaximumSize(QSize(16777215, 31));
-        noteTitleText->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 222);\n"
+        noteTitleText->setStyleSheet(QLatin1String("background-color: rgba(255, 255, 222, 100);\n"
 "border: 1px solid transparent;\n"
 "border-radius: 10px"));
 
@@ -73,20 +76,20 @@ public:
         noteTypeComboBox = new QComboBox(addNoteDialog);
         noteTypeComboBox->setObjectName(QStringLiteral("noteTypeComboBox"));
         noteTypeComboBox->setMinimumSize(QSize(150, 0));
-        noteTypeComboBox->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 222);\n"
+        noteTypeComboBox->setStyleSheet(QLatin1String("background-color: rgba(255, 255, 222, 100);\n"
 "border: 1px solid transparent;"));
 
         horizontalLayout->addWidget(noteTypeComboBox);
 
         eventTimeEdit = new QTimeEdit(addNoteDialog);
         eventTimeEdit->setObjectName(QStringLiteral("eventTimeEdit"));
-        eventTimeEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 222);"));
+        eventTimeEdit->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 222, 100);"));
 
         horizontalLayout->addWidget(eventTimeEdit);
 
         eventDateEdit = new QDateEdit(addNoteDialog);
         eventDateEdit->setObjectName(QStringLiteral("eventDateEdit"));
-        eventDateEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 222);"));
+        eventDateEdit->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 222, 100);"));
         eventDateEdit->setDate(QDate(2016, 11, 1));
 
         horizontalLayout->addWidget(eventDateEdit);
@@ -101,9 +104,9 @@ public:
         noteTextText = new QTextEdit(addNoteDialog);
         noteTextText->setObjectName(QStringLiteral("noteTextText"));
         noteTextText->setMaximumSize(QSize(16777215, 16777215));
-        noteTextText->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 222);\n"
+        noteTextText->setStyleSheet(QLatin1String("QTextEdit {background-color: rgba(255, 255, 222, 100);\n"
 "border: 1px solid transparent;\n"
-"border-radius: 10px"));
+"border-radius: 10px}"));
 
         gridLayout->addWidget(noteTextText, 2, 0, 1, 1);
 
@@ -112,6 +115,7 @@ public:
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         cancelAddingNoteButton = new QPushButton(addNoteDialog);
         cancelAddingNoteButton->setObjectName(QStringLiteral("cancelAddingNoteButton"));
+        cancelAddingNoteButton->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 150);"));
 
         horizontalLayout_5->addWidget(cancelAddingNoteButton);
 
@@ -121,6 +125,7 @@ public:
 
         createNoteButton = new QPushButton(addNoteDialog);
         createNoteButton->setObjectName(QStringLiteral("createNoteButton"));
+        createNoteButton->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 150);"));
 
         horizontalLayout_5->addWidget(createNoteButton);
 

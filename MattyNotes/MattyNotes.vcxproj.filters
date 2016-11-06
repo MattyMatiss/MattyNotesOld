@@ -83,6 +83,9 @@
     <ClCompile Include="NoteGroupBoxHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_addnotedialog.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -134,6 +137,9 @@
     </CustomBuild>
     <CustomBuild Include="MattyGroupBox.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="addnotedialog.qrc">
+      <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

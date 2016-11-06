@@ -55,6 +55,7 @@ public:
     QSpacerItem *horizontalSpacer_7;
     QPushButton *editNoteButton;
     QPushButton *deleteNoteButton;
+    QSpacerItem *horizontalSpacer_2;
     QHBoxLayout *horizontalLayout_10;
     QLabel *NoteEventTimeAndDateLabel;
     QSpacerItem *horizontalSpacer_8;
@@ -74,7 +75,7 @@ public:
         centralWidget = new QWidget(MattyNotesClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QLatin1String("#centralWidget {\n"
-"background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));}"));
+"background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255));}"));
         gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -124,7 +125,11 @@ public:
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setMinimumSize(QSize(150, 200));
         groupBox->setMaximumSize(QSize(16777215, 16777215));
-        groupBox->setStyleSheet(QLatin1String("#groupBox { background-color: rgb(255, 255, 222);\n"
+        groupBox->setStyleSheet(QLatin1String("#groupBox { \n"
+"background-image: url(:/MattyNotes/NoteBackground450.png);\n"
+"background-repeat: no-repeat;\n"
+"background-position: bottom right;\n"
+"background-size: 10px; \n"
 "border: 1px solid transparent;\n"
 "border-radius: 10px;}"));
         gridLayout_3 = new QGridLayout(groupBox);
@@ -179,6 +184,10 @@ public:
 
         horizontalLayout_9->addWidget(deleteNoteButton);
 
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_2);
+
 
         verticalLayout_5->addLayout(horizontalLayout_9);
 
@@ -200,7 +209,8 @@ public:
         NoteTextLabel = new QLabel(groupBox);
         NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel"));
         NoteTextLabel->setMinimumSize(QSize(0, 100));
-        NoteTextLabel->setStyleSheet(QStringLiteral("border-color: rgb(0, 0, 0);"));
+        NoteTextLabel->setStyleSheet(QLatin1String("border-color: rgb(0, 0, 0);\n"
+""));
 
         verticalLayout_5->addWidget(NoteTextLabel);
 

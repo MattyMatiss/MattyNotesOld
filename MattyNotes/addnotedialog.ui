@@ -6,15 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>395</width>
-    <height>338</height>
+    <width>539</width>
+    <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>addNoteDialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#addNoteDialog  { background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69)); }</string>
+   <string notr="true">QWidget#addNoteDialog { background-image: url(:/MattyNotes/NoteBackground600.png);
+background-repeat: no-repeat;
+background-size: cover; }
+QWidget { background-color: rgb(255, 255, 222) }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -26,7 +29,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 222);
+      <string notr="true">background-color: rgba(255, 255, 222, 100);
 border: 1px solid transparent;
 border-radius: 10px</string>
      </property>
@@ -56,7 +59,7 @@ border-radius: 10px</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 222);
+        <string notr="true">background-color: rgba(255, 255, 222, 100);
 border: 1px solid transparent;</string>
        </property>
       </widget>
@@ -64,7 +67,7 @@ border: 1px solid transparent;</string>
      <item>
       <widget class="QTimeEdit" name="eventTimeEdit">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 222);</string>
+        <string notr="true">background-color: rgba(255, 255, 222, 100);</string>
        </property>
        <property name="displayFormat">
         <string>HH:mm</string>
@@ -74,7 +77,7 @@ border: 1px solid transparent;</string>
      <item>
       <widget class="QDateEdit" name="eventDateEdit">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 222);</string>
+        <string notr="true">background-color: rgba(255, 255, 222, 100);</string>
        </property>
        <property name="date">
         <date>
@@ -109,9 +112,9 @@ border: 1px solid transparent;</string>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 222);
+      <string notr="true">QTextEdit {background-color: rgba(255, 255, 222, 100);
 border: 1px solid transparent;
-border-radius: 10px</string>
+border-radius: 10px}</string>
      </property>
     </widget>
    </item>
@@ -119,6 +122,9 @@ border-radius: 10px</string>
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QPushButton" name="cancelAddingNoteButton">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 150);</string>
+       </property>
        <property name="text">
         <string>Отмена</string>
        </property>
@@ -139,6 +145,9 @@ border-radius: 10px</string>
      </item>
      <item>
       <widget class="QPushButton" name="createNoteButton">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 150);</string>
+       </property>
        <property name="text">
         <string>Сохранить заметку</string>
        </property>
@@ -149,6 +158,9 @@ border-radius: 10px</string>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="addnotedialog.qrc"/>
+  <include location="mattynotes.qrc"/>
+ </resources>
  <connections/>
 </ui>

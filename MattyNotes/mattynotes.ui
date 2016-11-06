@@ -19,7 +19,7 @@
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
     <string notr="true">#centralWidget {
-background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));}</string>
+background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255));}</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
@@ -102,7 +102,11 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">#groupBox { background-color: rgb(255, 255, 222);
+                 <string notr="true">#groupBox { 
+background-image: url(:/MattyNotes/NoteBackground450.png);
+background-repeat: no-repeat;
+background-position: bottom right;
+background-size: 10px; 
 border: 1px solid transparent;
 border-radius: 10px;}</string>
                 </property>
@@ -198,6 +202,19 @@ border-radius: 10px;}</string>
                        </property>
                       </widget>
                      </item>
+                     <item>
+                      <spacer name="horizontalSpacer_2">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
                     </layout>
                    </item>
                    <item>
@@ -233,7 +250,8 @@ border-radius: 10px;}</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">border-color: rgb(0, 0, 0);</string>
+                      <string notr="true">border-color: rgb(0, 0, 0);
+</string>
                      </property>
                      <property name="text">
                       <string>Текст</string>

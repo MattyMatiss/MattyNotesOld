@@ -10,6 +10,10 @@
 addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) : QWidget(parent)
 {
 	addNoteDialogUi.setupUi(this);
+	this->setStyleSheet("#addNoteDialog{ background-image: url(:/MattyNotes/NoteBackground600.png);"
+	"background-repeat: no-repeat;"
+	"background-size: cover; }"
+	/*"QWidget{ background-color: rgb(255, 255, 222) }"*/);
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	closeAddingWindowButton = new QPushButton();
 	QObject::connect(closeAddingWindowButton, SIGNAL(clicked()), this, SLOT(close()));
