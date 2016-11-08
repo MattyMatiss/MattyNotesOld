@@ -80,7 +80,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 	//QString moduleName = GetModuleFileName(NULL, szFileName, MAX_PATH);
 	//if(moduleName.ToLower.Contains("qtagent"))
 
-	Constants::setPathToDb(HomeAbsolute);
+	Constants::setPathToDb(WorkAbsolute);
 }
 
 
