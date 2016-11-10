@@ -2,11 +2,12 @@
 #include "MattyGroupBox.h"
 #include "MattyNote.h"
 #include "DbManager.h"
-
+#include <QMessageBox>
 
 MattyGroupBox::MattyGroupBox()
 {
 	buildFrame();
+	QObject::connect(deleteNoteButton, SIGNAL(clicked()), this, SLOT(deleteNote()));
 }
 
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
@@ -18,15 +19,23 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Заметка создана: ")
 		+ ThisNote.getCrTime() + " " + ThisNote.getCrDate());
 	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() + ", " + ThisNote.getEvDayofWeek() +  " " + ThisNote.getEventTime());
-	//NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
 
-	//NoteTitleLabel->setText(QString::fromLocal8Bit("Заголовок"));
-	//NoteTypeLabel->setText(QString::fromLocal8Bit("Тип"));
-	//NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано: ")); // append!
-	//NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
-	//NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
+	verticalLayout->setObjectName(QStringLiteral("verticalLayout") + "#" + QString::number(ThisNote.getNoteId()));
+	horizontalLayout_1->setObjectName(QStringLiteral("HorizontalLayout_1") + "#" + QString::number(ThisNote.getNoteId()));
+	horizontalLayout_2->setObjectName(QStringLiteral("HorizontalLayout_2") + "#" + QString::number(ThisNote.getNoteId()));
+	gridLayout->setObjectName(QStringLiteral("gridLayout") + "#" + QString::number(ThisNote.getNoteId()));
+	NoteTypeLabel->setObjectName(QStringLiteral("NoteTypeLabel") + "#" + QString::number(ThisNote.getNoteId()));
+	NoteCrTimeAndDateLabel->setObjectName(QStringLiteral("NoteCrTimeAndDateLabel") + "#" + QString::number(ThisNote.getNoteId()));
+	editNoteButton->setObjectName(QStringLiteral("editNoteButton") + "#" + QString::number(ThisNote.getNoteId()));
+	//deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton") + "#" + QString::number(ThisNote.getNoteId()));
+	NoteEventTimeAndDateLabel->setObjectName(QStringLiteral("NoteEventTimeAndDateLabel") + "#" + QString::number(ThisNote.getNoteId()));
+	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel") + "#" + QString::number(ThisNote.getNoteId()));
+
+	//QString deleteButtonObectName = deleteNoteButton->objectName();
+
 
 }
+
 
 void MattyGroupBox::buildFrame()
 {
@@ -85,7 +94,7 @@ void MattyGroupBox::buildFrame()
 	editNoteButton->setFlat(true);
 
 	deleteNoteButton = new QPushButton(this);
-	deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton"));
+	//deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton"));
 	deleteNoteButton->setSizePolicy(sizePolicy);
 	deleteNoteButton->setMaximumSize(QSize(20, 20));
 	deleteNoteButton->setStyleSheet(QStringLiteral("background-image: url(:/MattyNotes/1s-udalenie.png);"));
@@ -120,12 +129,18 @@ void MattyGroupBox::buildFrame()
 
 	verticalLayout->addItem(verticalSpacer);
 
-	QObject::connect(deleteNoteButton, SIGNAL(clicked()), this, SLOT(deleteNote()));
 }
 
 void MattyGroupBox::deleteNote()
 {
-	DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
+	QMessageBox::StandardButton wantToDeleteNote;
+	wantToDeleteNote = QMessageBox::question(this, QString::fromLocal8Bit("Удаление"), QString::fromLocal8Bit("Вы точно хотите удалить эту заметку?"),
+		QMessageBox::Yes | QMessageBox::No);
+	if (wantToDeleteNote == QMessageBox::Yes)
+	{
+		DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
+		this->hide();
+	}
 }
 
 

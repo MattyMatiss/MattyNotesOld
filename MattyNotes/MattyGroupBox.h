@@ -11,14 +11,13 @@
 class MattyGroupBox :
 	public QGroupBox
 {
-	//Q_OBJECT
+	Q_OBJECT
 public:
 	MattyGroupBox();
 	void fillFrame(class MattyNote & ThisNote);
 	~MattyGroupBox();
 private:
 	void buildFrame();
-	void deleteNote();
 	//QLabel* NoteTitleLabel;
 	QLabel* NoteTypeLabel;
 	QLabel* NoteCrTimeAndDateLabel;
@@ -34,6 +33,9 @@ private:
 	QVBoxLayout *verticalLayout;
 	QGridLayout *gridLayout;
 	class MattyNote ThisGroupBoxNote;
+	private slots:
+	void deleteNote();
+	//void on_deleteNoteButton_clicked();
 };
 
 #endif // MATTYGROUPBOX_H
