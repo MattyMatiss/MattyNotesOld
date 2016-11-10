@@ -4,7 +4,7 @@
 #include "MattyNote.h"
 #include "UtilityFunctions.h"
 #include "mattynotes.h"
-#include "NoteGroupBoxHolder.h"
+#include "NoteHolder.h"
 #include "Constants.h"
 
 addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) : QWidget(parent)
@@ -17,12 +17,11 @@ addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) 
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	closeAddingWindowButton = new QPushButton();
 	QObject::connect(closeAddingWindowButton, SIGNAL(clicked()), this, SLOT(close()));
-	DbManager* MattyNotesDbManager = new DbManager(Constants::PathToDb);
+	DbManager::connect(Constants::PathToDb);
 	addNoteDialogUi.noteTypeComboBox->clear();
-	addNoteDialogUi.noteTypeComboBox->addItems(MattyNotesDbManager->getTypes());
+	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
 	GroupBoxLayout = new QVBoxLayout();
 	GroupBoxLayout = GroupBoxLayoutSent;
-	delete MattyNotesDbManager;
 }
 
 addNoteDialog::~addNoteDialog() 
@@ -46,14 +45,12 @@ void addNoteDialog::on_createNoteButton_clicked()
 		NoteToAdd->setText(addNoteDialogUi.noteTextText->toPlainText());
 		NoteToAdd->setEventTime(UtilityFunctions::repareTime(addNoteDialogUi.eventTimeEdit->text()));
 		NoteToAdd->setEventDate(addNoteDialogUi.eventDateEdit->text());
-		DbManager* MattyNotesDbManager = new DbManager(Constants::PathToDb);
-		MattyNotesDbManager->addNote(NoteToAdd);
-		delete MattyNotesDbManager;
+		DbManager::addNote(NoteToAdd);
 		delete NoteToAdd;
 	}
 
-	NoteGroupBoxHolder::sortNotesByCrDate();
-	NoteGroupBoxHolder::showNotes(0, GroupBoxLayout);
+	NoteHolder::sortNotesByCrDate();
+	NoteHolder::showNotes(0, GroupBoxLayout);
 
 	this->close();
 }

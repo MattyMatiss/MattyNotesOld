@@ -12,19 +12,20 @@
 class DbManager
 {
 public:
-	DbManager(const QString& path);
+	DbManager();
 	~DbManager();
-	bool addNote(MattyNote * Note);
-	bool deleteNote();
-	void showNote();
-	QSqlTableModel* getModel(const QString& path);
-	QStringList getTypes();
-	QString getTypeName(int TypeId);
-	int getTypeId(const QString & TypeName);
-	int getNoteCount();
-	QVector<QStringList> getAllNotesOrderByCrDate();
+	static bool connect(const QString& path);
+	static bool addNote(MattyNote * Note);
+	static bool deleteNote(int NoteId);
+	static void showNote();
+	static QSqlTableModel* getModel(const QString& path);
+	static QStringList getTypes();
+	static QString getTypeName(int TypeId);
+	static int getTypeId(const QString & TypeName);
+	static int getNoteCount();
+	static QVector<QStringList> getAllNotesOrderByCrDate();
 private:
-	QSqlDatabase MattyNotesDb;
+	static QSqlDatabase MattyNotesDb;
 };
 
 #endif // DBMANAGER_H

@@ -5,6 +5,8 @@
 #pragma once
 #endif // _MSC_VER
 
+#include "MattyNote.h"
+
 //#include "C:\Qt\Qt5.7.0\5.7\msvc2015_64\include\QtWidgets\qgroupbox.h"
 class MattyGroupBox :
 	public QGroupBox
@@ -16,6 +18,7 @@ public:
 	~MattyGroupBox();
 private:
 	void buildFrame();
+	void deleteNote();
 	//QLabel* NoteTitleLabel;
 	QLabel* NoteTypeLabel;
 	QLabel* NoteCrTimeAndDateLabel;
@@ -30,7 +33,7 @@ private:
 	QHBoxLayout* horizontalLayout_2;
 	QVBoxLayout *verticalLayout;
 	QGridLayout *gridLayout;
-	
+	class MattyNote ThisGroupBoxNote;
 };
 
 #endif // MATTYGROUPBOX_H

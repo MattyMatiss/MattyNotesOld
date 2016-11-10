@@ -1,5 +1,5 @@
-#ifndef NOTEGROUPBOXHOLDER_H
-#define NOTEGROUPBOXHOLDER_H
+#ifndef NOTEHOLDER_H
+#define NOTEHOLDER_H
 
 #ifdef _MSC_VER
 #pragma once
@@ -7,11 +7,11 @@
 
 
 
-class NoteGroupBoxHolder
+class NoteHolder
 {
 public:
-	NoteGroupBoxHolder();
-	~NoteGroupBoxHolder();
+	NoteHolder();
+	~NoteHolder();
 	static QVector<class MattyNote> sortNotesByCrDate();
 	static void showNotes(int orderDirection, QVBoxLayout* ParentLayout);
 private:
@@ -19,4 +19,4 @@ private:
 	static QVector<class MattyNote> ListOfNotes;
 };
 
-#endif // NOTEGROUPBOXHOLDER_H
+#endif // NOTEHOLDER_H

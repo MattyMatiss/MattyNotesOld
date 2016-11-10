@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MattyGroupBox.h"
 #include "MattyNote.h"
+#include "DbManager.h"
 
 
 MattyGroupBox::MattyGroupBox()
@@ -10,6 +11,7 @@ MattyGroupBox::MattyGroupBox()
 
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 {
+	ThisGroupBoxNote = ThisNote;
 	//NoteTitleLabel->setText(ThisNote.getTitle());
 	NoteTypeLabel->setText(ThisNote.getType());
 	NoteTextLabel->setText(ThisNote.getText());
@@ -117,7 +119,15 @@ void MattyGroupBox::buildFrame()
 	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
 	verticalLayout->addItem(verticalSpacer);
+
+	QObject::connect(deleteNoteButton, SIGNAL(clicked()), this, SLOT(deleteNote()));
 }
+
+void MattyGroupBox::deleteNote()
+{
+	DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
+}
+
 
 MattyGroupBox::~MattyGroupBox()
 {

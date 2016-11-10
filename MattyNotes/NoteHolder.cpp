@@ -1,29 +1,27 @@
 #include "stdafx.h"
-#include "NoteGroupBoxHolder.h"
+#include "NoteHolder.h"
 #include "MattyGroupBox.h"
 #include "MattyNote.h"
 #include "DbManager.h"
 #include "Constants.h"
 
-int NoteGroupBoxHolder::NoteCount = 0;
-QVector<class MattyNote> NoteGroupBoxHolder::ListOfNotes = QVector<class MattyNote>();
+int NoteHolder::NoteCount = 0;
+QVector<class MattyNote> NoteHolder::ListOfNotes = QVector<class MattyNote>();
 
-NoteGroupBoxHolder::NoteGroupBoxHolder()
+NoteHolder::NoteHolder()
 {
 }
 
 
-NoteGroupBoxHolder::~NoteGroupBoxHolder()
+NoteHolder::~NoteHolder()
 {
 }
 
-QVector<class MattyNote> NoteGroupBoxHolder::sortNotesByCrDate()
+QVector<class MattyNote> NoteHolder::sortNotesByCrDate()
 {
 	NoteCount = 0;
 
-	DbManager MattyNotesDbManager(Constants::PathToDb);
-
-	QVector<QStringList> ListOfRows = MattyNotesDbManager.getAllNotesOrderByCrDate();
+	QVector<QStringList> ListOfRows = DbManager::getAllNotesOrderByCrDate();
 
 	if (!ListOfNotes.isEmpty())
 		ListOfNotes.clear();
@@ -38,7 +36,7 @@ QVector<class MattyNote> NoteGroupBoxHolder::sortNotesByCrDate()
 	return ListOfNotes;
 }
 
-void NoteGroupBoxHolder::showNotes(int orderDirection, QVBoxLayout * ParentLayout)
+void NoteHolder::showNotes(int orderDirection, QVBoxLayout * ParentLayout)
 {
 	//getNotesOrderByCrDate();
 	QVector<class MattyNote>::iterator NoteNumber;

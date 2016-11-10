@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>MattyNotes.sqlite</file>
     <file>NoteBackground600.png</file>
     <file>NoteBackground450.png</file>
     <file>Main_icon.ico</file>

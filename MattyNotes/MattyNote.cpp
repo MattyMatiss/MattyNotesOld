@@ -44,18 +44,14 @@ void MattyNote::setTitle(const QString & Title)
 
 void MattyNote::setType(const QString & TypeName)
 {
-	DbManager* MattyNotesDbManager = new DbManager(Constants::PathToDb);
-	NoteTypeId = MattyNotesDbManager->getTypeId(TypeName);
+	NoteTypeId = DbManager::getTypeId(TypeName);
 	NoteType = TypeName;
-	delete MattyNotesDbManager;
 }
 
 void MattyNote::setType(int TypeId)
 {
-	DbManager* MattyNotesDbManager = new DbManager(Constants::PathToDb);
-	NoteType = MattyNotesDbManager->getTypeName(TypeId);
+	NoteType = DbManager::getTypeName(TypeId);
 	NoteTypeId = TypeId;
-	delete MattyNotesDbManager;
 }
 
 void MattyNote::setText(const QString & Text)

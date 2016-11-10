@@ -6,18 +6,11 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
+QSqlDatabase DbManager::MattyNotesDb;
 
-
-DbManager::DbManager(const QString& path)
+DbManager::DbManager()
 {
-	MattyNotesDb = QSqlDatabase::addDatabase("QSQLITE");
-	MattyNotesDb.setDatabaseName(path);
-
-	if (!MattyNotesDb.open())
-	{
-		QMessageBox::critical(NULL, QObject::tr("Error"), MattyNotesDb.lastError().text());
-		MattyNotesDb.close();
-	}
+	
 }
 
 bool DbManager::addNote(MattyNote * Note)
@@ -37,9 +30,12 @@ bool DbManager::addNote(MattyNote * Note)
 
 	//return true;
 }
-bool DbManager::deleteNote()
+bool DbManager::deleteNote(int NoteId)
 {
-	return true;
+	QSqlQuery deleteNoteQuery;
+	deleteNoteQuery.prepare("DELETE FROM Notes WHERE NoteId=:NoteId");
+	deleteNoteQuery.bindValue(":NoteId", NoteId);
+	return deleteNoteQuery.exec();
 }
 void DbManager::showNote()
 {
@@ -119,4 +115,20 @@ QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
 
 DbManager::~DbManager()
 {
+}
+
+bool DbManager::connect(const QString & path)
+{
+	MattyNotesDb = QSqlDatabase::addDatabase("QSQLITE");
+	MattyNotesDb.setDatabaseName(path);
+
+	if (!MattyNotesDb.open())
+	{
+		QMessageBox::critical(NULL, QObject::tr("Error"), MattyNotesDb.lastError().text());
+		MattyNotesDb.close();
+
+		return false;
+	}
+
+	return true;
 }

@@ -5,13 +5,17 @@
 #include "MattyNote.h"
 #include "addnotedialog.h"
 #include "MattyGroupBox.h"
-#include "NoteGroupBoxHolder.h"
+#include "NoteHolder.h"
 #include "Constants.h"
 
 MattyNotes::MattyNotes(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+
+
+	Constants::setPathToDb(Relative);
+	DbManager::connect(Constants::PathToDb);
 
 	closeWindowButton = new QPushButton();
 	closeWindowButton->setObjectName("closeWindowButton");
@@ -69,8 +73,8 @@ MattyNotes::MattyNotes(QWidget *parent)
 	ui.statusBar->addWidget(ClocksLcdNumber);
 	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
 
-	NoteGroupBoxHolder::sortNotesByCrDate();
-	NoteGroupBoxHolder::showNotes(0, ui.verticalLayout_4);
+	NoteHolder::sortNotesByCrDate();
+	NoteHolder::showNotes(0, ui.verticalLayout_4);
 
 	QObject::connect(closeWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
 	QObject::connect(maximizeWindowButton, SIGNAL(clicked()), this,
@@ -80,7 +84,6 @@ MattyNotes::MattyNotes(QWidget *parent)
 	//QString moduleName = GetModuleFileName(NULL, szFileName, MAX_PATH);
 	//if(moduleName.ToLower.Contains("qtagent"))
 
-	Constants::setPathToDb(WorkAbsolute);
 }
 
 

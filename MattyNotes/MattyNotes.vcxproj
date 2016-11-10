@@ -200,7 +200,7 @@
     <ClCompile Include="MattyNote.cpp" />
     <ClCompile Include="mattynotes.cpp" />
     <ClCompile Include="MattyTime.cpp" />
-    <ClCompile Include="NoteGroupBoxHolder.cpp" />
+    <ClCompile Include="NoteHolder.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -212,7 +212,7 @@
   <ItemGroup>
     <CustomBuild Include="MattyGroupBox.h" />
     <ClInclude Include="GeneratedFiles\ui_addnotedialog.h" />
-    <ClInclude Include="NoteGroupBoxHolder.h" />
+    <ClInclude Include="NoteHolder.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="UtilityFunctions.h" />
     <CustomBuild Include="addnotedialog.h">
