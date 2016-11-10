@@ -131,7 +131,12 @@ public:
 "background-position: bottom right;\n"
 "background-size: 10px; \n"
 "border: 1px solid transparent;\n"
-"border-radius: 10px;}"));
+"border-radius: 10px;\n"
+"font-weight: bold;\n"
+"font-size: 14px;\n"
+"font-style: italic;\n"
+"color: #4d3f3d;\n"
+"}"));
         gridLayout_3 = new QGridLayout(groupBox);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);

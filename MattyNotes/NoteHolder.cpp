@@ -53,7 +53,6 @@ void NoteHolder::showNotes(int orderDirection, QVBoxLayout * ParentLayout)
 		MattyGroupBox* MyGroupBox = new MattyGroupBox();
 		MyGroupBox->fillFrame(*NoteNumber);
 		HorizontalLayout->addWidget(MyGroupBox);
-		MyGroupBox->setTitle(NoteNumber->getTitle());
 		MyGroupBox->setObjectName(GroupBoxName);
 		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
 	}

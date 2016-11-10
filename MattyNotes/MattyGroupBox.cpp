@@ -3,6 +3,7 @@
 #include "MattyNote.h"
 #include "DbManager.h"
 #include <QMessageBox>
+#include <QGraphicsDropShadowEffect>
 
 MattyGroupBox::MattyGroupBox()
 {
@@ -13,14 +14,35 @@ MattyGroupBox::MattyGroupBox()
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 {
 	ThisGroupBoxNote = ThisNote;
-	//NoteTitleLabel->setText(ThisNote.getTitle());
+	this->setTitle(ThisNote.getTitle());
 	NoteTypeLabel->setText(ThisNote.getType());
 	NoteTextLabel->setText(ThisNote.getText());
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Заметка создана: ")
 		+ ThisNote.getCrTime() + " " + ThisNote.getCrDate());
 	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() + ", " + ThisNote.getEvDayofWeek() +  " " + ThisNote.getEventTime());
 
-	verticalLayout->setObjectName(QStringLiteral("verticalLayout") + "#" + QString::number(ThisNote.getNoteId()));
+	this->setObjectName("MattyGroupBox");
+	this->setStyleSheet("MattyGroupBox { background-color: #fada5c; "
+		"background-repeat: no-repeat;"
+		"background-position: bottom right;"
+		"background-size: 10px;"
+		"border: 1px solid transparent;"
+		"border-radius: 10px;"
+		"font-weight: bold;"
+		"font-size: 14px;"
+		"font-style: italic;"
+		"color: #4d3f3d;"
+		"padding-right: 50px;"
+		"padding-top: 25px;"
+		"padding-bottom: 25px;"
+		"padding-left: 25px;}");
+	QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
+	this->setGraphicsEffect(effect);
+
+	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel") /*+ "#" + QString::number(ThisNote.getNoteId())*/);
+	//NoteTextLabel->setStyleSheet("NoteTextLabel { padding-right: 150px;}");
+
+	/*verticalLayout->setObjectName(QStringLiteral("verticalLayout") + "#" + QString::number(ThisNote.getNoteId()));
 	horizontalLayout_1->setObjectName(QStringLiteral("HorizontalLayout_1") + "#" + QString::number(ThisNote.getNoteId()));
 	horizontalLayout_2->setObjectName(QStringLiteral("HorizontalLayout_2") + "#" + QString::number(ThisNote.getNoteId()));
 	gridLayout->setObjectName(QStringLiteral("gridLayout") + "#" + QString::number(ThisNote.getNoteId()));
@@ -29,11 +51,7 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 	editNoteButton->setObjectName(QStringLiteral("editNoteButton") + "#" + QString::number(ThisNote.getNoteId()));
 	//deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton") + "#" + QString::number(ThisNote.getNoteId()));
 	NoteEventTimeAndDateLabel->setObjectName(QStringLiteral("NoteEventTimeAndDateLabel") + "#" + QString::number(ThisNote.getNoteId()));
-	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel") + "#" + QString::number(ThisNote.getNoteId()));
-
-	//QString deleteButtonObectName = deleteNoteButton->objectName();
-
-
+	*/
 }
 
 
