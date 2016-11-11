@@ -37,9 +37,6 @@ public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout_3;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_3;
-    QPushButton *addNoteButton;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout_2;
@@ -84,31 +81,6 @@ public:
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalSpacer_3 = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_3);
-
-        addNoteButton = new QPushButton(centralWidget);
-        addNoteButton->setObjectName(QStringLiteral("addNoteButton"));
-        addNoteButton->setMinimumSize(QSize(51, 51));
-        addNoteButton->setMaximumSize(QSize(51, 51));
-        addNoteButton->setStyleSheet(QLatin1String("#addNoteButton { background-color: transparent;\n"
-"background-image: url(:/MattyNotes/AddNote.png);\n"
-"color: transparent;\n"
-"font-weight: bold;\n"
-"font-style: italic;\n"
-"font-family: Comic Sans MS; }\n"
-"#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
-"color: #6d6f6d; }"));
-
-        horizontalLayout_3->addWidget(addNoteButton);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_3);
-
         scrollArea = new QScrollArea(centralWidget);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setStyleSheet(QLatin1String("QScrollArea { background: transparent; border: 0px none transparent; }\n"
@@ -116,7 +88,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 337, 402));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 337, 461));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -295,7 +267,6 @@ public:
     void retranslateUi(QMainWindow *MattyNotesClass)
     {
         MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
-        addNoteButton->setText(QString());
         groupBox->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
         NoteTitleLabel->setText(QApplication::translate("MattyNotesClass", "\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272", 0));
         NoteTypeLabel->setText(QApplication::translate("MattyNotesClass", "\320\242\320\270\320\277", 0));

@@ -21,7 +21,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 	closeWindowButton->setObjectName("closeWindowButton");
 	closeWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/CloseWindow.png);"
 		"background-position: center;}"
-" QPushButton:hover { background-image: url(:/MattyNotes/CloseWindowHover.png);background-position: center; }"));
+		" QPushButton:hover { background-image: url(:/MattyNotes/CloseWindowHover.png);background-position: center; }"));
 	closeWindowButton->setMaximumSize(QSize(20, 20));
 	closeWindowButton->setFlat(true);
 
@@ -67,12 +67,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 	ui.calendarWidget->setSizePolicy(sp_retain);
 	ui.calendarWidget->hide();*/
 
-	QLCDNumber *ClocksLcdNumber;
-	ClocksLcdNumber = new QLCDNumber(ui.statusBar);
-	ClocksLcdNumber->setObjectName(QStringLiteral("ClocksLcdNumber"));
-	ClocksLcdNumber->setStyleSheet(QStringLiteral("color: black;"));
-	ui.statusBar->addWidget(ClocksLcdNumber);
-	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
+
 
 	NoteHolder::sortNotesByCrDate();
 	NoteHolder::showNotes(0, ui.verticalLayout_4);
@@ -82,8 +77,39 @@ MattyNotes::MattyNotes(QWidget *parent)
 		SLOT(maximizeWindow()));
 	QObject::connect(minimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
 
-	//QString moduleName = GetModuleFileName(NULL, szFileName, MAX_PATH);
-	//if(moduleName.ToLower.Contains("qtagent"))
+	addNoteButtonTemp = new QPushButton(this);
+	addNoteButtonTemp->setObjectName(QStringLiteral("addNoteButtonTemp"));
+	addNoteButtonTemp->setMinimumSize(QSize(51, 51));
+	addNoteButtonTemp->setMaximumSize(QSize(51, 51));
+	addNoteButtonTemp->setStyleSheet(QLatin1String("#addNoteButtonTemp { background-color: transparent;\n"
+		"background-image: url(:/MattyNotes/AddNote.png);\n"
+		"color: transparent;\n"
+		"font-weight: bold;\n"
+		"font-style: italic;\n"
+		"font-family: Comic Sans MS; }\n"
+		"#addNoteButtonTemp:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
+		"color: #6d6f6d; }"));
+
+	MattyToolBar = new QToolBar(this);
+	MattyToolBar->setObjectName(QStringLiteral("MattyToolBar"));
+	this->addToolBar(Qt::BottomToolBarArea, MattyToolBar);
+	Qt::ToolBarAreas MattyToolBarAreas;
+	MattyToolBarAreas.setFlag(Qt::BottomToolBarArea);
+	MattyToolBarAreas.setFlag(Qt::LeftToolBarArea);
+	MattyToolBarAreas.setFlag(Qt::RightToolBarArea);
+	MattyToolBarAreas.setFlag(Qt::TopToolBarArea);
+	MattyToolBar->setAllowedAreas(MattyToolBarAreas);
+
+	QLCDNumber *ClocksLcdNumber;
+	ClocksLcdNumber = new QLCDNumber(ui.statusBar);
+	ClocksLcdNumber->setObjectName(QStringLiteral("ClocksLcdNumber"));
+	ClocksLcdNumber->setStyleSheet(QStringLiteral("color: black;"));
+	MattyToolBar->addWidget(ClocksLcdNumber);
+	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
+
+	MattyToolBar->addWidget(addNoteButtonTemp);
+
+	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 
 }
 
@@ -101,7 +127,7 @@ MattyNotes::~MattyNotes()
 		ui.calendarWidget->hide();
 }*/
 
-void MattyNotes::on_addNoteButton_clicked()
+void MattyNotes::on_addNoteButtonTemp_clicked()
 {
 	addNoteDialog* newAddNoteDialog = new addNoteDialog(ui.verticalLayout_4);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 

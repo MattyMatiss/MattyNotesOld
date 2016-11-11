@@ -25,52 +25,6 @@ background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 
     <item row="0" column="1">
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>18</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="addNoteButton">
-          <property name="minimumSize">
-           <size>
-            <width>51</width>
-            <height>51</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>51</width>
-            <height>51</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">#addNoteButton { background-color: transparent;
-background-image: url(:/MattyNotes/AddNote.png);
-color: transparent;
-font-weight: bold;
-font-style: italic;
-font-family: Comic Sans MS; }
-#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); 
-color: #6d6f6d; }</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
        <widget class="QScrollArea" name="scrollArea">
         <property name="styleSheet">
          <string notr="true">QScrollArea { background: transparent; border: 0px none transparent; }
@@ -85,7 +39,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
            <x>0</x>
            <y>0</y>
            <width>337</width>
-           <height>402</height>
+           <height>461</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">

@@ -16,10 +16,11 @@ public:
 	MattyNotes(QWidget *parent = 0);
 	//QPushButton pushButton;
 	QLabel* header;
-	QPushButton addNoteButton;
 	QPushButton* closeWindowButton;
 	QPushButton* maximizeWindowButton;
 	QPushButton* minimizeWindowButton;
+	QToolBar *MattyToolBar;
+	QPushButton *addNoteButtonTemp;
 	//QPushButton refreshDb;
 	~MattyNotes();
 
@@ -32,8 +33,7 @@ private:
 	int m_nMouseClick_Y_Coordinate;
 
 	private slots:
-	//void on_pushButtonCalendar_clicked();
-	void on_addNoteButton_clicked();
+	void on_addNoteButtonTemp_clicked();
 	void closeWindow();
 	void maximizeWindow();
 	void minimizeWindow();
