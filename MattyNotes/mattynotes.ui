@@ -60,11 +60,11 @@ color: transparent;
 font-weight: bold;
 font-style: italic;
 font-family: Comic Sans MS; }
-#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHover.png); 
+#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); 
 color: #6d6f6d; }</string>
           </property>
           <property name="text">
-           <string>Создать</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -93,8 +93,17 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
            <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="leftMargin">
+               <number>12</number>
+              </property>
               <property name="topMargin">
-               <number>25</number>
+               <number>12</number>
+              </property>
+              <property name="rightMargin">
+               <number>12</number>
+              </property>
+              <property name="bottomMargin">
+               <number>12</number>
               </property>
               <item>
                <widget class="QGroupBox" name="groupBox">
@@ -123,10 +132,15 @@ font-weight: bold;
 font-size: 14px;
 font-style: italic;
 font-family: Comic Sans MS;
-color: #4d3f3d;
+color: #4d3f3d; 
+text-decoration: underline; 
+padding-right: 25px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-left: 25px;
 }
-#groupBox::title { padding-left: 35px;  text-decoration: underline; }
-QLabel { font-family: Comic Sans MS; }</string>
+#groupBox::title { padding-left: 35px; }
+QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
                 </property>
                 <property name="title">
                  <string>GroupBox</string>
@@ -136,6 +150,9 @@ QLabel { font-family: Comic Sans MS; }</string>
                   <layout class="QVBoxLayout" name="verticalLayout_5">
                    <item>
                     <widget class="Line" name="line">
+                     <property name="styleSheet">
+                      <string notr="true">margin-top: 15px;</string>
+                     </property>
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>

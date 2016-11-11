@@ -103,7 +103,6 @@ void MattyGroupBox::buildFrame()
 		"#deleteNoteButton:hover{ background-image: url(:/MattyNotes/DeleteNoteHover.png);  background-position: center; }"));
 	deleteNoteButton->setFlat(true);
 
-	//horizontalLayout_1->addWidget(NoteTitleLabel);
 	horizontalLayout_1->addWidget(NoteTypeLabel);
 	horizontalLayout_1->addWidget(NoteCrTimeAndDateLabel);
 	horizontalLayout_1->addItem(horizontalSpacer_1);
@@ -123,6 +122,7 @@ void MattyGroupBox::buildFrame()
 	NoteTextLabel = new QLabel();
 	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel"));
 	NoteTextLabel->setMinimumSize(QSize(0, 100));
+	//NoteTextLabel->setStyleSheet(QStringLiteral("text - indent: 25px;"));
 
 	verticalLayout->addWidget(NoteTextLabel);
 	NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
@@ -147,8 +147,9 @@ void MattyGroupBox::buildFrame()
 		"padding-top: 25px;"
 		"padding-bottom: 25px;"
 		"padding-left: 25px;"
-		"font-family: Comic Sans MS; }"
-		"MattyGroupBox::title { padding-left: 35px; text-decoration: underline; }"
+		"font-family: Comic Sans MS; "
+		"text-decoration: underline; }"
+		"MattyGroupBox::title { padding-left: 35px;  }"
 		"QLabel { font-family: Comic Sans MS; font-style: italic; }");
 	QGraphicsDropShadowEffect* GroupBoxShadow = new QGraphicsDropShadowEffect();
 	GroupBoxShadow->setBlurRadius(25.0);

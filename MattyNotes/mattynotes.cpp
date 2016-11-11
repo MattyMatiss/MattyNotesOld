@@ -57,6 +57,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 	ui.mainToolBar->addWidget(minimizeWindowButton);
 	ui.mainToolBar->addWidget(maximizeWindowButton);
 	ui.mainToolBar->addWidget(closeWindowButton);
+	ui.mainToolBar->setMovable(false);
 
 	this->setWindowFlags(Qt::FramelessWindowHint);
 

@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -47,6 +48,7 @@ public:
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout_5;
+    QFrame *line;
     QHBoxLayout *horizontalLayout_9;
     QLabel *NoteTitleLabel;
     QLabel *NoteTypeLabel;
@@ -99,7 +101,7 @@ public:
 "font-weight: bold;\n"
 "font-style: italic;\n"
 "font-family: Comic Sans MS; }\n"
-"#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHover.png); \n"
+"#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
 "color: #6d6f6d; }"));
 
         horizontalLayout_3->addWidget(addNoteButton);
@@ -125,7 +127,7 @@ public:
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        horizontalLayout_7->setContentsMargins(-1, 25, -1, -1);
+        horizontalLayout_7->setContentsMargins(12, 12, 12, 12);
         groupBox = new QGroupBox(scrollAreaWidgetContents);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setMinimumSize(QSize(150, 200));
@@ -142,10 +144,15 @@ public:
 "font-size: 14px;\n"
 "font-style: italic;\n"
 "font-family: Comic Sans MS;\n"
-"color: #4d3f3d;\n"
+"color: #4d3f3d; \n"
+"text-decoration: underline; \n"
+"padding-right: 25px;\n"
+"	padding-top: 25px;\n"
+"	padding-bottom: 25px;\n"
+"	padding-left: 25px;\n"
 "}\n"
-"#groupBox::title { padding-left: 35px;  text-decoration: underline; }\n"
-"QLabel { font-family: Comic Sans MS; }"));
+"#groupBox::title { padding-left: 35px; }\n"
+"QLabel { font-family: Comic Sans MS; font-style: italic; }"));
         gridLayout_3 = new QGridLayout(groupBox);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -153,6 +160,14 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        line = new QFrame(groupBox);
+        line->setObjectName(QStringLiteral("line"));
+        line->setStyleSheet(QStringLiteral("margin-top: 15px;"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_5->addWidget(line);
+
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setSpacing(6);
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
@@ -280,7 +295,7 @@ public:
     void retranslateUi(QMainWindow *MattyNotesClass)
     {
         MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
-        addNoteButton->setText(QApplication::translate("MattyNotesClass", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214", 0));
+        addNoteButton->setText(QString());
         groupBox->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
         NoteTitleLabel->setText(QApplication::translate("MattyNotesClass", "\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272", 0));
         NoteTypeLabel->setText(QApplication::translate("MattyNotesClass", "\320\242\320\270\320\277", 0));
