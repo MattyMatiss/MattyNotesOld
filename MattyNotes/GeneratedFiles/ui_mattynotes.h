@@ -255,7 +255,7 @@ public:
         statusBar = new QStatusBar(MattyNotesClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         statusBar->setMinimumSize(QSize(0, 0));
-        statusBar->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 127);\n"
+        statusBar->setStyleSheet(QLatin1String("background-color: rgb(255, 220, 0);\n"
 "border-color: rgb(255, 255, 255);"));
         MattyNotesClass->setStatusBar(statusBar);
 

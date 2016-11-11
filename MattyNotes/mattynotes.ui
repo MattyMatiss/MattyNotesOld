@@ -325,7 +325,7 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 127);
+    <string notr="true">background-color: rgb(255, 220, 0);
 border-color: rgb(255, 255, 255);</string>
    </property>
   </widget>

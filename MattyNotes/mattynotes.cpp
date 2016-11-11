@@ -107,7 +107,11 @@ MattyNotes::MattyNotes(QWidget *parent)
 	MattyToolBar->addWidget(ClocksLcdNumber);
 	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
 
+	QWidget* spacer3 = new QWidget();
+	spacer3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	MattyToolBar->addWidget(spacer3);
 	MattyToolBar->addWidget(addNoteButtonTemp);
+	MattyToolBar->setStyleSheet(QStringLiteral("padding-right: 25px;"));
 
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 
