@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>AddNote.png</file>
+    <file>AddNoteHover.png</file>
+    <file>DeleteNote.png</file>
+    <file>DeleteNoteHover.png</file>
+    <file>EditNote.png</file>
+    <file>EditNoteHover.png</file>
     <file>MattyNotes.sqlite</file>
     <file>NoteBackground600.png</file>
     <file>NoteBackground450.png</file>

@@ -46,6 +46,7 @@ void NoteHolder::showNotes(int orderDirection, QVBoxLayout * ParentLayout)
 		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
 		QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
+		HorizontalLayout->setMargin(12);
 		HorizontalLayout->setSpacing(6);
 		HorizontalLayout->setStretch(0, 0);
 		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);

@@ -21,24 +21,7 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 		+ ThisNote.getCrTime() + " " + ThisNote.getCrDate());
 	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() + ", " + ThisNote.getEvDayofWeek() +  " " + ThisNote.getEventTime());
 
-	this->setObjectName("MattyGroupBox");
-	this->setStyleSheet("MattyGroupBox { background-color: #fada5c; "
-		"background-repeat: no-repeat;"
-		"background-position: bottom right;"
-		"background-size: 10px;"
-		"border: 1px solid transparent;"
-		"border-radius: 10px;"
-		"font-weight: bold;"
-		"font-size: 14px;"
-		"font-style: italic;"
-		"color: #4d3f3d;"
-		"padding-right: 50px;"
-		"padding-top: 25px;"
-		"padding-bottom: 25px;"
-		"padding-left: 25px;}");
-	QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
-	this->setGraphicsEffect(effect);
-
+	
 	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel") /*+ "#" + QString::number(ThisNote.getNoteId())*/);
 	//NoteTextLabel->setStyleSheet("NoteTextLabel { padding-right: 150px;}");
 
@@ -107,15 +90,17 @@ void MattyGroupBox::buildFrame()
 	editNoteButton = new QPushButton(this);
 	editNoteButton->setObjectName(QStringLiteral("editNoteButton"));
 	editNoteButton->setSizePolicy(sizePolicy);
-	editNoteButton->setMaximumSize(QSize(20, 20));
-	editNoteButton->setStyleSheet(QStringLiteral("background-image: url(:/MattyNotes/edit.png);"));
+	editNoteButton->setMaximumSize(QSize(21, 21));
+	editNoteButton->setStyleSheet(QStringLiteral("#editNoteButton  { background-image: url(:/MattyNotes/EditNote.png);  background-position: center; } "
+		"#editNoteButton:hover{ background-image: url(:/MattyNotes/EditNoteHover.png);  background-position: center; }"));
 	editNoteButton->setFlat(true);
 
 	deleteNoteButton = new QPushButton(this);
-	//deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton"));
+	deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton"));
 	deleteNoteButton->setSizePolicy(sizePolicy);
-	deleteNoteButton->setMaximumSize(QSize(20, 20));
-	deleteNoteButton->setStyleSheet(QStringLiteral("background-image: url(:/MattyNotes/1s-udalenie.png);"));
+	deleteNoteButton->setMaximumSize(QSize(21, 21));
+	deleteNoteButton->setStyleSheet(QStringLiteral("#deleteNoteButton  { background-image: url(:/MattyNotes/DeleteNote.png);  background-position: center; } "
+		"#deleteNoteButton:hover{ background-image: url(:/MattyNotes/DeleteNoteHover.png);  background-position: center; }"));
 	deleteNoteButton->setFlat(true);
 
 	//horizontalLayout_1->addWidget(NoteTitleLabel);
@@ -146,6 +131,31 @@ void MattyGroupBox::buildFrame()
 	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
 	verticalLayout->addItem(verticalSpacer);
+
+	this->setObjectName("MattyGroupBox");
+	this->setStyleSheet("MattyGroupBox { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); "
+		"background-repeat: no-repeat;"
+		"background-position: bottom right;"
+		"background-size: 10px;"
+		"border: 1px solid transparent;"
+		"border-radius: 10px;"
+		"font-weight: bold;"
+		"font-size: 14px;"
+		"font-style: italic;"
+		"color: #4d3f3d;"
+		"padding-right: 25px;"
+		"padding-top: 25px;"
+		"padding-bottom: 25px;"
+		"padding-left: 25px;"
+		"font-family: Comic Sans MS; }"
+		"MattyGroupBox::title { padding-left: 35px; text-decoration: underline; }"
+		"QLabel { font-family: Comic Sans MS; font-style: italic; }");
+	QGraphicsDropShadowEffect* GroupBoxShadow = new QGraphicsDropShadowEffect();
+	GroupBoxShadow->setBlurRadius(25.0);
+	QColor ShadowColor = QColor(77, 63, 61, 200);
+	GroupBoxShadow->setColor(ShadowColor);
+	GroupBoxShadow->setOffset(15, 15);
+	this->setGraphicsEffect(GroupBoxShadow);
 
 }
 

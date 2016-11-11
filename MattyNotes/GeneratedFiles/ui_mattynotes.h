@@ -39,7 +39,6 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *addNoteButton;
-    QSpacerItem *horizontalSpacer_5;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout_2;
@@ -92,13 +91,18 @@ public:
 
         addNoteButton = new QPushButton(centralWidget);
         addNoteButton->setObjectName(QStringLiteral("addNoteButton"));
-        addNoteButton->setStyleSheet(QStringLiteral("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 0, 0, 0), stop:0.52 rgba(0, 0, 0, 0), stop:0.565 rgba(82, 121, 76, 33), stop:0.65 rgba(159, 235, 148, 64), stop:0.721925 rgba(255, 238, 150, 129), stop:0.77 rgba(255, 128, 128, 204), stop:0.89 rgba(191, 128, 255, 64), stop:1 rgba(0, 0, 0, 0));"));
+        addNoteButton->setMinimumSize(QSize(51, 51));
+        addNoteButton->setMaximumSize(QSize(51, 51));
+        addNoteButton->setStyleSheet(QLatin1String("#addNoteButton { background-color: transparent;\n"
+"background-image: url(:/MattyNotes/AddNote.png);\n"
+"color: transparent;\n"
+"font-weight: bold;\n"
+"font-style: italic;\n"
+"font-family: Comic Sans MS; }\n"
+"#addNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHover.png); \n"
+"color: #6d6f6d; }"));
 
         horizontalLayout_3->addWidget(addNoteButton);
-
-        horizontalSpacer_5 = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_5);
 
 
         verticalLayout_3->addLayout(horizontalLayout_3);
@@ -110,7 +114,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 337, 430));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 337, 402));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -121,12 +125,14 @@ public:
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        horizontalLayout_7->setContentsMargins(-1, 25, -1, -1);
         groupBox = new QGroupBox(scrollAreaWidgetContents);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setMinimumSize(QSize(150, 200));
         groupBox->setMaximumSize(QSize(16777215, 16777215));
         groupBox->setStyleSheet(QLatin1String("#groupBox { \n"
-"background-image: url(:/MattyNotes/NoteBackground450.png);\n"
+"/*background-image: url(:/MattyNotes/NoteBackground450.png);*/\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1));\n"
 "background-repeat: no-repeat;\n"
 "background-position: bottom right;\n"
 "background-size: 10px; \n"
@@ -135,8 +141,11 @@ public:
 "font-weight: bold;\n"
 "font-size: 14px;\n"
 "font-style: italic;\n"
+"font-family: Comic Sans MS;\n"
 "color: #4d3f3d;\n"
-"}"));
+"}\n"
+"#groupBox::title { padding-left: 35px;  text-decoration: underline; }\n"
+"QLabel { font-family: Comic Sans MS; }"));
         gridLayout_3 = new QGridLayout(groupBox);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -173,8 +182,9 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(editNoteButton->sizePolicy().hasHeightForWidth());
         editNoteButton->setSizePolicy(sizePolicy);
-        editNoteButton->setMaximumSize(QSize(20, 20));
-        editNoteButton->setStyleSheet(QStringLiteral("background-image: url(:/MattyNotes/edit.png);"));
+        editNoteButton->setMaximumSize(QSize(21, 21));
+        editNoteButton->setStyleSheet(QLatin1String("#editNoteButton  { background-image: url(:/MattyNotes/EditNote.png);  background-position: center; } \n"
+"#editNoteButton:hover { background-image: url(:/MattyNotes/EditNoteHover.png);  background-position: center; }"));
         editNoteButton->setFlat(true);
 
         horizontalLayout_9->addWidget(editNoteButton);
@@ -183,8 +193,9 @@ public:
         deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton"));
         sizePolicy.setHeightForWidth(deleteNoteButton->sizePolicy().hasHeightForWidth());
         deleteNoteButton->setSizePolicy(sizePolicy);
-        deleteNoteButton->setMaximumSize(QSize(20, 20));
-        deleteNoteButton->setStyleSheet(QStringLiteral("background-image: url(:/MattyNotes/1s-udalenie.png);"));
+        deleteNoteButton->setMaximumSize(QSize(21, 21));
+        deleteNoteButton->setStyleSheet(QLatin1String("#deleteNoteButton  { background-image: url(:/MattyNotes/DeleteNote.png);  background-position: center; } \n"
+"#deleteNoteButton:hover { background-image: url(:/MattyNotes/DeleteNoteHover.png);  background-position: center; }"));
         deleteNoteButton->setFlat(true);
 
         horizontalLayout_9->addWidget(deleteNoteButton);
