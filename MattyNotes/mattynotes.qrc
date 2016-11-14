@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>ApplyAdding.png</file>
+    <file>ApplyAddingHover.png</file>
+    <file>CancelAdding.png</file>
+    <file>CancelAddingHover.png</file>
     <file>AddNoteHoverWithPen.png</file>
     <file>AddNote.png</file>
     <file>AddNoteHover.png</file>

@@ -17,6 +17,7 @@ public:
 private:
 	static int NoteCount;
 	static QVector<class MattyNote> ListOfNotes;
+	static QVector<QString> ListOfGroupBoxeNames;
 };
 
 #endif // NOTEHOLDER_H

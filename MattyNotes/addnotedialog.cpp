@@ -10,10 +10,10 @@
 addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) : QWidget(parent)
 {
 	addNoteDialogUi.setupUi(this);
-	this->setStyleSheet("#addNoteDialog{ background-image: url(:/MattyNotes/NoteBackground600.png);"
-	"background-repeat: no-repeat;"
-	"background-size: cover; }"
-	/*"QWidget{ background-color: rgb(255, 255, 222) }"*/);
+	//this->setStyleSheet("#addNoteDialog{ background-image: url(:/MattyNotes/NoteBackground600.png);"
+	//"background-repeat: no-repeat;"
+	//"background-size: cover; }"
+	/*"QWidget{ background-color: rgb(255, 255, 222) }");*/
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	closeAddingWindowButton = new QPushButton();
 	QObject::connect(closeAddingWindowButton, SIGNAL(clicked()), this, SLOT(close()));
@@ -22,6 +22,16 @@ addNoteDialog::addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent) 
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
 	GroupBoxLayout = new QVBoxLayout();
 	GroupBoxLayout = GroupBoxLayoutSent;
+	/*createNoteButton.setFixedSize(70, 70);
+	createNoteButton.setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/ApplyAdding.png);"
+		"color: transparent; }"
+	"QPushButton:hover { background-image: url(:/MattyNotes/ApplyAddingHover.png);"
+		"color: #4d3f3d; }"));
+	cancelAddingNoteButton.setFixedSize(60, 60);
+	cancelAddingNoteButton.setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/CancelAdding.png);"
+		"color: transparent; }"
+	"QPushButton:hover { background-image: url(:/MattyNotes/CancelAddingHover.png);"
+	"color: #4d3f3d; }"));*/
 }
 
 addNoteDialog::~addNoteDialog() 

@@ -112,6 +112,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 	MattyToolBar->addWidget(spacer3);
 	MattyToolBar->addWidget(addNoteButtonTemp);
 	MattyToolBar->setStyleSheet(QStringLiteral("padding-right: 25px;"));
+	MattyToolBar->setFloatable(false);
 
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 

@@ -14,7 +14,9 @@
    <string>MattyNotes</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#MattyNotesClass{background-color: rgb(255, 255, 127);}</string>
+   <string notr="true">#MattyNotesClass{background-color: rgb(255, 255, 127); 
+/*border: 3px ridge #bc9323;*/}
+QMessageBox { background-color: rgb(255, 255, 127);  }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
@@ -38,7 +40,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>337</width>
+           <width>403</width>
            <height>461</height>
           </rect>
          </property>
@@ -310,6 +312,10 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
    </property>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="styleSheet">
+    <string>#MattyNotesClass{background-color: rgb(255, 255, 127); 
+border: 3px ridge #bc9323;}</string>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>

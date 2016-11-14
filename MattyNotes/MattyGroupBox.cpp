@@ -169,6 +169,8 @@ void MattyGroupBox::deleteNote()
 	{
 		DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
 		this->hide();
+		this->~MattyGroupBox();
+		//this->destroy();
 	}
 }
 

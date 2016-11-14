@@ -69,7 +69,9 @@ public:
         if (MattyNotesClass->objectName().isEmpty())
             MattyNotesClass->setObjectName(QStringLiteral("MattyNotesClass"));
         MattyNotesClass->resize(702, 534);
-        MattyNotesClass->setStyleSheet(QStringLiteral("#MattyNotesClass{background-color: rgb(255, 255, 127);}"));
+        MattyNotesClass->setStyleSheet(QLatin1String("#MattyNotesClass{background-color: rgb(255, 255, 127); \n"
+"/*border: 3px ridge #bc9323;*/}\n"
+"QMessageBox { background-color: rgb(255, 255, 127);  }"));
         centralWidget = new QWidget(MattyNotesClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QLatin1String("#centralWidget {\n"
@@ -88,7 +90,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 337, 461));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 403, 461));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -275,6 +277,8 @@ public:
         deleteNoteButton->setText(QString());
         NoteEventTimeAndDateLabel->setText(QApplication::translate("MattyNotesClass", "\320\232\320\276\320\263\320\264\320\260", 0));
         NoteTextLabel->setText(QApplication::translate("MattyNotesClass", "\320\242\320\265\320\272\321\201\321\202", 0));
+        mainToolBar->setStyleSheet(QApplication::translate("MattyNotesClass", "#MattyNotesClass{background-color: rgb(255, 255, 127); \n"
+"border: 3px ridge #bc9323;}", 0));
     } // retranslateUi
 
 };
