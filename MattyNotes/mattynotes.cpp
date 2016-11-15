@@ -92,6 +92,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 	MattyToolBar = new QToolBar(this);
 	MattyToolBar->setObjectName(QStringLiteral("MattyToolBar"));
+	MattyToolBar->setFloatable(false);
 	this->addToolBar(Qt::BottomToolBarArea, MattyToolBar);
 	Qt::ToolBarAreas MattyToolBarAreas;
 	MattyToolBarAreas.setFlag(Qt::BottomToolBarArea);
@@ -111,8 +112,6 @@ MattyNotes::MattyNotes(QWidget *parent)
 	spacer3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	MattyToolBar->addWidget(spacer3);
 	MattyToolBar->addWidget(addNoteButtonTemp);
-	MattyToolBar->setStyleSheet(QStringLiteral("padding-right: 25px;"));
-	MattyToolBar->setFloatable(false);
 
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 

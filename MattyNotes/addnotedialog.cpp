@@ -57,12 +57,15 @@ void addNoteDialog::on_createNoteButton_clicked()
 		NoteToAdd->setEventDate(addNoteDialogUi.eventDateEdit->text());
 		DbManager::addNote(NoteToAdd);
 		delete NoteToAdd;
+
+		this->close();
+		NoteHolder::sortNotesByCrDate();
+		NoteHolder::showNotes(0, GroupBoxLayout);
 	}
+	else
+	{
 
-	NoteHolder::sortNotesByCrDate();
-	NoteHolder::showNotes(0, GroupBoxLayout);
-
-	this->close();
+	}
 }
 
 void addNoteDialog::mousePressEvent(QMouseEvent *event)
