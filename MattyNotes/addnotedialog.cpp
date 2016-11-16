@@ -61,6 +61,7 @@ void addNoteDialog::on_createNoteButton_clicked()
 		this->close();
 		NoteHolder::sortNotesByCrDate();
 		NoteHolder::showNotes(0, GroupBoxLayout);
+		this->~addNoteDialog();
 	}
 	else
 	{

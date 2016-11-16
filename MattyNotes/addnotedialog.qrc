@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/MattyNotes">
-        <file>NoteBackground450.png</file>
-        <file>NoteBackground600.png</file>
-    </qresource>
-</RCC>
