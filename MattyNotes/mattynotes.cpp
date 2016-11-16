@@ -100,6 +100,11 @@ MattyNotes::MattyNotes(QWidget *parent)
 	MattyToolBarAreas.setFlag(Qt::RightToolBarArea);
 	MattyToolBarAreas.setFlag(Qt::TopToolBarArea);
 	MattyToolBar->setAllowedAreas(MattyToolBarAreas);
+	QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect(MattyToolBar);
+	opacity->setOpacity(0.50); // #0 to 1 will cause the fade effect to kick in
+	MattyToolBar->setGraphicsEffect(opacity);
+	MattyToolBar->setAutoFillBackground(true);
+	MattyToolBar->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127); "));
 
 	QLCDNumber *ClocksLcdNumber;
 	ClocksLcdNumber = new QLCDNumber(ui.statusBar);

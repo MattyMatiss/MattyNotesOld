@@ -69,13 +69,13 @@ public:
         if (MattyNotesClass->objectName().isEmpty())
             MattyNotesClass->setObjectName(QStringLiteral("MattyNotesClass"));
         MattyNotesClass->resize(702, 534);
-        MattyNotesClass->setStyleSheet(QLatin1String("#MattyNotesClass{background-color: rgb(255, 255, 127); \n"
+        MattyNotesClass->setStyleSheet(QLatin1String("#MattyNotesClass{background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255)); \n"
 "/*border: 3px ridge #bc9323;*/}\n"
 "QMessageBox { background-color: rgb(255, 255, 127);  }"));
         centralWidget = new QWidget(MattyNotesClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QLatin1String("#centralWidget {\n"
-"background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255));}"));
+"background-color: transparent;}"));
         gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -253,6 +253,7 @@ public:
         MattyNotesClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MattyNotesClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+        mainToolBar->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127); "));
         MattyNotesClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MattyNotesClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -277,8 +278,6 @@ public:
         deleteNoteButton->setText(QString());
         NoteEventTimeAndDateLabel->setText(QApplication::translate("MattyNotesClass", "\320\232\320\276\320\263\320\264\320\260", 0));
         NoteTextLabel->setText(QApplication::translate("MattyNotesClass", "\320\242\320\265\320\272\321\201\321\202", 0));
-        mainToolBar->setStyleSheet(QApplication::translate("MattyNotesClass", "#MattyNotesClass{background-color: rgb(255, 255, 127); \n"
-"border: 3px ridge #bc9323;}", 0));
     } // retranslateUi
 
 };
