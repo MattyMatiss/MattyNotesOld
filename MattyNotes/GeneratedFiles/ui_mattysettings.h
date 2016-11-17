@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,7 +23,6 @@ class Ui_MattySettings
 {
 public:
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
 
     void setupUi(QWidget *MattySettings)
     {
@@ -33,11 +31,6 @@ public:
         MattySettings->resize(627, 439);
         gridLayout = new QGridLayout(MattySettings);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        pushButton = new QPushButton(MattySettings);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
-
 
         retranslateUi(MattySettings);
 
@@ -46,8 +39,7 @@ public:
 
     void retranslateUi(QWidget *MattySettings)
     {
-        MattySettings->setWindowTitle(QApplication::translate("MattySettings", "Form", 0));
-        pushButton->setText(QApplication::translate("MattySettings", "PushButton", 0));
+        MattySettings->setWindowTitle(QApplication::translate("MattySettings", "\320\235\320\260\321\201\321\202\321\200\320\276\320\271\320\272\320\270", 0));
     } // retranslateUi
 
 };

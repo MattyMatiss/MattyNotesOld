@@ -11,17 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Настройки</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
+  <layout class="QGridLayout" name="gridLayout"/>
  </widget>
  <resources/>
  <connections/>

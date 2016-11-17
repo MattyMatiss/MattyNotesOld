@@ -132,8 +132,8 @@ void MattyGroupBox::buildFrame()
 
 	verticalLayout->addItem(verticalSpacer);
 
-	this->setObjectName("MattyGroupBox");
-	this->setStyleSheet("MattyGroupBox { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); "
+	this->setObjectName(QStringLiteral("MattyGroupBox"));
+	this->setStyleSheet(QStringLiteral("MattyGroupBox { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); "
 		"background-repeat: no-repeat;"
 		"background-position: bottom right;"
 		"background-size: 10px;"
@@ -150,7 +150,7 @@ void MattyGroupBox::buildFrame()
 		"font-family: Comic Sans MS; "
 		"text-decoration: underline; }"
 		"MattyGroupBox::title { padding-left: 35px;  }"
-		"QLabel { font-family: Comic Sans MS; font-style: italic; }");
+		"QLabel { font-family: Comic Sans MS; font-style: italic; }"));
 	QGraphicsDropShadowEffect* GroupBoxShadow = new QGraphicsDropShadowEffect();
 	GroupBoxShadow->setBlurRadius(25.0);
 	QColor ShadowColor = QColor(77, 63, 61, 200);
@@ -162,15 +162,30 @@ void MattyGroupBox::buildFrame()
 
 void MattyGroupBox::deleteNote()
 {
+	QMessageBox MattyWTDNMsgBox;
+	MattyWTDNMsgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 	QMessageBox::StandardButton wantToDeleteNote;
-	wantToDeleteNote = QMessageBox::question(this, QString::fromLocal8Bit("Удаление"), QString::fromLocal8Bit("Вы точно хотите удалить эту заметку?"),
-		QMessageBox::Yes | QMessageBox::No);
+	
+	MattyWTDNMsgBox.button(QMessageBox::Yes)->setObjectName(QStringLiteral("yesButton"));
+	MattyWTDNMsgBox.setStyleSheet(QStringLiteral("#yesButton {height: 53px;"
+		"width: 53px;"
+		"background-color: transparent;"
+		"background-image: url(:/MattyNotes/CommonYes.png);"
+		"background-position: center;"
+		"background-repeat: no-repeat;"
+		"color: transparent; "
+		"font-weight: bold;"
+		"font-style: italic; }"));
+	//MattyWTDNMsgBox.button(QMessageBox::No)->setStyleSheet(QStringLiteral());
+	/*wantToDeleteNote = MattyWTDNMsgBox.question(this, QString::fromLocal8Bit("Удаление заметки"),
+		QString::fromLocal8Bit("Вы точно хотите удалить"
+			" эту заметку?"));*/
+	MattyWTDNMsgBox.exec();
 	if (wantToDeleteNote == QMessageBox::Yes)
 	{
 		DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
 		this->hide();
 		this->~MattyGroupBox();
-		//this->destroy();
 	}
 }
 

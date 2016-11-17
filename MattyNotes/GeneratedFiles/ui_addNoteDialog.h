@@ -155,7 +155,13 @@ public:
 
     void retranslateUi(QWidget *addNoteDialog)
     {
-        addNoteDialog->setWindowTitle(QApplication::translate("addNoteDialog", "addNoteDialog", 0));
+        addNoteDialog->setWindowTitle(QApplication::translate("addNoteDialog", "\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 \320\267\320\260\320\274\320\265\321\202\320\272\320\270", 0));
+#ifndef QT_NO_TOOLTIP
+        noteTitleText->setToolTip(QApplication::translate("addNoteDialog", "<html><head/><body><p><span style=\" font-weight:400;\">\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272 \320\267\320\260\320\274\320\265\321\202\320\272\320\270</span></p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        noteTitleText->setWhatsThis(QApplication::translate("addNoteDialog", "<html><head/><body><p><span style=\" font-weight:400;\">\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272 \320\267\320\260\320\274\320\265\321\202\320\272\320\270</span></p></body></html>", 0));
+#endif // QT_NO_WHATSTHIS
         eventTimeEdit->setDisplayFormat(QApplication::translate("addNoteDialog", "HH:mm", 0));
         cancelAddingNoteButton->setText(QApplication::translate("addNoteDialog", "\320\236\321\202\320\274\320\265\320\275\320\260", 0));
         createNoteButton->setText(QApplication::translate("addNoteDialog", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", 0));

@@ -42,6 +42,7 @@ addNoteDialog::~addNoteDialog()
 void addNoteDialog::on_cancelAddingNoteButton_clicked()
 {
 	this->close();
+	this->~addNoteDialog();
 }
 
 
