@@ -22,6 +22,7 @@ public:
 	void setEventDate(const QString & EventDate); // Warning! Input format must be: 00.00.0000
 	QString getTitle();
 	QString getType();
+	int getTypeId();
 	QString getText();
 	QString getEventTime(); // Format: 00:00
 	QString getEventDate(); // Format: 00.00.0000
@@ -30,9 +31,8 @@ public:
 	QString getCrDate(); // Format: 00.00.0000
 	QString getCrDayOfWeek();
 	int getNoteId();
-	int getTypeId();
-	TimeAndDate getEventTimeAndDate(); // Returns a TimeAndDate structure containing ints
-	TimeAndDate getCrTimeAndDate(); // Returns a TimeAndDate structure containing ints
+	TimeAndDate getEventTimeAndDate(); 
+	TimeAndDate getCrTimeAndDate(); 
 private:
 	int NoteId;
 	int NoteTypeId;

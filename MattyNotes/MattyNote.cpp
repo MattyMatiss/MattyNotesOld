@@ -5,9 +5,7 @@
 
 MattyNote::MattyNote()
 {
-	//EventTimeAndDate = new MattyTime();
-	EventTimeAndDate.setUserTimeAndDateNull();
-	//CrTimeAndDate = new MattyTime();
+	EventTimeAndDate.setUserTimeAndDateNull(); // 
 	MattyTime::updateCurrTime();
 	CrTimeAndDate.UserTimeAndDate = MattyTime::CurrTime;
 	NoteCrTime = CrTimeAndDate.PrintUserTime();
@@ -16,10 +14,7 @@ MattyNote::MattyNote()
 
 MattyNote::MattyNote(QStringList RowFromDb)
 {
-	//CrTimeAndDate = new MattyTime();
 	CrTimeAndDate.setUserTimeAndDateNull();
-	//EventTimeAndDate = new MattyTime();
-	//EventTimeAndDate->setUserTimeAndDateNull();
 	NoteId = RowFromDb[0].toInt();
 	NoteTitle = RowFromDb[1];
 	NoteType = RowFromDb[2];
@@ -33,8 +28,6 @@ MattyNote::MattyNote(QStringList RowFromDb)
 
 MattyNote::~MattyNote()
 {
-	//delete EventTimeAndDate;
-	//delete CrTimeAndDate;
 }
 
 void MattyNote::setTitle(const QString & Title)
