@@ -1,0 +1,5 @@
+<map id="MattyGroupBox" name="MattyGroupBox">
+<area shape="rect" id="node3" href="$classMattyNote.html" title="MattyNote" alt="" coords="120,213,203,240"/>
+<area shape="rect" id="node4" href="$classMattyTime.html" title="MattyTime" alt="" coords="120,109,203,136"/>
+<area shape="rect" id="node5" href="$structTimeAndDate.html" title="TimeAndDate" alt="" coords="111,5,211,32"/>
+</map>

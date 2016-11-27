@@ -1,0 +1,6 @@
+<map id="MattyGroupBox::deleteNote" name="MattyGroupBox::deleteNote">
+<area shape="rect" id="node2" href="$classDbManager.html#a164849758fd05445c7af2cc04fc3569f" title="DbManager::deleteNote" alt="" coords="267,13,425,39"/>
+<area shape="rect" id="node4" href="$classMattyNote.html#ad7c5837f61e4813005ae063c67b9a0f0" title="MattyNote::getNoteId" alt="" coords="273,63,419,90"/>
+<area shape="rect" id="node5" href="$classMattyGroupBox.html#acf5f5023cf210a83e9846a35b149dd70" title="MattyGroupBox::~MattyGroupBox" alt="" coords="236,114,456,141"/>
+<area shape="rect" id="node3" href="$classDbManager.html#a2d60ab2a556cf0276bf306c7545ed03d" title="DbManager::showIsNotOpen\lError" alt="" coords="504,5,691,47"/>
+</map>
