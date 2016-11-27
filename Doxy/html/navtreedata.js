@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "MattyNote", "index.html", [
+  [ "MattyNotes", "index.html", [
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ]
     ] ],
@@ -31,7 +31,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Constants_8cpp.html",
-"classUi__MattySettings.html#aa5a49194b05cc0f4d7f06d99f18e253e"
+"classUi__MattyNotesClass.html#ab89cebba84d5ea3e808da6d0db9d673c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

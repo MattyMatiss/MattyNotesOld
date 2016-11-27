@@ -40,7 +40,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>403</width>
+           <width>406</width>
            <height>461</height>
           </rect>
          </property>

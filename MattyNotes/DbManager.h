@@ -24,6 +24,7 @@ public:
 	static int getTypeId(const QString & TypeName);
 	static int getNoteCount();
 	static QVector<QStringList> getAllNotesOrderByCrDate();
+	static void showIsNotOpenError();
 private:
 	static QSqlDatabase MattyNotesDb;
 };

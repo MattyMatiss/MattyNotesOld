@@ -1,9 +1,0 @@
-digraph "C:/Users/Ogrigorieva/Visual Studio 2015/Projects/Personal/MattyNotes/GeneratedFiles/Release" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_77ce10564dc86f72f037886423fd4767 {
-    graph [ bgcolor="#ddddee", pencolor="black", label="GeneratedFiles" fontname="Helvetica", fontsize="10", URL="dir_77ce10564dc86f72f037886423fd4767.html"]
-  dir_4d37146db54055a45ca86b0b001fd358 [shape=box, label="Release", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_4d37146db54055a45ca86b0b001fd358.html"];
-  }
-}

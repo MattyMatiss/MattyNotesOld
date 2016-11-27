@@ -11,6 +11,7 @@ var searchData=
   ['setuserdayofweek',['setUserDayOfWeek',['../classMattyTime.html#a12b0e0b9c4d45248da89e2d4078d4d08',1,'MattyTime']]],
   ['setusertimeanddatenow',['setUserTimeAndDateNow',['../classMattyTime.html#afef585f71d11eed7777065af8ca0e9f0',1,'MattyTime']]],
   ['setusertimeanddatenull',['setUserTimeAndDateNull',['../classMattyTime.html#a6ae52c957bcf12e92624e09db890ce21',1,'MattyTime']]],
+  ['showisnotopenerror',['showIsNotOpenError',['../classDbManager.html#a2d60ab2a556cf0276bf306c7545ed03d',1,'DbManager']]],
   ['shownote',['showNote',['../classDbManager.html#a96908aac2c76d86fb1861ac8f755b962',1,'DbManager']]],
   ['shownotes',['showNotes',['../classNoteHolder.html#a9fbdbdf5cc2628f360c45eb861eacded',1,'NoteHolder']]],
   ['sortnotesbycrdate',['sortNotesByCrDate',['../classNoteHolder.html#ab52d375cf5ab24f0512fab6308ec8b25',1,'NoteHolder']]]

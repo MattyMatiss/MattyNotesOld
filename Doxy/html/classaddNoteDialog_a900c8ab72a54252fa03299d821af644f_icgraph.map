@@ -1,0 +1,4 @@
+<map id="addNoteDialog::~addNoteDialog" name="addNoteDialog::~addNoteDialog">
+<area shape="rect" id="node2" href="$classaddNoteDialog.html#af0e53e8f605b12087a3982e53409ca2f" title="addNoteDialog::on_cancel\lAddingNoteButton_clicked" alt="" coords="260,5,435,47"/>
+<area shape="rect" id="node3" href="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d" title="addNoteDialog::on_create\lNoteButton_clicked" alt="" coords="262,71,433,112"/>
+</map>

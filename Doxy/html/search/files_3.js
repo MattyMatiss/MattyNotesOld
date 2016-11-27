@@ -17,5 +17,6 @@ var searchData=
   ['moc_5fmattygroupbox_2ecpp',['moc_MattyGroupBox.cpp',['../Debug_2moc__MattyGroupBox_8cpp.html',1,'']]],
   ['moc_5fmattynotes_2ecpp',['moc_mattynotes.cpp',['../Release_2moc__mattynotes_8cpp.html',1,'']]],
   ['moc_5fmattynotes_2ecpp',['moc_mattynotes.cpp',['../Debug_2moc__mattynotes_8cpp.html',1,'']]],
-  ['moc_5fmattysettings_2ecpp',['moc_mattysettings.cpp',['../moc__mattysettings_8cpp.html',1,'']]]
+  ['moc_5fmattysettings_2ecpp',['moc_mattysettings.cpp',['../Release_2moc__mattysettings_8cpp.html',1,'']]],
+  ['moc_5fmattysettings_2ecpp',['moc_mattysettings.cpp',['../Debug_2moc__mattysettings_8cpp.html',1,'']]]
 ];

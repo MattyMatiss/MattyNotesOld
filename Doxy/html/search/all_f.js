@@ -14,6 +14,7 @@ var searchData=
   ['setuserdayofweek',['setUserDayOfWeek',['../classMattyTime.html#a12b0e0b9c4d45248da89e2d4078d4d08',1,'MattyTime']]],
   ['setusertimeanddatenow',['setUserTimeAndDateNow',['../classMattyTime.html#afef585f71d11eed7777065af8ca0e9f0',1,'MattyTime']]],
   ['setusertimeanddatenull',['setUserTimeAndDateNull',['../classMattyTime.html#a6ae52c957bcf12e92624e09db890ce21',1,'MattyTime']]],
+  ['showisnotopenerror',['showIsNotOpenError',['../classDbManager.html#a2d60ab2a556cf0276bf306c7545ed03d',1,'DbManager']]],
   ['shownote',['showNote',['../classDbManager.html#a96908aac2c76d86fb1861ac8f755b962',1,'DbManager']]],
   ['shownotes',['showNotes',['../classNoteHolder.html#a9fbdbdf5cc2628f360c45eb861eacded',1,'NoteHolder']]],
   ['sortnotesbycrdate',['sortNotesByCrDate',['../classNoteHolder.html#ab52d375cf5ab24f0512fab6308ec8b25',1,'NoteHolder']]],
@@ -21,5 +22,5 @@ var searchData=
   ['statusbar',['statusBar',['../classUi__MattyNotesClass.html#a00010e0401915a0f78491262b87b807d',1,'Ui_MattyNotesClass']]],
   ['stdafx_2ecpp',['stdafx.cpp',['../stdafx_8cpp.html',1,'']]],
   ['stdafx_2eh',['stdafx.h',['../stdafx_8h.html',1,'']]],
-  ['stringdata0',['stringdata0',['../structqt__meta__stringdata__addNoteDialog__t.html#aa36bd0528981067f754981fb90d385d8',1,'qt_meta_stringdata_addNoteDialog_t::stringdata0()'],['../structqt__meta__stringdata__MattyGroupBox__t.html#a7dd92394a2028cd695441f73c63474c9',1,'qt_meta_stringdata_MattyGroupBox_t::stringdata0()'],['../structqt__meta__stringdata__MattyNotes__t.html#aefec099c932333985b581afe6840c1d4',1,'qt_meta_stringdata_MattyNotes_t::stringdata0()'],['../structqt__meta__stringdata__MattySettings__t.html#a43a73d36a65041d9e497357ede476017',1,'qt_meta_stringdata_MattySettings_t::stringdata0()']]]
+  ['stringdata0',['stringdata0',['../structqt__meta__stringdata__addNoteDialog__t.html#aa36bd0528981067f754981fb90d385d8',1,'qt_meta_stringdata_addNoteDialog_t::stringdata0()'],['../structqt__meta__stringdata__MattyGroupBox__t.html#a7dd92394a2028cd695441f73c63474c9',1,'qt_meta_stringdata_MattyGroupBox_t::stringdata0()'],['../structqt__meta__stringdata__MattyNotes__t.html#aefec099c932333985b581afe6840c1d4',1,'qt_meta_stringdata_MattyNotes_t::stringdata0()'],['../structqt__meta__stringdata__MattySettings__t.html#a266b7703ec9f21f50b222ad586c210e3',1,'qt_meta_stringdata_MattySettings_t::stringdata0()']]]
 ];

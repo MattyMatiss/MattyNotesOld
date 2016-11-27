@@ -1,0 +1,27 @@
+<map id="addNoteDialog::on_createNoteButton_clicked" name="addNoteDialog::on_createNoteButton_clicked">
+<area shape="rect" id="node2" href="$classMattyNote.html#af7909f64608b020b501019cf29796eb0" title="MattyNote::setTitle" alt="" coords="261,31,393,58"/>
+<area shape="rect" id="node3" href="$classMattyNote.html#ac9171fd4faaf0c286c9315a0b4ef4560" title="MattyNote::setType" alt="" coords="259,82,395,109"/>
+<area shape="rect" id="node6" href="$classMattyNote.html#afa0c4ee32401e4a09e8d04fd0b01da0b" title="MattyNote::setText" alt="" coords="261,285,394,311"/>
+<area shape="rect" id="node7" href="$classMattyNote.html#aaeba8670420ab9ad0fb8be660845e0ba" title="MattyNote::setEventTime" alt="" coords="243,335,411,362"/>
+<area shape="rect" id="node8" href="$classUtilityFunctions.html#ac2212f463b34781025e9e0bcfeaad3eb" title="UtilityFunctions::repareTime" alt="" coords="235,386,419,413"/>
+<area shape="rect" id="node9" href="$classMattyNote.html#a70676b1ab215b873c9451a82cc417684" title="MattyNote::setEventDate" alt="" coords="244,437,411,463"/>
+<area shape="rect" id="node12" href="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273" title="DbManager::addNote" alt="" coords="510,211,654,238"/>
+<area shape="rect" id="node21" href="$classNoteHolder.html#ab52d375cf5ab24f0512fab6308ec8b25" title="NoteHolder::sortNotesByCrDate" alt="" coords="224,133,431,159"/>
+<area shape="rect" id="node23" href="$classNoteHolder.html#a9fbdbdf5cc2628f360c45eb861eacded" title="NoteHolder::showNotes" alt="" coords="248,234,407,261"/>
+<area shape="rect" id="node26" href="$classaddNoteDialog.html#a900c8ab72a54252fa03299d821af644f" title="addNoteDialog::~addNoteDialog" alt="" coords="224,487,431,514"/>
+<area shape="rect" id="node4" href="$classDbManager.html#a92ebefd0d5fae643db1fc51cc7ea0c31" title="DbManager::getTypeId" alt="" coords="506,25,658,51"/>
+<area shape="rect" id="node5" href="$classDbManager.html#a2d60ab2a556cf0276bf306c7545ed03d" title="DbManager::showIsNotOpen\lError" alt="" coords="735,5,921,47"/>
+<area shape="rect" id="node10" href="$classMattyTime.html#a12b0e0b9c4d45248da89e2d4078d4d08" title="MattyTime::setUserDayOfWeek" alt="" coords="479,411,685,438"/>
+<area shape="rect" id="node11" href="$classMattyTime.html#ad2f12ac7d1a959ee9e19a4eac30484fd" title="MattyTime::getUserDayOfWeek" alt="" coords="479,462,685,489"/>
+<area shape="rect" id="node13" href="$classMattyNote.html#acb4af77f4177a0b17f140d4b4421e32e" title="MattyNote::getTitle" alt="" coords="762,173,894,199"/>
+<area shape="rect" id="node14" href="$classMattyNote.html#ad07b65692d79cf25e5c9008e111bd999" title="MattyNote::getType" alt="" coords="760,223,896,250"/>
+<area shape="rect" id="node15" href="$classMattyNote.html#a9213ac15a09625f59a95ede1b1470308" title="MattyNote::getText" alt="" coords="761,274,895,301"/>
+<area shape="rect" id="node16" href="$classMattyNote.html#a8c7f06ff44ce23f5a9ce6d2364732a24" title="MattyNote::getEventTime" alt="" coords="744,325,912,351"/>
+<area shape="rect" id="node17" href="$classMattyNote.html#a8973578029ab29593061cca235ae84f9" title="MattyNote::getEventDate" alt="" coords="745,375,911,402"/>
+<area shape="rect" id="node18" href="$classMattyNote.html#a2acf19aded7d4b5c29db7af6b0c4b1f6" title="MattyNote::getCrTime" alt="" coords="753,426,903,453"/>
+<area shape="rect" id="node19" href="$classMattyNote.html#ade5ef053d6d9ba158d9842feadd39754" title="MattyNote::getCrDate" alt="" coords="754,122,902,149"/>
+<area shape="rect" id="node20" href="$classMattyNote.html#af5b90028a8e406e41b8c8a6de83685ef" title="MattyNote::getTypeId" alt="" coords="755,71,901,98"/>
+<area shape="rect" id="node22" href="$classDbManager.html#a9b35a902ca6a35cd2589a3d1fffda94b" title="DbManager::getAllNotesOrder\lByCrDate" alt="" coords="485,99,679,140"/>
+<area shape="rect" id="node24" href="$classMattyGroupBox.html#a4cbc1800e9ec63cdd0e064d3a3738b80" title="MattyGroupBox::fillFrame" alt="" coords="497,274,667,301"/>
+<area shape="rect" id="node25" href="$classMattyNote.html#ac6f675c525f027536fdcfda43f0a261e" title="MattyNote::getEvDayofWeek" alt="" coords="733,477,923,503"/>
+</map>

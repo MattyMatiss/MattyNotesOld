@@ -11,6 +11,7 @@ var classDbManager =
     [ "getTypeId", "classDbManager.html#a92ebefd0d5fae643db1fc51cc7ea0c31", null ],
     [ "getTypeName", "classDbManager.html#a6cb58e12049873e8b1b4b6ecd74dbfb6", null ],
     [ "getTypes", "classDbManager.html#ade7585873652935bb12cb1ad546ceba2", null ],
+    [ "showIsNotOpenError", "classDbManager.html#a2d60ab2a556cf0276bf306c7545ed03d", null ],
     [ "showNote", "classDbManager.html#a96908aac2c76d86fb1861ac8f755b962", null ],
     [ "MattyNotesDb", "classDbManager.html#a3f6052f559a7a72eef66848ebc9f3eaa", null ]
 ];
