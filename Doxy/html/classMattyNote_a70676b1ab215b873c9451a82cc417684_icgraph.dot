@@ -1,0 +1,11 @@
+digraph "MattyNote::setEventDate"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node88 [label="MattyNote::setEventDate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node88 -> Node89 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node89 [label="addNoteDialog::on_create\lNoteButton_clicked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d"];
+  Node88 -> Node90 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node90 [label="MattyNote::MattyNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#a101e9c2475ee2567dfa2e168b543806f"];
+}

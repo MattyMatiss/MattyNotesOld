@@ -1,0 +1,11 @@
+digraph "DbManager::deleteNote"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node20 [label="DbManager::deleteNote",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node20 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node21 [label="MattyGroupBox::deleteNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#ac7b7f1db6ea96e4c4b0f58fb87f86900"];
+  Node21 -> Node22 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node22 [label="MattyGroupBox::MattyGroupBox",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#aa44b29a1b8b8f5129f52c2972c24aecd"];
+}

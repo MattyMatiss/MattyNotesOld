@@ -1,0 +1,13 @@
+digraph "C:/Users/Ogrigorieva/Visual Studio 2015/Projects" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_bd95a6a63f23cf84db7333a72e22ed63 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Visual Studio 2015" fontname="Helvetica", fontsize="10", URL="dir_bd95a6a63f23cf84db7333a72e22ed63.html"]
+  subgraph clusterdir_320d7c41af5fb22eea0247c5e36aec62 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_320d7c41af5fb22eea0247c5e36aec62.html"];
+    dir_320d7c41af5fb22eea0247c5e36aec62 [shape=plaintext label="Projects"];
+    dir_02583145abfdd47d1b4f2476781465df [shape=box label="Personal" color="red" fillcolor="white" style="filled" URL="dir_02583145abfdd47d1b4f2476781465df.html"];
+  }
+  }
+}

@@ -1,0 +1,13 @@
+digraph "C:/Users/Ogrigorieva" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d522931ffa1371640980b621734a4381 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Users" fontname="Helvetica", fontsize="10", URL="dir_d522931ffa1371640980b621734a4381.html"]
+  subgraph clusterdir_e98a83fb693a7f8591a83f9676998448 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_e98a83fb693a7f8591a83f9676998448.html"];
+    dir_e98a83fb693a7f8591a83f9676998448 [shape=plaintext label="Ogrigorieva"];
+    dir_bd95a6a63f23cf84db7333a72e22ed63 [shape=box label="Visual Studio 2015" color="red" fillcolor="white" style="filled" URL="dir_bd95a6a63f23cf84db7333a72e22ed63.html"];
+  }
+  }
+}

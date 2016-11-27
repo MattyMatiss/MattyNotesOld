@@ -1,0 +1,18 @@
+digraph "MattyNote::getType"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node75 [label="MattyNote::getType",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node75 -> Node76 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node76 [label="DbManager::addNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273"];
+  Node76 -> Node77 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node77 [label="addNoteDialog::on_create\lNoteButton_clicked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d"];
+  Node75 -> Node78 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node78 [label="MattyGroupBox::fillFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#a4cbc1800e9ec63cdd0e064d3a3738b80"];
+  Node78 -> Node79 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node79 [label="NoteHolder::showNotes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNoteHolder.html#a9fbdbdf5cc2628f360c45eb861eacded"];
+  Node79 -> Node77 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node79 -> Node80 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node80 [label="MattyNotes::MattyNotes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299"];
+}

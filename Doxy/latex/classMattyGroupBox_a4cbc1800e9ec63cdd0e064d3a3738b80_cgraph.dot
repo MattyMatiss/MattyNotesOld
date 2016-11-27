@@ -1,0 +1,23 @@
+digraph "MattyGroupBox::fillFrame"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node20 [label="MattyGroupBox::fillFrame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node20 -> Node21 [color="midnightblue",fontsize="10",style="solid"];
+  Node21 [label="MattyNote::getTitle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#acb4af77f4177a0b17f140d4b4421e32e"];
+  Node20 -> Node22 [color="midnightblue",fontsize="10",style="solid"];
+  Node22 [label="MattyNote::getType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#ad07b65692d79cf25e5c9008e111bd999"];
+  Node20 -> Node23 [color="midnightblue",fontsize="10",style="solid"];
+  Node23 [label="MattyNote::getText",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#a9213ac15a09625f59a95ede1b1470308"];
+  Node20 -> Node24 [color="midnightblue",fontsize="10",style="solid"];
+  Node24 [label="MattyNote::getCrTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#a2acf19aded7d4b5c29db7af6b0c4b1f6"];
+  Node20 -> Node25 [color="midnightblue",fontsize="10",style="solid"];
+  Node25 [label="MattyNote::getCrDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#ade5ef053d6d9ba158d9842feadd39754"];
+  Node20 -> Node26 [color="midnightblue",fontsize="10",style="solid"];
+  Node26 [label="MattyNote::getEventDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#a8973578029ab29593061cca235ae84f9"];
+  Node20 -> Node27 [color="midnightblue",fontsize="10",style="solid"];
+  Node27 [label="MattyNote::getEvDayofWeek",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#ac6f675c525f027536fdcfda43f0a261e"];
+  Node20 -> Node28 [color="midnightblue",fontsize="10",style="solid"];
+  Node28 [label="MattyNote::getEventTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#a8c7f06ff44ce23f5a9ce6d2364732a24"];
+}

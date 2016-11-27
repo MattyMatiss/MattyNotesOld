@@ -1,0 +1,18 @@
+digraph "MattyNote::MattyNote"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="MattyNote::MattyNote",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="MattyTime::setUserTimeAnd\lDateNull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a6ae52c957bcf12e92624e09db890ce21"];
+  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="MattyTime::updateCurrTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a52a7500e419fe56d10ddf2715fc96d06"];
+  Node0 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="MattyTime::PrintUserTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a9cbf666ccbe45a8ca45f9ffc42d5102c"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="UtilityFunctions::makeSingle\lDouble",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUtilityFunctions.html#a9decf9e823f96af31a5dac497f2c68d2"];
+  Node0 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="MattyTime::PrintUserDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a646278576993d7ed05af67aee6ac96cb"];
+  Node5 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

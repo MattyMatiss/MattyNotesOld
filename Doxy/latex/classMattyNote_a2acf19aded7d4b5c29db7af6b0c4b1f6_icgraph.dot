@@ -1,0 +1,18 @@
+digraph "MattyNote::getCrTime"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node26 [label="MattyNote::getCrTime",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node26 -> Node27 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node27 [label="DbManager::addNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273"];
+  Node27 -> Node28 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node28 [label="addNoteDialog::on_create\lNoteButton_clicked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d"];
+  Node26 -> Node29 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node29 [label="MattyGroupBox::fillFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#a4cbc1800e9ec63cdd0e064d3a3738b80"];
+  Node29 -> Node30 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node30 [label="NoteHolder::showNotes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNoteHolder.html#a9fbdbdf5cc2628f360c45eb861eacded"];
+  Node30 -> Node28 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node30 -> Node31 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node31 [label="MattyNotes::MattyNotes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299"];
+}

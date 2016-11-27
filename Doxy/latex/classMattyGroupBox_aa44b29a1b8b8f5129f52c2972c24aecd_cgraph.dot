@@ -1,0 +1,17 @@
+digraph "MattyGroupBox::MattyGroupBox"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="MattyGroupBox::MattyGroupBox",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="MattyGroupBox::buildFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#ae9862aae672bd2cf4a99da541beef696"];
+  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="MattyGroupBox::deleteNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#ac7b7f1db6ea96e4c4b0f58fb87f86900"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="DbManager::deleteNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDbManager.html#a164849758fd05445c7af2cc04fc3569f"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="MattyNote::getNoteId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#ad7c5837f61e4813005ae063c67b9a0f0"];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="MattyGroupBox::~MattyGroupBox",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyGroupBox.html#acf5f5023cf210a83e9846a35b149dd70"];
+}

@@ -1,0 +1,14 @@
+digraph "C:/Users/Ogrigorieva/Visual Studio 2015/Projects/Personal/MattyNotes/GeneratedFiles" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_bb08a4fe280dcc5fb857418f4b77006f {
+    graph [ bgcolor="#ddddee", pencolor="black", label="MattyNotes" fontname="Helvetica", fontsize="10", URL="dir_bb08a4fe280dcc5fb857418f4b77006f.html"]
+  subgraph clusterdir_77ce10564dc86f72f037886423fd4767 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_77ce10564dc86f72f037886423fd4767.html"];
+    dir_77ce10564dc86f72f037886423fd4767 [shape=plaintext label="GeneratedFiles"];
+    dir_743b024040fcbec255f5fd7b89e43e5c [shape=box label="Debug" color="black" fillcolor="white" style="filled" URL="dir_743b024040fcbec255f5fd7b89e43e5c.html"];
+    dir_4d37146db54055a45ca86b0b001fd358 [shape=box label="Release" color="black" fillcolor="white" style="filled" URL="dir_4d37146db54055a45ca86b0b001fd358.html"];
+  }
+  }
+}

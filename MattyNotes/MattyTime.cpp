@@ -199,8 +199,8 @@ void MattyTime::setUserTimeAndDateNow()
 }
 void MattyTime::setUserTimeAndDateNull()
 {
-	UserTimeAndDate.hour = 17;
-	UserTimeAndDate.minute = 50;
+	UserTimeAndDate.hour = -1;
+	UserTimeAndDate.minute = -1;
 	UserTimeAndDate.second = -1;
 	UserTimeAndDate.day = -1;
 	UserTimeAndDate.month = -1;

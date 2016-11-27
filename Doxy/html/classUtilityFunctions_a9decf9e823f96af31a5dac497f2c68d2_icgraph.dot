@@ -1,0 +1,32 @@
+digraph "UtilityFunctions::makeSingleDouble"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node5 [label="UtilityFunctions::makeSingle\lDouble",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="MattyTime::PrintCurrTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#ac5ecfd2ff5329b3476906b39bbf02ae3"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="MattyNotes::MattyNotes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299"];
+  Node5 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="MattyTime::PrintCurrTimeFull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a9d3500ad88197ee8e2db9f36aec1a266"];
+  Node5 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="MattyTime::PrintCurrDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#af87198affde58c9f254dbf1601fb9f1e"];
+  Node5 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="MattyTime::PrintCurrTime\lAndDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a96805256f90a469aa22824a1e2dd219d"];
+  Node5 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="MattyTime::PrintCurrTime\lFullAndDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a82a6b06fa496b4d0f9b8d6e11d5b03c8"];
+  Node5 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="MattyTime::PrintUserTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a9cbf666ccbe45a8ca45f9ffc42d5102c"];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="MattyNote::MattyNote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNote.html#a8c09bf366e6973bc1c4f4d5daa792899"];
+  Node5 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="MattyTime::PrintUserTimeFull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a3fda0198071ebc95afe2d4405dd9c55e"];
+  Node5 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="MattyTime::PrintUserDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a646278576993d7ed05af67aee6ac96cb"];
+  Node15 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="MattyTime::PrintUserTime\lAndDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#afa30c1dd3bae1e8f50e816803f39d1c4"];
+  Node5 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="MattyTime::PrintUserTime\lFullAndDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyTime.html#a6bcaa1f4975d99ab2f9025076de5ef99"];
+}

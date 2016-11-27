@@ -1,0 +1,11 @@
+digraph "NoteHolder::showNotes"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node14 [label="NoteHolder::showNotes",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node14 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="addNoteDialog::on_create\lNoteButton_clicked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d"];
+  Node14 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="MattyNotes::MattyNotes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299"];
+}

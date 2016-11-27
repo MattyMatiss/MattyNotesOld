@@ -1,0 +1,11 @@
+digraph "addNoteDialog::~addNoteDialog"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node7 [label="addNoteDialog::~addNoteDialog",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="addNoteDialog::on_cancel\lAddingNoteButton_clicked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classaddNoteDialog.html#af0e53e8f605b12087a3982e53409ca2f"];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="addNoteDialog::on_create\lNoteButton_clicked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d"];
+}
