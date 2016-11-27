@@ -1,13 +1,6 @@
 #include "stdafx.h"
 #include "QueryConstructor.h"
 
-QString QueryConstructor::SelectWord = " SELECT ";
- QString QueryConstructor::InsertWord = " INSERT INTO ";
- QString QueryConstructor::UpdateWord = " UPDATE ";
- QString QueryConstructor::DeleteWord = " DELETE ";
- QString QueryConstructor::OrderWord = " ORDER BY ";
- QString QueryConstructor::WhereWord = " WHERE ";
-
 QueryConstructor::QueryConstructor()
 {
 	OrderByClause = "";
@@ -36,7 +29,7 @@ QString QueryConstructor::constructInsertQuery()
 	{
 		if (!WhatFieldValue.empty())
 		{
-			ResultQuery.append(InsertWord + TableName + "(");
+			ResultQuery.append(" INSERt INTO " + TableName + "(");
 
 			QMapIterator<QString, QString> *pair = new QMapIterator<QString, QString>(WhatFieldValue);
 			while (pair->hasNext())
@@ -67,9 +60,20 @@ QString QueryConstructor::constructInsertQuery()
 QString QueryConstructor::constructSelectQuery()
 {
 	QString ResultQuery = "";
+	
+	if (TableName != "")
+	{
 
+		if (WhatToSelectFieldNames.empty())
+		{
 
+		}
 
+		else
+		{
+
+		}
+	}
 	return ResultQuery;
 }
 

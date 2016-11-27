@@ -29,13 +29,6 @@ private:
 	QMap<QString, QString> WhereFieldValue;
 	QMap<QString, QString> WhatFieldValue;
 	QString OrderByClause;
-
-	static QString SelectWord;
-	static QString InsertWord;
-	static QString UpdateWord;
-	static QString DeleteWord;
-	static QString OrderWord;
-	static QString WhereWord;
 };
 
 #endif // QUERYCONSTRUCTOR_H
