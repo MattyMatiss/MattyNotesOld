@@ -15,8 +15,19 @@ public:
 	QueryConstructor();
 	~QueryConstructor();
 	
-
+	void setTableName(QString& tableName);
+	QString getTableName();
+	void setWhatToSelectFieldNames(QStringList& FieldNames);
+	QStringList getWhatToSelectFieldNames();
+	void setWhereFieldValue(QMap<QString, QString>& FieldValue);
+	QMap<QString, QString> getWhereFieldValue();
+	void setWhatToSetFieldValue(QMap<QString, QString>& FieldValue);
+	QMap<QString, QString> getWhatToSetFieldValue();
 	void setOrderByClause(enum OrderNotesBy OrderBy);
+	QString getOrderByClause();
+	void addWhatToSelectFieldName(QString& FieldName);
+	void addWhereFieldValue(QString& Field, QString& Value);
+	void addWhatToSetFieldValue(QString Field, QString& Value);
 	QString constructInsertQuery();
 	QString constructSelectQuery();
 	QString constructDeleteQuery();
@@ -27,8 +38,9 @@ private:
 	QString TableName;
 	QStringList WhatToSelectFieldNames;
 	QMap<QString, QString> WhereFieldValue;
-	QMap<QString, QString> WhatFieldValue;
+	QMap<QString, QString> WhatToSetFieldValue;
 	QString OrderByClause;
+	QString constructWhereEqualsClause();
 };
 
 #endif // QUERYCONSTRUCTOR_H

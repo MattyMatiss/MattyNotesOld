@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "DbManager.h"
+#include "QueryConstructor.h"
 #include <QSqlQuery>
 #include <QSqlRecord>
 
@@ -158,16 +159,15 @@ int DbManager::getNoteCount()
 	}
 }
 
-QVector<QStringList> DbManager::showNotes(enum MattyOrderNotesBy OrderBy)
+QVector<QStringList> DbManager::showNotes(enum OrderNotesBy OrderBy)
 {
 	if (MattyNotesDb.isOpen())
 	{
-		QStringList OrderClause = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC",
-			" ORDER BY CrDate, CrTime", " ORDER BY CrDate, CrTime DESC",
-			" ORDER BY EventDate, EventTime", " ORDER BY EventDate, EventTime DESC" }; // скопировано
 		QVector<QStringList> VectorOfNotes;
+		QueryConstructor SelectAll;
+		SelectAll.setOrderByClause(CrDateDesc);
 		QSqlQuery getNotesQuery;
-		getNotesQuery.prepare("SELECT * FROM Notes" + OrderClause[OrderBy]);
+		getNotesQuery.prepare(SelectAll.constructSelectQuery());
 		getNotesQuery.exec();
 		while (getNotesQuery.next())
 		{
@@ -187,7 +187,7 @@ QVector<QStringList> DbManager::showNotes(enum MattyOrderNotesBy OrderBy)
 	}
 }
 
-QVector<QStringList> DbManager::showNotes(QVector<QStringList> & Filter, enum MattyOrderNotesBy OrderBy)
+QVector<QStringList> DbManager::showNotes(QVector<QStringList> & Filter, enum OrderNotesBy OrderBy)
 {
 	if (MattyNotesDb.isOpen())
 	{

@@ -6,11 +6,11 @@
 #endif // _MSC_VER
 
 #include "MattyNote.h"
+#include "QueryConstructor.h"
 #include <QSqlTableModel>
 #include <QMessageBox>
 #include <QSqlError>
 
-enum MattyOrderNotesBy { NoOrder, Type, TypeDesc, CrDate, CrDateDesc, EvDate, EvDateDesc }; // скопировано в новый класс, удалить
 
 class DbManager
 {
@@ -20,8 +20,8 @@ public:
 	static bool connect(const QString& path);
 	static bool addNote(MattyNote * Note);
 	static bool deleteNote(int NoteId);
-	static QVector<QStringList> showNotes(enum MattyOrderNotesBy OrderBy = NoOrder);
-	static QVector<QStringList> showNotes(QVector<QStringList> & Filter, enum MattyOrderNotesBy OrderBy = NoOrder);
+	static QVector<QStringList> showNotes(enum OrderNotesBy OrderBy = NoOrder);
+	static QVector<QStringList> showNotes(QVector<QStringList> & Filter, enum OrderNotesBy OrderBy = NoOrder);
 	static QSqlTableModel* getModel(const QString& path);
 	static QStringList getTypes();
 	static QString getTypeName(int TypeId);
