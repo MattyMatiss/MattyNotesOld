@@ -22,7 +22,12 @@ QVector<class MattyNote> NoteHolder::sortNotesByCrDate()
 {
 	NoteCount = 0;
 
-	QVector<QStringList> ListOfRows = DbManager::getAllNotesOrderByCrDate();
+	//QVector<QStringList> ListOfRows = DbManager::getAllNotesOrderByCrDate();
+
+	QVector<QStringList> Filter;
+	Filter.push_back({ "NoteType", QString::fromLocal8Bit("Работа") });
+
+	QVector<QStringList> ListOfRows = DbManager::showNotes(Filter);
 
 	if (!ListOfNotes.isEmpty())
 		ListOfNotes.clear();

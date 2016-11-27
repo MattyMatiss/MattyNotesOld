@@ -64,11 +64,6 @@ bool DbManager::deleteNote(int NoteId)
 	}
 }
 
-void DbManager::showNote()
-{
-
-}
-
 QSqlTableModel* DbManager::getModel(const QString & TableName)
 {
 	if (MattyNotesDb.isOpen())
@@ -163,7 +158,91 @@ int DbManager::getNoteCount()
 	}
 }
 
-QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
+QVector<QStringList> DbManager::showNotes(enum MattyOrderNotesBy OrderBy)
+{
+	if (MattyNotesDb.isOpen())
+	{
+		QStringList OrderClause = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC",
+			" ORDER BY CrDate, CrTime", " ORDER BY CrDate, CrTime DESC",
+			" ORDER BY EventDate, EventTime", " ORDER BY EventDate, EventTime DESC" }; // скопировано
+		QVector<QStringList> VectorOfNotes;
+		QSqlQuery getNotesQuery;
+		getNotesQuery.prepare("SELECT * FROM Notes" + OrderClause[OrderBy]);
+		getNotesQuery.exec();
+		while (getNotesQuery.next())
+		{
+			QStringList Fields;
+			for (int i = 0;i < 9;i++)
+			{
+				Fields.push_back(getNotesQuery.value(i).toString());
+			}
+			VectorOfNotes.push_back(Fields);
+		}
+		return VectorOfNotes;
+	}
+	else
+	{
+		showIsNotOpenError();
+		return QVector<QStringList>();
+	}
+}
+
+QVector<QStringList> DbManager::showNotes(QVector<QStringList> & Filter, enum MattyOrderNotesBy OrderBy)
+{
+	if (MattyNotesDb.isOpen())
+	{
+		QString WhereClause = "";
+
+		for (int i = 0; i < Filter.length(); i++)
+		{
+			if (i == 0)
+				WhereClause.append(" WHERE");
+			else
+				WhereClause.append(",");
+
+			WhereClause.append(" " + Filter[i][0] + "=:" + Filter[i][0]);
+		}
+
+		QStringList OrderClause = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC",
+			" ORDER BY CrDate, CrTime", " ORDER BY CrDate, CrTime DESC",
+			" ORDER BY EventDate, EventTime", " ORDER BY EventDate, EventTime DESC" };
+
+		QVector<QStringList> VectorOfNotes;
+
+		QSqlQuery getNotesQuery;
+		getNotesQuery.prepare("SELECT * FROM Notes" + WhereClause + OrderClause[OrderBy]);
+
+		for (int i = 0; i < Filter.length(); i++)
+		{
+			getNotesQuery.bindValue(":" + Filter[i][0], Filter[i][1]);
+		}
+
+		if (!getNotesQuery.exec())
+		{
+			QMessageBox::critical(NULL, QObject::tr("Error"), MattyNotesDb.lastError().text());
+		}
+
+		while (getNotesQuery.next())
+		{
+			QStringList Fields;
+			for (int i = 0;i < 9;i++)
+			{
+				Fields.push_back(getNotesQuery.value(i).toString());
+			}
+			VectorOfNotes.push_back(Fields);
+		}
+		return VectorOfNotes;
+
+
+	}
+	else
+	{
+		showIsNotOpenError();
+		return QVector<QStringList>();
+	}
+}
+
+/*QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
 {
 	if (MattyNotesDb.isOpen())
 	{
@@ -186,7 +265,7 @@ QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
 		showIsNotOpenError();
 		return QVector<QStringList>();
 	}
-}
+}*/
 
 void DbManager::showIsNotOpenError()
 {
@@ -195,7 +274,7 @@ void DbManager::showIsNotOpenError()
 	if (DbName == "")
 		QMessageBox::critical(NULL, QObject::tr("Error"), "Internal code error. Database name is not set.");
 	else
-		QMessageBox::critical(NULL, QObject::tr("Error"), "Database " + DbName + " is not open. Please, check whether the file is still there");
+		QMessageBox::critical(NULL, QObject::tr("Error"), "Database " + DbName + " could not be opened. Please, check whether the file is still there");
 }
 
 DbManager::~DbManager()
