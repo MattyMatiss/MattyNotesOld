@@ -1,7 +1,0 @@
-<map id="MattyNote::getText" name="MattyNote::getText">
-<area shape="rect" id="node2" href="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273" title="DbManager::addNote" alt="" coords="200,17,344,43"/>
-<area shape="rect" id="node4" href="$classMattyGroupBox.html#a4cbc1800e9ec63cdd0e064d3a3738b80" title="MattyGroupBox::fillFrame" alt="" coords="187,71,357,98"/>
-<area shape="rect" id="node3" href="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d" title="addNoteDialog::on_create\lNoteButton_clicked" alt="" coords="405,5,576,47"/>
-<area shape="rect" id="node5" href="$classNoteGroupBoxHolder.html#aed8c91929a2ab693cdf0dec50749453d" title="NoteGroupBoxHolder\l::showOrderByCrDate" alt="" coords="417,71,565,112"/>
-<area shape="rect" id="node6" href="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299" title="MattyNotes::MattyNotes" alt="" coords="624,78,788,105"/>
-</map>
