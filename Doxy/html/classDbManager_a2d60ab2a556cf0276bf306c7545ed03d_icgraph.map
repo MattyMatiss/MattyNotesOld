@@ -1,0 +1,18 @@
+<map id="DbManager::showIsNotOpenError" name="DbManager::showIsNotOpenError">
+<area shape="rect" id="node2" href="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273" title="DbManager::addNote" alt="" coords="514,259,658,285"/>
+<area shape="rect" id="node4" href="$classDbManager.html#a164849758fd05445c7af2cc04fc3569f" title="DbManager::deleteNote" alt="" coords="258,5,417,32"/>
+<area shape="rect" id="node7" href="$classDbManager.html#ac4e759380194e624382e267432de5357" title="DbManager::getModel" alt="" coords="263,107,412,133"/>
+<area shape="rect" id="node8" href="$classDbManager.html#ade7585873652935bb12cb1ad546ceba2" title="DbManager::getTypes" alt="" coords="263,157,412,184"/>
+<area shape="rect" id="node10" href="$classDbManager.html#a6cb58e12049873e8b1b4b6ecd74dbfb6" title="DbManager::getTypeName" alt="" coords="249,208,425,235"/>
+<area shape="rect" id="node12" href="$classDbManager.html#a92ebefd0d5fae643db1fc51cc7ea0c31" title="DbManager::getTypeId" alt="" coords="261,56,413,83"/>
+<area shape="rect" id="node14" href="$classDbManager.html#ae3998b50545d88a27d4361053f39b050" title="DbManager::getNoteCount" alt="" coords="250,309,425,336"/>
+<area shape="rect" id="node15" href="$classDbManager.html#a9b35a902ca6a35cd2589a3d1fffda94b" title="DbManager::getAllNotesOrder\lByCrDate" alt="" coords="240,361,435,402"/>
+<area shape="rect" id="node3" href="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d" title="addNoteDialog::on_create\lNoteButton_clicked" alt="" coords="758,251,929,293"/>
+<area shape="rect" id="node5" href="$classMattyGroupBox.html#ac7b7f1db6ea96e4c4b0f58fb87f86900" title="MattyGroupBox::deleteNote" alt="" coords="495,5,677,32"/>
+<area shape="rect" id="node6" href="$classMattyGroupBox.html#aa44b29a1b8b8f5129f52c2972c24aecd" title="MattyGroupBox::MattyGroupBox" alt="" coords="737,5,949,32"/>
+<area shape="rect" id="node9" href="$classaddNoteDialog.html#afc2d1dcbc9b0e6139859c61606c7f9f1" title="addNoteDialog::addNoteDialog" alt="" coords="487,157,685,184"/>
+<area shape="rect" id="node11" href="$classMattyNote.html#a8ae86d728b9cb64fa78042a09cb5aa70" title="MattyNote::setType" alt="" coords="518,208,654,235"/>
+<area shape="rect" id="node13" href="$classMattyNote.html#ac9171fd4faaf0c286c9315a0b4ef4560" title="MattyNote::setType" alt="" coords="518,81,654,108"/>
+<area shape="rect" id="node16" href="$classNoteHolder.html#ab52d375cf5ab24f0512fab6308ec8b25" title="NoteHolder::sortNotesByCrDate" alt="" coords="483,343,689,369"/>
+<area shape="rect" id="node17" href="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299" title="MattyNotes::MattyNotes" alt="" coords="761,343,925,369"/>
+</map>

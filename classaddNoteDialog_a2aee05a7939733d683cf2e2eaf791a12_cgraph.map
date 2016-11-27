@@ -1,5 +1,0 @@
-<map id="addNoteDialog::addNoteDialog" name="addNoteDialog::addNoteDialog">
-<area shape="rect" id="node2" href="$classUi__addNoteDialog.html#a2487f1cd1542da959f06b7412e80ef0b" title="Ui_addNoteDialog::setupUi" alt="" coords="252,5,429,32"/>
-<area shape="rect" id="node4" href="$classDbManager.html#ade7585873652935bb12cb1ad546ceba2" title="DbManager::getTypes" alt="" coords="266,56,415,83"/>
-<area shape="rect" id="node3" href="$classUi__addNoteDialog.html#aab12c63dbd7ceae65cefd5be2a09c2ab" title="Ui_addNoteDialog::retranslateUi" alt="" coords="477,5,684,32"/>
-</map>

@@ -1,0 +1,153 @@
+\hypertarget{classNoteHolder}{}\section{Note\+Holder Class Reference}
+\label{classNoteHolder}\index{Note\+Holder@{Note\+Holder}}
+
+
+{\ttfamily \#include $<$Note\+Holder.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNoteHolder_a8a6d0e272ccfe8f56534c646b8c5e92c}{Note\+Holder} ()
+\item 
+\hyperlink{classNoteHolder_afaeb3c127fbbc30d03b69e2cb0f15f2a}{$\sim$\+Note\+Holder} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+Vector$<$ class \hyperlink{classMattyNote}{Matty\+Note} $>$ \hyperlink{classNoteHolder_ab52d375cf5ab24f0512fab6308ec8b25}{sort\+Notes\+By\+Cr\+Date} ()
+\item 
+static void \hyperlink{classNoteHolder_a9fbdbdf5cc2628f360c45eb861eacded}{show\+Notes} (int order\+Direction, Q\+V\+Box\+Layout $\ast$Parent\+Layout)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classNoteHolder_a7fd3dd17b879e12cef0b0466ef04ed37}{Note\+Count} = 0
+\item 
+static Q\+Vector$<$ class \hyperlink{classMattyNote}{Matty\+Note} $>$ \hyperlink{classNoteHolder_a00b2d3ea1a95febaf0d8a5526b786e95}{List\+Of\+Notes} = Q\+Vector$<$class \hyperlink{classMattyNote}{Matty\+Note}$>$()
+\item 
+static Q\+Vector$<$ Q\+String $>$ \hyperlink{classNoteHolder_a9106819d414e3e131560ef3fcbea4d18}{List\+Of\+Group\+Boxe\+Names} = Q\+Vector$<$Q\+String$>$()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Note\+Holder.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNoteHolder_a8a6d0e272ccfe8f56534c646b8c5e92c}{}\label{classNoteHolder_a8a6d0e272ccfe8f56534c646b8c5e92c} 
+\index{Note\+Holder@{Note\+Holder}!Note\+Holder@{Note\+Holder}}
+\index{Note\+Holder@{Note\+Holder}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{Note\+Holder()}{NoteHolder()}}
+{\footnotesize\ttfamily Note\+Holder\+::\+Note\+Holder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Note\+Holder.\+cpp.
+
+\hypertarget{classNoteHolder_afaeb3c127fbbc30d03b69e2cb0f15f2a}{}\label{classNoteHolder_afaeb3c127fbbc30d03b69e2cb0f15f2a} 
+\index{Note\+Holder@{Note\+Holder}!````~Note\+Holder@{$\sim$\+Note\+Holder}}
+\index{````~Note\+Holder@{$\sim$\+Note\+Holder}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{$\sim$\+Note\+Holder()}{~NoteHolder()}}
+{\footnotesize\ttfamily Note\+Holder\+::$\sim$\+Note\+Holder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file Note\+Holder.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classNoteHolder_a9fbdbdf5cc2628f360c45eb861eacded}{}\label{classNoteHolder_a9fbdbdf5cc2628f360c45eb861eacded} 
+\index{Note\+Holder@{Note\+Holder}!show\+Notes@{show\+Notes}}
+\index{show\+Notes@{show\+Notes}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{show\+Notes()}{showNotes()}}
+{\footnotesize\ttfamily void Note\+Holder\+::show\+Notes (\begin{DoxyParamCaption}\item[{int}]{order\+Direction,  }\item[{Q\+V\+Box\+Layout $\ast$}]{Parent\+Layout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 40 of file Note\+Holder.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classNoteHolder_a9fbdbdf5cc2628f360c45eb861eacded_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classNoteHolder_a9fbdbdf5cc2628f360c45eb861eacded_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{classNoteHolder_ab52d375cf5ab24f0512fab6308ec8b25}{}\label{classNoteHolder_ab52d375cf5ab24f0512fab6308ec8b25} 
+\index{Note\+Holder@{Note\+Holder}!sort\+Notes\+By\+Cr\+Date@{sort\+Notes\+By\+Cr\+Date}}
+\index{sort\+Notes\+By\+Cr\+Date@{sort\+Notes\+By\+Cr\+Date}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{sort\+Notes\+By\+Cr\+Date()}{sortNotesByCrDate()}}
+{\footnotesize\ttfamily Q\+Vector$<$ class \hyperlink{classMattyNote}{Matty\+Note} $>$ Note\+Holder\+::sort\+Notes\+By\+Cr\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 21 of file Note\+Holder.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classNoteHolder_ab52d375cf5ab24f0512fab6308ec8b25_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classNoteHolder_ab52d375cf5ab24f0512fab6308ec8b25_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classNoteHolder_a9106819d414e3e131560ef3fcbea4d18}{}\label{classNoteHolder_a9106819d414e3e131560ef3fcbea4d18} 
+\index{Note\+Holder@{Note\+Holder}!List\+Of\+Group\+Boxe\+Names@{List\+Of\+Group\+Boxe\+Names}}
+\index{List\+Of\+Group\+Boxe\+Names@{List\+Of\+Group\+Boxe\+Names}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{List\+Of\+Group\+Boxe\+Names}{ListOfGroupBoxeNames}}
+{\footnotesize\ttfamily Q\+Vector$<$ Q\+String $>$ Note\+Holder\+::\+List\+Of\+Group\+Boxe\+Names = Q\+Vector$<$Q\+String$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 20 of file Note\+Holder.\+h.
+
+\hypertarget{classNoteHolder_a00b2d3ea1a95febaf0d8a5526b786e95}{}\label{classNoteHolder_a00b2d3ea1a95febaf0d8a5526b786e95} 
+\index{Note\+Holder@{Note\+Holder}!List\+Of\+Notes@{List\+Of\+Notes}}
+\index{List\+Of\+Notes@{List\+Of\+Notes}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{List\+Of\+Notes}{ListOfNotes}}
+{\footnotesize\ttfamily Q\+Vector$<$ class \hyperlink{classMattyNote}{Matty\+Note} $>$ Note\+Holder\+::\+List\+Of\+Notes = Q\+Vector$<$class \hyperlink{classMattyNote}{Matty\+Note}$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 19 of file Note\+Holder.\+h.
+
+\hypertarget{classNoteHolder_a7fd3dd17b879e12cef0b0466ef04ed37}{}\label{classNoteHolder_a7fd3dd17b879e12cef0b0466ef04ed37} 
+\index{Note\+Holder@{Note\+Holder}!Note\+Count@{Note\+Count}}
+\index{Note\+Count@{Note\+Count}!Note\+Holder@{Note\+Holder}}
+\subsubsection{\texorpdfstring{Note\+Count}{NoteCount}}
+{\footnotesize\ttfamily int Note\+Holder\+::\+Note\+Count = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 18 of file Note\+Holder.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ogrigorieva/\+Visual Studio 2015/\+Projects/\+Personal/\+Matty\+Notes/\hyperlink{NoteHolder_8h}{Note\+Holder.\+h}\item 
+C\+:/\+Users/\+Ogrigorieva/\+Visual Studio 2015/\+Projects/\+Personal/\+Matty\+Notes/\hyperlink{NoteHolder_8cpp}{Note\+Holder.\+cpp}\end{DoxyCompactItemize}

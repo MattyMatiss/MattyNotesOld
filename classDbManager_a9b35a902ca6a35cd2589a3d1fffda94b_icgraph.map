@@ -1,5 +1,0 @@
-<map id="DbManager::getAllNotesOrderByCrDate" name="DbManager::getAllNotesOrderByCrDate">
-<area shape="rect" id="node2" href="$classNoteGroupBoxHolder.html#a56e8867debd221564ac1fd061abdf82c" title="NoteGroupBoxHolder\l::getNotesOrderByCrDate" alt="" coords="248,5,419,47"/>
-<area shape="rect" id="node3" href="$classNoteGroupBoxHolder.html#aed8c91929a2ab693cdf0dec50749453d" title="NoteGroupBoxHolder\l::showOrderByCrDate" alt="" coords="467,5,615,47"/>
-<area shape="rect" id="node4" href="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299" title="MattyNotes::MattyNotes" alt="" coords="663,13,827,39"/>
-</map>

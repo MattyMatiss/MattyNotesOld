@@ -1,7 +1,0 @@
-<map id="MattyNote::getCrDate" name="MattyNote::getCrDate">
-<area shape="rect" id="node2" href="$classDbManager.html#a0d97afdec08f212ec39100d26d8b4273" title="DbManager::addNote" alt="" coords="215,17,359,43"/>
-<area shape="rect" id="node4" href="$classMattyGroupBox.html#a4cbc1800e9ec63cdd0e064d3a3738b80" title="MattyGroupBox::fillFrame" alt="" coords="201,71,372,98"/>
-<area shape="rect" id="node3" href="$classaddNoteDialog.html#a67b28dc05851888a45774eb240d6e43d" title="addNoteDialog::on_create\lNoteButton_clicked" alt="" coords="420,5,591,47"/>
-<area shape="rect" id="node5" href="$classNoteGroupBoxHolder.html#aed8c91929a2ab693cdf0dec50749453d" title="NoteGroupBoxHolder\l::showOrderByCrDate" alt="" coords="431,71,579,112"/>
-<area shape="rect" id="node6" href="$classMattyNotes.html#aa81db851f82183700abb0b7cd1ba2299" title="MattyNotes::MattyNotes" alt="" coords="639,78,803,105"/>
-</map>
