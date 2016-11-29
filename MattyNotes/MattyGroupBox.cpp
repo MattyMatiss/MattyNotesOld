@@ -22,7 +22,7 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() + ", " + ThisNote.getEvDayofWeek() +  " " + ThisNote.getEventTime());
 
 	
-	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel") /*+ "#" + QString::number(ThisNote.getNoteId())*/);
+	/*NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel") + "#" + QString::number(ThisNote.getNoteId()));
 	//NoteTextLabel->setStyleSheet("NoteTextLabel { padding-right: 150px;}");
 
 	/*verticalLayout->setObjectName(QStringLiteral("verticalLayout") + "#" + QString::number(ThisNote.getNoteId()));
@@ -41,10 +41,12 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 void MattyGroupBox::buildFrame()
 {
 	//groupBox->setObjectName(QStringLiteral("groupBox"));
-	this->setMinimumSize(QSize(150, 200));
+	this->setMinimumSize(QSize(50, 50));
 	this->setStyleSheet(QStringLiteral("QGroupBox { background-color: rgb(255, 255, 222);"
 	"border: 1px solid transparent;"
 	"border-radius: 10px;}"));
+
+	//this->title(). //title().setWordWrap(true);
 
 	gridLayout = new QGridLayout(this);
 
@@ -149,7 +151,7 @@ void MattyGroupBox::buildFrame()
 		"padding-left: 25px;"
 		"font-family: Comic Sans MS; "
 		"text-decoration: underline; }"
-		"MattyGroupBox::title { padding-left: 35px;  }"
+		/*"MattyGroupBox::title { padding-left: 35px;  }"*/
 		"QLabel { font-family: Comic Sans MS; font-style: italic; }"));
 	QGraphicsDropShadowEffect* GroupBoxShadow = new QGraphicsDropShadowEffect();
 	GroupBoxShadow->setBlurRadius(25.0);
@@ -164,7 +166,6 @@ void MattyGroupBox::deleteNote()
 {
 	QMessageBox MattyWTDNMsgBox;
 	MattyWTDNMsgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-	QMessageBox::StandardButton wantToDeleteNote;
 	
 	MattyWTDNMsgBox.button(QMessageBox::Yes)->setObjectName(QStringLiteral("yesButton"));
 	MattyWTDNMsgBox.setStyleSheet(QStringLiteral("#yesButton {height: 53px;"
@@ -176,12 +177,9 @@ void MattyGroupBox::deleteNote()
 		"color: transparent; "
 		"font-weight: bold;"
 		"font-style: italic; }"));
-	//MattyWTDNMsgBox.button(QMessageBox::No)->setStyleSheet(QStringLiteral());
-	/*wantToDeleteNote = MattyWTDNMsgBox.question(this, QString::fromLocal8Bit("Удаление заметки"),
-		QString::fromLocal8Bit("Вы точно хотите удалить"
-			" эту заметку?"));*/
-	MattyWTDNMsgBox.exec();
-	if (wantToDeleteNote == QMessageBox::Yes)
+
+	int answer = MattyWTDNMsgBox.exec();
+	if (answer == QMessageBox::Yes)
 	{
 		DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
 		this->hide();

@@ -184,6 +184,7 @@ QString QueryConstructor::constructWhereEqualsClause()
 		QMapIterator<QString, QString> pair(WhereFieldValue);
 		while (pair.hasNext())
 		{
+			pair.next();
 			WhereClause.append(" " + pair.key() + "=" + pair.value() + ",");
 		}
 		if (WhereClause.endsWith(","))

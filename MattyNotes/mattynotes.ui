@@ -40,7 +40,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>406</width>
+           <width>403</width>
            <height>461</height>
           </rect>
          </property>
@@ -65,7 +65,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
                <widget class="QGroupBox" name="groupBox">
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>50</width>
                   <height>200</height>
                  </size>
                 </property>
@@ -254,7 +254,10 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
 </string>
                      </property>
                      <property name="text">
-                      <string>Текст</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>

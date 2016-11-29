@@ -34,18 +34,18 @@ void NoteHolder::publishNotes(int orderDirection, QVBoxLayout * ParentLayout)
 	{
 		QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
-		HorizontalLayout->setParent(ParentLayout);
 		HorizontalLayout->setMargin(12);
 		HorizontalLayout->setSpacing(6);
 		HorizontalLayout->setStretch(0, 0);
-		//HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-		ParentLayout->addLayout(HorizontalLayout);
+		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+		ParentLayout->insertLayout(0, HorizontalLayout);
 
 		MattyGroupBox* MyGroupBox = new MattyGroupBox(); // удалить delete или поставить родител€ (только виджет)
 		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
 		MyGroupBox->fillFrame(*NoteNumber);
 
-		HorizontalLayout->addWidget(MyGroupBox);
+		HorizontalLayout->insertWidget(0, MyGroupBox);
+		//HorizontalLayout->addWidget(MyGroupBox);
 		MyGroupBox->setObjectName(GroupBoxName);
 		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
 	}
@@ -59,10 +59,10 @@ void NoteHolder::getAllNotes()
 {
 	TotalNoteCount = 0;
 
-	QVector<QStringList> ListOfRows = DbManager::showNotes();
-
 	if (!ListOfAllNotes.isEmpty())
 		ListOfAllNotes.clear();
+
+	QVector<QStringList> ListOfRows = DbManager::showNotes();
 
 	for (int i = 0; i < ListOfRows.length();i++)
 	{

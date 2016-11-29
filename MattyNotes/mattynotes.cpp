@@ -61,16 +61,6 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
-	// 
-	/*QSizePolicy sp_retain = ui.calendarWidget->sizePolicy();
-	sp_retain.setRetainSizeWhenHidden(true);
-	ui.calendarWidget->setSizePolicy(sp_retain);
-	ui.calendarWidget->hide();*/
-
-
-
-	NoteHolder::publishNotes(0, ui.verticalLayout_4);
-
 	QObject::connect(closeWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
 	QObject::connect(maximizeWindowButton, SIGNAL(clicked()), this,
 		SLOT(maximizeWindow()));
@@ -119,6 +109,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 
+	NoteHolder::publishNotes(0, ui.verticalLayout_4);
 }
 
 
@@ -126,14 +117,6 @@ MattyNotes::~MattyNotes()
 {
 
 }
-
-/*void MattyNotes::on_pushButtonCalendar_clicked()
-{
-	if (!ui.calendarWidget->isVisible())
-		ui.calendarWidget->show();
-	else
-		ui.calendarWidget->hide();
-}*/
 
 void MattyNotes::on_addNoteButtonTemp_clicked()
 {
@@ -159,11 +142,6 @@ void MattyNotes::minimizeWindow()
 {
 	this->showMinimized();
 }
-
-/*void MattyNotes::on_closeProgramButton_clicked()
-{
-	this->close();
-}*/
 
 void MattyNotes::mousePressEvent(QMouseEvent *event) 
 {

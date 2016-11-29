@@ -60,10 +60,14 @@ bool DbManager::deleteNote(int NoteId)
 {
 	if (MattyNotesDb.isOpen())
 	{
+		QueryConstructor Delete;
+		Delete.setTableName(QStringLiteral("Notes"));
+		Delete.addWhereFieldValue(QStringLiteral("NoteId"), QString::number(NoteId));
+
 		QSqlQuery deleteNoteQuery;
-		deleteNoteQuery.prepare("DELETE FROM Notes WHERE NoteId=:NoteId");
-		deleteNoteQuery.bindValue(":NoteId", NoteId);
-		return deleteNoteQuery.exec();
+		/*deleteNoteQuery.prepare("DELETE FROM Notes WHERE NoteId=:NoteId");
+		deleteNoteQuery.bindValue(":NoteId", NoteId);*/
+		return deleteNoteQuery.exec(Delete.constructDeleteQuery());
 	}
 	else
 	{
