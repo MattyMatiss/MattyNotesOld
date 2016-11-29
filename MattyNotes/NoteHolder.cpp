@@ -5,8 +5,8 @@
 #include "DbManager.h"
 #include "Constants.h"
 
-int NoteHolder::NoteCount = 0;
-QVector<class MattyNote> NoteHolder::ListOfNotes = QVector<class MattyNote>();
+int NoteHolder::TotalNoteCount = 0;
+QVector<class MattyNote> NoteHolder::ListOfAllNotes = QVector<class MattyNote>();
 QVector<QString> NoteHolder::ListOfGroupBoxeNames = QVector<QString>();
 
 NoteHolder::NoteHolder()
@@ -18,57 +18,84 @@ NoteHolder::~NoteHolder()
 {
 }
 
-QVector<class MattyNote> NoteHolder::sortNotesByCrDate()
+void NoteHolder::sortNotesByCrDate()
 {
-	NoteCount = 0;
+}
 
-	//QVector<QStringList> ListOfRows = DbManager::getAllNotesOrderByCrDate();
+void NoteHolder::publishNotes(int orderDirection, QVBoxLayout * ParentLayout)
+{
+	erasePublishedNotes(ParentLayout);
 
-	QVector<QStringList> Filter;
-	Filter.push_back({ "NoteType", QString::fromLocal8Bit("Работа") });
+	getAllNotes();
+	
+	QVector<class MattyNote>::iterator NoteNumber;
+	int i;
+	for (NoteNumber = ListOfAllNotes.begin(), i=0; NoteNumber < ListOfAllNotes.end();NoteNumber++, i++)
+	{
+		QHBoxLayout *HorizontalLayout;
+		HorizontalLayout = new QHBoxLayout();
+		HorizontalLayout->setParent(ParentLayout);
+		HorizontalLayout->setMargin(12);
+		HorizontalLayout->setSpacing(6);
+		HorizontalLayout->setStretch(0, 0);
+		//HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+		ParentLayout->addLayout(HorizontalLayout);
 
-	QVector<QStringList> ListOfRows = DbManager::showNotes(Filter);
+		MattyGroupBox* MyGroupBox = new MattyGroupBox(); // удалить delete или поставить родителя (только виджет)
+		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
+		MyGroupBox->fillFrame(*NoteNumber);
 
-	if (!ListOfNotes.isEmpty())
-		ListOfNotes.clear();
+		HorizontalLayout->addWidget(MyGroupBox);
+		MyGroupBox->setObjectName(GroupBoxName);
+		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
+	}
+}
+
+void NoteHolder::setFilters()
+{
+}
+
+void NoteHolder::getAllNotes()
+{
+	TotalNoteCount = 0;
+
+	QVector<QStringList> ListOfRows = DbManager::showNotes();
+
+	if (!ListOfAllNotes.isEmpty())
+		ListOfAllNotes.clear();
 
 	for (int i = 0; i < ListOfRows.length();i++)
 	{
 		MattyNote TempNote(ListOfRows[i]);
-		ListOfNotes.append(TempNote);
-		NoteCount++;
+		ListOfAllNotes.append(TempNote);
+		TotalNoteCount++;
 	}
-
-	return ListOfNotes;
 }
 
-void NoteHolder::showNotes(int orderDirection, QVBoxLayout * ParentLayout)
+void NoteHolder::getSelectedNotes() // пока не отичается от getAllNotes()
 {
-	//getNotesOrderByCrDate();
-	//qDeleteAll(ParentLayout->findChildren<QHBoxLayout*>("", Qt::FindDirectChildrenOnly));
-	QLayoutItem *child;
-	while ((child = ParentLayout->takeAt(0)) != 0) 
+	TotalNoteCount = 0;
+
+	QMap<QString, QString> Filter; // это потом заменить на метод, обрабатывающий запросы пользователя на сортировку
+
+	QVector<QStringList> ListOfRows = DbManager::showNotes(Filter);
+
+	if (!ListOfAllNotes.isEmpty())
+		ListOfAllNotes.clear();
+
+	for (int i = 0; i < ListOfRows.length();i++)
 	{
-			delete child;
+		MattyNote TempNote(ListOfRows[i]);
+		ListOfAllNotes.append(TempNote);
+		TotalNoteCount++;
 	}
-	QVector<class MattyNote>::iterator NoteNumber;
-	int i;
-	for (NoteNumber=ListOfNotes.begin(), i=0; NoteNumber < ListOfNotes.end();NoteNumber++, i++)
+}
+
+void NoteHolder::erasePublishedNotes(QVBoxLayout * ParentLayout)
+{
+	QLayoutItem *child;
+	while ((child = ParentLayout->takeAt(0)) != 0)
 	{
-		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
-		QHBoxLayout *HorizontalLayout;
-		HorizontalLayout = new QHBoxLayout();  // указать родителя
-		HorizontalLayout->setMargin(12);
-		HorizontalLayout->setSpacing(6);
-		HorizontalLayout->setStretch(0, 0);
-		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-		ParentLayout->addLayout(HorizontalLayout);
-		HorizontalLayout->setParent(ParentLayout);
-		MattyGroupBox* MyGroupBox = new MattyGroupBox(); // удалить delete
-		//MyGroupBox->setParent(ParentLayout);
-		MyGroupBox->fillFrame(*NoteNumber);
-		HorizontalLayout->addWidget(MyGroupBox);
-		MyGroupBox->setObjectName(GroupBoxName);
-		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
+		delete child;
 	}
 }

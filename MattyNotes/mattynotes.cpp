@@ -69,8 +69,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 
 
-	NoteHolder::sortNotesByCrDate();
-	NoteHolder::showNotes(0, ui.verticalLayout_4);
+	NoteHolder::publishNotes(0, ui.verticalLayout_4);
 
 	QObject::connect(closeWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
 	QObject::connect(maximizeWindowButton, SIGNAL(clicked()), this,

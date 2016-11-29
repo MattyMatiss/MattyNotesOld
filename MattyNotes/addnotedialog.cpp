@@ -60,8 +60,7 @@ void addNoteDialog::on_createNoteButton_clicked()
 		delete NoteToAdd;
 
 		this->close();
-		NoteHolder::sortNotesByCrDate();
-		NoteHolder::showNotes(0, GroupBoxLayout);
+		NoteHolder::publishNotes(0, GroupBoxLayout);
 		this->~addNoteDialog();
 	}
 	else

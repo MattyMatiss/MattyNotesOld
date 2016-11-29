@@ -5,9 +5,8 @@
 #pragma once
 #endif // _MSC_VER
 
-#include <QHash>
 
-enum OrderNotesBy { NoOrder, Type, TypeDesc, CrDate, CrDateDesc, EvDate, EvDateDesc };
+enum OrderNotesBy { NoOrder, Type, TypeDesc, TypeId, CrDate, CrDateDesc, EvDate, EvDateDesc };
 
 class QueryConstructor
 {

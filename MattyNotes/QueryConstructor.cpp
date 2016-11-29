@@ -5,6 +5,9 @@ QueryConstructor::QueryConstructor()
 {
 	OrderByClause = "";
 	TableName = "";
+	WhatToSelectFieldNames = QStringList();
+	WhereFieldValue = QMap<QString, QString>();
+	WhatToSetFieldValue = QMap<QString, QString>();
 }
 
 
@@ -14,7 +17,7 @@ QueryConstructor::~QueryConstructor()
 
 void QueryConstructor::setOrderByClause(enum OrderNotesBy OrderBy)
 {
-	QStringList OrderByTypes = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC",
+	QStringList OrderByTypes = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC", " ORDER BY TypeId",
 		" ORDER BY CrDate, CrTime", " ORDER BY CrDate, CrTime DESC",
 		" ORDER BY EventDate, EventTime", " ORDER BY EventDate, EventTime DESC" };
 
@@ -88,14 +91,15 @@ QString QueryConstructor::constructInsertQuery()
 
 	if (TableName!="")
 	{
-		if (!WhatToSetFieldValue.empty())
+		if (!WhatToSetFieldValue.isEmpty())
 		{
-			ResultQuery.append(" INSERt INTO " + TableName + "(");
+			ResultQuery.append(" INSERT INTO " + TableName + " (");
 
 			QMapIterator<QString, QString> *pair = new QMapIterator<QString, QString>(WhatToSetFieldValue);
 			while (pair->hasNext())
 			{
-				ResultQuery.append(pair->key());
+				pair->next();
+				ResultQuery.append(" " + pair->key() + ",");
 			}
 
 			if (ResultQuery.endsWith(","))
@@ -107,8 +111,13 @@ QString QueryConstructor::constructInsertQuery()
 
 			while (pair->hasNext())
 			{
-				ResultQuery.append(pair->value());
+				pair->next();
+				ResultQuery.append(" " + pair->value() + ",");
 			}
+
+			if (ResultQuery.endsWith(","))
+				ResultQuery.chop(1);
+
 			delete pair;
 
 			ResultQuery.append(");");
@@ -126,7 +135,7 @@ QString QueryConstructor::constructSelectQuery()
 	{
 		ResultQuery.append(" SELECT ");
 
-		if (WhatToSelectFieldNames.empty())
+		if (WhatToSelectFieldNames.isEmpty())
 		{
 			ResultQuery.append("*");
 		}
@@ -138,7 +147,7 @@ QString QueryConstructor::constructSelectQuery()
 			}
 			ResultQuery.append(WhatToSelectFieldNames.last());
 		}
-		ResultQuery.append(" FROM " + TableName + " WHERE " + constructWhereEqualsClause() + " " + OrderByClause);
+		ResultQuery.append(" FROM " + TableName + constructWhereEqualsClause() + " " + OrderByClause);
 	}
 	return ResultQuery;
 }
@@ -149,7 +158,7 @@ QString QueryConstructor::constructDeleteQuery()
 
 	if (TableName != "")
 	{
-		ResultQuery.append(" DELETE FROM " + TableName + " WHERE " + constructWhereEqualsClause());
+		ResultQuery.append(" DELETE FROM " + TableName + constructWhereEqualsClause());
 	}
 
 	return ResultQuery;
@@ -168,13 +177,17 @@ QString QueryConstructor::constructWhereEqualsClause()
 {
 	QString WhereClause = "";
 
-	QMapIterator<QString, QString> *pair = new QMapIterator<QString, QString>(WhereFieldValue);
-	while (pair->hasNext())
+	if (!WhereFieldValue.empty())
 	{
-		WhereClause.append(" " + pair->key() + "=" + pair->value() + ",");
-	}
-	if (WhereClause.endsWith(","))
-		WhereClause.chop(1);
+		WhereClause.append(" WHERE ");
 
+		QMapIterator<QString, QString> pair(WhereFieldValue);
+		while (pair.hasNext())
+		{
+			WhereClause.append(" " + pair.key() + "=" + pair.value() + ",");
+		}
+		if (WhereClause.endsWith(","))
+			WhereClause.chop(1);
+	}
 	return WhereClause;
 }

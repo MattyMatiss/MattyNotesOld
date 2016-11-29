@@ -12,12 +12,17 @@ class NoteHolder
 public:
 	NoteHolder();
 	~NoteHolder();
-	static QVector<class MattyNote> sortNotesByCrDate();
-	static void showNotes(int orderDirection, QVBoxLayout* ParentLayout);
+	void sortNotesByCrDate();
+	static void publishNotes(int orderDirection, QVBoxLayout* ParentLayout);
+	static void setFilters();
 private:
-	static int NoteCount;
-	static QVector<class MattyNote> ListOfNotes;
+	static int TotalNoteCount;
+	static QVector<class MattyNote> ListOfAllNotes;
 	static QVector<QString> ListOfGroupBoxeNames;
+
+	static void getAllNotes();
+	static void getSelectedNotes();
+	static void erasePublishedNotes(QVBoxLayout * ParentLayout);
 };
 
 #endif // NOTEHOLDER_H
