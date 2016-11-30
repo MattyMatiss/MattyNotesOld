@@ -18,11 +18,14 @@ public:
 	static void erasePublishedNotes(QVBoxLayout * ParentLayout);
 private:
 	static int TotalNoteCount;
+
 	static QVector<class MattyNote> ListOfAllNotes;
 	static QVector<QString> ListOfGroupBoxeNames;
 
 	static void getAllNotes();
 	static void getSelectedNotes();
+
+	static QVector<class MattyGroupBox*> ListofGroupBoxes;
 };
 
 #endif // NOTEHOLDER_H

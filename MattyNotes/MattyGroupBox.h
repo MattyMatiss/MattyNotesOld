@@ -15,7 +15,6 @@ class MattyGroupBox :
 public:
 	MattyGroupBox();
 	void fillFrame(class MattyNote & ThisNote);
-	~MattyGroupBox();
 private:
 	void buildFrame();
 	//QLabel* NoteTitleLabel;

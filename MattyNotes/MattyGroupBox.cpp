@@ -182,26 +182,8 @@ void MattyGroupBox::deleteNote()
 	if (answer == QMessageBox::Yes)
 	{
 		DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
-		this->hide();
+		//this->hide();
 		this->~MattyGroupBox();
 	}
-}
-
-
-MattyGroupBox::~MattyGroupBox()
-{
-	//delete NoteTypeLabel;
-	//delete NoteCrTimeAndDateLabel;
-	//delete NoteEventTimeAndDateLabel;
-	//delete NoteTextLabel;
-	//delete horizontalSpacer_1;
-	//delete horizontalSpacer_2;
-	//delete verticalSpacer;
-//	delete editNoteButton;
-//	delete deleteNoteButton;
-//	delete horizontalLayout_1;
-//	delete horizontalLayout_2;
-//	delete verticalLayout;
-//	delete gridLayout;
 }
 

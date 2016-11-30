@@ -8,6 +8,7 @@
 int NoteHolder::TotalNoteCount = 0;
 QVector<class MattyNote> NoteHolder::ListOfAllNotes = QVector<class MattyNote>();
 QVector<QString> NoteHolder::ListOfGroupBoxeNames = QVector<QString>();
+QVector<MattyGroupBox*> NoteHolder::ListofGroupBoxes = QVector<MattyGroupBox*>();
 
 NoteHolder::NoteHolder()
 {
@@ -32,6 +33,9 @@ void NoteHolder::publishNotes(int orderDirection, QVBoxLayout * ParentLayout)
 	int i;
 	for (NoteNumber = ListOfAllNotes.begin(), i=0; NoteNumber < ListOfAllNotes.end();NoteNumber++, i++)
 	{
+		if (!ListofGroupBoxes.empty())
+			ListofGroupBoxes.clear();
+
 		QHBoxLayout *HorizontalLayout;
 		HorizontalLayout = new QHBoxLayout();
 		HorizontalLayout->setMargin(12);
@@ -44,9 +48,9 @@ void NoteHolder::publishNotes(int orderDirection, QVBoxLayout * ParentLayout)
 		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
 		MyGroupBox->fillFrame(*NoteNumber);
 
-		HorizontalLayout->insertWidget(0, MyGroupBox);
+		ListofGroupBoxes. // .insert(MyGroupBox);
 		//HorizontalLayout->addWidget(MyGroupBox);
-		MyGroupBox->setObjectName(GroupBoxName);
+		//MyGroupBox->setObjectName(GroupBoxName);
 		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
 	}
 }
@@ -93,12 +97,11 @@ void NoteHolder::getSelectedNotes() // пока не отичается от getAllNotes()
 
 void NoteHolder::erasePublishedNotes(QVBoxLayout * ParentLayout)
 {
-
-	foreach(QHBoxLayout* child, ParentLayout->findChildren<QHBoxLayout*>())
+	/*QVectorIterator<MattyGroupBox*> hey(ListofGroupBoxes);
+	while (hey.hasNext())
 	{
-		MattyGroupBox* GrandChild = child->findChild<MattyGroupBox*>();
-		delete GrandChild;
-		delete child;
-	}
+		hey.next();
+		delete ListofGroupBoxes.at(hey);
+	}*/
 }
 
