@@ -79,6 +79,19 @@ MattyNotes::MattyNotes(QWidget *parent)
 		"#addNoteButtonTemp:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
 		"color: #6d6f6d; }"));
 
+	refreshNoteList = new QPushButton(this);
+	refreshNoteList->setObjectName(QStringLiteral("refreshNoteList"));
+	refreshNoteList->setMinimumSize(QSize(51, 51));
+	refreshNoteList->setMaximumSize(QSize(51, 51));
+	refreshNoteList->setStyleSheet(QLatin1String("#refreshNoteList { background-color: transparent;\n"
+		"background-image: url(:/MattyNotes/RefreshNoteList.png);\n"
+		"color: transparent;\n"
+		"font-weight: bold;\n"
+		"font-style: italic;\n"
+		"font-family: Comic Sans MS; }\n"
+		"#refreshNoteList:hover { background-image: url(:/MattyNotes/RefreshNoteListHover.png); \n"
+		"color: #6d6f6d; }"));
+
 	MattyToolBar = new QToolBar(this);
 	MattyToolBar->setObjectName(QStringLiteral("MattyToolBar"));
 	MattyToolBar->setFloatable(false);
@@ -105,10 +118,12 @@ MattyNotes::MattyNotes(QWidget *parent)
 	QWidget* spacer3 = new QWidget();
 	spacer3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	MattyToolBar->addWidget(spacer3);
+	MattyToolBar->addWidget(refreshNoteList);
 	MattyToolBar->addWidget(addNoteButtonTemp);
 
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
-
+	QObject::connect(refreshNoteList, SIGNAL(clicked()), this, SLOT(on_refreshNoteList_clicked()));
+	
 	NoteHolder::publishNotes(0, ui.verticalLayout_4);
 }
 
@@ -141,6 +156,11 @@ void MattyNotes::maximizeWindow()
 void MattyNotes::minimizeWindow()
 {
 	this->showMinimized();
+}
+
+void MattyNotes::on_refreshNoteList_clicked()
+{
+	NoteHolder::erasePublishedNotes(ui.verticalLayout_4);
 }
 
 void MattyNotes::mousePressEvent(QMouseEvent *event) 

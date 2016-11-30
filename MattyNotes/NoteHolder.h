@@ -15,6 +15,7 @@ public:
 	void sortNotesByCrDate();
 	static void publishNotes(int orderDirection, QVBoxLayout* ParentLayout);
 	static void setFilters();
+	static void erasePublishedNotes(QVBoxLayout * ParentLayout);
 private:
 	static int TotalNoteCount;
 	static QVector<class MattyNote> ListOfAllNotes;
@@ -22,7 +23,6 @@ private:
 
 	static void getAllNotes();
 	static void getSelectedNotes();
-	static void erasePublishedNotes(QVBoxLayout * ParentLayout);
 };
 
 #endif // NOTEHOLDER_H

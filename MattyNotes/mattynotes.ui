@@ -40,8 +40,8 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>403</width>
-           <height>461</height>
+           <width>451</width>
+           <height>972</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -254,7 +254,7 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
 </string>
                      </property>
                      <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфф&lt;/p&gt;&lt;p&gt;ффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;ффФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффp&amp;gt;ФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФфффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффФФФФФФФФФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фф&lt;/p&gt;&lt;p&gt;фффффp&amp;gt;ФФФФФФФФФФФФФФФФФФФФФфффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="wordWrap">
                       <bool>true</bool>

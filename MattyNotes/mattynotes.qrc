@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>RefreshNoteList.png</file>
+    <file>RefreshNoteListHover.png</file>
     <file>CommonNo.png</file>
     <file>CommonNoHover.png</file>
     <file>CommonYes.png</file>

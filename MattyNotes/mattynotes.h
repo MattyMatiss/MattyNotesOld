@@ -14,14 +14,13 @@ class MattyNotes : public QMainWindow
 
 public:
 	MattyNotes(QWidget *parent = 0);
-	//QPushButton pushButton;
 	QLabel* header;
 	QPushButton* closeWindowButton;
 	QPushButton* maximizeWindowButton;
 	QPushButton* minimizeWindowButton;
 	QToolBar *MattyToolBar;
 	QPushButton *addNoteButtonTemp;
-	//QPushButton refreshDb;
+	QPushButton *refreshNoteList;
 	~MattyNotes();
 
 
@@ -37,6 +36,7 @@ private:
 	void closeWindow();
 	void maximizeWindow();
 	void minimizeWindow();
+	void on_refreshNoteList_clicked();
 };
 
 

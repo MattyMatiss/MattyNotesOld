@@ -93,9 +93,12 @@ void NoteHolder::getSelectedNotes() // пока не отичается от getAllNotes()
 
 void NoteHolder::erasePublishedNotes(QVBoxLayout * ParentLayout)
 {
-	QLayoutItem *child;
-	while ((child = ParentLayout->takeAt(0)) != 0)
+
+	foreach(QHBoxLayout* child, ParentLayout->findChildren<QHBoxLayout*>())
 	{
+		MattyGroupBox* GrandChild = child->findChild<MattyGroupBox*>();
+		delete GrandChild;
 		delete child;
 	}
 }
+
