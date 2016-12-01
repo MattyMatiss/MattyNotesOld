@@ -1,0 +1,24 @@
+#include "stdafx.h"
+#include "MattyClocks.h"
+#include "MattyTime.h"
+
+MattyClocks::MattyClocks(QWidget *parent) : QLCDNumber(parent)
+{
+	this->setFixedSize(96, 51);
+//	this->setStyleSheet(QStringLiteral("font-size: 10px;"));
+	QTimer *timer = new QTimer(this);
+	connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+	timer->start(1000);
+	showTime();
+}
+
+
+MattyClocks::~MattyClocks()
+{
+}
+
+
+void MattyClocks::showTime()
+{
+	display(MattyTime::PrintCurrTime());
+}

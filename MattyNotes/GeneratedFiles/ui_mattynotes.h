@@ -24,6 +24,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
@@ -35,8 +36,11 @@ class Ui_MattyNotesClass
 {
 public:
     QWidget *centralWidget;
+    QGridLayout *gridLayout_4;
+    QSplitter *splitter;
+    QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QVBoxLayout *verticalLayout_3;
+    QSpacerItem *horizontalSpacer;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout_2;
@@ -59,7 +63,6 @@ public:
     QSpacerItem *horizontalSpacer_8;
     QLabel *NoteTextLabel;
     QSpacerItem *verticalSpacer_3;
-    QSpacerItem *horizontalSpacer;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -76,21 +79,33 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QLatin1String("#centralWidget {\n"
 "background-color: transparent;}"));
-        gridLayout = new QGridLayout(centralWidget);
+        gridLayout_4 = new QGridLayout(centralWidget);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        splitter = new QSplitter(centralWidget);
+        splitter->setObjectName(QStringLiteral("splitter"));
+        splitter->setOrientation(Qt::Horizontal);
+        gridLayoutWidget = new QWidget(splitter);
+        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
+        gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        scrollArea = new QScrollArea(centralWidget);
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 0, 0, 1, 1);
+
+        splitter->addWidget(gridLayoutWidget);
+        scrollArea = new QScrollArea(splitter);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setStyleSheet(QLatin1String("QScrollArea { background: transparent; border: 0px none transparent; }\n"
 "QScrollArea > QWidget > QWidget { background: transparent; border: 0px none transparent; }"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 451, 972));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 475, 972));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -237,15 +252,9 @@ public:
         gridLayout_2->addLayout(verticalLayout_4, 0, 0, 1, 1);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
+        splitter->addWidget(scrollArea);
 
-        verticalLayout_3->addWidget(scrollArea);
-
-
-        gridLayout->addLayout(verticalLayout_3, 0, 1, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 0, 0, 1, 1);
+        gridLayout_4->addWidget(splitter, 0, 0, 1, 1);
 
         MattyNotesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MattyNotesClass);

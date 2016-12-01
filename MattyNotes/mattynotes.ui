@@ -23,60 +23,79 @@
     <string notr="true">#centralWidget {
 background-color: transparent;}</string>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="styleSheet">
-         <string notr="true">QScrollArea { background: transparent; border: 0px none transparent; }
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="styleSheet">
+        <string notr="true">QScrollArea { background: transparent; border: 0px none transparent; }
 QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px none transparent; }</string>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>475</width>
+          <height>972</height>
+         </rect>
         </property>
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>451</width>
-           <height>972</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <property name="leftMargin">
-               <number>12</number>
-              </property>
-              <property name="topMargin">
-               <number>12</number>
-              </property>
-              <property name="rightMargin">
-               <number>12</number>
-              </property>
-              <property name="bottomMargin">
-               <number>12</number>
-              </property>
-              <item>
-               <widget class="QGroupBox" name="groupBox">
-                <property name="minimumSize">
-                 <size>
-                  <width>50</width>
-                  <height>200</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#groupBox { 
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <property name="leftMargin">
+              <number>12</number>
+             </property>
+             <property name="topMargin">
+              <number>12</number>
+             </property>
+             <property name="rightMargin">
+              <number>12</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">#groupBox { 
 /*background-image: url(:/MattyNotes/NoteBackground450.png);*/
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1));
 background-repeat: no-repeat;
@@ -97,210 +116,196 @@ padding-right: 25px;
 }
 #groupBox::title { padding-left: 35px; }
 QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
-                </property>
-                <property name="title">
-                 <string>GroupBox</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_3">
-                 <item row="0" column="0">
-                  <layout class="QVBoxLayout" name="verticalLayout_5">
-                   <item>
-                    <widget class="Line" name="line">
-                     <property name="styleSheet">
-                      <string notr="true">margin-top: 15px;</string>
-                     </property>
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_9">
-                     <item>
-                      <widget class="QLabel" name="NoteTitleLabel">
-                       <property name="text">
-                        <string>Заголовок</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="NoteTypeLabel">
-                       <property name="text">
-                        <string>Тип</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="NoteCrTimeAndDateLabel">
-                       <property name="text">
-                        <string>Создано:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="horizontalSpacer_7">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>40</width>
-                         <height>20</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="editNoteButton">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>21</width>
-                         <height>21</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">#editNoteButton  { background-image: url(:/MattyNotes/EditNote.png);  background-position: center; } 
+               </property>
+               <property name="title">
+                <string>GroupBox</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_3">
+                <item row="0" column="0">
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                  <item>
+                   <widget class="Line" name="line">
+                    <property name="styleSheet">
+                     <string notr="true">margin-top: 15px;</string>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                    <item>
+                     <widget class="QLabel" name="NoteTitleLabel">
+                      <property name="text">
+                       <string>Заголовок</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="NoteTypeLabel">
+                      <property name="text">
+                       <string>Тип</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="NoteCrTimeAndDateLabel">
+                      <property name="text">
+                       <string>Создано:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_7">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="editNoteButton">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>21</width>
+                        <height>21</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">#editNoteButton  { background-image: url(:/MattyNotes/EditNote.png);  background-position: center; } 
 #editNoteButton:hover { background-image: url(:/MattyNotes/EditNoteHover.png);  background-position: center; }</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="flat">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="deleteNoteButton">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>21</width>
-                         <height>21</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">#deleteNoteButton  { background-image: url(:/MattyNotes/DeleteNote.png);  background-position: center; } 
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="flat">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="deleteNoteButton">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>21</width>
+                        <height>21</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">#deleteNoteButton  { background-image: url(:/MattyNotes/DeleteNote.png);  background-position: center; } 
 #deleteNoteButton:hover { background-image: url(:/MattyNotes/DeleteNoteHover.png);  background-position: center; }</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="flat">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="horizontalSpacer_2">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>40</width>
-                         <height>20</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_10">
-                     <item>
-                      <widget class="QLabel" name="NoteEventTimeAndDateLabel">
-                       <property name="text">
-                        <string>Когда</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="horizontalSpacer_8">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>40</width>
-                         <height>20</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="NoteTextLabel">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>100</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">border-color: rgb(0, 0, 0);
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="flat">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_10">
+                    <item>
+                     <widget class="QLabel" name="NoteEventTimeAndDateLabel">
+                      <property name="text">
+                       <string>Когда</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_8">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="NoteTextLabel">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-color: rgb(0, 0, 0);
 </string>
-                     </property>
-                     <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфф&lt;/p&gt;&lt;p&gt;ффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;ффФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффp&amp;gt;ФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФфффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффФФФФФФФФФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фф&lt;/p&gt;&lt;p&gt;фффффp&amp;gt;ФФФФФФФФФФФФФФФФФФФФФфффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                     <property name="wordWrap">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="verticalSpacer_3">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфф&lt;/p&gt;&lt;p&gt;ффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;ффФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффp&amp;gt;ФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФфффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффФФФФФФФФФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фф&lt;/p&gt;&lt;p&gt;фффффp&amp;gt;ФФФФФФФФФФФФФФФФФФФФФфффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="0">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>

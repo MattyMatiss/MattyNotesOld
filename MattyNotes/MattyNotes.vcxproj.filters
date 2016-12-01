@@ -101,6 +101,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_MattyGroupBox.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="MattyClocks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MattyClocks.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MattyClocks.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -163,6 +172,9 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="mattysettings.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MattyClocks.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include "MattyGroupBox.h"
 #include "NoteHolder.h"
 #include "Constants.h"
+#include "MattyClocks.h"
 
 MattyNotes::MattyNotes(QWidget *parent)
 	: QMainWindow(parent)
@@ -108,12 +109,15 @@ MattyNotes::MattyNotes(QWidget *parent)
 	MattyToolBar->setAutoFillBackground(true);
 	MattyToolBar->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127); "));
 
-	QLCDNumber *ClocksLcdNumber;
+	/*QLCDNumber *ClocksLcdNumber;
 	ClocksLcdNumber = new QLCDNumber(ui.statusBar);
 	ClocksLcdNumber->setObjectName(QStringLiteral("ClocksLcdNumber"));
 	ClocksLcdNumber->setStyleSheet(QStringLiteral("color: black;"));
 	MattyToolBar->addWidget(ClocksLcdNumber);
-	ClocksLcdNumber->display(MattyTime::PrintCurrTime());
+	ClocksLcdNumber->display(MattyTime::PrintCurrTime());*/
+
+	MattyClocks* MainClocks = new MattyClocks(this);
+	MattyToolBar->addWidget(MainClocks);
 
 	QWidget* spacer3 = new QWidget();
 	spacer3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
