@@ -168,7 +168,22 @@ QString QueryConstructor::constructUpdateQuery()
 {
 	QString ResultQuery = "";
 
+	if(TableName!="")
+		if (!WhatToSetFieldValue.empty())
+		{
+			ResultQuery.append(" UPDATE " + TableName + " SET ");
 
+			QMapIterator<QString, QString> pair(WhatToSetFieldValue);
+			while (pair.hasNext())
+			{
+				pair.next();
+				ResultQuery.append(" " + pair.key() + "=" + pair.value() + ",");
+			}
+			if (ResultQuery.endsWith(","))
+				ResultQuery.chop(1);
+
+			ResultQuery.append(constructWhereEqualsClause());
+		}
 
 	return ResultQuery;
 }

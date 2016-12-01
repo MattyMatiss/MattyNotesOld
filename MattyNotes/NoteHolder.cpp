@@ -23,9 +23,9 @@ void NoteHolder::sortNotesByCrDate()
 {
 }
 
-void NoteHolder::publishNotes(int orderDirection, QVBoxLayout * ParentLayout)
+void NoteHolder::publishNotes(QWidget* ParentWidget)
 {
-	erasePublishedNotes(ParentLayout);
+	erasePublishedNotes(ParentWidget);
 
 	getAllNotes();
 	
@@ -42,16 +42,24 @@ void NoteHolder::publishNotes(int orderDirection, QVBoxLayout * ParentLayout)
 		HorizontalLayout->setSpacing(6);
 		HorizontalLayout->setStretch(0, 0);
 		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-		ParentLayout->insertLayout(0, HorizontalLayout);
 
-		MattyGroupBox* MyGroupBox = new MattyGroupBox(); // удалить delete или поставить родителя (только виджет)
+		//ParentWidget->layou->insertLayout(0, HorizontalLayout);
+
+		/*MattyGroupBox* MyGroupBox = new MattyGroupBox(); // удалить delete или поставить родителя (только виджет)
 		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
 		MyGroupBox->fillFrame(*NoteNumber);
 
-		ListofGroupBoxes. // .insert(MyGroupBox);
-		//HorizontalLayout->addWidget(MyGroupBox);
+		ListofGroupBoxes.push_back(MyGroupBox);
+		HorizontalLayout->addWidget(MyGroupBox);
 		//MyGroupBox->setObjectName(GroupBoxName);
 		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
+		QObject* MgbParent = MyGroupBox->parent();*/
+
+		MattyGroupBox* MyGroupBox = new MattyGroupBox(ParentWidget);
+		MyGroupBox->fillFrame(*NoteNumber);
+
+		ParentWidget->layout()->addWidget(MyGroupBox);
+
 	}
 }
 
@@ -95,13 +103,18 @@ void NoteHolder::getSelectedNotes() // пока не отичается от getAllNotes()
 	}
 }
 
-void NoteHolder::erasePublishedNotes(QVBoxLayout * ParentLayout)
+void NoteHolder::erasePublishedNotes(QWidget* ParentWidget)
 {
-	/*QVectorIterator<MattyGroupBox*> hey(ListofGroupBoxes);
-	while (hey.hasNext())
+	MattyGroupBox* MgbTemp;
+	while ((MgbTemp = ParentWidget->findChild<MattyGroupBox*>()) != 0)
 	{
-		hey.next();
-		delete ListofGroupBoxes.at(hey);
-	}*/
+		delete MgbTemp;
+	}
+
+	QGroupBox* GbTemp;
+	while ((GbTemp = ParentWidget->findChild<QGroupBox*>()) != 0)
+	{
+		delete GbTemp;
+	}
 }
 

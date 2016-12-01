@@ -12,7 +12,7 @@ class addNoteDialog : public QWidget {
 	Q_OBJECT
 
 public:
-	addNoteDialog(QVBoxLayout* GroupBoxLayoutSent, QWidget * parent = 0);
+	addNoteDialog(QWidget * parent = 0);
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
 	QVBoxLayout* GroupBoxLayout;
@@ -25,6 +25,8 @@ private:
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
+
+	QWidget* ParentToGroupBox;
 
 	private slots:
 	void on_createNoteButton_clicked();

@@ -7,17 +7,15 @@
 
 #include "MattyNote.h"
 
-//#include "C:\Qt\Qt5.7.0\5.7\msvc2015_64\include\QtWidgets\qgroupbox.h"
 class MattyGroupBox :
 	public QGroupBox
 {
 	Q_OBJECT
 public:
-	MattyGroupBox();
+	MattyGroupBox(QWidget* parent = 0);
 	void fillFrame(class MattyNote & ThisNote);
 private:
 	void buildFrame();
-	//QLabel* NoteTitleLabel;
 	QLabel* NoteTypeLabel;
 	QLabel* NoteCrTimeAndDateLabel;
 	QLabel* NoteEventTimeAndDateLabel;
@@ -34,6 +32,7 @@ private:
 	class MattyNote ThisGroupBoxNote;
 	private slots:
 	void deleteNote();
+	bool editNote();
 	//void on_deleteNoteButton_clicked();
 };
 

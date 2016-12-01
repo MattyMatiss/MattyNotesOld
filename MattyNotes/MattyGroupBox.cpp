@@ -5,10 +5,12 @@
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
 
-MattyGroupBox::MattyGroupBox()
+MattyGroupBox::MattyGroupBox(QWidget* parent)
 {
+	this->setParent(parent);
 	buildFrame();
 	QObject::connect(deleteNoteButton, SIGNAL(clicked()), this, SLOT(deleteNote()));
+	QObject::connect(editNoteButton, SIGNAL(clicked()), this, SLOT(editNote()));
 }
 
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
@@ -160,6 +162,11 @@ void MattyGroupBox::buildFrame()
 	GroupBoxShadow->setOffset(15, 15);
 	this->setGraphicsEffect(GroupBoxShadow);
 
+}
+
+bool MattyGroupBox::editNote()
+{
+	return false;
 }
 
 void MattyGroupBox::deleteNote()

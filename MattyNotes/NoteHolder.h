@@ -13,9 +13,9 @@ public:
 	NoteHolder();
 	~NoteHolder();
 	void sortNotesByCrDate();
-	static void publishNotes(int orderDirection, QVBoxLayout* ParentLayout);
+	static void publishNotes(QWidget* ParentWidget);
 	static void setFilters();
-	static void erasePublishedNotes(QVBoxLayout * ParentLayout);
+	static void erasePublishedNotes(QWidget* ParentWidget);
 private:
 	static int TotalNoteCount;
 

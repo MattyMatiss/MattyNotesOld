@@ -124,7 +124,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 	QObject::connect(refreshNoteList, SIGNAL(clicked()), this, SLOT(on_refreshNoteList_clicked()));
 	
-	NoteHolder::publishNotes(0, ui.verticalLayout_4);
+	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
 
 
@@ -135,7 +135,7 @@ MattyNotes::~MattyNotes()
 
 void MattyNotes::on_addNoteButtonTemp_clicked()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog(ui.verticalLayout_4);
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(ui.scrollAreaWidgetContents);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
 	newAddNoteDialog->show();
 }
@@ -160,7 +160,7 @@ void MattyNotes::minimizeWindow()
 
 void MattyNotes::on_refreshNoteList_clicked()
 {
-	NoteHolder::erasePublishedNotes(ui.verticalLayout_4);
+	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
 
 void MattyNotes::mousePressEvent(QMouseEvent *event) 
