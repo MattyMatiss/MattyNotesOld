@@ -2,6 +2,7 @@
 #include "MattyGroupBox.h"
 #include "MattyNote.h"
 #include "DbManager.h"
+#include "addnotedialog.h"
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
 
@@ -164,9 +165,11 @@ void MattyGroupBox::buildFrame()
 
 }
 
-bool MattyGroupBox::editNote()
+void MattyGroupBox::editNote()
 {
-	return false;
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, this->parentWidget(), ThisGroupBoxNote.getNoteId());
+	newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
+	newAddNoteDialog->show();
 }
 
 void MattyGroupBox::deleteNote()
@@ -189,7 +192,6 @@ void MattyGroupBox::deleteNote()
 	if (answer == QMessageBox::Yes)
 	{
 		DbManager::deleteNote(ThisGroupBoxNote.getNoteId());
-		//this->hide();
 		this->~MattyGroupBox();
 	}
 }

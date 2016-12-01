@@ -19,7 +19,9 @@ public:
 	~DbManager();
 	static bool connect(const QString& path);
 	static bool addNote(MattyNote * Note);
+	static bool editNote(MattyNote * Note, int NoteId);
 	static bool deleteNote(int NoteId);
+	static QStringList showNote(int NoteId);
 	static QVector<QStringList> showNotes(enum OrderNotesBy OrderBy = NoOrder);
 	static QVector<QStringList> showNotes(QMap<QString, QString> & Filter, enum OrderNotesBy OrderBy = NoOrder);
 	static QSqlTableModel* getModel(const QString& path);

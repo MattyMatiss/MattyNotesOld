@@ -6,8 +6,9 @@
 #include "mattynotes.h"
 #include "NoteHolder.h"
 #include "Constants.h"
+#include "QueryConstructor.h"
 
-addNoteDialog::addNoteDialog(QWidget * parent) 
+addNoteDialog::addNoteDialog(Action DialogTypeIncm, QWidget * parent, int EditingNoteIdIncm)
 {
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
@@ -17,8 +18,26 @@ addNoteDialog::addNoteDialog(QWidget * parent)
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
 
-	ParentToGroupBox = new QWidget(parent);
-	//this->setParent(parent);
+	//ParentToGroupBox = new QWidget(parent);
+	
+	EditingNoteId = EditingNoteIdIncm;
+
+	if (EditingNoteIdIncm != -1)
+	{
+		EditingNoteId = EditingNoteIdIncm;
+
+		ThisDialogNote = new MattyNote(DbManager::showNote(EditingNoteId));
+
+		addNoteDialogUi.noteTitleText->setText(ThisDialogNote->getTitle());
+		addNoteDialogUi.noteTypeComboBox->setCurrentText(ThisDialogNote->getType());
+		addNoteDialogUi.noteTextText->setText(ThisDialogNote->getText());
+		addNoteDialogUi.eventTimeEdit->setTime(QTime::fromString(ThisDialogNote->getEventTime()));
+		addNoteDialogUi.eventDateEdit->setDate(QDate::fromString(ThisDialogNote->getEventDate()));
+	}
+	else
+		ThisDialogNote = new MattyNote();
+
+	DialogType = DialogTypeIncm;
 }
 
 addNoteDialog::~addNoteDialog() 
@@ -37,18 +56,32 @@ void addNoteDialog::on_createNoteButton_clicked()
 {
 	if (addNoteDialogUi.noteTitleText->toPlainText() != "")
 	{
-		MattyNote* NoteToAdd = new MattyNote();
-		NoteToAdd->setTitle(addNoteDialogUi.noteTitleText->toPlainText());
-		NoteToAdd->setType(addNoteDialogUi.noteTypeComboBox->currentText());
-		NoteToAdd->setText(addNoteDialogUi.noteTextText->toPlainText());
-		NoteToAdd->setEventTime(UtilityFunctions::repareTime(addNoteDialogUi.eventTimeEdit->text()));
-		NoteToAdd->setEventDate(addNoteDialogUi.eventDateEdit->text());
-		DbManager::addNote(NoteToAdd);
-		delete NoteToAdd;
+		ThisDialogNote->setTitle(addNoteDialogUi.noteTitleText->toPlainText());
+		ThisDialogNote->setType(addNoteDialogUi.noteTypeComboBox->currentText());
+		ThisDialogNote->setText(addNoteDialogUi.noteTextText->toPlainText());
+		ThisDialogNote->setEventTime(UtilityFunctions::repareTime(addNoteDialogUi.eventTimeEdit->text()));
+		ThisDialogNote->setEventDate(addNoteDialogUi.eventDateEdit->text());
+		
+		if (DialogType == Add)
+		{
+			DbManager::addNote(ThisDialogNote);
+			//NoteHolder::publishNotes(ParentToGroupBox); ошибка доступа к памяти
+		}
 
-		this->close();
-		NoteHolder::publishNotes(ParentToGroupBox);
+		if (DialogType == Edit)
+		{
+			if (EditingNoteId != -1)
+			{
+				DbManager::editNote(ThisDialogNote, EditingNoteId);
+			}
+		}
+
+		//delete NoteToAdd;
+
+		//NoteHolder::publishNotes(ParentToGroupBox);
+
 		this->~addNoteDialog();
+		//this->close(); ?????
 	}
 	else
 	{

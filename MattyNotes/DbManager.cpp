@@ -56,6 +56,37 @@ bool DbManager::addNote(MattyNote * Note)
 	}
 }
 
+bool DbManager::editNote(MattyNote *Note, int NoteId)
+{
+	if (MattyNotesDb.isOpen())
+	{
+		QueryConstructor Edit;
+		Edit.setTableName(QStringLiteral("Notes"));
+
+		Edit.addWhereFieldValue(QStringLiteral("NoteId"), QString::number(NoteId));
+
+		QMap<QString, QString> NoteTemp;
+		NoteTemp["NoteTitle"] = "\'" + Note->getTitle() + "\'";
+		NoteTemp["NoteType"] = "\'" + Note->getType() + "\'";
+		NoteTemp["NoteText"] = "\'" + Note->getText() + "\'";
+		NoteTemp["EventTime"] = "\'" + Note->getEventTime() + "\'";
+		NoteTemp["EventDate"] = "\'" + Note->getEventDate() + "\'";
+		NoteTemp["CrTime"] = "\'" + Note->getCrTime() + "\'";
+		NoteTemp["CrDate"] = "\'" + Note->getCrDate() + "\'";
+		NoteTemp["TypeId"] = QString::number(Note->getTypeId());
+
+		Edit.setWhatToSetFieldValue(NoteTemp); // 
+
+		QSqlQuery editNoteQuery;
+		return editNoteQuery.exec(Edit.constructUpdateQuery());
+	}
+	else
+	{
+		showIsNotOpenError();
+		return false;
+	}
+}
+
 bool DbManager::deleteNote(int NoteId)
 {
 	if (MattyNotesDb.isOpen())
@@ -65,13 +96,40 @@ bool DbManager::deleteNote(int NoteId)
 		Delete.addWhereFieldValue(QStringLiteral("NoteId"), QString::number(NoteId));
 
 		QSqlQuery deleteNoteQuery;
-		/*deleteNoteQuery.prepare("DELETE FROM Notes WHERE NoteId=:NoteId");
-		deleteNoteQuery.bindValue(":NoteId", NoteId);*/
 		return deleteNoteQuery.exec(Delete.constructDeleteQuery());
 	}
 	else
 	{
 		showIsNotOpenError();
+		return false;
+	}
+}
+
+QStringList DbManager::showNote(int NoteId)
+{
+	if (MattyNotesDb.isOpen())
+	{
+		QueryConstructor Show;
+		Show.setTableName(QStringLiteral("Notes"));
+		Show.addWhereFieldValue(QStringLiteral("NoteId"), QString::number(NoteId));
+
+		QSqlQuery showNoteQuery;
+		showNoteQuery.exec(Show.constructSelectQuery());
+		showNoteQuery.next();
+
+		QStringList Fields;
+
+		for (int i = 0;i < 9;i++)
+		{
+			Fields.push_back(showNoteQuery.value(i).toString());
+		}
+
+		return Fields;
+	}
+	else
+	{
+		showIsNotOpenError();
+		return QStringList();
 	}
 }
 
@@ -105,8 +163,8 @@ QStringList DbManager::getTypes()
 		GetTypes.addWhatToSelectFieldName(QStringLiteral("TypeName"));
 		GetTypes.setOrderByClause(TypeId);
 
-		//getTypeQuery.exec("SELECT TypeName FROM NoteTypes ORDER BY TypeId");
 		getTypeQuery.exec(GetTypes.constructSelectQuery());
+
 		while (getTypeQuery.next())
 		{
 			NoteTypes << getTypeQuery.value(0).toString();
@@ -212,32 +270,6 @@ QVector<QStringList> DbManager::showNotes(QMap<QString, QString> & Filter, enum 
 {
 	if (MattyNotesDb.isOpen())
 	{
-		/*QString WhereClause = "";
-
-		for (int i = 0; i < Filter.length(); i++)
-		{
-			if (i == 0)
-				WhereClause.append(" WHERE");
-			else
-				WhereClause.append(",");
-
-			WhereClause.append(" " + Filter[i][0] + "=:" + Filter[i][0]);
-		}
-
-		QStringList OrderClause = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC",
-			" ORDER BY CrDate, CrTime", " ORDER BY CrDate, CrTime DESC",
-			" ORDER BY EventDate, EventTime", " ORDER BY EventDate, EventTime DESC" };
-
-		QVector<QStringList> VectorOfNotes;
-
-		QSqlQuery getNotesQuery;
-		getNotesQuery.prepare("SELECT * FROM Notes" + WhereClause + OrderClause[OrderBy]);
-
-		for (int i = 0; i < Filter.length(); i++)
-		{
-			getNotesQuery.bindValue(":" + Filter[i][0], Filter[i][1]);
-		}*/
-
 		QueryConstructor GetNotes;
 		GetNotes.setTableName(QStringLiteral("Notes"));
 		GetNotes.setWhereFieldValue(Filter);
@@ -261,8 +293,6 @@ QVector<QStringList> DbManager::showNotes(QMap<QString, QString> & Filter, enum 
 			VectorOfNotes.push_back(Fields);
 		}
 		return VectorOfNotes;
-
-
 	}
 	else
 	{

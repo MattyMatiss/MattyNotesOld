@@ -57,7 +57,7 @@ void NoteHolder::publishNotes(QWidget* ParentWidget)
 
 		MattyGroupBox* MyGroupBox = new MattyGroupBox(ParentWidget);
 		MyGroupBox->fillFrame(*NoteNumber);
-
+		// при ручном создании заметки сюда не ходить, след. строчка вызывает ошибку
 		ParentWidget->layout()->addWidget(MyGroupBox);
 
 	}

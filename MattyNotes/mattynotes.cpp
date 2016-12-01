@@ -135,9 +135,10 @@ MattyNotes::~MattyNotes()
 
 void MattyNotes::on_addNoteButtonTemp_clicked()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog(ui.scrollAreaWidgetContents);
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(Add, ui.scrollAreaWidgetContents);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
 	newAddNoteDialog->show();
+	// здесь бы поймать момент закрытия диалога добавления и обновить заметки
 }
 
 void MattyNotes::closeWindow()

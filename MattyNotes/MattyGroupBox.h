@@ -32,7 +32,7 @@ private:
 	class MattyNote ThisGroupBoxNote;
 	private slots:
 	void deleteNote();
-	bool editNote();
+	void editNote();
 	//void on_deleteNoteButton_clicked();
 };
 

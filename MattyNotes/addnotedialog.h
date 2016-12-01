@@ -8,11 +8,13 @@
 #include <QWidget>
 #include "ui_addnotedialog.h"
 
+enum Action { Add, Edit };
+
 class addNoteDialog : public QWidget {
 	Q_OBJECT
 
 public:
-	addNoteDialog(QWidget * parent = 0);
+	addNoteDialog(Action DialogTypeIncm, QWidget * parent = 0, int EditingNoteIdIncm = -1);
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
 	QVBoxLayout* GroupBoxLayout;
@@ -27,6 +29,10 @@ private:
 	int m_nMouseClick_Y_Coordinate;
 
 	QWidget* ParentToGroupBox;
+	Action DialogType;
+	int EditingNoteId;
+
+	class MattyNote* ThisDialogNote;
 
 	private slots:
 	void on_createNoteButton_clicked();
