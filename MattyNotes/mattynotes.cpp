@@ -127,6 +127,7 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 	QObject::connect(addNoteButtonTemp, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 	QObject::connect(refreshNoteList, SIGNAL(clicked()), this, SLOT(on_refreshNoteList_clicked()));
+	//QObject::connect()
 	
 	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
@@ -142,6 +143,7 @@ void MattyNotes::on_addNoteButtonTemp_clicked()
 	addNoteDialog* newAddNoteDialog = new addNoteDialog(Add, ui.scrollAreaWidgetContents);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
 	newAddNoteDialog->show();
+	//newAddNoteDialog->bu
 	// здесь бы поймать момент закрытия диалога добавления и обновить заметки
 }
 
