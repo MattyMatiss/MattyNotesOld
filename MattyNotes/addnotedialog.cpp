@@ -13,7 +13,7 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, QWidget * parent, int Editin
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	closeAddingWindowButton = new QPushButton();
-	QObject::connect(closeAddingWindowButton, SIGNAL(clicked()), this, SLOT(close()));
+	//QObject::connect(closeAddingWindowButton, SIGNAL(clicked()), this, SLOT(close()));
 	DbManager::connect(Constants::PathToDb);
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());

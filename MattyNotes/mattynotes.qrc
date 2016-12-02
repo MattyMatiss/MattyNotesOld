@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>Settings.png</file>
+    <file>SettingsHover.png</file>
     <file>RefreshNoteList.png</file>
     <file>RefreshNoteListHover.png</file>
     <file>CommonNo.png</file>

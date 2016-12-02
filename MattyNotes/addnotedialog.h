@@ -10,7 +10,7 @@
 
 enum Action { Add, Edit };
 
-class addNoteDialog : public QWidget {
+class addNoteDialog : public QDialog {
 	Q_OBJECT
 
 public:

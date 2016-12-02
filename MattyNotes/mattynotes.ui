@@ -31,7 +31,7 @@ background-color: transparent;}</string>
       </property>
       <widget class="QWidget" name="gridLayoutWidget">
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
+        <item row="1" column="0">
          <spacer name="horizontalSpacer">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -44,12 +44,45 @@ background-color: transparent;}</string>
           </property>
          </spacer>
         </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="MotivatorLabel">
+          <property name="minimumSize">
+           <size>
+            <width>250</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>250</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-weight: bold;
+font-family: Comic Sans MS; 
+font-style: italic;</string>
+          </property>
+          <property name="text">
+           <string>&quot;Большинство людей намного сильнее, чем они думают, они просто забывают иногда в это верить.&quot;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QScrollArea" name="scrollArea">
        <property name="styleSheet">
-        <string notr="true">QScrollArea { background: transparent; border: 0px none transparent; }
-QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px none transparent; }</string>
+        <string notr="true">QScrollArea { background: transparent;
+ border: 0px none transparent;
+ }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px none transparent; }
+#scrollAreaWidgetContents { }</string>
        </property>
        <property name="widgetResizable">
         <bool>true</bool>
@@ -59,8 +92,8 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>475</width>
-          <height>972</height>
+          <width>410</width>
+          <height>1000</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -220,19 +253,6 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
                        <bool>true</bool>
                       </property>
                      </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_2">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
                     </item>
                    </layout>
                   </item>

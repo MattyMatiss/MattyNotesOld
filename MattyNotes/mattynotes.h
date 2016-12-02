@@ -14,13 +14,16 @@ class MattyNotes : public QMainWindow
 
 public:
 	MattyNotes(QWidget *parent = 0);
-	QLabel* header;
-	QPushButton* closeWindowButton;
-	QPushButton* maximizeWindowButton;
-	QPushButton* minimizeWindowButton;
+	QLabel* WindowHeaderLabel;
+	QPushButton* CloseWindowButton;
+	QPushButton* MaximizeWindowButton;
+	QPushButton* MinimizeWindowButton;
 	QToolBar *MattyToolBar;
-	QPushButton *addNoteButtonTemp;
-	QPushButton *refreshNoteList;
+	QPushButton *AddNoteButton;
+	QPushButton *RefreshNoteListButton;
+	QPushButton *SettingsButton;
+	QWidget* MainToolBarSpacerLeft;
+	QWidget* MainToolBarSpacerRight;
 	~MattyNotes();
 
 
@@ -30,6 +33,10 @@ private:
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
+	void connectToDb(QString& PathToDb = QStringLiteral(""));
+	void buildMainToolBar();
+	void buildMattyToolBar();
+	inline void setConnects();
 
 	private slots:
 	void on_addNoteButtonTemp_clicked();
@@ -37,6 +44,7 @@ private:
 	void maximizeWindow();
 	void minimizeWindow();
 	void on_refreshNoteList_clicked();
+	void on_SettingsButton_clicked();
 };
 
 

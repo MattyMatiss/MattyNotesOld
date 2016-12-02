@@ -96,16 +96,24 @@ void MattyGroupBox::buildFrame()
 	editNoteButton->setObjectName(QStringLiteral("editNoteButton"));
 	editNoteButton->setSizePolicy(sizePolicy);
 	editNoteButton->setMaximumSize(QSize(21, 21));
-	editNoteButton->setStyleSheet(QStringLiteral("#editNoteButton  { background-image: url(:/MattyNotes/EditNote.png);  background-position: center; } "
-		"#editNoteButton:hover{ background-image: url(:/MattyNotes/EditNoteHover.png);  background-position: center; }"));
+	editNoteButton->setStyleSheet(QStringLiteral("#editNoteButton  {  "
+		"background-image: url(:/MattyNotes/EditNote.png);"
+		"background-position: center; } "
+		"#editNoteButton:hover{ "
+		"background-image: url(:/MattyNotes/EditNoteHover.png);"
+		"background-position: center; }"));
 	editNoteButton->setFlat(true);
 
 	deleteNoteButton = new QPushButton(this);
 	deleteNoteButton->setObjectName(QStringLiteral("deleteNoteButton"));
 	deleteNoteButton->setSizePolicy(sizePolicy);
 	deleteNoteButton->setMaximumSize(QSize(21, 21));
-	deleteNoteButton->setStyleSheet(QStringLiteral("#deleteNoteButton  { background-image: url(:/MattyNotes/DeleteNote.png);  background-position: center; } "
-		"#deleteNoteButton:hover{ background-image: url(:/MattyNotes/DeleteNoteHover.png);  background-position: center; }"));
+	deleteNoteButton->setStyleSheet(QStringLiteral("#deleteNoteButton  {"
+		"background-image: url(:/MattyNotes/DeleteNote.png);"
+		"background-position: center; } "
+		"#deleteNoteButton:hover{ "
+		"background-image: url(:/MattyNotes/DeleteNoteHover.png);"
+		"background-position: center; }"));
 	deleteNoteButton->setFlat(true);
 
 	horizontalLayout_1->addWidget(NoteTypeLabel);

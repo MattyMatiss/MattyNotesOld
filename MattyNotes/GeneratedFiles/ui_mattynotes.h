@@ -41,6 +41,7 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QSpacerItem *horizontalSpacer;
+    QLabel *MotivatorLabel;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout_2;
@@ -57,7 +58,6 @@ public:
     QSpacerItem *horizontalSpacer_7;
     QPushButton *editNoteButton;
     QPushButton *deleteNoteButton;
-    QSpacerItem *horizontalSpacer_2;
     QHBoxLayout *horizontalLayout_10;
     QLabel *NoteEventTimeAndDateLabel;
     QSpacerItem *horizontalSpacer_8;
@@ -95,17 +95,32 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer, 0, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer, 1, 0, 1, 1);
+
+        MotivatorLabel = new QLabel(gridLayoutWidget);
+        MotivatorLabel->setObjectName(QStringLiteral("MotivatorLabel"));
+        MotivatorLabel->setMinimumSize(QSize(250, 0));
+        MotivatorLabel->setMaximumSize(QSize(250, 16777215));
+        MotivatorLabel->setStyleSheet(QLatin1String("font-weight: bold;\n"
+"font-family: Comic Sans MS; \n"
+"font-style: italic;"));
+        MotivatorLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        MotivatorLabel->setWordWrap(true);
+
+        gridLayout->addWidget(MotivatorLabel, 0, 0, 1, 1);
 
         splitter->addWidget(gridLayoutWidget);
         scrollArea = new QScrollArea(splitter);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setStyleSheet(QLatin1String("QScrollArea { background: transparent; border: 0px none transparent; }\n"
-"QScrollArea > QWidget > QWidget { background: transparent; border: 0px none transparent; }"));
+        scrollArea->setStyleSheet(QLatin1String("QScrollArea { background: transparent;\n"
+" border: 0px none transparent;\n"
+" }\n"
+"QScrollArea > QWidget > QWidget { background: transparent; border: 0px none transparent; }\n"
+"#scrollAreaWidgetContents { }"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 475, 972));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 410, 1000));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -204,10 +219,6 @@ public:
 
         horizontalLayout_9->addWidget(deleteNoteButton);
 
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_2);
-
 
         verticalLayout_5->addLayout(horizontalLayout_9);
 
@@ -280,6 +291,7 @@ public:
     void retranslateUi(QMainWindow *MattyNotesClass)
     {
         MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
+        MotivatorLabel->setText(QApplication::translate("MattyNotesClass", "\"\320\221\320\276\320\273\321\214\321\210\320\270\320\275\321\201\321\202\320\262\320\276 \320\273\321\216\320\264\320\265\320\271 \320\275\320\260\320\274\320\275\320\276\320\263\320\276 \321\201\320\270\320\273\321\214\320\275\320\265\320\265, \321\207\320\265\320\274 \320\276\320\275\320\270 \320\264\321\203\320\274\320\260\321\216\321\202, \320\276\320\275\320\270 \320\277\321\200\320\276\321\201\321\202\320\276 \320\267\320\260\320\261\321\213\320\262\320\260\321\216\321\202 \320\270\320\275\320\276\320\263\320\264\320\260 \320\262 \321\215\321\202\320\276 \320\262\320\265\321\200\320\270\321\202\321\214.\"", 0));
         groupBox->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
         NoteTitleLabel->setText(QApplication::translate("MattyNotesClass", "\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272", 0));
         NoteTypeLabel->setText(QApplication::translate("MattyNotesClass", "\320\242\320\270\320\277", 0));

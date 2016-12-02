@@ -83,15 +83,6 @@
     <ClCompile Include="NoteHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mattysettings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_mattysettings.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_mattysettings.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="QueryConstructor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -109,6 +100,15 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_MattyClocks.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MattySettingsDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MattySettingsDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="MattySettingsDialog.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,11 +142,11 @@
     <ClInclude Include="NoteHolder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_mattysettings.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="QueryConstructor.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_mattysettingsdialog.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -168,14 +168,14 @@
     <CustomBuild Include="MattyGroupBox.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="mattysettings.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mattysettings.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="MattyClocks.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MattySettingsDialog.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mattysettingsdialog.ui">
+      <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
