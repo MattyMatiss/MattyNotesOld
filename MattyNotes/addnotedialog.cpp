@@ -8,7 +8,7 @@
 #include "Constants.h"
 #include "QueryConstructor.h"
 
-addNoteDialog::addNoteDialog(Action DialogTypeIncm, QWidget * parent, int EditingNoteIdIncm)
+addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 {
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
@@ -46,7 +46,7 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, QWidget * parent, int Editin
 
 addNoteDialog::~addNoteDialog() 
 {
-	
+	delete ThisDialogNote;
 }
 
 void addNoteDialog::on_cancelAddingNoteButton_clicked()
@@ -69,7 +69,6 @@ void addNoteDialog::on_createNoteButton_clicked()
 		if (DialogType == Add)
 		{
 			DbManager::addNote(ThisDialogNote);
-			//NoteHolder::publishNotes(ParentToGroupBox); ошибка доступа к памяти
 		}
 
 		if (DialogType == Edit)

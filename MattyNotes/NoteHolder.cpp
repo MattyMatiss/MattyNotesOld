@@ -7,8 +7,8 @@
 
 int NoteHolder::TotalNoteCount = 0;
 QVector<class MattyNote> NoteHolder::ListOfAllNotes = QVector<class MattyNote>();
-QVector<QString> NoteHolder::ListOfGroupBoxeNames = QVector<QString>();
-QVector<MattyGroupBox*> NoteHolder::ListofGroupBoxes = QVector<MattyGroupBox*>();
+//QVector<QString> NoteHolder::ListOfGroupBoxeNames = QVector<QString>();
+//QVector<MattyGroupBox*> NoteHolder::ListofGroupBoxes = QVector<MattyGroupBox*>();
 
 NoteHolder::NoteHolder()
 {
@@ -33,33 +33,12 @@ void NoteHolder::publishNotes(QWidget* ParentWidget)
 	int i;
 	for (NoteNumber = ListOfAllNotes.begin(), i=0; NoteNumber < ListOfAllNotes.end();NoteNumber++, i++)
 	{
-		if (!ListofGroupBoxes.empty())
-			ListofGroupBoxes.clear();
-
-		QHBoxLayout *HorizontalLayout;
-		HorizontalLayout = new QHBoxLayout();
-		HorizontalLayout->setMargin(12);
-		HorizontalLayout->setSpacing(6);
-		HorizontalLayout->setStretch(0, 0);
-		HorizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-
-		//ParentWidget->layou->insertLayout(0, HorizontalLayout);
-
-		/*MattyGroupBox* MyGroupBox = new MattyGroupBox(); // удалить delete или поставить родителя (только виджет)
-		QString GroupBoxName = QString::number(NoteNumber->getNoteId());
-		MyGroupBox->fillFrame(*NoteNumber);
-
-		ListofGroupBoxes.push_back(MyGroupBox);
-		HorizontalLayout->addWidget(MyGroupBox);
-		//MyGroupBox->setObjectName(GroupBoxName);
-		HorizontalLayout->setObjectName("HorizontalLayoutExperiment" + QString::number(i + 1));
-		QObject* MgbParent = MyGroupBox->parent();*/
+	/*	if (!ListofGroupBoxes.empty())
+			ListofGroupBoxes.clear();*/
 
 		MattyGroupBox* MyGroupBox = new MattyGroupBox(ParentWidget);
 		MyGroupBox->fillFrame(*NoteNumber);
-		// при ручном создании заметки сюда не ходить, след. строчка вызывает ошибку
 		ParentWidget->layout()->addWidget(MyGroupBox);
-
 	}
 }
 
