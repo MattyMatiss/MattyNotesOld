@@ -163,7 +163,7 @@ void MattyGroupBox::buildFrame()
 
 void MattyGroupBox::editNote()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, this->parentWidget(), ThisGroupBoxNote.getNoteId());
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
 	newAddNoteDialog->show();
 }
