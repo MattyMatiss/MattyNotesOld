@@ -52,34 +52,12 @@ void MattyNote::setText(const QString & Text)
 
 void MattyNote::setEventTime(const QString & EventTime)
 {
-	/*if (EventTime.length() == Constants::TimeQStringLength && EventTime[2] == Constants::TimeSeparator)
-	{
-		NoteEventTime = EventTime;
-		QStringList TimeTemp = EventTime.split(Constants::TimeSeparator);
-		EventTimeAndDate.UserTimeAndDate.hour = TimeTemp[0].toInt();
-		EventTimeAndDate.UserTimeAndDate.minute = TimeTemp[1].toInt();
-		EventTimeAndDate.UserTimeAndDate.second = 0;
-	}*/
-
 	NoteEventTime = EventTime;
 	EventTimeAndDate.setTime(QTime::fromString(EventTime));
 }
 
 void MattyNote::setEventDate(const QString & EventDate)
 {
-	/*if (EventDate.length() == Constants::DateQStringLength &&
-		EventDate[Constants::PositionOfFirstDateSeparator] == Constants::DateSeparator
-		&& EventDate[Constants::PositionOfSecondDateSeparator] == Constants::DateSeparator)
-	{
-		NoteEventDate = EventDate;
-		QStringList DateTemp = EventDate.split(Constants::DateSeparator);
-		EventTimeAndDate.UserTimeAndDate.day = DateTemp[0].toInt();
-		EventTimeAndDate.UserTimeAndDate.month = DateTemp[1].toInt();
-		EventTimeAndDate.UserTimeAndDate.year = DateTemp[2].toInt();
-		EventTimeAndDate.setUserDayOfWeek();
-		NoteEvDayOfWeek = EventTimeAndDate.getUserDayOfWeek();
-	}*/
-
 	NoteEventDate = EventDate;
 	EventTimeAndDate.setDate(QDate::fromString(EventDate));
 	NoteEvDayOfWeek = printDayOfWeek(EventTimeAndDate.date());
@@ -148,36 +126,4 @@ QDateTime  MattyNote::getEventTimeAndDate()
 QDateTime  MattyNote::getCrTimeAndDate()
 {
 	return CrTimeAndDate;
-}
-
-QString MattyNote::printDayOfWeek(QDate Date)
-{
-	QString DayOfWeek = "";
-	enum DayOfWeekEnum { Monday = 1, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
-	switch (Date.dayOfWeek())
-	{
-	case Monday:
-		DayOfWeek = QString::fromLocal8Bit("ом");
-		break;
-	case Tuesday:
-		DayOfWeek = QString::fromLocal8Bit("бр");
-		break;
-	case Wednesday:
-		DayOfWeek = QString::fromLocal8Bit("яп");
-		break;
-	case Thursday:
-		DayOfWeek = QString::fromLocal8Bit("вр");
-		break;
-	case Friday:
-		DayOfWeek = QString::fromLocal8Bit("ор");
-		break;
-	case Saturday:
-		DayOfWeek = QString::fromLocal8Bit("яа");
-		break;
-	case Sunday:
-		DayOfWeek = QString::fromLocal8Bit("бя");
-		break;
-	}
-
-	return DayOfWeek;
 }

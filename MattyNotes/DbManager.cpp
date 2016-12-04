@@ -301,31 +301,6 @@ QVector<QStringList> DbManager::showNotes(QMap<QString, QString> & Filter, Order
 	}
 }
 
-/*QVector<QStringList> DbManager::getAllNotesOrderByCrDate()
-{
-	if (MattyNotesDb.isOpen())
-	{
-		QVector<QStringList> VectorOfNotes;
-		QSqlQuery getAllNotesQuery("SELECT * FROM Notes ORDER BY NoteId");
-		getAllNotesQuery.exec();
-		while (getAllNotesQuery.next())
-		{
-			QStringList Fields;
-			for (int i = 0;i < 9;i++)
-			{
-				Fields.push_back(getAllNotesQuery.value(i).toString());
-			}
-			VectorOfNotes.push_back(Fields);
-		}
-		return VectorOfNotes;
-	}
-	else
-	{
-		showIsNotOpenError();
-		return QVector<QStringList>();
-	}
-}*/
-
 void DbManager::showIsNotOpenError()
 {
 	QString DbName = MattyNotesDb.databaseName();

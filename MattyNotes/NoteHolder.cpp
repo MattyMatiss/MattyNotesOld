@@ -7,8 +7,6 @@
 
 int NoteHolder::TotalNoteCount = 0;
 QVector<class MattyNote> NoteHolder::ListOfAllNotes = QVector<class MattyNote>();
-//QVector<QString> NoteHolder::ListOfGroupBoxeNames = QVector<QString>();
-//QVector<MattyGroupBox*> NoteHolder::ListofGroupBoxes = QVector<MattyGroupBox*>();
 
 NoteHolder::NoteHolder()
 {
@@ -33,8 +31,6 @@ void NoteHolder::publishNotes(QWidget* ParentWidget)
 	int i;
 	for (NoteNumber = ListOfAllNotes.begin(), i=0; NoteNumber < ListOfAllNotes.end();NoteNumber++, i++)
 	{
-	/*	if (!ListofGroupBoxes.empty())
-			ListofGroupBoxes.clear();*/
 
 		MattyGroupBox* MyGroupBox = new MattyGroupBox(ParentWidget);
 		MyGroupBox->fillFrame(*NoteNumber);

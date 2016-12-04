@@ -96,25 +96,16 @@ void MattyNotes::buildMainToolBar()
 {
 	CloseWindowButton = new QPushButton(ui.mainToolBar);
 	CloseWindowButton->setObjectName("CloseWindowButton");
-	CloseWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/CloseWindow.png);"
-		"background-position: center;}"
-		" QPushButton:hover { background-image: url(:/MattyNotes/CloseWindowHover.png);background-position: center; }"));
 	CloseWindowButton->setMaximumSize(QSize(20, 20));
 	CloseWindowButton->setFlat(true);
 
 	MaximizeWindowButton = new QPushButton(ui.mainToolBar);
 	MaximizeWindowButton->setObjectName("MaximizeWindowButton");
-	MaximizeWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/MaximizeWindow.png);"
-		"background-position: top;}"
-		" QPushButton:hover { background-image: url(:/MattyNotes/MaximizeWindowHover.png);background-position: top; }"));
 	MaximizeWindowButton->setMaximumSize(QSize(20, 20));
 	MaximizeWindowButton->setFlat(true);
 
 	MinimizeWindowButton = new QPushButton(ui.mainToolBar);
 	MinimizeWindowButton->setObjectName("MinimizeWindowButton");
-	MinimizeWindowButton->setStyleSheet(QStringLiteral("QPushButton { background-image: url(:/MattyNotes/MinimizeWindow.png);"
-		"background-position: center;}"
-		" QPushButton:hover { background-image: url(:/MattyNotes/MinimizeWindowHover.png);background-position: center; }"));
 	MinimizeWindowButton->setMaximumSize(QSize(20, 20));
 	MinimizeWindowButton->setFlat(true);
 
@@ -125,14 +116,10 @@ void MattyNotes::buildMainToolBar()
 	MainToolBarSpacerRight->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 	WindowHeaderLabel = new QLabel();
+	WindowHeaderLabel->setObjectName(QStringLiteral("WindowHeaderLabel"));
 	WindowHeaderLabel->setText("MattyNotes");
-	WindowHeaderLabel->setStyleSheet("QLabel { color: #4d3f3d;"
-		" font-style: italic; "
-		"font-size: 16px;"
-		"font-family: Comic Sans MS; "
-		"font-weight: bold;"
-		"}");
 
+	ui.mainToolBar->setObjectName(QStringLiteral("MainToolBar"));
 	ui.mainToolBar->addWidget(MainToolBarSpacerLeft);
 	ui.mainToolBar->addWidget(WindowHeaderLabel);
 	ui.mainToolBar->addWidget(MainToolBarSpacerRight);
@@ -158,46 +145,21 @@ void MattyNotes::buildMattyToolBar()
 	opacity->setOpacity(0.50); // #0 to 1 will cause the fade effect to kick in
 	MattyToolBar->setGraphicsEffect(opacity);
 	MattyToolBar->setAutoFillBackground(true);
-	MattyToolBar->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127); "));
 
 	AddNoteButton = new QPushButton(this->MattyToolBar);
 	AddNoteButton->setObjectName(QStringLiteral("AddNoteButton"));
 	AddNoteButton->setMinimumSize(QSize(51, 51));
 	AddNoteButton->setMaximumSize(QSize(51, 51));
-	AddNoteButton->setStyleSheet(QLatin1String("#AddNoteButton { background-color: transparent;\n"
-		"background-image: url(:/MattyNotes/AddNote.png);\n"
-		"color: transparent;\n"
-		"font-weight: bold;\n"
-		"font-style: italic;\n"
-		"font-family: Comic Sans MS; }\n"
-		"#AddNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
-		"color: #6d6f6d; }"));
 
 	RefreshNoteListButton = new QPushButton(this->MattyToolBar);
 	RefreshNoteListButton->setObjectName(QStringLiteral("RefreshNoteListButton"));
 	RefreshNoteListButton->setMinimumSize(QSize(51, 51));
 	RefreshNoteListButton->setMaximumSize(QSize(51, 51));
-	RefreshNoteListButton->setStyleSheet(QLatin1String("#RefreshNoteListButton { background-color: transparent;\n"
-		"background-image: url(:/MattyNotes/RefreshNoteList.png);\n"
-		"color: transparent;\n"
-		"font-weight: bold;\n"
-		"font-style: italic;\n"
-		"font-family: Comic Sans MS; }\n"
-		"#RefreshNoteListButton:hover { background-image: url(:/MattyNotes/RefreshNoteListHover.png); \n"
-		"color: #6d6f6d; }"));
 
 	SettingsButton = new QPushButton(this->MattyToolBar);
 	SettingsButton->setObjectName(QStringLiteral("SettingsButton"));
 	SettingsButton->setMinimumSize(QSize(51, 51));
 	SettingsButton->setMaximumSize(QSize(51, 51));
-	SettingsButton->setStyleSheet(QLatin1String("#SettingsButton { background-color: transparent;\n"
-		"background-image: url(:/MattyNotes/Settings.png);\n"
-		"color: transparent;\n"
-		"font-weight: bold;\n"
-		"font-style: italic;\n"
-		"font-family: Comic Sans MS; }\n"
-		"#SettingsButton:hover { background-image: url(:/MattyNotes/SettingsHover.png); \n"
-		"color: #6d6f6d; }"));
 
 	MattyClocks* MainClocks = new MattyClocks(this->MattyToolBar);
 	MattyToolBar->addWidget(MainClocks);

@@ -4,10 +4,6 @@
 MattySettingsDialog::MattySettingsDialog(QWidget * parent) : QDialog(parent)
 {
 	MattySettingsDialogUi.setupUi(this);
-	//this->setStyleSheet("#addNoteDialog{ background-image: url(:/MattyNotes/NoteBackground600.png);"
-	//"background-repeat: no-repeat;"
-	//"background-size: cover; }"
-	/*"QWidget{ background-color: rgb(255, 255, 222) }");*/
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
 	MattySettingsDialogUi.splitter->setStretchFactor(0, 1);
@@ -34,27 +30,6 @@ MattySettingsDialog::MattySettingsDialog(QWidget * parent) : QDialog(parent)
 
 	connect(MattySettingsDialogUi.listWidget, SIGNAL(currentItemChanged()),
 		this, SLOT(changeDisplayedPage()));
-	/*this->ApplySettingsButton.setStyleSheet(QStringLiteral("#ApplySettingsButton{ background-color: transparent;"
-		"background-image: url(:/MattyNotes/ApplyAdding.png);"
-		"background-position: bottom right;"
-		"background-repeat: no-repeat;"
-		"	color: transparent;"
-		"height: 70px;"
-		"width: 70px; "
-		"text-align: left;}"
-		"	#ApplySettingsButton:hover { background-image: url(:/MattyNotes/ApplyAddingHover.png);"
-		"		color: #4d3f3d; "
-		"font-weight: bold; }"));
-	this->CancelSettingsButton.setStyleSheet(QStringLiteral("#CancelSettingsButton { background-color: transparent;"
- "background-image: url(:/MattyNotes/CancelAdding.png);"
-"background-position: center;"
-"background-repeat: no-repeat;"
-"		color: transparent; "
-"height: 60px;"
-"width: 60px; }"
-"	#CancelSettingsButton:hover { background-image: url(:/MattyNotes/CancelAddingHover.png);"
-"	color: #4d3f3d; "
-"font-weight: bold; }"));*/
 }
 
 void MattySettingsDialog::on_ApplySettingsButton_clicked()

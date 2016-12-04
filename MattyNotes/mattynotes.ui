@@ -13,23 +13,10 @@
   <property name="windowTitle">
    <string>MattyNotes</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#MattyNotesClass{background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255)); 
-/*border: 3px ridge #bc9323;*/}
-</string>
-  </property>
   <widget class="QWidget" name="centralWidget">
-   <property name="styleSheet">
-    <string notr="true">#centralWidget {
-background-color: transparent;}</string>
-   </property>
    <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter">
-      <property name="styleSheet">
-       <string notr="true">QSplitter::handle { background-color: transparent;
-background-image: url(:/MattyNotes/VerticalLine.png); }</string>
-      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -62,13 +49,6 @@ background-image: url(:/MattyNotes/VerticalLine.png); }</string>
             <height>16777215</height>
            </size>
           </property>
-          <property name="styleSheet">
-           <string notr="true">font-weight: bold;
-font-family: Comic Sans MS; 
-font-style: italic;
-color: #4d3f3d; 
-font-size: 13px;</string>
-          </property>
           <property name="text">
            <string>&quot;Большинство людей намного сильнее, чем они думают, они просто забывают иногда в это верить.&quot;</string>
           </property>
@@ -83,13 +63,6 @@ font-size: 13px;</string>
        </layout>
       </widget>
       <widget class="QScrollArea" name="scrollArea">
-       <property name="styleSheet">
-        <string notr="true">QScrollArea { background: transparent;
- border: 0px none transparent;
- }
-QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px none transparent; }
-#scrollAreaWidgetContents { }</string>
-       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -98,8 +71,8 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>408</width>
-          <height>972</height>
+          <width>406</width>
+          <height>870</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -133,45 +106,12 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
                  <height>16777215</height>
                 </size>
                </property>
-               <property name="styleSheet">
-                <string notr="true">#groupBox { 
-/*background-image: url(:/MattyNotes/NoteBackground450.png);*/
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1));
-background-repeat: no-repeat;
-background-position: bottom right;
-background-size: 10px; 
-border: 1px solid transparent;
-border-radius: 10px;
-font-weight: bold;
-font-size: 14px;
-font-style: italic;
-font-family: Comic Sans MS;
-color: #4d3f3d; 
-text-decoration: underline; 
-padding-right: 25px;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	padding-left: 25px;
-}
-#groupBox::title { padding-left: 35px; }
-QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
-               </property>
                <property name="title">
                 <string>GroupBox</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_3">
                 <item row="0" column="0">
                  <layout class="QVBoxLayout" name="verticalLayout_5">
-                  <item>
-                   <widget class="Line" name="line">
-                    <property name="styleSheet">
-                     <string notr="true">margin-top: 15px;</string>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_9">
                     <item>
@@ -222,10 +162,6 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
                         <height>21</height>
                        </size>
                       </property>
-                      <property name="styleSheet">
-                       <string notr="true">#editNoteButton  { background-image: url(:/MattyNotes/EditNote.png);  background-position: center; } 
-#editNoteButton:hover { background-image: url(:/MattyNotes/EditNoteHover.png);  background-position: center; }</string>
-                      </property>
                       <property name="text">
                        <string/>
                       </property>
@@ -247,10 +183,6 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
                         <width>21</width>
                         <height>21</height>
                        </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">#deleteNoteButton  { background-image: url(:/MattyNotes/DeleteNote.png);  background-position: center; } 
-#deleteNoteButton:hover { background-image: url(:/MattyNotes/DeleteNoteHover.png);  background-position: center; }</string>
                       </property>
                       <property name="text">
                        <string/>
@@ -293,10 +225,6 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
                       <width>0</width>
                       <height>100</height>
                      </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-color: rgb(0, 0, 0);
-</string>
                     </property>
                     <property name="text">
                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФФФФфф&lt;/p&gt;&lt;p&gt;ффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;ффФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффp&amp;gt;ФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФФФФфффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФФФФФФФФФффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффФФФФФФФФФФФФФФ&lt;/p&gt;&lt;p&gt;ФФФФФФФффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;фф&lt;/p&gt;&lt;p&gt;фффффp&amp;gt;ФФФФФФФФФФФФФФФФФФФФФфффф&lt;/p&gt;&lt;p&gt;фффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффффффффф&lt;/p&gt;&lt;p&gt;ффффффффффффффффффффф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -346,9 +274,6 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
    </property>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 127); </string>
-   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -362,10 +287,6 @@ QLabel { font-family: Comic Sans MS; font-style: italic; }</string>
      <width>0</width>
      <height>0</height>
     </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 220, 0);
-border-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
  </widget>

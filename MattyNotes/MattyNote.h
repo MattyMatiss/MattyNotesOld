@@ -30,7 +30,6 @@ public:
 	QString getCrDate(); // Format: 00.00.0000
 	QString getCrDayOfWeek();
 	int getNoteId();
-	QString printDayOfWeek(QDate Date);
 	QDateTime getEventTimeAndDate();
 	QDateTime getCrTimeAndDate();
 private:

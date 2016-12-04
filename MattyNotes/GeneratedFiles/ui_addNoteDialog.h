@@ -49,16 +49,6 @@ public:
         if (addNoteDialog->objectName().isEmpty())
             addNoteDialog->setObjectName(QStringLiteral("addNoteDialog"));
         addNoteDialog->resize(539, 525);
-        addNoteDialog->setStyleSheet(QLatin1String("#addNoteDialog { background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255)); \n"
-"/*border: 3px ridge #bc9323;*/}\n"
-" QTextEdit { border: 1px solid transparent;\n"
-"border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1));\n"
-" }\n"
-"#noteTitleText { font-weight: bold; }\n"
-"#noteTypeComboBox, #eventTimeEdit, #eventDateEdit { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); }\n"
-"QPushButton, QTextEdit { font-style: italic;\n"
-"font-family: Comic Sans MS; }"));
         gridLayout = new QGridLayout(addNoteDialog);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -113,16 +103,6 @@ public:
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         cancelAddingNoteButton = new QPushButton(addNoteDialog);
         cancelAddingNoteButton->setObjectName(QStringLiteral("cancelAddingNoteButton"));
-        cancelAddingNoteButton->setStyleSheet(QLatin1String("QPushButton { background-color: transparent;\n"
-" background-image: url(:/MattyNotes/CancelAdding.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;\n"
-"		color: transparent; \n"
-"height: 60px;\n"
-"width: 60px; }\n"
-"	QPushButton:hover { background-image: url(:/MattyNotes/CancelAddingHover.png);\n"
-"	color: #4d3f3d; \n"
-"font-weight: bold; }"));
 
         horizontalLayout_5->addWidget(cancelAddingNoteButton);
 
@@ -132,17 +112,6 @@ public:
 
         createNoteButton = new QPushButton(addNoteDialog);
         createNoteButton->setObjectName(QStringLiteral("createNoteButton"));
-        createNoteButton->setStyleSheet(QLatin1String("QPushButton { background-color: transparent;\n"
-" background-image: url(:/MattyNotes/ApplyAdding.png);\n"
-"background-position: bottom right;\n"
-"background-repeat: no-repeat;\n"
-"		color: transparent;\n"
-"height: 70px;\n"
-"width: 70px; \n"
-"text-align: left;}\n"
-"	QPushButton:hover { background-image: url(:/MattyNotes/ApplyAddingHover.png);\n"
-"		color: #4d3f3d; \n"
-"font-weight: bold; }"));
 
         horizontalLayout_5->addWidget(createNoteButton);
 
