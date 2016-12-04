@@ -5,16 +5,14 @@
 
 MattyNote::MattyNote()
 {
-	EventTimeAndDate.setUserTimeAndDateNull(); // 
-	MattyTime::updateCurrTime();
-	CrTimeAndDate.UserTimeAndDate = MattyTime::CurrTime;
-	NoteCrTime = CrTimeAndDate.PrintUserTime();
-	NoteCrDate = CrTimeAndDate.PrintUserDate();
+	CrTimeAndDate = QDateTime::currentDateTime();
+	NoteCrDayOfWeek = printDayOfWeek(CrTimeAndDate.date());
+	NoteCrTime = CrTimeAndDate.time().toString().mid(0, 5);
+	NoteCrDate = CrTimeAndDate.date().toString("d MMM yyyy, ddd");
 }
 
 MattyNote::MattyNote(QStringList RowFromDb)
 {
-	CrTimeAndDate.setUserTimeAndDateNull();
 	NoteId = RowFromDb[0].toInt();
 	NoteTitle = RowFromDb[1];
 	NoteType = RowFromDb[2];
@@ -54,19 +52,22 @@ void MattyNote::setText(const QString & Text)
 
 void MattyNote::setEventTime(const QString & EventTime)
 {
-	if (EventTime.length() == Constants::TimeQStringLength && EventTime[2] == Constants::TimeSeparator)
+	/*if (EventTime.length() == Constants::TimeQStringLength && EventTime[2] == Constants::TimeSeparator)
 	{
 		NoteEventTime = EventTime;
 		QStringList TimeTemp = EventTime.split(Constants::TimeSeparator);
 		EventTimeAndDate.UserTimeAndDate.hour = TimeTemp[0].toInt();
 		EventTimeAndDate.UserTimeAndDate.minute = TimeTemp[1].toInt();
 		EventTimeAndDate.UserTimeAndDate.second = 0;
-	}
+	}*/
+
+	NoteEventTime = EventTime;
+	EventTimeAndDate.setTime(QTime::fromString(EventTime));
 }
 
 void MattyNote::setEventDate(const QString & EventDate)
 {
-	if (EventDate.length() == Constants::DateQStringLength &&
+	/*if (EventDate.length() == Constants::DateQStringLength &&
 		EventDate[Constants::PositionOfFirstDateSeparator] == Constants::DateSeparator
 		&& EventDate[Constants::PositionOfSecondDateSeparator] == Constants::DateSeparator)
 	{
@@ -77,7 +78,11 @@ void MattyNote::setEventDate(const QString & EventDate)
 		EventTimeAndDate.UserTimeAndDate.year = DateTemp[2].toInt();
 		EventTimeAndDate.setUserDayOfWeek();
 		NoteEvDayOfWeek = EventTimeAndDate.getUserDayOfWeek();
-	}
+	}*/
+
+	NoteEventDate = EventDate;
+	EventTimeAndDate.setDate(QDate::fromString(EventDate));
+	NoteEvDayOfWeek = printDayOfWeek(EventTimeAndDate.date());
 }
 
 QString MattyNote::getTitle()
@@ -135,12 +140,44 @@ int MattyNote::getNoteId()
 	return NoteId;
 }
 
-TimeAndDate  MattyNote::getEventTimeAndDate()
+QDateTime  MattyNote::getEventTimeAndDate()
 {
-	return EventTimeAndDate.UserTimeAndDate;
+	return EventTimeAndDate;
 }
 
-TimeAndDate  MattyNote::getCrTimeAndDate()
+QDateTime  MattyNote::getCrTimeAndDate()
 {
-	return CrTimeAndDate.UserTimeAndDate;
+	return CrTimeAndDate;
+}
+
+QString MattyNote::printDayOfWeek(QDate Date)
+{
+	QString DayOfWeek = "";
+	enum DayOfWeekEnum { Monday = 1, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
+	switch (Date.dayOfWeek())
+	{
+	case Monday:
+		DayOfWeek = QString::fromLocal8Bit("ом");
+		break;
+	case Tuesday:
+		DayOfWeek = QString::fromLocal8Bit("бр");
+		break;
+	case Wednesday:
+		DayOfWeek = QString::fromLocal8Bit("яп");
+		break;
+	case Thursday:
+		DayOfWeek = QString::fromLocal8Bit("вр");
+		break;
+	case Friday:
+		DayOfWeek = QString::fromLocal8Bit("ор");
+		break;
+	case Saturday:
+		DayOfWeek = QString::fromLocal8Bit("яа");
+		break;
+	case Sunday:
+		DayOfWeek = QString::fromLocal8Bit("бя");
+		break;
+	}
+
+	return DayOfWeek;
 }

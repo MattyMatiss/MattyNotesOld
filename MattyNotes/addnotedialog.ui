@@ -72,10 +72,19 @@ font-family: Comic Sans MS; }</string>
        <property name="displayFormat">
         <string>HH:mm</string>
        </property>
+       <property name="calendarPopup">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QDateEdit" name="eventDateEdit">
+       <property name="displayFormat">
+        <string>d MMM yyyy, ddd</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
        <property name="date">
         <date>
          <year>2016</year>

@@ -85,6 +85,8 @@ public:
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QStringLiteral("splitter"));
+        splitter->setStyleSheet(QLatin1String("QSplitter::handle { background-color: transparent;\n"
+"background-image: url(:/MattyNotes/VerticalLine.png); }"));
         splitter->setOrientation(Qt::Horizontal);
         gridLayoutWidget = new QWidget(splitter);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
@@ -103,7 +105,9 @@ public:
         MotivatorLabel->setMaximumSize(QSize(250, 16777215));
         MotivatorLabel->setStyleSheet(QLatin1String("font-weight: bold;\n"
 "font-family: Comic Sans MS; \n"
-"font-style: italic;"));
+"font-style: italic;\n"
+"color: #4d3f3d; \n"
+"font-size: 13px;"));
         MotivatorLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         MotivatorLabel->setWordWrap(true);
 
@@ -120,7 +124,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 410, 1000));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 408, 972));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -134,7 +138,7 @@ public:
         horizontalLayout_7->setContentsMargins(12, 12, 12, 12);
         groupBox = new QGroupBox(scrollAreaWidgetContents);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setMinimumSize(QSize(50, 200));
+        groupBox->setMinimumSize(QSize(200, 200));
         groupBox->setMaximumSize(QSize(16777215, 16777215));
         groupBox->setStyleSheet(QLatin1String("#groupBox { \n"
 "/*background-image: url(:/MattyNotes/NoteBackground450.png);*/\n"

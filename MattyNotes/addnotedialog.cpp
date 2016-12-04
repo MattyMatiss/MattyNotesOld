@@ -35,7 +35,11 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, QWidget * parent, int Editin
 		addNoteDialogUi.eventDateEdit->setDate(QDate::fromString(ThisDialogNote->getEventDate()));
 	}
 	else
+	{
 		ThisDialogNote = new MattyNote();
+		addNoteDialogUi.eventTimeEdit->setTime(QTime::currentTime());
+		addNoteDialogUi.eventDateEdit->setDate(QDate::currentDate());
+	}
 
 	DialogType = DialogTypeIncm;
 }

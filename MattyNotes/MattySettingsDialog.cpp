@@ -12,7 +12,6 @@ MattySettingsDialog::MattySettingsDialog(QWidget * parent) : QDialog(parent)
 
 	MattySettingsDialogUi.splitter->setStretchFactor(0, 1);
 	MattySettingsDialogUi.splitter->setStretchFactor(1, 5);
-	MattySettingsDialogUi.listWidget->setMaximumWidth(250);
 	MattySettingsDialogUi.stackedWidget->setMinimumWidth(250);
 
 	General = new QListWidgetItem(tr("General"), MattySettingsDialogUi.listWidget);

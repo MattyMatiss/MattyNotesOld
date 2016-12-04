@@ -84,11 +84,13 @@ public:
 
         eventTimeEdit = new QTimeEdit(addNoteDialog);
         eventTimeEdit->setObjectName(QStringLiteral("eventTimeEdit"));
+        eventTimeEdit->setCalendarPopup(false);
 
         horizontalLayout->addWidget(eventTimeEdit);
 
         eventDateEdit = new QDateEdit(addNoteDialog);
         eventDateEdit->setObjectName(QStringLiteral("eventDateEdit"));
+        eventDateEdit->setCalendarPopup(true);
         eventDateEdit->setDate(QDate(2016, 11, 1));
 
         horizontalLayout->addWidget(eventDateEdit);
@@ -163,6 +165,7 @@ public:
         noteTitleText->setWhatsThis(QApplication::translate("addNoteDialog", "<html><head/><body><p><span style=\" font-weight:400;\">\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272 \320\267\320\260\320\274\320\265\321\202\320\272\320\270</span></p></body></html>", 0));
 #endif // QT_NO_WHATSTHIS
         eventTimeEdit->setDisplayFormat(QApplication::translate("addNoteDialog", "HH:mm", 0));
+        eventDateEdit->setDisplayFormat(QApplication::translate("addNoteDialog", "d MMM yyyy, ddd", 0));
         cancelAddingNoteButton->setText(QApplication::translate("addNoteDialog", "\320\236\321\202\320\274\320\265\320\275\320\260", 0));
         createNoteButton->setText(QApplication::translate("addNoteDialog", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", 0));
     } // retranslateUi

@@ -26,6 +26,10 @@ background-color: transparent;}</string>
    <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter">
+      <property name="styleSheet">
+       <string notr="true">QSplitter::handle { background-color: transparent;
+background-image: url(:/MattyNotes/VerticalLine.png); }</string>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -61,7 +65,9 @@ background-color: transparent;}</string>
           <property name="styleSheet">
            <string notr="true">font-weight: bold;
 font-family: Comic Sans MS; 
-font-style: italic;</string>
+font-style: italic;
+color: #4d3f3d; 
+font-size: 13px;</string>
           </property>
           <property name="text">
            <string>&quot;Большинство людей намного сильнее, чем они думают, они просто забывают иногда в это верить.&quot;</string>
@@ -92,8 +98,8 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>410</width>
-          <height>1000</height>
+          <width>408</width>
+          <height>972</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -117,7 +123,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; border: 0px non
               <widget class="QGroupBox" name="groupBox">
                <property name="minimumSize">
                 <size>
-                 <width>50</width>
+                 <width>200</width>
                  <height>200</height>
                 </size>
                </property>

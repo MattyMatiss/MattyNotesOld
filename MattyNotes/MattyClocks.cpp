@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "MattyClocks.h"
-#include "MattyTime.h"
 
 MattyClocks::MattyClocks(QWidget *parent) : QLCDNumber(parent)
 {
@@ -20,5 +19,5 @@ MattyClocks::~MattyClocks()
 
 void MattyClocks::showTime()
 {
-	display(MattyTime::PrintCurrTime());
+	display(QTime::currentTime().toString().mid(0, 5));
 }

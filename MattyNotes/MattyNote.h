@@ -6,7 +6,6 @@
 #pragma once
 #endif // _MSC_VER
 
-#include "MattyTime.h"
 
 class MattyNote
 {
@@ -31,8 +30,9 @@ public:
 	QString getCrDate(); // Format: 00.00.0000
 	QString getCrDayOfWeek();
 	int getNoteId();
-	TimeAndDate getEventTimeAndDate(); 
-	TimeAndDate getCrTimeAndDate(); 
+	QString printDayOfWeek(QDate Date);
+	QDateTime getEventTimeAndDate();
+	QDateTime getCrTimeAndDate();
 private:
 	int NoteId;
 	int NoteTypeId;
@@ -45,8 +45,8 @@ private:
 	QString NoteCrTime;
 	QString NoteCrDate;
 	QString NoteCrDayOfWeek;
-	MattyTime EventTimeAndDate;  // Any unspecified part equals -1
-	MattyTime CrTimeAndDate;  // Automaticly set in constructor of MattyNote
+	QDateTime EventTimeAndDate;  // Any unspecified part equals -1
+	QDateTime CrTimeAndDate;  // Automaticly set in constructor of MattyNote
 };
 
 #endif // MATTYNOTE_H

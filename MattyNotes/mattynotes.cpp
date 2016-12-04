@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "mattynotes.h"
-#include "MattyTime.h"
 #include "DbManager.h"
 #include "MattyNote.h"
 #include "addnotedialog.h"
@@ -15,26 +14,19 @@ MattyNotes::MattyNotes(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	this->setWindowFlags(Qt::FramelessWindowHint);
+	this->setContextMenuPolicy(Qt::NoContextMenu);
+
+	ui.splitter->setStretchFactor(0, 1);
+	ui.splitter->setStretchFactor(1, 3);
+
 	connectToDb();
 
 	buildMainToolBar();
 
 	buildMattyToolBar();
 
-	this->setWindowFlags(Qt::FramelessWindowHint);
-	this->setContextMenuPolicy(Qt::NoContextMenu);
-
 	setConnects();
-
-/*	QObject::connect(CloseWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
-	QObject::connect(MaximizeWindowButton, SIGNAL(clicked()), this,
-		SLOT(maximizeWindow()));
-	QObject::connect(MinimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));*/
-
-
-/*	QObject::connect(AddNoteButton, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
-	QObject::connect(RefreshNoteListButton, SIGNAL(clicked()), this, SLOT(on_refreshNoteList_clicked()));
-	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(on_SettingsButton_clicked()));*/
 	
 	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
@@ -143,7 +135,12 @@ void MattyNotes::buildMainToolBar()
 
 	WindowHeaderLabel = new QLabel();
 	WindowHeaderLabel->setText("MattyNotes");
-	WindowHeaderLabel->setStyleSheet("QLabel { color: black; font-style: italic; font-size: 16px;}");
+	WindowHeaderLabel->setStyleSheet("QLabel { color: #4d3f3d;"
+		" font-style: italic; "
+		"font-size: 16px;"
+		"font-family: Comic Sans MS; "
+		"font-weight: bold;"
+		"}");
 
 	ui.mainToolBar->addWidget(MainToolBarSpacerLeft);
 	ui.mainToolBar->addWidget(WindowHeaderLabel);
@@ -184,19 +181,6 @@ void MattyNotes::buildMattyToolBar()
 		"font-family: Comic Sans MS; }\n"
 		"#AddNoteButton:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
 		"color: #6d6f6d; }"));
-
-	/*addNoteButtonTemp = new QPushButton(this->MattyToolBar);
-	addNoteButtonTemp->setObjectName(QStringLiteral("addNoteButtonTemp"));
-	addNoteButtonTemp->setMinimumSize(QSize(51, 51));
-	addNoteButtonTemp->setMaximumSize(QSize(51, 51));
-	addNoteButtonTemp->setStyleSheet(QLatin1String("#addNoteButtonTemp { background-color: transparent;\n"
-	"background-image: url(:/MattyNotes/AddNote.png);\n"
-	"color: transparent;\n"
-	"font-weight: bold;\n"
-	"font-style: italic;\n"
-	"font-family: Comic Sans MS; }\n"
-	"#addNoteButtonTemp:hover { background-image: url(:/MattyNotes/AddNoteHoverWithPen.png); \n"
-	"color: #6d6f6d; }"));*/
 
 	RefreshNoteListButton = new QPushButton(this->MattyToolBar);
 	RefreshNoteListButton->setObjectName(QStringLiteral("RefreshNoteListButton"));
