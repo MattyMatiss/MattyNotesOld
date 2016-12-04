@@ -15,13 +15,12 @@ QueryConstructor::~QueryConstructor()
 {
 }
 
-void QueryConstructor::setOrderByClause(enum OrderNotesBy OrderBy)
+void QueryConstructor::setOrderByClause(QString Field, OrderType DirectionIncm)
 {
-	QStringList OrderByTypes = { "", " ORDER BY TypeName", " ORDER BY TypeName DESC", " ORDER BY TypeId",
-		" ORDER BY CrDate, CrTime", " ORDER BY CrDate, CrTime DESC",
-		" ORDER BY EventDate, EventTime", " ORDER BY EventDate, EventTime DESC" };
-
-	OrderByClause = OrderByTypes[OrderBy];
+	QString Direction = "; ";
+	if (DirectionIncm == Descending)
+		Direction = " DESC; ";
+	OrderByClause = " ORDER BY " + Field + Direction;
 }
 
 

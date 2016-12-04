@@ -55,8 +55,8 @@ public:
 "border-radius: 10px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1));\n"
 " }\n"
-"#noteTypeComboBox, #eventTimeEdit, #eventDateEdit { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); }\n"
 "#noteTitleText { font-weight: bold; }\n"
+"#noteTypeComboBox, #eventTimeEdit, #eventDateEdit { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); }\n"
 "QPushButton, QTextEdit { font-style: italic;\n"
 "font-family: Comic Sans MS; }"));
         gridLayout = new QGridLayout(addNoteDialog);

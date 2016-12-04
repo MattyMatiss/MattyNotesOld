@@ -4,6 +4,8 @@
 #include "DbManager.h"
 #include "addnotedialog.h"
 #include "mattymessagebox.h"
+#include "NoteHolder.h"
+#include "mattynotes.h"
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
 
@@ -32,7 +34,8 @@ void MattyGroupBox::buildFrame()
 {
 	//groupBox->setObjectName(QStringLiteral("groupBox"));
 	this->setMinimumSize(QSize(50, 50));
-	this->setStyleSheet(QStringLiteral("QGroupBox { background-color: rgb(255, 255, 222);"
+	this->setObjectName(QStringLiteral("MattyGroupBox"));
+	this->setStyleSheet(QStringLiteral("#MattyGroupBox { background-color: rgb(255, 255, 222);"
 	"border: 1px solid transparent;"
 	"border-radius: 10px;}"));
 
@@ -165,13 +168,14 @@ void MattyGroupBox::editNote()
 {
 	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
-	newAddNoteDialog->show();
+	newAddNoteDialog->exec();
 }
 
 void MattyGroupBox::deleteNote()
 {
-	MattyMessageBox WantToDeleteNote;
-	WantToDeleteNote.setInformativeText(QString::fromLocal8Bit("Вы точно хотите удалить заметку \"") + ThisGroupBoxNote.getTitle() + "\"?");
+	MattyMessageBox WantToDeleteNote(Question);
+	WantToDeleteNote.setText(QString::fromLocal8Bit("Вы точно хотите удалить заметку \"") + ThisGroupBoxNote.getTitle() + "\"?");
+	WantToDeleteNote.setFixedWidth(150);
 
 	int answer = WantToDeleteNote.exec();
 	if (answer == QMessageBox::Yes)
@@ -181,3 +185,12 @@ void MattyGroupBox::deleteNote()
 	}
 }
 
+void MattyGroupBox::mouseDoubleClickEvent(QMouseEvent * e)
+{
+	if (e->button() == Qt::LeftButton)
+	{
+		addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
+		newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
+		newAddNoteDialog->exec();
+	}
+}

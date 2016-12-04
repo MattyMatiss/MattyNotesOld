@@ -22,8 +22,8 @@ public:
 	static bool editNote(MattyNote * Note, int NoteId);
 	static bool deleteNote(int NoteId);
 	static QStringList showNote(int NoteId);
-	static QVector<QStringList> showNotes(enum OrderNotesBy OrderBy = NoOrder);
-	static QVector<QStringList> showNotes(QMap<QString, QString> & Filter, enum OrderNotesBy OrderBy = NoOrder);
+	static QVector<QStringList> showNotes();
+	static QVector<QStringList> showNotes(QMap<QString, QString> & Filter, OrderType DirectionIncm = Straight);
 	static QSqlTableModel* getModel(const QString& path);
 	static QStringList getTypes();
 	static QString getTypeName(int TypeId);

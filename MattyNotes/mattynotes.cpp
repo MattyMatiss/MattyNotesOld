@@ -38,8 +38,6 @@ void MattyNotes::on_addNoteButtonTemp_clicked()
 	if (!newAddNoteDialog->exec())
 	{
 		NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
-		//newAddNoteDialog->deleteLater();
-		//delete newAddNoteDialog;
 	}
 }
 
@@ -70,10 +68,7 @@ void MattyNotes::on_SettingsButton_clicked()
 {
 	MattySettingsDialog* newMattySettingsDialog = new MattySettingsDialog();
 	newMattySettingsDialog->setWindowModality(Qt::ApplicationModal);
-	if (!newMattySettingsDialog->exec())
-	{
-		NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
-	}
+	newMattySettingsDialog->exec();
 }
 
 void MattyNotes::mousePressEvent(QMouseEvent *event) 
@@ -207,10 +202,10 @@ void MattyNotes::buildMattyToolBar()
 	MattyClocks* MainClocks = new MattyClocks(this->MattyToolBar);
 	MattyToolBar->addWidget(MainClocks);
 
-	QWidget* spacer3 = new QWidget(this->MattyToolBar);
-	spacer3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	MattyToolBarMainSpacer = new QWidget(this->MattyToolBar);
+	MattyToolBarMainSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	MattyToolBar->addWidget(SettingsButton);
-	MattyToolBar->addWidget(spacer3);
+	MattyToolBar->addWidget(MattyToolBarMainSpacer);
 	MattyToolBar->addWidget(RefreshNoteListButton);
 	MattyToolBar->addWidget(AddNoteButton);
 }
@@ -224,6 +219,15 @@ inline void MattyNotes::setConnects()
 	QObject::connect(AddNoteButton, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
 	QObject::connect(RefreshNoteListButton, SIGNAL(clicked()), this, SLOT(on_refreshNoteList_clicked()));
 	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(on_SettingsButton_clicked()));
+}
+
+bool MattyNotes::event(QEvent *e)
+{
+	if (e->type() == QEvent::WindowActivate)
+	{
+		on_refreshNoteList_clicked();
+	}
+	return QWidget::event(e);
 }
 
 MattyNotes::~MattyNotes()

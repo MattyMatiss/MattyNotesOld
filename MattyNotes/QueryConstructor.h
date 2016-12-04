@@ -6,7 +6,8 @@
 #endif // _MSC_VER
 
 
-enum OrderNotesBy { NoOrder, Type, TypeDesc, TypeId, CrDate, CrDateDesc, EvDate, EvDateDesc };
+//enum OrderNotesBy { NoOrder, Type, TypeDesc, TypeId, CrDate, CrDateDesc, EvDate, EvDateDesc };
+enum OrderType { Straight, Descending };
 
 class QueryConstructor
 {
@@ -22,7 +23,7 @@ public:
 	QMap<QString, QString> getWhereFieldValue();
 	void setWhatToSetFieldValue(QMap<QString, QString>& FieldValue);
 	QMap<QString, QString> getWhatToSetFieldValue();
-	void setOrderByClause(enum OrderNotesBy OrderBy);
+	void setOrderByClause(QString Field = "", OrderType Direction = Straight);
 	QString getOrderByClause();
 	void addWhatToSelectFieldName(QString& FieldName);
 	void addWhereFieldValue(QString& Field, QString& Value);

@@ -24,6 +24,7 @@ public:
 	QPushButton *SettingsButton;
 	QWidget* MainToolBarSpacerLeft;
 	QWidget* MainToolBarSpacerRight;
+	QWidget* MattyToolBarMainSpacer;
 	~MattyNotes();
 
 
@@ -45,6 +46,7 @@ private:
 	void minimizeWindow();
 	void on_refreshNoteList_clicked();
 	void on_SettingsButton_clicked();
+	bool event(QEvent *e);
 };
 
 

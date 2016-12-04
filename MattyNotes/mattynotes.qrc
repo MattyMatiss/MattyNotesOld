@@ -1,5 +1,10 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>CommonYes40x40.png</file>
+    <file>CommonYesHover40x40.png</file>
+    <file>CommonNoHover40x40.png</file>
+    <file>CommonNo40x40.png</file>
+    <file>QuestionSquared.png</file>
     <file>VerticalLine.png</file>
     <file>Settings.png</file>
     <file>SettingsHover.png</file>

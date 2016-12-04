@@ -30,6 +30,7 @@ private:
 	QVBoxLayout *verticalLayout;
 	QGridLayout *gridLayout;
 	class MattyNote ThisGroupBoxNote;
+	void mouseDoubleClickEvent(QMouseEvent * e);
 
 	private slots:
 	void deleteNote();

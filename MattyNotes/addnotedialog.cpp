@@ -18,7 +18,8 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
 
-	//ParentToGroupBox = new QWidget(parent);
+	addNoteDialogUi.eventTimeEdit->setTime(QTime::currentTime());
+	addNoteDialogUi.eventDateEdit->setDate(QDate::currentDate());
 	
 	EditingNoteId = EditingNoteIdIncm;
 
@@ -37,8 +38,6 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	else
 	{
 		ThisDialogNote = new MattyNote();
-		addNoteDialogUi.eventTimeEdit->setTime(QTime::currentTime());
-		addNoteDialogUi.eventDateEdit->setDate(QDate::currentDate());
 	}
 
 	DialogType = DialogTypeIncm;

@@ -161,7 +161,7 @@ QStringList DbManager::getTypes()
 		QueryConstructor GetTypes;
 		GetTypes.setTableName(QStringLiteral("NoteTypes"));
 		GetTypes.addWhatToSelectFieldName(QStringLiteral("TypeName"));
-		GetTypes.setOrderByClause(TypeId);
+		GetTypes.setOrderByClause("TypeId");
 
 		getTypeQuery.exec(GetTypes.constructSelectQuery());
 
@@ -234,7 +234,7 @@ int DbManager::getNoteCount()
 	}
 }
 
-QVector<QStringList> DbManager::showNotes(enum OrderNotesBy OrderBy)
+QVector<QStringList> DbManager::showNotes()
 {
 	if (MattyNotesDb.isOpen())
 	{
@@ -242,7 +242,7 @@ QVector<QStringList> DbManager::showNotes(enum OrderNotesBy OrderBy)
 
 		QueryConstructor SelectAll;
 		SelectAll.setTableName(QStringLiteral("Notes"));
-		SelectAll.setOrderByClause(CrDateDesc);
+		SelectAll.setOrderByClause("NoteId", Descending);
 
 		QSqlQuery getNotesQuery;
 		getNotesQuery.prepare(SelectAll.constructSelectQuery());
@@ -266,7 +266,7 @@ QVector<QStringList> DbManager::showNotes(enum OrderNotesBy OrderBy)
 	}
 }
 
-QVector<QStringList> DbManager::showNotes(QMap<QString, QString> & Filter, enum OrderNotesBy OrderBy)
+QVector<QStringList> DbManager::showNotes(QMap<QString, QString> & Filter, OrderType DirectionIncm)
 {
 	if (MattyNotesDb.isOpen())
 	{
