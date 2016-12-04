@@ -9,11 +9,12 @@ MattySettingsDialog::MattySettingsDialog(QWidget * parent) : QDialog(parent)
 	//"background-size: cover; }"
 	/*"QWidget{ background-color: rgb(255, 255, 222) }");*/
 	this->setWindowFlags(Qt::FramelessWindowHint);
-
-	MattySettingsDialogUi.splitter->setStretchFactor(0, 1);
+	MattySettingsDialogUi.splitter->setStyleSheet(QStringLiteral("QSplitter::handle { background-color: transparent;"
+		"background-image: url(:/MattyNotes/VerticalLine.png);}"));
+	/*MattySettingsDialogUi.splitter->setStretchFactor(0, 1);
 	MattySettingsDialogUi.splitter->setStretchFactor(1, 5);
 	MattySettingsDialogUi.listWidget->setMaximumWidth(250);
-	MattySettingsDialogUi.stackedWidget->setMinimumWidth(250);
+	MattySettingsDialogUi.stackedWidget->setMinimumWidth(250);*/
 
 	General = new QListWidgetItem(tr("General"), MattySettingsDialogUi.listWidget);
 	Interface = new QListWidgetItem(tr("Interface"), MattySettingsDialogUi.listWidget);

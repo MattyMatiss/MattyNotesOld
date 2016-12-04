@@ -223,25 +223,25 @@ QString MattyTime::getUserDayOfWeek()
 	switch (UserTimeAndDate.dayOfWeek)
 	{
 	case Monday:
-		DayOfWeek = QString::fromLocal8Bit("ом, ");
+		DayOfWeek = QString::fromLocal8Bit("ом");
 		break;
 	case Tuesday:
-		DayOfWeek = QString::fromLocal8Bit("бр, ");
+		DayOfWeek = QString::fromLocal8Bit("бр");
 		break;
 	case Wednesday:
-		DayOfWeek = QString::fromLocal8Bit("яп, ");
+		DayOfWeek = QString::fromLocal8Bit("яп");
 		break;
 	case Thursday:
-		DayOfWeek = QString::fromLocal8Bit("вр, ");
+		DayOfWeek = QString::fromLocal8Bit("вр");
 		break;
 	case Friday:
-		DayOfWeek = QString::fromLocal8Bit("ор, ");
+		DayOfWeek = QString::fromLocal8Bit("ор");
 		break;
 	case Saturday:
-		DayOfWeek = QString::fromLocal8Bit("яа, ");
+		DayOfWeek = QString::fromLocal8Bit("яа");
 		break;
 	case Sunday:
-		DayOfWeek = QString::fromLocal8Bit("бя, ");
+		DayOfWeek = QString::fromLocal8Bit("бя");
 		break;
 	}
 

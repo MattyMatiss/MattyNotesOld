@@ -85,6 +85,10 @@ public:
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QStringLiteral("splitter"));
+        splitter->setStyleSheet(QLatin1String("QSplitter::handle { background-color: transparent;\n"
+"background-image: url(:/MattyNotes/VerticalLine.png); }\n"
+""));
+        splitter->setLineWidth(1);
         splitter->setOrientation(Qt::Horizontal);
         gridLayoutWidget = new QWidget(splitter);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));

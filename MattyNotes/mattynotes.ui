@@ -26,6 +26,14 @@ background-color: transparent;}</string>
    <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter">
+      <property name="styleSheet">
+       <string notr="true">QSplitter::handle { background-color: transparent;
+background-image: url(:/MattyNotes/VerticalLine.png); }
+</string>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>

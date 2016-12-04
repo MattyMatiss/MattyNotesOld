@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>VerticalLine.png</file>
     <file>Settings.png</file>
     <file>SettingsHover.png</file>
     <file>RefreshNoteList.png</file>

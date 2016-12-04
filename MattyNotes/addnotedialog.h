@@ -14,7 +14,7 @@ class addNoteDialog : public QDialog {
 	Q_OBJECT
 
 public:
-	addNoteDialog(Action DialogTypeIncm, QWidget * parent = 0, int EditingNoteIdIncm = -1);
+	addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm = -1);
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
 	QVBoxLayout* GroupBoxLayout;
@@ -28,7 +28,7 @@ private:
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
 
-	QWidget* ParentToGroupBox;
+	//QWidget* ParentToGroupBox;
 	Action DialogType;
 	int EditingNoteId;
 

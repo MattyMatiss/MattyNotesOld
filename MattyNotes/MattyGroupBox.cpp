@@ -175,7 +175,7 @@ void MattyGroupBox::buildFrame()
 
 void MattyGroupBox::editNote()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, this->parentWidget(), ThisGroupBoxNote.getNoteId());
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
 	newAddNoteDialog->show();
 }
@@ -183,10 +183,20 @@ void MattyGroupBox::editNote()
 void MattyGroupBox::deleteNote()
 {
 	QMessageBox MattyWTDNMsgBox;
+	MattyWTDNMsgBox.setWindowFlags(Qt::FramelessWindowHint);
 	MattyWTDNMsgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-	
+	MattyWTDNMsgBox.setInformativeText(QString::fromLocal8Bit("Вы точно хотите удалить эту заметку?"));
+	MattyWTDNMsgBox.setObjectName(QStringLiteral("MattyWTDNMsgBox"));
 	MattyWTDNMsgBox.button(QMessageBox::Yes)->setObjectName(QStringLiteral("yesButton"));
-	MattyWTDNMsgBox.setStyleSheet(QStringLiteral("#yesButton {height: 53px;"
+	MattyWTDNMsgBox.button(QMessageBox::No)->setObjectName(QStringLiteral("noButton"));
+	MattyWTDNMsgBox.setStyleSheet(QStringLiteral("#MattyWTDNMsgBox { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); "
+		"  border: 3px ridge gray;"
+		"border-radius: 5px;  "
+		"font-size: 14px;"
+         " font-weight: bold;"
+		"font-family: Comic Sans MS;"
+	"font-style: italic;} "
+		"#yesButton {height: 53px;"
 		"width: 53px;"
 		"background-color: transparent;"
 		"background-image: url(:/MattyNotes/CommonYes.png);"
@@ -194,7 +204,19 @@ void MattyGroupBox::deleteNote()
 		"background-repeat: no-repeat;"
 		"color: transparent; "
 		"font-weight: bold;"
-		"font-style: italic; }"));
+		"font-style: italic; }" 
+		"#yesButton:hover { background-image: url(:/MattyNotes/CommonYesHover.png);  }"
+	"#noButton {height: 53px;"
+		"width: 53px;"
+		"background-color: transparent;"
+		"background-image: url(:/MattyNotes/CommonNo.png);"
+		"background-position: center;"
+		"background-repeat: no-repeat;"
+		"color: transparent; "
+		"font-weight: bold;"
+		"font-style: italic; }"
+		"#noButton:hover { background-image: url(:/MattyNotes/CommonNoHover.png);  }"));
+	
 
 	int answer = MattyWTDNMsgBox.exec();
 	if (answer == QMessageBox::Yes)
@@ -204,3 +226,13 @@ void MattyGroupBox::deleteNote()
 	}
 }
 
+void MattyGroupBox::mousePressEvent(QMouseEvent *event)
+{
+	m_nMouseClick_X_Coordinate = event->x();
+	m_nMouseClick_Y_Coordinate = event->y();
+}
+
+void MattyGroupBox::mouseMoveEvent(QMouseEvent *event)
+{
+	move(event->globalX() - m_nMouseClick_X_Coordinate, event->globalY() - m_nMouseClick_Y_Coordinate);
+}

@@ -20,12 +20,12 @@ private:
 	static int TotalNoteCount;
 
 	static QVector<class MattyNote> ListOfAllNotes;
-	static QVector<QString> ListOfGroupBoxeNames;
+	//static QVector<QString> ListOfGroupBoxeNames;
 
 	static void getAllNotes();
 	static void getSelectedNotes();
 
-	static QVector<class MattyGroupBox*> ListofGroupBoxes;
+	//static QVector<class MattyGroupBox*> ListofGroupBoxes;
 };
 
 #endif // NOTEHOLDER_H

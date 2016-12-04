@@ -8,6 +8,8 @@
 
 #include "MattyTime.h"
 
+QString getDayOfWeek(QDate DateIncm);
+
 class MattyNote
 {
 public:
@@ -18,35 +20,37 @@ public:
 	void setType(const QString & TypeName);
 	void setType(int TypeId);
 	void setText(const QString & Text);
-	void setEventTime(const QString & EventTime); // Warning! Input format must be: 00:00
-	void setEventDate(const QString & EventDate); // Warning! Input format must be: 00.00.0000
+	void setEventTime(const QString & EventTime); // Warning! Input format must be: 
+	void setEventDate(const QString & EventDate); // Warning! Input format must be: 
 	QString getTitle();
 	QString getType();
 	int getTypeId();
 	QString getText();
-	QString getEventTime(); // Format: 00:00
-	QString getEventDate(); // Format: 00.00.0000
+	QString getEventTime(); // Format: 
+	QString getEventDate(); // Format: 
 	QString getEvDayofWeek();
-	QString getCrTime(); // Format: 00:00
-	QString getCrDate(); // Format: 00.00.0000
+	QString getCrTime(); // Format: 
+	QString getCrDate(); // Format: 
 	QString getCrDayOfWeek();
 	int getNoteId();
-	TimeAndDate getEventTimeAndDate(); 
-	TimeAndDate getCrTimeAndDate(); 
+	QDateTime getEventTimeAndDate();
+	QDateTime getCrTimeAndDate();
 private:
 	int NoteId;
 	int NoteTypeId;
 	QString NoteTitle;
 	QString NoteType;
 	QString NoteText;
-	QString NoteEventTime; // Format: 00:00
-	QString NoteEventDate; // Format: 00.00.0000
+	QString NoteEventTime; // Format: 
+	QString NoteEventDate; // Format: 
 	QString NoteEvDayOfWeek;
 	QString NoteCrTime;
 	QString NoteCrDate;
 	QString NoteCrDayOfWeek;
-	MattyTime EventTimeAndDate;  // Any unspecified part equals -1
-	MattyTime CrTimeAndDate;  // Automaticly set in constructor of MattyNote
+	QDateTime EventTimeAndDate;
+	QDateTime CrTimeAndDate;
+	//MattyTime EventTimeAndDate;  // Any unspecified part equals -1
+	//MattyTime CrTimeAndDate;  // Automaticly set in constructor of MattyNote
 };
 
 #endif // MATTYNOTE_H

@@ -5,16 +5,15 @@
 
 MattyNote::MattyNote()
 {
-	EventTimeAndDate.setUserTimeAndDateNull(); // 
-	MattyTime::updateCurrTime();
-	CrTimeAndDate.UserTimeAndDate = MattyTime::CurrTime;
-	NoteCrTime = CrTimeAndDate.PrintUserTime();
-	NoteCrDate = CrTimeAndDate.PrintUserDate();
+	EventTimeAndDate = QDateTime(); // пометка об отсутствии времени события
+	CrTimeAndDate = QDateTime::currentDateTime();
+	NoteCrTime = CrTimeAndDate.time().toString();
+	NoteCrDate = CrTimeAndDate.date().toString();
 }
 
 MattyNote::MattyNote(QStringList RowFromDb)
 {
-	CrTimeAndDate.setUserTimeAndDateNull();
+	//CrTimeAndDate.setUserTimeAndDateNull();// пометка об отсутствии времени события
 	NoteId = RowFromDb[0].toInt();
 	NoteTitle = RowFromDb[1];
 	NoteType = RowFromDb[2];
@@ -54,30 +53,31 @@ void MattyNote::setText(const QString & Text)
 
 void MattyNote::setEventTime(const QString & EventTime)
 {
-	if (EventTime.length() == Constants::TimeQStringLength && EventTime[2] == Constants::TimeSeparator)
-	{
+	//if (EventTime.length() == Constants::TimeQStringLength && EventTime[2] == Constants::TimeSeparator)
+	//{
 		NoteEventTime = EventTime;
-		QStringList TimeTemp = EventTime.split(Constants::TimeSeparator);
-		EventTimeAndDate.UserTimeAndDate.hour = TimeTemp[0].toInt();
-		EventTimeAndDate.UserTimeAndDate.minute = TimeTemp[1].toInt();
-		EventTimeAndDate.UserTimeAndDate.second = 0;
-	}
+		//QStringList TimeTemp = EventTime.split(Constants::TimeSeparator);
+		//EventTimeAndDate.UserTimeAndDate.hour = TimeTemp[0].toInt();
+		//EventTimeAndDate.UserTimeAndDate.minute = TimeTemp[1].toInt();
+		EventTimeAndDate.setTime(QTime::fromString(EventTime));
+	//}
 }
 
 void MattyNote::setEventDate(const QString & EventDate)
 {
-	if (EventDate.length() == Constants::DateQStringLength &&
-		EventDate[Constants::PositionOfFirstDateSeparator] == Constants::DateSeparator
-		&& EventDate[Constants::PositionOfSecondDateSeparator] == Constants::DateSeparator)
-	{
+	//if (EventDate.length() == Constants::DateQStringLength &&
+	//	EventDate[Constants::PositionOfFirstDateSeparator] == Constants::DateSeparator
+	//	&& EventDate[Constants::PositionOfSecondDateSeparator] == Constants::DateSeparator)
+	//{
 		NoteEventDate = EventDate;
-		QStringList DateTemp = EventDate.split(Constants::DateSeparator);
-		EventTimeAndDate.UserTimeAndDate.day = DateTemp[0].toInt();
-		EventTimeAndDate.UserTimeAndDate.month = DateTemp[1].toInt();
-		EventTimeAndDate.UserTimeAndDate.year = DateTemp[2].toInt();
-		EventTimeAndDate.setUserDayOfWeek();
-		NoteEvDayOfWeek = EventTimeAndDate.getUserDayOfWeek();
-	}
+		//QStringList DateTemp = EventDate.split(Constants::DateSeparator);
+		//EventTimeAndDate.UserTimeAndDate.day = DateTemp[0].toInt();
+		//EventTimeAndDate.UserTimeAndDate.month = DateTemp[1].toInt();
+		//EventTimeAndDate.UserTimeAndDate.year = DateTemp[2].toInt();
+		EventTimeAndDate.setDate(QDate::fromString(EventDate));
+	//	EventTimeAndDate.setUserDayOfWeek();
+		NoteEvDayOfWeek = getDayOfWeek(EventTimeAndDate.date());
+	//}
 }
 
 QString MattyNote::getTitle()
@@ -135,12 +135,44 @@ int MattyNote::getNoteId()
 	return NoteId;
 }
 
-TimeAndDate  MattyNote::getEventTimeAndDate()
+QDateTime  MattyNote::getEventTimeAndDate()
 {
-	return EventTimeAndDate.UserTimeAndDate;
+	return EventTimeAndDate;
 }
 
-TimeAndDate  MattyNote::getCrTimeAndDate()
+QDateTime  MattyNote::getCrTimeAndDate()
 {
-	return CrTimeAndDate.UserTimeAndDate;
+	return CrTimeAndDate;
+}
+
+QString getDayOfWeek(QDate DateIncm)
+{
+	QString DayOfWeek = "";
+	enum DayOfWeekEnum { Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+	switch (DateIncm.dayOfWeek())
+	{
+	case Monday:
+		DayOfWeek = QString::fromLocal8Bit("ПН");
+		break;
+	case Tuesday:
+		DayOfWeek = QString::fromLocal8Bit("ВТ");
+		break;
+	case Wednesday:
+		DayOfWeek = QString::fromLocal8Bit("СР");
+		break;
+	case Thursday:
+		DayOfWeek = QString::fromLocal8Bit("ЧТ");
+		break;
+	case Friday:
+		DayOfWeek = QString::fromLocal8Bit("ПТ");
+		break;
+	case Saturday:
+		DayOfWeek = QString::fromLocal8Bit("СБ");
+		break;
+	case Sunday:
+		DayOfWeek = QString::fromLocal8Bit("ВС");
+		break;
+	}
+
+	return DayOfWeek;
 }

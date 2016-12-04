@@ -21,6 +21,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,7 +32,11 @@ public:
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout_2;
     QSplitter *splitter;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QListWidget *listWidget;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout_2;
     QStackedWidget *stackedWidget;
     QWidget *page;
     QWidget *page_2;
@@ -55,11 +60,23 @@ public:
         splitter = new QSplitter(MattySettingsDialog);
         splitter->setObjectName(QStringLiteral("splitter"));
         splitter->setOrientation(Qt::Horizontal);
-        listWidget = new QListWidget(splitter);
+        verticalLayoutWidget = new QWidget(splitter);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        listWidget = new QListWidget(verticalLayoutWidget);
         listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setBaseSize(QSize(150, 0));
-        splitter->addWidget(listWidget);
-        stackedWidget = new QStackedWidget(splitter);
+
+        verticalLayout->addWidget(listWidget);
+
+        splitter->addWidget(verticalLayoutWidget);
+        verticalLayoutWidget_2 = new QWidget(splitter);
+        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        stackedWidget = new QStackedWidget(verticalLayoutWidget_2);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         page = new QWidget();
         page->setObjectName(QStringLiteral("page"));
@@ -67,11 +84,14 @@ public:
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
         stackedWidget->addWidget(page_2);
-        splitter->addWidget(stackedWidget);
+
+        verticalLayout_2->addWidget(stackedWidget);
+
+        splitter->addWidget(verticalLayoutWidget_2);
 
         horizontalLayout_2->addWidget(splitter);
 
-        verticalSpacer = new QSpacerItem(0, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         horizontalLayout_2->addItem(verticalSpacer);
 
