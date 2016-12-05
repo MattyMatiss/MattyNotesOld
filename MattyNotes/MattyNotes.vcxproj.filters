@@ -119,6 +119,9 @@
     <ClCompile Include="GeneratedFiles\qrc_mattynotesmainwindow.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="MattyStyleSheetEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -156,6 +159,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_mattynotesmainwindow.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MattyStyleSheetEditor.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

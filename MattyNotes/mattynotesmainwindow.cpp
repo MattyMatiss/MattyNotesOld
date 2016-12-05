@@ -8,6 +8,7 @@
 #include "Constants.h"
 #include "MattyClocks.h"
 #include "MattySettingsDialog.h"
+#include "MattyStyleSheetEditor.h"
 
 MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 	: QMainWindow(parent)
@@ -61,12 +62,7 @@ void MattyNotesMainWindow::minimizeWindow()
 
 void MattyNotesMainWindow::refreshMainWindow()
 {
-	QFile styleFile("MattyStyleSheet.qss");
-	if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text))
-	{
-		qApp->setStyleSheet(styleFile.readAll());
-		styleFile.close();
-	}
+	MattyStyleSheetEditor::setSnowTheme();
 	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
 
