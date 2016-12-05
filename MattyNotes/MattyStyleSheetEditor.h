@@ -13,6 +13,7 @@ public:
 
 	static bool setSunShineTheme();
 	static bool setSnowTheme();
+	static bool setDarkTheme();
 
 	~MattyStyleSheetEditor();
 };

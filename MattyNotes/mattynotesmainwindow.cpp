@@ -27,12 +27,14 @@ MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 
 	buildMattyToolBar();
 
+	setActions();
+
 	setConnects();
 	
 	refreshMainWindow();
 }
 
-void MattyNotesMainWindow::on_addNoteButtonTemp_clicked()
+void MattyNotesMainWindow::addNote()
 {
 	addNoteDialog *newAddNoteDialog = new addNoteDialog(Add);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
@@ -62,11 +64,11 @@ void MattyNotesMainWindow::minimizeWindow()
 
 void MattyNotesMainWindow::refreshMainWindow()
 {
-	MattyStyleSheetEditor::setSnowTheme();
+	MattyStyleSheetEditor::setSunShineTheme();
 	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
 
-void MattyNotesMainWindow::on_SettingsButton_clicked()
+void MattyNotesMainWindow::openSettings()
 {
 	MattySettingsDialog* newMattySettingsDialog = new MattySettingsDialog();
 	newMattySettingsDialog->setWindowModality(Qt::ApplicationModal);
@@ -174,18 +176,30 @@ void MattyNotesMainWindow::buildMattyToolBar()
 	MattyToolBar->addWidget(AddNoteButton);
 }
 
+void MattyNotesMainWindow::setActions()
+{
+	closeMainWindow = new QAction(this);
+	closeMainWindow->setShortcut(tr("CTRL+Q"));
+	this->addAction(closeMainWindow);
+
+	addNewNote = new QAction(this);
+	addNewNote->setShortcut(tr("ALT+N"));
+	this->addAction(addNewNote);
+}
+
 inline void MattyNotesMainWindow::setConnects()
 {
 	QObject::connect(CloseWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
-	QObject::connect(MaximizeWindowButton, SIGNAL(clicked()), this,
-		SLOT(maximizeWindow()));
+	QObject::connect(MaximizeWindowButton, SIGNAL(clicked()), this,	SLOT(maximizeWindow()));
 	QObject::connect(MinimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
-	QObject::connect(AddNoteButton, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
+	QObject::connect(AddNoteButton, SIGNAL(clicked()), this, SLOT(addNote()));
 	QObject::connect(RefreshNoteListButton, SIGNAL(clicked()), this, SLOT(refreshMainWindow()));
-	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(on_SettingsButton_clicked()));
+	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(openSettings()));
+	QObject::connect(closeMainWindow, SIGNAL(triggered()), this, SLOT(close()));
+	QObject::connect(addNewNote, SIGNAL(triggered()), this, SLOT(addNote()));
 }
 
-bool MattyNotesMainWindow::event(QEvent *e)
+bool MattyNotesMainWindow::WindowActivatedEvent(QEvent *e)
 {
 	if (e->type() == QEvent::WindowActivate)
 	{

@@ -30,23 +30,34 @@ public:
 
 private:
 	Ui::MattyNotesMainWindowClass ui;
+
+	QAction *closeMainWindow;
+	QAction *addNewNote;
+	QAction *RefreshMainWindow;
+	QAction *OpenSettings;
+	QAction *HideOpenNotes;
+
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
+
 	void connectToDb(QString& PathToDb = QStringLiteral(""));
 	void buildMainToolBar();
 	void buildMattyToolBar();
-	inline void setConnects();
+	void setConnects();
+	void setActions();
 
 	private slots:
-	void on_addNoteButtonTemp_clicked();
+
+	void addNote();
 	void closeWindow();
 	void maximizeWindow();
 	void minimizeWindow();
 	void refreshMainWindow();
-	void on_SettingsButton_clicked();
-	bool event(QEvent *e);
+	void openSettings();
+
+	bool WindowActivatedEvent(QEvent *e);
 };
 
 
