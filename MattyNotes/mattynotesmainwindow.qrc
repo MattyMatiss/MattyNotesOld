@@ -1,0 +1,34 @@
+<RCC>
+  <qresource prefix="MattyNotes">
+    <file>AddNote.png</file>
+    <file>AddNoteHoverWithPen.png</file>
+    <file>ApplyAdding.png</file>
+    <file>ApplyAddingHover.png</file>
+    <file>CancelAdding.png</file>
+    <file>CancelAddingHover.png</file>
+    <file>CloseWindow.png</file>
+    <file>CloseWindowHover.png</file>
+    <file>CommonNo.png</file>
+    <file>CommonNo40x40.png</file>
+    <file>CommonNoHover.png</file>
+    <file>CommonNoHover40x40.png</file>
+    <file>CommonYes.png</file>
+    <file>CommonYes40x40.png</file>
+    <file>CommonYesHover.png</file>
+    <file>CommonYesHover40x40.png</file>
+    <file>DeleteNote.png</file>
+    <file>DeleteNoteHover.png</file>
+    <file>EditNote.png</file>
+    <file>EditNoteHover.png</file>
+    <file>MaximizeWindow.png</file>
+    <file>MaximizeWindowHover.png</file>
+    <file>MinimizeWindow.png</file>
+    <file>MinimizeWindowHover.png</file>
+    <file>QuestionSquared.png</file>
+    <file>RefreshNoteList.png</file>
+    <file>RefreshNoteListHover.png</file>
+    <file>Settings.png</file>
+    <file>SettingsHover.png</file>
+    <file>VerticalLine.png</file>
+  </qresource>
+</RCC>

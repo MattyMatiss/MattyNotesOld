@@ -5,14 +5,16 @@
 #include "addnotedialog.h"
 #include "mattymessagebox.h"
 #include "NoteHolder.h"
-#include "mattynotes.h"
+#include "mattynotesmainwindow.h"
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
 
-MattyGroupBox::MattyGroupBox(QWidget* parent)
+MattyGroupBox::MattyGroupBox(class MattyNote & ThisNote, QWidget* parent)
+	: QGroupBox(parent)
 {
 	this->setParent(parent);
 	buildFrame();
+	fillFrame(ThisNote);
 	QObject::connect(deleteNoteButton, SIGNAL(clicked()), this, SLOT(deleteNote()));
 	QObject::connect(editNoteButton, SIGNAL(clicked()), this, SLOT(editNote()));
 }
@@ -133,7 +135,7 @@ void MattyGroupBox::editNote()
 void MattyGroupBox::deleteNote()
 {
 	MattyMessageBox WantToDeleteNote(Question);
-	WantToDeleteNote.setText(QString::fromLocal8Bit("Вы точно хотите удалить заметку \"") + ThisGroupBoxNote.getTitle() + "\"?");
+	WantToDeleteNote.setText(QString::fromLocal8Bit("Вы точно хотите удалить заметку \n\"") + ThisGroupBoxNote.getTitle() + "\"?");
 	WantToDeleteNote.setFixedWidth(150);
 
 	int answer = WantToDeleteNote.exec();

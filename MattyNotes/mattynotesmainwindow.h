@@ -6,14 +6,14 @@
 #endif // _MSC_VER
 
 #include <QtWidgets/QMainWindow>
-#include "ui_mattynotes.h"
+#include "ui_mattynotesmainwindow.h"
 
-class MattyNotes : public QMainWindow
+class MattyNotesMainWindow : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	MattyNotes(QWidget *parent = 0);
+	MattyNotesMainWindow(QWidget *parent = 0);
 	QLabel* WindowHeaderLabel;
 	QPushButton* CloseWindowButton;
 	QPushButton* MaximizeWindowButton;
@@ -25,11 +25,11 @@ public:
 	QWidget* MainToolBarSpacerLeft;
 	QWidget* MainToolBarSpacerRight;
 	QWidget* MattyToolBarMainSpacer;
-	~MattyNotes();
+	~MattyNotesMainWindow();
 
 
 private:
-	Ui::MattyNotesClass ui;
+	Ui::MattyNotesMainWindowClass ui;
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
@@ -44,7 +44,7 @@ private:
 	void closeWindow();
 	void maximizeWindow();
 	void minimizeWindow();
-	void on_refreshNoteList_clicked();
+	void refreshMainWindow();
 	void on_SettingsButton_clicked();
 	bool event(QEvent *e);
 };

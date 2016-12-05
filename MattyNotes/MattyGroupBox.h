@@ -12,10 +12,10 @@ class MattyGroupBox :
 {
 	Q_OBJECT
 public:
-	MattyGroupBox(QWidget* parent = 0);
-	void fillFrame(class MattyNote & ThisNote);
+	MattyGroupBox(class MattyNote & ThisNote = MattyNote(), QWidget* parent = 0);
 private:
 	void buildFrame();
+	void fillFrame(class MattyNote & ThisNote);
 	QLabel* NoteTypeLabel;
 	QLabel* NoteCrTimeAndDateLabel;
 	QLabel* NoteEventTimeAndDateLabel;

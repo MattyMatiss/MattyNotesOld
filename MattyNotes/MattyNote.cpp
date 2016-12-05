@@ -6,7 +6,6 @@
 MattyNote::MattyNote()
 {
 	CrTimeAndDate = QDateTime::currentDateTime();
-	NoteCrDayOfWeek = printDayOfWeek(CrTimeAndDate.date());
 	NoteCrTime = CrTimeAndDate.time().toString().mid(0, 5);
 	NoteCrDate = CrTimeAndDate.date().toString("d MMM yyyy, ddd");
 }
@@ -60,7 +59,6 @@ void MattyNote::setEventDate(const QString & EventDate)
 {
 	NoteEventDate = EventDate;
 	EventTimeAndDate.setDate(QDate::fromString(EventDate));
-	NoteEvDayOfWeek = printDayOfWeek(EventTimeAndDate.date());
 }
 
 QString MattyNote::getTitle()

@@ -15,14 +15,17 @@ class addNoteDialog : public QDialog {
 
 public:
 	addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm = -1);
+
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
 	QVBoxLayout* GroupBoxLayout;
 	QPushButton* closeAddingWindowButton;
+
 	~addNoteDialog();
 
 private:
 	Ui::addNoteDialog addNoteDialogUi;
+
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;

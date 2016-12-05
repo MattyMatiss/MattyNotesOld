@@ -6,9 +6,9 @@ MattySettingsDialog::MattySettingsDialog(QWidget * parent) : QDialog(parent)
 	MattySettingsDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
+	MattySettingsDialogUi.stackedWidget->setMinimumWidth(250);
 	MattySettingsDialogUi.splitter->setStretchFactor(0, 1);
 	MattySettingsDialogUi.splitter->setStretchFactor(1, 5);
-	MattySettingsDialogUi.stackedWidget->setMinimumWidth(250);
 
 	General = new QListWidgetItem(tr("General"), MattySettingsDialogUi.listWidget);
 	Interface = new QListWidgetItem(tr("Interface"), MattySettingsDialogUi.listWidget);
