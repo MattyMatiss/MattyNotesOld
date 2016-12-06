@@ -25,10 +25,8 @@ public:
 	QString getText();
 	QString getEventTime(); // Format: 00:00
 	QString getEventDate(); // Format: 00.00.0000
-	QString getEvDayofWeek();
 	QString getCrTime(); // Format: 00:00
 	QString getCrDate(); // Format: 00.00.0000
-	QString getCrDayOfWeek();
 	int getNoteId();
 	QDateTime getEventTimeAndDate();
 	QDateTime getCrTimeAndDate();
@@ -40,10 +38,8 @@ private:
 	QString NoteText;
 	QString NoteEventTime; // Format: 00:00
 	QString NoteEventDate; // Format: 00.00.0000
-	QString NoteEvDayOfWeek;
 	QString NoteCrTime;
 	QString NoteCrDate;
-	QString NoteCrDayOfWeek;
 	QDateTime EventTimeAndDate;  // Any unspecified part equals -1
 	QDateTime CrTimeAndDate;  // Automaticly set in constructor of MattyNote
 };

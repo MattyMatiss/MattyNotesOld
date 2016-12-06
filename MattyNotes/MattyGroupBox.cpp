@@ -25,7 +25,7 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 	NoteTextLabel->setText(ThisNote.getText());
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Заметка создана: ")
 		+ ThisNote.getCrDate() + " " + ThisNote.getCrTime() );
-	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() + ", " + ThisNote.getEvDayofWeek() +  " " + ThisNote.getEventTime());
+	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() +  " " + ThisNote.getEventTime());
 
 }
 
