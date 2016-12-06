@@ -3,7 +3,7 @@
 #include "DbManager.h"
 #include "MattyNote.h"
 #include "UtilityFunctions.h"
-#include "mattynotes.h"
+#include "mattynotesmainwindow.h"
 #include "NoteHolder.h"
 #include "Constants.h"
 #include "QueryConstructor.h"
@@ -12,8 +12,11 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 {
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
+
 	closeAddingWindowButton = new QPushButton();
-	DbManager::connect(Constants::PathToDb);
+
+	DbManager::connect(Constants::PathToDb); // надо ли?
+
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
 

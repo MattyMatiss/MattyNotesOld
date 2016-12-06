@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mattynotes.ui'
+** Form generated from reading UI file 'mattynotesmainwindow.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MATTYNOTES_H
-#define UI_MATTYNOTES_H
+#ifndef UI_MATTYNOTESMAINWINDOW_H
+#define UI_MATTYNOTESMAINWINDOW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -31,7 +31,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MattyNotesClass
+class Ui_MattyNotesMainWindowClass
 {
 public:
     QWidget *centralWidget;
@@ -65,12 +65,12 @@ public:
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
-    void setupUi(QMainWindow *MattyNotesClass)
+    void setupUi(QMainWindow *MattyNotesMainWindowClass)
     {
-        if (MattyNotesClass->objectName().isEmpty())
-            MattyNotesClass->setObjectName(QStringLiteral("MattyNotesClass"));
-        MattyNotesClass->resize(702, 534);
-        centralWidget = new QWidget(MattyNotesClass);
+        if (MattyNotesMainWindowClass->objectName().isEmpty())
+			MattyNotesMainWindowClass->setObjectName(QStringLiteral("MattyNotesClass"));
+		MattyNotesMainWindowClass->resize(702, 534);
+        centralWidget = new QWidget(MattyNotesMainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout_4 = new QGridLayout(centralWidget);
         gridLayout_4->setSpacing(6);
@@ -105,7 +105,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 406, 870));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 371, 870));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -217,27 +217,27 @@ public:
 
         gridLayout_4->addWidget(splitter, 0, 0, 1, 1);
 
-        MattyNotesClass->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MattyNotesClass);
+		MattyNotesMainWindowClass->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(MattyNotesMainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 702, 21));
-        MattyNotesClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MattyNotesClass);
+		MattyNotesMainWindowClass->setMenuBar(menuBar);
+        mainToolBar = new QToolBar(MattyNotesMainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MattyNotesClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(MattyNotesClass);
+		MattyNotesMainWindowClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
+        statusBar = new QStatusBar(MattyNotesMainWindowClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         statusBar->setMinimumSize(QSize(0, 0));
-        MattyNotesClass->setStatusBar(statusBar);
+		MattyNotesMainWindowClass->setStatusBar(statusBar);
 
-        retranslateUi(MattyNotesClass);
+        retranslateUi(MattyNotesMainWindowClass);
 
-        QMetaObject::connectSlotsByName(MattyNotesClass);
+        QMetaObject::connectSlotsByName(MattyNotesMainWindowClass);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MattyNotesClass)
+    void retranslateUi(QMainWindow *MattyNotesMainWindowClass)
     {
-        MattyNotesClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
+		MattyNotesMainWindowClass->setWindowTitle(QApplication::translate("MattyNotesClass", "MattyNotes", 0));
         MotivatorLabel->setText(QApplication::translate("MattyNotesClass", "\"\320\221\320\276\320\273\321\214\321\210\320\270\320\275\321\201\321\202\320\262\320\276 \320\273\321\216\320\264\320\265\320\271 \320\275\320\260\320\274\320\275\320\276\320\263\320\276 \321\201\320\270\320\273\321\214\320\275\320\265\320\265, \321\207\320\265\320\274 \320\276\320\275\320\270 \320\264\321\203\320\274\320\260\321\216\321\202, \320\276\320\275\320\270 \320\277\321\200\320\276\321\201\321\202\320\276 \320\267\320\260\320\261\321\213\320\262\320\260\321\216\321\202 \320\270\320\275\320\276\320\263\320\264\320\260 \320\262 \321\215\321\202\320\276 \320\262\320\265\321\200\320\270\321\202\321\214.\"", 0));
         groupBox->setTitle(QApplication::translate("MattyNotesClass", "GroupBox", 0));
         NoteTitleLabel->setText(QApplication::translate("MattyNotesClass", "\320\227\320\260\320\263\320\276\320\273\320\276\320\262\320\276\320\272", 0));
@@ -256,9 +256,9 @@ public:
 };
 
 namespace Ui {
-    class MattyNotesClass: public Ui_MattyNotesClass {};
+    class MattyNotesMainWindowClass : public Ui_MattyNotesMainWindowClass {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_MATTYNOTES_H
+#endif // UI_MATTYNOTESMAINWINDOW_H

@@ -22,3 +22,6 @@
 "	QPushButton:hover { background-image: url(:/MattyNotes/CancelAddingHover.png);"
 "	color: #4d3f3d; "
 "font-weight: bold; }"
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error	MSB6006	"cmd.exe" exited with code 1.	MattyNotes	C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets	171	

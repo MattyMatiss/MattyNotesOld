@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "mattynotes.h"
+#include "mattynotesmainwindow.h"
 #include "DbManager.h"
 #include "MattyNote.h"
 #include "addnotedialog.h"
@@ -8,8 +8,9 @@
 #include "Constants.h"
 #include "MattyClocks.h"
 #include "MattySettingsDialog.h"
+#include "MattyStyleSheetEditor.h"
 
-MattyNotes::MattyNotes(QWidget *parent)
+MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
@@ -26,12 +27,14 @@ MattyNotes::MattyNotes(QWidget *parent)
 
 	buildMattyToolBar();
 
+	setActions();
+
 	setConnects();
 	
-	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
+	refreshMainWindow();
 }
 
-void MattyNotes::on_addNoteButtonTemp_clicked()
+void MattyNotesMainWindow::addNote()
 {
 	addNoteDialog *newAddNoteDialog = new addNoteDialog(Add);
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
@@ -41,12 +44,12 @@ void MattyNotes::on_addNoteButtonTemp_clicked()
 	}
 }
 
-void MattyNotes::closeWindow()
+void MattyNotesMainWindow::closeWindow()
 {
 	QApplication::quit();
 }
 
-void MattyNotes::maximizeWindow()
+void MattyNotesMainWindow::maximizeWindow()
 {
 	if (this->isMaximized())
 		this->showNormal();
@@ -54,35 +57,36 @@ void MattyNotes::maximizeWindow()
 		this->showMaximized();
 }
 
-void MattyNotes::minimizeWindow()
+void MattyNotesMainWindow::minimizeWindow()
 {
 	this->showMinimized();
 }
 
-void MattyNotes::on_refreshNoteList_clicked()
+void MattyNotesMainWindow::refreshMainWindow()
 {
+	MattyStyleSheetEditor::setSunShineTheme();
 	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
 
-void MattyNotes::on_SettingsButton_clicked()
+void MattyNotesMainWindow::openSettings()
 {
 	MattySettingsDialog* newMattySettingsDialog = new MattySettingsDialog();
 	newMattySettingsDialog->setWindowModality(Qt::ApplicationModal);
 	newMattySettingsDialog->exec();
 }
 
-void MattyNotes::mousePressEvent(QMouseEvent *event) 
+void MattyNotesMainWindow::mousePressEvent(QMouseEvent *event)
 {
 	m_nMouseClick_X_Coordinate = event->x();
 	m_nMouseClick_Y_Coordinate = event->y();
 }
 
-void MattyNotes::mouseMoveEvent(QMouseEvent *event) 
+void MattyNotesMainWindow::mouseMoveEvent(QMouseEvent *event)
 {
 	move(event->globalX() - m_nMouseClick_X_Coordinate, event->globalY() - m_nMouseClick_Y_Coordinate);
 }
 
-void MattyNotes::connectToDb(QString & PathToDb)
+void MattyNotesMainWindow::connectToDb(QString & PathToDb)
 {
 	if (PathToDb == "")
 		Constants::setPathToDb(Relative);
@@ -92,7 +96,7 @@ void MattyNotes::connectToDb(QString & PathToDb)
 	DbManager::connect(Constants::PathToDb);
 }
 
-void MattyNotes::buildMainToolBar()
+void MattyNotesMainWindow::buildMainToolBar()
 {
 	CloseWindowButton = new QPushButton(ui.mainToolBar);
 	CloseWindowButton->setObjectName("CloseWindowButton");
@@ -129,7 +133,7 @@ void MattyNotes::buildMainToolBar()
 	ui.mainToolBar->setMovable(false);
 }
 
-void MattyNotes::buildMattyToolBar()
+void MattyNotesMainWindow::buildMattyToolBar()
 {
 	MattyToolBar = new QToolBar(this);
 	MattyToolBar->setObjectName(QStringLiteral("MattyToolBar"));
@@ -172,27 +176,39 @@ void MattyNotes::buildMattyToolBar()
 	MattyToolBar->addWidget(AddNoteButton);
 }
 
-inline void MattyNotes::setConnects()
+void MattyNotesMainWindow::setActions()
 {
-	QObject::connect(CloseWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
-	QObject::connect(MaximizeWindowButton, SIGNAL(clicked()), this,
-		SLOT(maximizeWindow()));
-	QObject::connect(MinimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
-	QObject::connect(AddNoteButton, SIGNAL(clicked()), this, SLOT(on_addNoteButtonTemp_clicked()));
-	QObject::connect(RefreshNoteListButton, SIGNAL(clicked()), this, SLOT(on_refreshNoteList_clicked()));
-	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(on_SettingsButton_clicked()));
+	closeMainWindow = new QAction(this);
+	closeMainWindow->setShortcut(tr("CTRL+Q"));
+	this->addAction(closeMainWindow);
+
+	addNewNote = new QAction(this);
+	addNewNote->setShortcut(tr("ALT+N"));
+	this->addAction(addNewNote);
 }
 
-bool MattyNotes::event(QEvent *e)
+inline void MattyNotesMainWindow::setConnects()
+{
+	QObject::connect(CloseWindowButton, SIGNAL(clicked()), this, SLOT(closeWindow()));
+	QObject::connect(MaximizeWindowButton, SIGNAL(clicked()), this,	SLOT(maximizeWindow()));
+	QObject::connect(MinimizeWindowButton, SIGNAL(clicked()), this, SLOT(minimizeWindow()));
+	QObject::connect(AddNoteButton, SIGNAL(clicked()), this, SLOT(addNote()));
+	QObject::connect(RefreshNoteListButton, SIGNAL(clicked()), this, SLOT(refreshMainWindow()));
+	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(openSettings()));
+	QObject::connect(closeMainWindow, SIGNAL(triggered()), this, SLOT(close()));
+	QObject::connect(addNewNote, SIGNAL(triggered()), this, SLOT(addNote()));
+}
+
+bool MattyNotesMainWindow::WindowActivatedEvent(QEvent *e)
 {
 	if (e->type() == QEvent::WindowActivate)
 	{
-		on_refreshNoteList_clicked();
+		refreshMainWindow();
 	}
 	return QWidget::event(e);
 }
 
-MattyNotes::~MattyNotes()
+MattyNotesMainWindow::~MattyNotesMainWindow()
 {
 
 }

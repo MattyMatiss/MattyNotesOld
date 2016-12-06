@@ -32,8 +32,8 @@ void NoteHolder::publishNotes(QWidget* ParentWidget)
 	for (NoteNumber = ListOfAllNotes.begin(), i=0; NoteNumber < ListOfAllNotes.end();NoteNumber++, i++)
 	{
 
-		MattyGroupBox* MyGroupBox = new MattyGroupBox(ParentWidget);
-		MyGroupBox->fillFrame(*NoteNumber);
+		MattyGroupBox* MyGroupBox = new MattyGroupBox(*NoteNumber, ParentWidget);
+		//MyGroupBox->fillFrame(*NoteNumber);
 		ParentWidget->layout()->addWidget(MyGroupBox);
 	}
 }

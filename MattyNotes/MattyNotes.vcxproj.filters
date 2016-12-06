@@ -41,20 +41,8 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mattynotes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_mattynotes.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="MattyTime.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_mattynotes.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_mattynotes.cpp">
-      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="DbManager.cpp">
       <Filter>Source Files</Filter>
@@ -119,13 +107,25 @@
     <ClCompile Include="GeneratedFiles\Release\moc_mattymessagebox.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mattynotesmainwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_mattynotesmainwindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="mattynotesmainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_mattynotesmainwindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MattyStyleSheetEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_mattynotes.h">
-      <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="MattyTime.h">
       <Filter>Header Files</Filter>
@@ -157,17 +157,14 @@
     <ClInclude Include="GeneratedFiles\ui_mattysettingsdialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_mattynotesmainwindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MattyStyleSheetEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="mattynotes.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mattynotes.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mattynotes.qrc">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="addnotedialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -189,8 +186,144 @@
     <CustomBuild Include="mattymessagebox.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="mattynotesmainwindow.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mattynotesmainwindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mattynotesmainwindow.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MattyNotes.rc" />
+    <ResourceCompile Include="MattyNotesMainWindow.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="stylesheet.qss">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MattyNotes.sqlite">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MattyStyles.qss">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="CommonYes40x40.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonYesHover40x40.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonNoHover40x40.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonNo40x40.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="QuestionSquared.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="VerticalLine.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SettingsHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RefreshNoteList.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RefreshNoteListHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonNo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonNoHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonYes.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CommonYesHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ApplyAdding.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ApplyAddingHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CancelAdding.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CancelAddingHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AddNoteHoverWithPen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AddNote.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AddNoteHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="DeleteNote.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="DeleteNoteHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EditNote.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EditNoteHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="NoteBackground600.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="NoteBackground450.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Main_icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CloseWindowHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MaximizeWindow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MaximizeWindowHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MinimizeWindow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MinimizeWindowHover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CloseWindow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CloseWindowButtonOnMouseMove.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CloseWindowButton.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="edit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="1s-udalenie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
