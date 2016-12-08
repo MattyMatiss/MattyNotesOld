@@ -36,9 +36,9 @@ MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 
 void MattyNotesMainWindow::addNote()
 {
-	addNoteDialog *newAddNoteDialog = new addNoteDialog(Add);
-	newAddNoteDialog->setWindowModality(Qt::ApplicationModal); 
-	if (!newAddNoteDialog->exec())
+	addNoteDialog newAddNoteDialog(Add);
+	newAddNoteDialog.setWindowModality(Qt::ApplicationModal); 
+	if (!newAddNoteDialog.exec())
 	{
 		NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 	}
@@ -64,15 +64,15 @@ void MattyNotesMainWindow::minimizeWindow()
 
 void MattyNotesMainWindow::refreshMainWindow()
 {
-	MattyStyleSheetEditor::setSunShineTheme();
+	MattyStyleSheetEditor::refreshTheme();
 	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
 }
 
 void MattyNotesMainWindow::openSettings()
 {
-	MattySettingsDialog* newMattySettingsDialog = new MattySettingsDialog();
-	newMattySettingsDialog->setWindowModality(Qt::ApplicationModal);
-	newMattySettingsDialog->exec();
+	MattySettingsDialog newMattySettingsDialog;
+	newMattySettingsDialog.setWindowModality(Qt::ApplicationModal);
+	newMattySettingsDialog.exec();
 }
 
 void MattyNotesMainWindow::mousePressEvent(QMouseEvent *event)

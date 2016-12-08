@@ -17,10 +17,7 @@ public:
 
 private:
 	Ui::MattySettingsDialog MattySettingsDialogUi;
-	void mousePressEvent(QMouseEvent *event);
-	void mouseMoveEvent(QMouseEvent *event);
-	int m_nMouseClick_X_Coordinate;
-	int m_nMouseClick_Y_Coordinate;
+
 	QPushButton ApplySettingsButton;
 	QPushButton CancelSettingsButton;
 
@@ -31,6 +28,26 @@ private:
 	QWidget *GeneralPageWidget;
 	QWidget *InterfacePageWidget;
 	QWidget *SecurityPageWidget;
+
+	QGridLayout *InterfacePageGridLayout;
+	QLabel *ChooseThemeLabel;
+	QVBoxLayout *ThemeRadioButtonVerticalLayout;
+	QRadioButton *SunShineRadioButton;
+	QRadioButton *SnowRadioButton;
+	QRadioButton *DarkRadioButton;
+	QLabel *InsertCssLabel;
+	QPlainTextEdit *CssCodePlainTextEdit;
+	QSpacerItem *HorizontalSpacer;
+	QPushButton *ApplyInterfacePageChangesButton;
+
+	void setConnects();
+	void buildPages();
+	void fillInterfacePage();
+
+	void mousePressEvent(QMouseEvent *event);
+	void mouseMoveEvent(QMouseEvent *event);
+	int m_nMouseClick_X_Coordinate;
+	int m_nMouseClick_Y_Coordinate;
 
 	private slots:
 	void on_ApplySettingsButton_clicked();

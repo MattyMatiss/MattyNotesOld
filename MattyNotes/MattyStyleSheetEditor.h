@@ -5,17 +5,23 @@
 #pragma once
 #endif // _MSC_VER
 
+enum DefaultTheme { MattySunShineStyleSheet, MattySnowStyleSheet, MattyDarkStyleSheet
+};
 
 class MattyStyleSheetEditor
 {
 public:
 	MattyStyleSheetEditor();
 
-	static bool setSunShineTheme();
-	static bool setSnowTheme();
-	static bool setDarkTheme();
+	static bool setTheme(const QString & ThemeName);
+	static bool setTheme(DefaultTheme ThemeName);
+	static bool refreshTheme();
 
 	~MattyStyleSheetEditor();
+
+private:
+	static QString CurrentTheme;
+
 };
 
 #endif // MATTYSTYLESHEETEDITOR_H

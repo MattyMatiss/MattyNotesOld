@@ -13,8 +13,6 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
-	closeAddingWindowButton = new QPushButton();
-
 	DbManager::connect(Constants::PathToDb); // надо ли?
 
 	addNoteDialogUi.noteTypeComboBox->clear();
@@ -43,17 +41,22 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	}
 
 	DialogType = DialogTypeIncm;
+
+	SaveNote = new QAction(this);
+	SaveNote->setShortcut(tr("CTRL+RETURN"));
+	this->addAction(SaveNote);
+	QObject::connect(SaveNote, SIGNAL(triggered()), this, SLOT(on_createNoteButton_clicked()));
 }
 
 addNoteDialog::~addNoteDialog() 
 {
-	delete ThisDialogNote;
+	//delete ThisDialogNote;
 }
 
 void addNoteDialog::on_cancelAddingNoteButton_clicked()
 {
 	this->close();
-	this->~addNoteDialog();
+	//this->~addNoteDialog();
 }
 
 
@@ -80,7 +83,8 @@ void addNoteDialog::on_createNoteButton_clicked()
 			}
 		}
 
-		this->~addNoteDialog();
+		//this->~addNoteDialog();
+		this->close();
 	}
 	else
 	{

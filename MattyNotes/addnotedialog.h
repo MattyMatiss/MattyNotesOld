@@ -19,12 +19,13 @@ public:
 	QPushButton createNoteButton;
 	QPushButton cancelAddingNoteButton;
 	QVBoxLayout* GroupBoxLayout;
-	QPushButton* closeAddingWindowButton;
 
 	~addNoteDialog();
 
 private:
 	Ui::addNoteDialog addNoteDialogUi;
+
+	QAction *SaveNote;
 
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);

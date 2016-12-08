@@ -1,44 +1,60 @@
 #include "stdafx.h"
 #include "MattyStyleSheetEditor.h"
 
+QString MattyStyleSheetEditor::CurrentTheme = "MattySunShineStyleSheet";
 
 MattyStyleSheetEditor::MattyStyleSheetEditor()
 {
 }
 
-bool MattyStyleSheetEditor::setSunShineTheme()
+bool MattyStyleSheetEditor::setTheme(const QString & ThemeName)
 {
-	QFile styleFile("MattySunShineStyleSheet.qss");
-	if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text))
+	bool ThemeFileOpened = false;
+	QFile styleFile(ThemeName + ".qss");
+	CurrentTheme = ThemeName;
+
+	if (ThemeFileOpened = styleFile.open(QIODevice::ReadOnly | QIODevice::Text))
 	{
 		qApp->setStyleSheet(styleFile.readAll());
 		styleFile.close();
 	}
-	return true;
+	return ThemeFileOpened;
 }
 
-bool MattyStyleSheetEditor::setSnowTheme()
+bool MattyStyleSheetEditor::setTheme(DefaultTheme ThemeName)
 {
-	QFile styleFile("MattySnowStyleSheet.qss");
-	if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text))
+	bool ThemeFileOpened = false;
+
+	switch (ThemeName)
 	{
-		qApp->setStyleSheet(styleFile.readAll());
-		styleFile.close();
+	case MattySunShineStyleSheet:
+		CurrentTheme = "MattySunShineStyleSheet";
+		break;
+
+	case MattySnowStyleSheet:
+		CurrentTheme = "MattySnowStyleSheet";
+		break;
+
+	case MattyDarkStyleSheet:
+		CurrentTheme = "MattyDarkStyleSheet";
+		break;
 	}
-	return true;
+
+		QFile styleFile(CurrentTheme + ".qss");
+
+		if (ThemeFileOpened = styleFile.open(QIODevice::ReadOnly | QIODevice::Text))
+		{
+			qApp->setStyleSheet(styleFile.readAll());
+			styleFile.close();
+		}
+
+	return ThemeFileOpened;
 }
 
-bool MattyStyleSheetEditor::setDarkTheme()
+bool MattyStyleSheetEditor::refreshTheme()
 {
-	QFile styleFile("MattyDarkStyleSheet.qss");
-	if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text))
-	{
-		qApp->setStyleSheet(styleFile.readAll());
-		styleFile.close();
-	}
-	return true;
+	return setTheme(CurrentTheme);
 }
-
 
 MattyStyleSheetEditor::~MattyStyleSheetEditor()
 {
