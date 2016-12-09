@@ -34,6 +34,7 @@ MattyMessageBox::MattyMessageBox(Type Type, QWidget *parent)
 
 		break;
 	}
+
 }
 
 void MattyMessageBox::mousePressEvent(QMouseEvent *event)

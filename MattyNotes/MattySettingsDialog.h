@@ -52,7 +52,6 @@ private:
 	private slots:
 	void on_ApplySettingsButton_clicked();
 	void on_CancelSettingsButton_clicked();
-	void changeDisplayedPage();
 
 };
 

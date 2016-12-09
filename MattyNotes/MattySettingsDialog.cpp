@@ -24,15 +24,11 @@ void MattySettingsDialog::on_CancelSettingsButton_clicked()
 	//this->~MattySettingsDialog();
 }
 
-void MattySettingsDialog::changeDisplayedPage()
-{
-	MattySettingsDialogUi.stackedWidget->setCurrentIndex(MattySettingsDialogUi.listWidget->currentRow());
-}
-
 void MattySettingsDialog::setConnects()
 {
-	connect(MattySettingsDialogUi.listWidget, SIGNAL(currentRowChanged()), this, SLOT(changeDisplayedPage()));
-	//MattySettingsDialogUi.listWidget->currentRowChanged
+	connect
+	(MattySettingsDialogUi.listWidget, SIGNAL(currentRowChanged(int)),
+		MattySettingsDialogUi.stackedWidget, SLOT(setCurrentIndex(int)));
 }
 
 void MattySettingsDialog::buildPages()
@@ -98,21 +94,34 @@ void MattySettingsDialog::fillInterfacePage()
 	ThemeRadioButtonVerticalLayout->addWidget(DarkRadioButton);
 
 	InsertCssLabel = new QLabel(InterfacePageWidget);
-	InsertCssLabel->setObjectName(QStringLiteral("InsertCssLabel"));
-	InsertCssLabel->setText(QString::fromLocal8Bit("Или создайте свою таблицу стилей (css):"));
-	InterfacePageGridLayout->addWidget(InsertCssLabel, 2, 0, 1, 2);
+	InsertCssLabel->
+		setObjectName(QStringLiteral("InsertCssLabel"));
+	InsertCssLabel->
+		setText(QString::fromLocal8Bit
+		("Или создайте свою таблицу стилей (css):"));
+	InterfacePageGridLayout->
+		addWidget(InsertCssLabel, 2, 0, 1, 2);
 
 	CssCodePlainTextEdit = new QPlainTextEdit(InterfacePageWidget);
-	CssCodePlainTextEdit->setObjectName(QStringLiteral("CssCodePlainTextEdit"));
-	InterfacePageGridLayout->addWidget(CssCodePlainTextEdit, 3, 0, 1, 2);
+
+	CssCodePlainTextEdit->
+		setObjectName(QStringLiteral
+		("CssCodePlainTextEdit"));
+
+	InterfacePageGridLayout->
+		addWidget(CssCodePlainTextEdit, 3, 0, 1, 2);
 
 	HorizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-	InterfacePageGridLayout->addItem(HorizontalSpacer, 4, 0, 1, 1);
+	InterfacePageGridLayout->
+		addItem(HorizontalSpacer, 4, 0, 1, 1);
 
 	ApplyInterfacePageChangesButton = new QPushButton(InterfacePageWidget);
-	ApplyInterfacePageChangesButton->setObjectName(QStringLiteral("ApplyInterfacePageChangesButton"));
+	ApplyInterfacePageChangesButton->
+		setObjectName(QStringLiteral
+		("ApplyInterfacePageChangesButton"));
 
-	InterfacePageGridLayout->addWidget(ApplyInterfacePageChangesButton, 4, 1, 1, 1);
+	InterfacePageGridLayout->
+		addWidget(ApplyInterfacePageChangesButton, 4, 1, 1, 1);
 }
 
 void MattySettingsDialog::mousePressEvent(QMouseEvent *event)

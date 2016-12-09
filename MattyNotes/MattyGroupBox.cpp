@@ -116,7 +116,7 @@ void MattyGroupBox::buildFrame()
 
 	verticalLayout->addItem(verticalSpacer);
 
-	QGraphicsDropShadowEffect* GroupBoxShadow = new QGraphicsDropShadowEffect();
+	QGraphicsDropShadowEffect* GroupBoxShadow = new QGraphicsDropShadowEffect(this);
 	GroupBoxShadow->setBlurRadius(25.0);
 	QColor ShadowColor = QColor(77, 63, 61, 200);
 	GroupBoxShadow->setColor(ShadowColor);

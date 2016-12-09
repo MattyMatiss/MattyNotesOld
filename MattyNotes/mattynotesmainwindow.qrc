@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>BorderImage.png</file>
+    <file>Main_icon.ico</file>
     <file>AddNote.png</file>
     <file>AddNoteHoverWithPen.png</file>
     <file>ApplyAdding.png</file>

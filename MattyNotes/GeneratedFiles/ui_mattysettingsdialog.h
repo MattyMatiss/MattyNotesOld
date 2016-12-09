@@ -39,22 +39,21 @@ public:
     QListWidget *listWidget;
     QStackedWidget *stackedWidget;
     QWidget *page;
-    QWidget *page_2;
-    QPushButton *CancelSettingsButton;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *ApplySettingsButton;
-    QHBoxLayout *horizontalLayout;
-
     QGridLayout *gridLayout_2;
+    QSpacerItem *horizontalSpacer_2;
     QLabel *label;
+    QPlainTextEdit *plainTextEdit;
+    QPushButton *pushButton;
     QVBoxLayout *verticalLayout;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QRadioButton *radioButton_3;
     QLabel *label_2;
-    QPlainTextEdit *plainTextEdit;
-    QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButton;
+    QWidget *page_2;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *CancelSettingsButton;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *ApplySettingsButton;
 
     void setupUi(QWidget *MattySettingsDialog)
     {
