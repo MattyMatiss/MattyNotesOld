@@ -20,7 +20,7 @@
 QSplitter::handle, #centralWidget,  QScrollArea, QScrollArea > QWidget > QWidget, QPushButton { background-color: transparent; }
 
 /*TRANSPARENT TEXT*/
-QPushButton { color: transparent; }
+/*QPushButton { color: transparent; }*/
 
 /*TRANSPARENT BORDER*/
 #MattyGroupBox, #addNoteDialog QTextEdit { border-color: transparent; }
@@ -118,13 +118,13 @@ QSplitter::handle { background-image: url(:/MattyNotes/VerticalLine.png); }
 #cancelAddingNoteButton { background-image: url(:/MattyNotes/CancelAdding.png); }
 #cancelAddingNoteButton:hover { background-image: url(:/MattyNotes/CancelAddingHover.png); }
 
-#editNoteButton { background-image: url(:/MattyNotes/EditNote.png); }
-#editNoteButton:hover { background-image: url(:/MattyNotes/EditNoteHover.png); }
+#editNoteButton { background-image: url(:/MattyNotes/EditNoteFat.png); }
+#editNoteButton:hover { background-image: url(:/MattyNotes/EditNoteFatHover.png); }
 
 #deleteNoteButton { background-image: url(:/MattyNotes/DeleteNote.png); }
 #deleteNoteButton:hover { background-image: url(:/MattyNotes/DeleteNoteHover.png); }
 
-#yesButton { background-image: url(:/MattyNotes/CommonYes40x40.png) !important; }
+#yesButton { border-image: url(:/MattyNotes/CommonYes40x40.png) 50 repeat !important; }
 StandardButton::Yes:hover { background-image: url(:/MattyNotes/CommonYesHover40x40.png) !important; }
 
 StandardButton::No { background-image: url(:/MattyNotes/CommonNo40x40.png) !important; }

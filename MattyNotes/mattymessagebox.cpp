@@ -4,37 +4,42 @@
 MattyMessageBox::MattyMessageBox(Type Type, QWidget *parent)
 	: QMessageBox(parent)
 {
-	this->setObjectName(QStringLiteral(""));
+	this->setObjectName(QStringLiteral("MattyMessageBox"));
 	this->setWindowFlags(Qt::FramelessWindowHint);
+	this->setStyleSheet(NULL);
 
 	switch (Type)
 	{
-	case 0:
+	case Type::Information:
 
 		this->setStandardButtons(QMessageBox::Ok);
 		this->button(QMessageBox::Ok)->setObjectName(QStringLiteral("okButton"));
 
+		MattyIcon.load(":/MattyNotes/InformationCircled.png");
+
 		break;
 
-	case 1:
+	case Type::Warning:
 
 		this->setStandardButtons(QMessageBox::Ok);
 		this->button(QMessageBox::Ok)->setObjectName(QStringLiteral("okButton"));
 
+		MattyIcon.load(":/MattyNotes/WarningTriangled.png");
+
 		break;
 
-	case 2:
+	case Type::Question:
 
 		this->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 		this->button(QMessageBox::Yes)->setObjectName(QStringLiteral("yesButton"));
 		this->button(QMessageBox::No)->setObjectName(QStringLiteral("noButton"));
 
-		QPixmap QuestionSquared(":/MattyNotes/QuestionSquared.png");
-		this->setIconPixmap(QuestionSquared);
+		MattyIcon.load(":/MattyNotes/QuestionSquared.png");
 
 		break;
 	}
 
+	this->setIconPixmap(MattyIcon);
 }
 
 void MattyMessageBox::mousePressEvent(QMouseEvent *event)

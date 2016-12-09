@@ -129,7 +129,7 @@
      <item>
       <widget class="QPushButton" name="CancelSettingsButton">
        <property name="text">
-        <string>Отмена</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -149,7 +149,7 @@
      <item>
       <widget class="QPushButton" name="ApplySettingsButton">
        <property name="text">
-        <string>Сохранить</string>
+        <string/>
        </property>
       </widget>
      </item>

@@ -185,6 +185,10 @@ void MattyNotesMainWindow::setActions()
 	addNewNote = new QAction(this);
 	addNewNote->setShortcut(tr("ALT+N"));
 	this->addAction(addNewNote);
+
+	RefreshMainWindow = new QAction(this);
+	RefreshMainWindow->setShortcut(tr("F5"));
+	this->addAction(RefreshMainWindow);
 }
 
 inline void MattyNotesMainWindow::setConnects()
@@ -197,6 +201,7 @@ inline void MattyNotesMainWindow::setConnects()
 	QObject::connect(SettingsButton, SIGNAL(clicked()), this, SLOT(openSettings()));
 	QObject::connect(closeMainWindow, SIGNAL(triggered()), this, SLOT(close()));
 	QObject::connect(addNewNote, SIGNAL(triggered()), this, SLOT(addNote()));
+	QObject::connect(RefreshMainWindow, SIGNAL(triggered()), this, SLOT(refreshMainWindow()));
 }
 
 bool MattyNotesMainWindow::WindowActivatedEvent(QEvent *e)

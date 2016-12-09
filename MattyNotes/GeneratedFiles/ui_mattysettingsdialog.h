@@ -174,8 +174,8 @@ public:
         radioButton_2->setText(QApplication::translate("MattySettingsDialog", "\320\227\320\270\320\274\320\275\321\217\321\217", 0));
         radioButton_3->setText(QApplication::translate("MattySettingsDialog", "\320\242\321\221\320\274\320\275\320\260\321\217", 0));
         label_2->setText(QApplication::translate("MattySettingsDialog", "\320\230\320\273\320\270 \320\277\321\200\320\270\320\274\320\265\320\275\320\270\321\202\320\265 \321\201\320\276\320\261\321\201\321\202\320\262\320\265\320\275\320\275\321\213\320\271 \321\201\321\202\320\270\320\273\321\214, \320\262\321\201\321\202\320\260\320\262\320\270\320\262 css-\320\272\320\276\320\264:", 0));
-        CancelSettingsButton->setText(QApplication::translate("MattySettingsDialog", "\320\236\321\202\320\274\320\265\320\275\320\260", 0));
-        ApplySettingsButton->setText(QApplication::translate("MattySettingsDialog", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", 0));
+        CancelSettingsButton->setText(QString());
+        ApplySettingsButton->setText(QString());
     } // retranslateUi
 
 };

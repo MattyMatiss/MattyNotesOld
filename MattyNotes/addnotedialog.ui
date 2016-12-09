@@ -112,7 +112,7 @@
      <item>
       <widget class="QPushButton" name="cancelAddingNoteButton">
        <property name="text">
-        <string>Отмена</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -132,7 +132,7 @@
      <item>
       <widget class="QPushButton" name="createNoteButton">
        <property name="text">
-        <string>Сохранить</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -142,7 +142,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="mattynotes.qrc"/>
+  <include location="mattynotesmainwindow.qrc"/>
  </resources>
  <connections/>
 </ui>

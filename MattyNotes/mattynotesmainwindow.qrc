@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="MattyNotes">
+    <file>EditNoteFat.png</file>
+    <file>EditNoteFatHover.png</file>
+    <file>WarningTriangled.png</file>
+    <file>InformationCircled.png</file>
     <file>BorderImage.png</file>
     <file>Main_icon.ico</file>
     <file>AddNote.png</file>

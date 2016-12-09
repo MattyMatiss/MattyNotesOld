@@ -3,7 +3,7 @@
 
 #include <QMessageBox>
 
-enum Type { Information, Warning, Question };
+enum Type { Information = 0, Warning = 1, Question = 2 };
 
 class MattyMessageBox : public QMessageBox
 {
@@ -14,6 +14,9 @@ public:
 	~MattyMessageBox();
 
 private:
+
+	QPixmap MattyIcon;
+
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
