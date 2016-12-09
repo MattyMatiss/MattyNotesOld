@@ -4,7 +4,7 @@
 MattyMessageBox::MattyMessageBox(Type Type, QWidget *parent)
 	: QMessageBox(parent)
 {
-	this->setObjectName(QStringLiteral("MattyMessageBox"));
+	this->setObjectName(QStringLiteral(""));
 	this->setWindowFlags(Qt::FramelessWindowHint);
 
 	switch (Type)

@@ -35,8 +35,9 @@ QScrollArea, QScrollArea > QWidget > QWidget { border: 0px none transparent; }
 #MattyGroupBox, #addNoteDialog QTextEdit { border-width: 3px; }
 
 /*MAIN BORDER IMAGE*/
-#MattyMessageBox, MattySettingsDialog, #addNoteDialog  { border-image: url(:/MattyNotes/BorderImage.png) 9 repeat; 
-border-width: 4px; }
+#MattyMessageBox, MattySettingsDialog, #addNoteDialog  { border-image: url(:/MattyNotes/BorderImage.png) 10 repeat; 
+border-width: 4px; 
+border-color: transparent; }
 
 /*BORDER RADIUS*/
 #MattyGroupBox, #addNoteDialog QTextEdit { border-radius: 15px; }
