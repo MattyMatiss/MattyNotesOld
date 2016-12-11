@@ -23,21 +23,23 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	
 	EditingNoteId = EditingNoteIdIncm;
 
+	ThisDialogNote = MattyNote();
+
 	if (EditingNoteIdIncm != -1)
 	{
 		EditingNoteId = EditingNoteIdIncm;
 
-		ThisDialogNote = new MattyNote(DbManager::showNote(EditingNoteId));
+		ThisDialogNote.constructNote(DbManager::showNote(EditingNoteId)); // needtodelete
 
-		addNoteDialogUi.noteTitleText->setText(ThisDialogNote->getTitle());
-		addNoteDialogUi.noteTypeComboBox->setCurrentText(ThisDialogNote->getType());
-		addNoteDialogUi.noteTextText->setText(ThisDialogNote->getText());
-		addNoteDialogUi.eventTimeEdit->setTime(QTime::fromString(ThisDialogNote->getEventTime()));
-		addNoteDialogUi.eventDateEdit->setDate(QDate::fromString(ThisDialogNote->getEventDate()));
+		addNoteDialogUi.noteTitleText->setText(ThisDialogNote.getTitle());
+		addNoteDialogUi.noteTypeComboBox->setCurrentText(ThisDialogNote.getType());
+		addNoteDialogUi.noteTextText->setText(ThisDialogNote.getText());
+		addNoteDialogUi.eventTimeEdit->setTime(QTime::fromString(ThisDialogNote.getEventTime()));
+		addNoteDialogUi.eventDateEdit->setDate(QDate::fromString(ThisDialogNote.getEventDate()));
 	}
 	else
 	{
-		ThisDialogNote = new MattyNote();
+	//	ThisDialogNote = new MattyNote(); // needtodelete
 	}
 
 	DialogType = DialogTypeIncm;
@@ -64,11 +66,11 @@ void addNoteDialog::on_createNoteButton_clicked()
 {
 	if (addNoteDialogUi.noteTitleText->toPlainText() != "")
 	{
-		ThisDialogNote->setTitle(addNoteDialogUi.noteTitleText->toPlainText());
-		ThisDialogNote->setType(addNoteDialogUi.noteTypeComboBox->currentText());
-		ThisDialogNote->setText(addNoteDialogUi.noteTextText->toPlainText());
-		ThisDialogNote->setEventTime(UtilityFunctions::repareTime(addNoteDialogUi.eventTimeEdit->text()));
-		ThisDialogNote->setEventDate(addNoteDialogUi.eventDateEdit->text());
+		ThisDialogNote.setTitle(addNoteDialogUi.noteTitleText->toPlainText());
+		ThisDialogNote.setType(addNoteDialogUi.noteTypeComboBox->currentText());
+		ThisDialogNote.setText(addNoteDialogUi.noteTextText->toPlainText());
+		ThisDialogNote.setEventTime(UtilityFunctions::repareTime(addNoteDialogUi.eventTimeEdit->text()));
+		ThisDialogNote.setEventDate(addNoteDialogUi.eventDateEdit->text());
 		
 		if (DialogType == Add)
 		{

@@ -41,12 +41,12 @@ void MattyGroupBox::buildFrame()
 
 	gridLayout = new QGridLayout(this);
 
-	verticalLayout = new QVBoxLayout();
+	verticalLayout = new QVBoxLayout(this);
 	verticalLayout->setSpacing(6);
 	verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
 
-	horizontalLayout_1 = new QHBoxLayout();
-	horizontalLayout_2 = new QHBoxLayout();
+	horizontalLayout_1 = new QHBoxLayout(this);
+	horizontalLayout_2 = new QHBoxLayout(this);
 
 	horizontalLayout_1->setSpacing(6);
 	horizontalLayout_1->setObjectName(QStringLiteral("HorizontalLayout_1"));
@@ -70,7 +70,7 @@ void MattyGroupBox::buildFrame()
 	NoteCrTimeAndDateLabel->setObjectName(QStringLiteral("NoteCrTimeAndDateLabel"));
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано: "));
 
-	horizontalSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	horizontalSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); // needtodelete
 
 	QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 	sizePolicy.setHorizontalStretch(0);
@@ -100,11 +100,11 @@ void MattyGroupBox::buildFrame()
 
 	horizontalLayout_2->addWidget(NoteCrTimeAndDateLabel);
 
-	horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); // needtodelete
 
 	horizontalLayout_2->addItem(horizontalSpacer_2);
 
-	NoteTextLabel = new QLabel();
+	NoteTextLabel = new QLabel(this);
 	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel"));
 	NoteTextLabel->setMinimumSize(QSize(0, 100));
 
@@ -112,7 +112,7 @@ void MattyGroupBox::buildFrame()
 	NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
 	NoteTextLabel->setWordWrap(true);
 
-	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding); // needtodelete
 
 	verticalLayout->addItem(verticalSpacer);
 
@@ -127,7 +127,7 @@ void MattyGroupBox::buildFrame()
 
 void MattyGroupBox::editNote()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
+	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId()); // needtodelete
 	newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
 	newAddNoteDialog->exec();
 }
@@ -150,7 +150,7 @@ void MattyGroupBox::mouseDoubleClickEvent(QMouseEvent * e)
 {
 	if (e->button() == Qt::LeftButton)
 	{
-		addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
+		addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId()); // needtodelete
 		newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
 		newAddNoteDialog->exec();
 	}

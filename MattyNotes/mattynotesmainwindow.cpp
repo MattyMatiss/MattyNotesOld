@@ -119,7 +119,7 @@ void MattyNotesMainWindow::buildMainToolBar()
 	MainToolBarSpacerRight = new QWidget(ui.mainToolBar);
 	MainToolBarSpacerRight->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-	WindowHeaderLabel = new QLabel();
+	WindowHeaderLabel = new QLabel(ui.mainToolBar);
 	WindowHeaderLabel->setObjectName(QStringLiteral("WindowHeaderLabel"));
 	WindowHeaderLabel->setText("MattyNotes");
 

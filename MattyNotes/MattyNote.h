@@ -15,6 +15,8 @@ public:
 
 	~MattyNote();
 
+	void constructNote(QStringList RowFromDb);
+
 	void setTitle(const QString & Title);
 	void setType(const QString & TypeName);
 	void setType(int TypeId);
@@ -27,10 +29,10 @@ public:
 	QString getText();
 	QString getEventTime(); // Format: 
 	QString getEventDate(); // Format: 
-	QString getEvDayofWeek();
+	//QString getEvDayofWeek();
 	QString getCrTime(); // Format: 
 	QString getCrDate(); // Format: 
-	QString getCrDayOfWeek();
+	//QString getCrDayOfWeek();
 	int getTypeId();
 	int getNoteId();
 	QDateTime getEventTimeAndDate();

@@ -94,11 +94,11 @@ QString QueryConstructor::constructInsertQuery()
 		{
 			ResultQuery.append(" INSERT INTO " + TableName + " (");
 
-			QMapIterator<QString, QString> *pair = new QMapIterator<QString, QString>(WhatToSetFieldValue);
-			while (pair->hasNext())
+			QMapIterator<QString, QString> pair(WhatToSetFieldValue);
+			while (pair.hasNext())
 			{
-				pair->next();
-				ResultQuery.append(" " + pair->key() + ",");
+				pair.next();
+				ResultQuery.append(" " + pair.key() + ",");
 			}
 
 			if (ResultQuery.endsWith(","))
@@ -106,19 +106,17 @@ QString QueryConstructor::constructInsertQuery()
 
 			ResultQuery.append(") VALUES(");
 
-			pair->toFront();
+			pair.toFront();
 
-			while (pair->hasNext())
+			while (pair.hasNext())
 			{
-				pair->next();
-				ResultQuery.append(" " + pair->value() + ",");
+				pair.next();
+				ResultQuery.append(" " + pair.value() + ",");
 			}
 
 			if (ResultQuery.endsWith(","))
 				ResultQuery.chop(1);
-
-			delete pair;
-
+			
 			ResultQuery.append(");");
 		}
 	}

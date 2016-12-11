@@ -79,6 +79,9 @@ QLabel, QPushButton, QTextEdit, MattyGroupBox, MattyMessageBox {  font-family: C
 #cancelAddingNoteButton, #CancelSettingsButton { height: 60px; width: 60px; }
 #createNoteButton, #ApplySettingsButton { height: 70px; width: 70px; }
 
+/*MINIMUM WIDTH 200*/
+MattyGroupBox { min-width: 200px; }
+
 /*BACKGROUND POSITION CENTER*/
 QPushButton { background-position: center; }
 

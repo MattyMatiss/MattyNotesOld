@@ -27,19 +27,19 @@ bool DbManager::connect(const QString & path)
 	return true;
 }
 
-bool DbManager::addNote(MattyNote * Note)
+bool DbManager::addNote(MattyNote & Note)
 {
 	if (MattyNotesDb.isOpen())
 	{
 		QMap<QString, QString> NoteTemp;
-		NoteTemp["NoteTitle"] = "\'" + Note->getTitle() + "\'";
-		NoteTemp["NoteType"] = "\'" + Note->getType() + "\'";
-		NoteTemp["NoteText"] = "\'" + Note->getText() + "\'";
-		NoteTemp["EventTime"] = "\'" + Note->getEventTime() + "\'";
-		NoteTemp["EventDate"] = "\'" + Note->getEventDate() + "\'";
-		NoteTemp["CrTime"] = "\'" + Note->getCrTime() + "\'";
-		NoteTemp["CrDate"] = "\'" + Note->getCrDate() + "\'";
-		NoteTemp["TypeId"] = QString::number(Note->getTypeId());
+		NoteTemp["NoteTitle"] = "\'" + Note.getTitle() + "\'";
+		NoteTemp["NoteType"] = "\'" + Note.getType() + "\'";
+		NoteTemp["NoteText"] = "\'" + Note.getText() + "\'";
+		NoteTemp["EventTime"] = "\'" + Note.getEventTime() + "\'";
+		NoteTemp["EventDate"] = "\'" + Note.getEventDate() + "\'";
+		NoteTemp["CrTime"] = "\'" + Note.getCrTime() + "\'";
+		NoteTemp["CrDate"] = "\'" + Note.getCrDate() + "\'";
+		NoteTemp["TypeId"] = QString::number(Note.getTypeId());
 
 		QueryConstructor AddNote;
 		AddNote.setTableName(QStringLiteral("Notes"));
@@ -56,7 +56,7 @@ bool DbManager::addNote(MattyNote * Note)
 	}
 }
 
-bool DbManager::editNote(MattyNote *Note, int NoteId)
+bool DbManager::editNote(MattyNote & Note, int NoteId)
 {
 	if (MattyNotesDb.isOpen())
 	{
@@ -66,14 +66,14 @@ bool DbManager::editNote(MattyNote *Note, int NoteId)
 		Edit.addWhereFieldValue(QStringLiteral("NoteId"), QString::number(NoteId));
 
 		QMap<QString, QString> NoteTemp;
-		NoteTemp["NoteTitle"] = "\'" + Note->getTitle() + "\'";
-		NoteTemp["NoteType"] = "\'" + Note->getType() + "\'";
-		NoteTemp["NoteText"] = "\'" + Note->getText() + "\'";
-		NoteTemp["EventTime"] = "\'" + Note->getEventTime() + "\'";
-		NoteTemp["EventDate"] = "\'" + Note->getEventDate() + "\'";
-		NoteTemp["CrTime"] = "\'" + Note->getCrTime() + "\'";
-		NoteTemp["CrDate"] = "\'" + Note->getCrDate() + "\'";
-		NoteTemp["TypeId"] = QString::number(Note->getTypeId());
+		NoteTemp["NoteTitle"] = "\'" + Note.getTitle() + "\'";
+		NoteTemp["NoteType"] = "\'" + Note.getType() + "\'";
+		NoteTemp["NoteText"] = "\'" + Note.getText() + "\'";
+		NoteTemp["EventTime"] = "\'" + Note.getEventTime() + "\'";
+		NoteTemp["EventDate"] = "\'" + Note.getEventDate() + "\'";
+		NoteTemp["CrTime"] = "\'" + Note.getCrTime() + "\'";
+		NoteTemp["CrDate"] = "\'" + Note.getCrDate() + "\'";
+		NoteTemp["TypeId"] = QString::number(Note.getTypeId());
 
 		Edit.setWhatToSetFieldValue(NoteTemp); // 
 
@@ -133,7 +133,7 @@ QStringList DbManager::showNote(int NoteId)
 	}
 }
 
-QSqlTableModel* DbManager::getModel(const QString & TableName)
+QSqlTableModel* DbManager::getModel(const QString & TableName) // needtodelete wherever it's called
 {
 	if (MattyNotesDb.isOpen())
 	{

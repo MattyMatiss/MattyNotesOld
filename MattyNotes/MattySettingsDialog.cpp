@@ -44,7 +44,7 @@ void MattySettingsDialog::buildPages()
 	MattySettingsDialogUi.splitter->setStretchFactor(0, 1);
 	MattySettingsDialogUi.splitter->setStretchFactor(1, 5);
 
-	General = new QListWidgetItem(tr("General"), MattySettingsDialogUi.listWidget);
+	General = new QListWidgetItem(tr("General"), MattySettingsDialogUi.listWidget); // needtodelete ? parent?
 	Interface = new QListWidgetItem(tr("Interface"), MattySettingsDialogUi.listWidget);
 	Security = new QListWidgetItem(tr("Security"), MattySettingsDialogUi.listWidget);
 
@@ -73,7 +73,7 @@ void MattySettingsDialog::fillInterfacePage()
 	ChooseThemeLabel->setText(QString::fromLocal8Bit("Выберите цветовую схему:"));
 	InterfacePageGridLayout->addWidget(ChooseThemeLabel, 0, 0, 1, 1);
 
-	ThemeRadioButtonVerticalLayout = new QVBoxLayout();
+	ThemeRadioButtonVerticalLayout = new QVBoxLayout(InterfacePageWidget);
 	ThemeRadioButtonVerticalLayout->setObjectName(QStringLiteral("ThemeRadioButtonVerticalLayout"));
 	InterfacePageGridLayout->addLayout(ThemeRadioButtonVerticalLayout, 1, 0, 1, 1);
 
@@ -111,7 +111,7 @@ void MattySettingsDialog::fillInterfacePage()
 	InterfacePageGridLayout->
 		addWidget(CssCodePlainTextEdit, 3, 0, 1, 2);
 
-	HorizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	HorizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); // needtodelete
 	InterfacePageGridLayout->
 		addItem(HorizontalSpacer, 4, 0, 1, 1);
 

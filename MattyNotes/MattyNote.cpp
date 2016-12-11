@@ -27,6 +27,19 @@ MattyNote::~MattyNote()
 {
 }
 
+void MattyNote::constructNote(QStringList RowFromDb)
+{
+	NoteId = RowFromDb[0].toInt();
+	NoteTitle = RowFromDb[1];
+	NoteType = RowFromDb[2];
+	NoteText = RowFromDb[3];
+	setEventTime(RowFromDb[4]);
+	setEventDate(RowFromDb[5]);
+	NoteCrTime = RowFromDb[6];
+	NoteCrDate = RowFromDb[7];
+	NoteTypeId = RowFromDb[8].toInt();
+}
+
 void MattyNote::setTitle(const QString & Title)
 {
 	NoteTitle = Title;

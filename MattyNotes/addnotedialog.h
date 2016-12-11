@@ -36,7 +36,7 @@ private:
 	Action DialogType;
 	int EditingNoteId;
 
-	class MattyNote* ThisDialogNote;
+	class MattyNote ThisDialogNote;
 
 	private slots:
 	void on_createNoteButton_clicked();
