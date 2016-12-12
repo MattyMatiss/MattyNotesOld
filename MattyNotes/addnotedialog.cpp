@@ -12,8 +12,9 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 {
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
+	//this->setAttribute(Qt::WA_DeleteOnClose); пытается удалить что-то, что уже было удалено
 
-	DbManager::connect(Constants::PathToDb); // надо ли?
+	//DbManager::connect(Constants::PathToDb); // надо ли?
 
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
@@ -29,7 +30,7 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	{
 		EditingNoteId = EditingNoteIdIncm;
 
-		ThisDialogNote.constructNote(DbManager::showNote(EditingNoteId)); // needtodelete
+		ThisDialogNote.constructNote(DbManager::showNote(EditingNoteId)); 
 
 		addNoteDialogUi.noteTitleText->setText(ThisDialogNote.getTitle());
 		addNoteDialogUi.noteTypeComboBox->setCurrentText(ThisDialogNote.getType());
@@ -39,7 +40,6 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 	}
 	else
 	{
-	//	ThisDialogNote = new MattyNote(); // needtodelete
 	}
 
 	DialogType = DialogTypeIncm;
@@ -52,13 +52,11 @@ addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 
 addNoteDialog::~addNoteDialog() 
 {
-	//delete ThisDialogNote;
 }
 
 void addNoteDialog::on_cancelAddingNoteButton_clicked()
 {
 	this->close();
-	//this->~addNoteDialog();
 }
 
 
@@ -69,7 +67,7 @@ void addNoteDialog::on_createNoteButton_clicked()
 		ThisDialogNote.setTitle(addNoteDialogUi.noteTitleText->toPlainText());
 		ThisDialogNote.setType(addNoteDialogUi.noteTypeComboBox->currentText());
 		ThisDialogNote.setText(addNoteDialogUi.noteTextText->toPlainText());
-		ThisDialogNote.setEventTime(UtilityFunctions::repareTime(addNoteDialogUi.eventTimeEdit->text()));
+		ThisDialogNote.setEventTime(addNoteDialogUi.eventTimeEdit->text());
 		ThisDialogNote.setEventDate(addNoteDialogUi.eventDateEdit->text());
 		
 		if (DialogType == Add)
@@ -85,7 +83,6 @@ void addNoteDialog::on_createNoteButton_clicked()
 			}
 		}
 
-		//this->~addNoteDialog();
 		this->close();
 	}
 	else

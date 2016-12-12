@@ -14,37 +14,47 @@ class MattyNotesMainWindow : public QMainWindow
 
 public:
 	MattyNotesMainWindow(QWidget *parent = 0);
-	QLabel* WindowHeaderLabel;
-	QPushButton* CloseWindowButton;
-	QPushButton* MaximizeWindowButton;
-	QPushButton* MinimizeWindowButton;
-	QToolBar *MattyToolBar;
-	QPushButton *AddNoteButton;
-	QPushButton *RefreshNoteListButton;
-	QPushButton *SettingsButton;
-	QWidget* MainToolBarSpacerLeft;
-	QWidget* MainToolBarSpacerRight;
-	QWidget* MattyToolBarMainSpacer;
+
 	~MattyNotesMainWindow();
+
+	void connectToDb(QString& PathToDb = QStringLiteral(""));
 
 
 private:
 	Ui::MattyNotesMainWindowClass ui;
 
+	QToolBar *MattyToolBar;
+	QWidget *NoteOptionsWidget;
+
+	QLabel* WindowHeaderLabel;
+
+	QPushButton* CloseWindowButton;
+	QPushButton* MaximizeWindowButton;
+	QPushButton* MinimizeWindowButton;
+	QPushButton *AddNoteButton;
+	QPushButton *RefreshNoteListButton;
+	QPushButton *SettingsButton;
+
+	QWidget* MainToolBarSpacerLeft;
+	QWidget* MainToolBarSpacerRight;
+	QWidget* MattyToolBarMainSpacer;
+
+	class MattyClocks* MainClocks;
+
+	QGraphicsOpacityEffect* opacity;
+
 	QAction *closeMainWindow;
 	QAction *addNewNote;
 	QAction *RefreshMainWindow;
-	QAction *OpenSettings;
-	QAction *HideOpenNotes;
 
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
 
-	void connectToDb(QString& PathToDb = QStringLiteral(""));
 	void buildMainToolBar();
 	void buildMattyToolBar();
+	void buildNoteOptionsToolbar();
 	void setConnects();
 	void setActions();
 
@@ -56,7 +66,7 @@ private:
 	void minimizeWindow();
 	void refreshMainWindow();
 	void openSettings();
-
+	void resizeMattyToolbarButtons();
 	bool WindowActivatedEvent(QEvent *e);
 };
 

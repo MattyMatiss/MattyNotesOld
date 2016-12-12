@@ -18,7 +18,7 @@ MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setContextMenuPolicy(Qt::NoContextMenu);
 
-	ui.splitter->setStretchFactor(0, 1);
+	ui.splitter->setStretchFactor(0, 2);
 	ui.splitter->setStretchFactor(1, 3);
 
 	connectToDb();
@@ -26,6 +26,8 @@ MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 	buildMainToolBar();
 
 	buildMattyToolBar();
+
+	buildNoteOptionsToolbar();
 
 	setActions();
 
@@ -37,7 +39,7 @@ MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 void MattyNotesMainWindow::addNote()
 {
 	addNoteDialog newAddNoteDialog(Add);
-	newAddNoteDialog.setWindowModality(Qt::ApplicationModal); 
+
 	if (!newAddNoteDialog.exec())
 	{
 		NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
@@ -73,6 +75,22 @@ void MattyNotesMainWindow::openSettings()
 	MattySettingsDialog newMattySettingsDialog;
 	newMattySettingsDialog.setWindowModality(Qt::ApplicationModal);
 	newMattySettingsDialog.exec();
+}
+
+void MattyNotesMainWindow::resizeMattyToolbarButtons()
+{
+	if (MattyToolBar->orientation() == Qt::Vertical)
+	{
+		AddNoteButton->setFixedSize(QSize(70, 51));
+		RefreshNoteListButton->setFixedSize(QSize(70, 51));
+		SettingsButton->setFixedSize(QSize(51, 51));
+	}
+	else
+	{
+		AddNoteButton->setFixedSize(QSize(51, 51));
+		RefreshNoteListButton->setFixedSize(QSize(51, 51));
+		SettingsButton->setFixedSize(QSize(51, 51));
+	}
 }
 
 void MattyNotesMainWindow::mousePressEvent(QMouseEvent *event)
@@ -145,27 +163,24 @@ void MattyNotesMainWindow::buildMattyToolBar()
 	MattyToolBarAreas.setFlag(Qt::RightToolBarArea);
 	MattyToolBarAreas.setFlag(Qt::TopToolBarArea);
 	MattyToolBar->setAllowedAreas(MattyToolBarAreas);
-	QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect(MattyToolBar);
+	opacity = new QGraphicsOpacityEffect(MattyToolBar);
 	opacity->setOpacity(0.50); // #0 to 1 will cause the fade effect to kick in
 	MattyToolBar->setGraphicsEffect(opacity);
 	MattyToolBar->setAutoFillBackground(true);
 
 	AddNoteButton = new QPushButton(this->MattyToolBar);
 	AddNoteButton->setObjectName(QStringLiteral("AddNoteButton"));
-	AddNoteButton->setMinimumSize(QSize(51, 51));
-	AddNoteButton->setMaximumSize(QSize(51, 51));
+	AddNoteButton->setFixedSize(QSize(51, 51));
 
 	RefreshNoteListButton = new QPushButton(this->MattyToolBar);
 	RefreshNoteListButton->setObjectName(QStringLiteral("RefreshNoteListButton"));
-	RefreshNoteListButton->setMinimumSize(QSize(51, 51));
-	RefreshNoteListButton->setMaximumSize(QSize(51, 51));
+	RefreshNoteListButton->setFixedSize(QSize(51, 51));
 
 	SettingsButton = new QPushButton(this->MattyToolBar);
 	SettingsButton->setObjectName(QStringLiteral("SettingsButton"));
-	SettingsButton->setMinimumSize(QSize(51, 51));
-	SettingsButton->setMaximumSize(QSize(51, 51));
+	SettingsButton->setFixedSize(QSize(51, 51));
 
-	MattyClocks* MainClocks = new MattyClocks(this->MattyToolBar);
+	MainClocks = new MattyClocks(this->MattyToolBar);
 	MattyToolBar->addWidget(MainClocks);
 
 	MattyToolBarMainSpacer = new QWidget(this->MattyToolBar);
@@ -174,6 +189,18 @@ void MattyNotesMainWindow::buildMattyToolBar()
 	MattyToolBar->addWidget(MattyToolBarMainSpacer);
 	MattyToolBar->addWidget(RefreshNoteListButton);
 	MattyToolBar->addWidget(AddNoteButton);
+}
+
+void MattyNotesMainWindow::buildNoteOptionsToolbar()
+{
+	NoteOptionsWidget = new QWidget(this);
+	NoteOptionsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+	NoteOptionsWidget->setFixedHeight(100);
+	NoteOptionsWidget->setObjectName(QStringLiteral("NoteOptionsWidget"));
+	ui.verticalLayout_4->addWidget(NoteOptionsWidget, 0);
+	opacity = new QGraphicsOpacityEffect(NoteOptionsWidget);
+	NoteOptionsWidget->setGraphicsEffect(opacity);
+	NoteOptionsWidget->setAutoFillBackground(true);
 }
 
 void MattyNotesMainWindow::setActions()
@@ -202,6 +229,7 @@ inline void MattyNotesMainWindow::setConnects()
 	QObject::connect(closeMainWindow, SIGNAL(triggered()), this, SLOT(close()));
 	QObject::connect(addNewNote, SIGNAL(triggered()), this, SLOT(addNote()));
 	QObject::connect(RefreshMainWindow, SIGNAL(triggered()), this, SLOT(refreshMainWindow()));
+	//QObject::connect(MattyToolBar, SIGNAL(orientationChanged()), this, SLOT(resizeMattyToolbarButtons()));
 }
 
 bool MattyNotesMainWindow::WindowActivatedEvent(QEvent *e)

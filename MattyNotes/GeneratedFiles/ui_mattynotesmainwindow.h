@@ -69,7 +69,7 @@ public:
     {
         if (MattyNotesMainWindowClass->objectName().isEmpty())
             MattyNotesMainWindowClass->setObjectName(QStringLiteral("MattyNotesMainWindowClass"));
-        MattyNotesMainWindowClass->resize(702, 510);
+        MattyNotesMainWindowClass->resize(768, 553);
         centralWidget = new QWidget(MattyNotesMainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout_4 = new QGridLayout(centralWidget);
@@ -105,7 +105,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 371, 870));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 409, 870));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -220,7 +220,7 @@ public:
         MattyNotesMainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MattyNotesMainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 702, 21));
+        menuBar->setGeometry(QRect(0, 0, 768, 21));
         MattyNotesMainWindowClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MattyNotesMainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

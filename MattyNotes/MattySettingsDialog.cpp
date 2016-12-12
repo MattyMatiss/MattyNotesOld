@@ -5,6 +5,7 @@ MattySettingsDialog::MattySettingsDialog(QWidget * parent) : QDialog(parent)
 {
 	MattySettingsDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
+	// this->setAttribute(Qt::WA_DeleteOnClose);
 
 	buildPages();
 
@@ -15,13 +16,11 @@ void MattySettingsDialog::on_ApplySettingsButton_clicked()
 {
 	// сюда дорисовать действия
 	this->close();
-	//this->~MattySettingsDialog();
 }
 
 void MattySettingsDialog::on_CancelSettingsButton_clicked()
 {
 	this->close();
-	//this->~MattySettingsDialog();
 }
 
 void MattySettingsDialog::setConnects()
@@ -111,7 +110,7 @@ void MattySettingsDialog::fillInterfacePage()
 	InterfacePageGridLayout->
 		addWidget(CssCodePlainTextEdit, 3, 0, 1, 2);
 
-	HorizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); // needtodelete
+	HorizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 	InterfacePageGridLayout->
 		addItem(HorizontalSpacer, 4, 0, 1, 1);
 

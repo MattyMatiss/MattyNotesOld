@@ -13,6 +13,13 @@ class MattyGroupBox :
 	Q_OBJECT
 public:
 	MattyGroupBox(class MattyNote & ThisNote = MattyNote(), QWidget* parent = 0);
+
+	~MattyGroupBox();
+
+	void hideNote();
+	void expandNote();
+	void changeExpandHideMode();
+
 private:
 	void buildFrame();
 	void fillFrame(class MattyNote & ThisNote);
@@ -29,13 +36,14 @@ private:
 	QHBoxLayout* horizontalLayout_2;
 	QVBoxLayout *verticalLayout;
 	QGridLayout *gridLayout;
+	QWidget *horizontalLineWidget;
 	class MattyNote ThisGroupBoxNote;
 	void mouseDoubleClickEvent(QMouseEvent * e);
+	//void mousePressEvent(QMouseEvent * e);
 
 	private slots:
 	void deleteNote();
 	void editNote();
-	//void on_deleteNoteButton_clicked();
 };
 
 #endif // MATTYGROUPBOX_H

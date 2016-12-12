@@ -32,12 +32,40 @@ void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 }
 
 
+MattyGroupBox::~MattyGroupBox()
+{
+}
+
+void MattyGroupBox::hideNote()
+{
+	NoteTextLabel->hide();
+	this->setMaximumHeight(150);
+}
+
+void MattyGroupBox::expandNote()
+{
+	NoteTextLabel->show();
+	this->setMaximumHeight(16777215);
+}
+
+void MattyGroupBox::changeExpandHideMode()
+{
+	if (NoteTextLabel->isHidden())
+	{
+		NoteTextLabel->show();
+		this->setMaximumHeight(16777215);
+	}
+	else
+	{
+		NoteTextLabel->hide();
+		this->setMaximumHeight(150);
+	}
+}
+
 void MattyGroupBox::buildFrame()
 {
-	this->setMinimumSize(QSize(50, 50));
+	this->setMinimumHeight(150);
 	this->setObjectName(QStringLiteral("MattyGroupBox"));
-
-	//this->title(). //title().setWordWrap(true);
 
 	gridLayout = new QGridLayout(this);
 
@@ -57,6 +85,12 @@ void MattyGroupBox::buildFrame()
 	verticalLayout->addLayout(horizontalLayout_1);
 	verticalLayout->addLayout(horizontalLayout_2);
 
+	horizontalLineWidget = new QWidget(this);
+	horizontalLineWidget->setFixedHeight(2);
+	horizontalLineWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+	horizontalLineWidget->setObjectName(QStringLiteral("horizontalLineWidget"));
+	verticalLayout->addWidget(horizontalLineWidget);
+
 	gridLayout->setSpacing(6);
 	gridLayout->setContentsMargins(11, 11, 11, 11);
 	gridLayout->setObjectName(QStringLiteral("gridLayout"));
@@ -70,7 +104,7 @@ void MattyGroupBox::buildFrame()
 	NoteCrTimeAndDateLabel->setObjectName(QStringLiteral("NoteCrTimeAndDateLabel"));
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано: "));
 
-	horizontalSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); // needtodelete
+	horizontalSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); 
 
 	QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 	sizePolicy.setHorizontalStretch(0);
@@ -100,7 +134,7 @@ void MattyGroupBox::buildFrame()
 
 	horizontalLayout_2->addWidget(NoteCrTimeAndDateLabel);
 
-	horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); // needtodelete
+	horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); 
 
 	horizontalLayout_2->addItem(horizontalSpacer_2);
 
@@ -112,7 +146,7 @@ void MattyGroupBox::buildFrame()
 	NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
 	NoteTextLabel->setWordWrap(true);
 
-	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding); // needtodelete
+	verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding); 
 
 	verticalLayout->addItem(verticalSpacer);
 
@@ -122,14 +156,14 @@ void MattyGroupBox::buildFrame()
 	GroupBoxShadow->setColor(ShadowColor);
 	GroupBoxShadow->setOffset(15, 15);
 	this->setGraphicsEffect(GroupBoxShadow);
-
 }
 
 void MattyGroupBox::editNote()
 {
-	addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId()); // needtodelete
-	newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
-	newAddNoteDialog->exec();
+	addNoteDialog newAddNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
+	newAddNoteDialog.setWindowModality(Qt::ApplicationModal);
+	newAddNoteDialog.exec();
+	// обновляшка не работает почему-то (та, которая срабатывает при возвращении фокуса к главному окну)
 }
 
 void MattyGroupBox::deleteNote()
@@ -150,8 +184,16 @@ void MattyGroupBox::mouseDoubleClickEvent(QMouseEvent * e)
 {
 	if (e->button() == Qt::LeftButton)
 	{
-		addNoteDialog* newAddNoteDialog = new addNoteDialog(Edit, ThisGroupBoxNote.getNoteId()); // needtodelete
-		newAddNoteDialog->setWindowModality(Qt::ApplicationModal);
-		newAddNoteDialog->exec();
+		addNoteDialog newAddNoteDialog(Edit, ThisGroupBoxNote.getNoteId()); 
+		newAddNoteDialog.setWindowModality(Qt::ApplicationModal);
+		newAddNoteDialog.exec();
 	}
 }
+
+/*void MattyGroupBox::mousePressEvent(QMouseEvent * e)
+{
+	if (e->button() == Qt::LeftButton)
+	{
+		changeExpandHideMode();
+	}
+}*/
