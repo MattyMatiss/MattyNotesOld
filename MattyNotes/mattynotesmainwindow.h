@@ -23,7 +23,6 @@ public:
 private:
 	Ui::MattyNotesMainWindowClass ui;
 
-	QWidget *centralWidget; //
 	QGridLayout *gridLayout_4; //
 	QSplitter *splitter; //
 	QWidget *LeftSide;
@@ -31,7 +30,6 @@ private:
 	QWidget *RightSide;
 	QGridLayout *RightGridLayout;
 
-	QSpacerItem *horizontalSpacer; //
 	QLabel *MotivatorLabel; //
 	QScrollArea *scrollArea; //
 	QWidget *scrollAreaWidgetContents; //
