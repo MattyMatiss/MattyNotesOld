@@ -18,16 +18,13 @@ MattyNotesMainWindow::MattyNotesMainWindow(QWidget *parent)
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setContextMenuPolicy(Qt::NoContextMenu);
 
-	ui.splitter->setStretchFactor(0, 2);
-	ui.splitter->setStretchFactor(1, 3);
-
 	connectToDb();
+
+	buildBody();
 
 	buildMainToolBar();
 
 	buildMattyToolBar();
-
-	buildNoteOptionsToolbar();
 
 	setActions();
 
@@ -42,7 +39,7 @@ void MattyNotesMainWindow::addNote()
 
 	if (!newAddNoteDialog.exec())
 	{
-		NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
+		NoteHolder::publishNotes(scrollAreaWidgetContents);
 	}
 }
 
@@ -67,7 +64,7 @@ void MattyNotesMainWindow::minimizeWindow()
 void MattyNotesMainWindow::refreshMainWindow()
 {
 	MattyStyleSheetEditor::refreshTheme();
-	NoteHolder::publishNotes(ui.scrollAreaWidgetContents);
+	NoteHolder::publishNotes(scrollAreaWidgetContents);
 }
 
 void MattyNotesMainWindow::openSettings()
@@ -114,41 +111,119 @@ void MattyNotesMainWindow::connectToDb(QString & PathToDb)
 	DbManager::connect(Constants::PathToDb);
 }
 
+void MattyNotesMainWindow::buildBody()
+{
+	centralWidget = new QWidget(this);
+	centralWidget->setObjectName(QStringLiteral("centralWidget"));
+
+	gridLayout_4 = new QGridLayout(centralWidget);
+	gridLayout_4->setSpacing(6);
+	gridLayout_4->setContentsMargins(11, 11, 11, 11);
+	gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+
+	splitter = new QSplitter(centralWidget);
+	splitter->setObjectName(QStringLiteral("splitter"));
+	splitter->setOrientation(Qt::Horizontal);
+	splitter->setStretchFactor(0, 1);
+	splitter->setStretchFactor(1, 3);
+
+	LeftSide = new QWidget(splitter);
+	LeftGridLayout = new QGridLayout;
+	LeftSide->setLayout(LeftGridLayout);
+	splitter->addWidget(LeftSide);
+	LeftSide->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+	RightSide = new QWidget(splitter);
+	RightGridLayout = new QGridLayout;
+	RightSide->setLayout(RightGridLayout);
+	splitter->addWidget(RightSide);
+	RightSide->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+	horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+	MotivatorLabel = new QLabel; // needtodelete
+	MotivatorLabel->setObjectName(QStringLiteral("MotivatorLabel"));
+	MotivatorLabel->setMinimumSize(QSize(250, 0));
+	MotivatorLabel->setMaximumSize(QSize(250, 16777215));
+	MotivatorLabel->setAlignment(Qt::AlignLeading | Qt::AlignLeft | Qt::AlignTop);
+	MotivatorLabel->setWordWrap(true);
+
+	LeftGridLayout->addWidget(MotivatorLabel, 0, 0, 1, 1);
+
+	scrollArea = new QScrollArea(RightSide);
+	scrollArea->setObjectName(QStringLiteral("scrollArea"));
+	scrollArea->setWidgetResizable(true);
+	scrollAreaWidgetContents = new QWidget();
+	scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+	scrollAreaWidgetContents->setGeometry(QRect(0, 0, 426, 480));
+	gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
+	gridLayout_2->setSpacing(6);
+	gridLayout_2->setContentsMargins(11, 11, 11, 11);
+	gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+	scrollArea->setWidget(scrollAreaWidgetContents);
+
+	NoteOptionsWidget = new QWidget(scrollArea);
+	NoteOptionsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+	NoteOptionsWidget->setFixedHeight(100);
+	NoteOptionsWidget->setObjectName(QStringLiteral("NoteOptionsWidget"));
+	RightGridLayout->addWidget(NoteOptionsWidget);
+	RightGridLayout->addWidget(scrollArea);
+
+	opacity = new QGraphicsOpacityEffect(NoteOptionsWidget);
+	NoteOptionsWidget->setGraphicsEffect(opacity);
+	NoteOptionsWidget->setAutoFillBackground(true);
+
+	gridLayout_4->addWidget(splitter, 0, 0, 1, 1);
+
+	this->setCentralWidget(centralWidget);
+	menuBar = new QMenuBar(this);
+	menuBar->setObjectName(QStringLiteral("menuBar"));
+	menuBar->setGeometry(QRect(0, 0, 768, 21));
+	this->setMenuBar(menuBar);
+	mainToolBar = new QToolBar(this);
+	mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+	this->addToolBar(Qt::TopToolBarArea, mainToolBar);
+	statusBar = new QStatusBar(this);
+	statusBar->setObjectName(QStringLiteral("statusBar"));
+	statusBar->setMinimumSize(QSize(0, 0));
+	this->setStatusBar(statusBar);
+}
+
 void MattyNotesMainWindow::buildMainToolBar()
 {
-	CloseWindowButton = new QPushButton(ui.mainToolBar);
+	CloseWindowButton = new QPushButton(mainToolBar);
 	CloseWindowButton->setObjectName("CloseWindowButton");
 	CloseWindowButton->setMaximumSize(QSize(20, 20));
 	CloseWindowButton->setFlat(true);
 
-	MaximizeWindowButton = new QPushButton(ui.mainToolBar);
+	MaximizeWindowButton = new QPushButton(mainToolBar);
 	MaximizeWindowButton->setObjectName("MaximizeWindowButton");
 	MaximizeWindowButton->setMaximumSize(QSize(20, 20));
 	MaximizeWindowButton->setFlat(true);
 
-	MinimizeWindowButton = new QPushButton(ui.mainToolBar);
+	MinimizeWindowButton = new QPushButton(mainToolBar);
 	MinimizeWindowButton->setObjectName("MinimizeWindowButton");
 	MinimizeWindowButton->setMaximumSize(QSize(20, 20));
 	MinimizeWindowButton->setFlat(true);
 
-	MainToolBarSpacerLeft = new QWidget(ui.mainToolBar);
+	MainToolBarSpacerLeft = new QWidget(mainToolBar);
 	MainToolBarSpacerLeft->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-	MainToolBarSpacerRight = new QWidget(ui.mainToolBar);
+	MainToolBarSpacerRight = new QWidget(mainToolBar);
 	MainToolBarSpacerRight->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-	WindowHeaderLabel = new QLabel(ui.mainToolBar);
+	WindowHeaderLabel = new QLabel(mainToolBar);
 	WindowHeaderLabel->setObjectName(QStringLiteral("WindowHeaderLabel"));
 	WindowHeaderLabel->setText("MattyNotes");
 
-	ui.mainToolBar->setObjectName(QStringLiteral("MainToolBar"));
-	ui.mainToolBar->addWidget(MainToolBarSpacerLeft);
-	ui.mainToolBar->addWidget(WindowHeaderLabel);
-	ui.mainToolBar->addWidget(MainToolBarSpacerRight);
-	ui.mainToolBar->addWidget(MinimizeWindowButton);
-	ui.mainToolBar->addWidget(MaximizeWindowButton);
-	ui.mainToolBar->addWidget(CloseWindowButton);
-	ui.mainToolBar->setMovable(false);
+	mainToolBar->setObjectName(QStringLiteral("MainToolBar"));
+	mainToolBar->addWidget(MainToolBarSpacerLeft);
+	mainToolBar->addWidget(WindowHeaderLabel);
+	mainToolBar->addWidget(MainToolBarSpacerRight);
+	mainToolBar->addWidget(MinimizeWindowButton);
+	mainToolBar->addWidget(MaximizeWindowButton);
+	mainToolBar->addWidget(CloseWindowButton);
+	mainToolBar->setMovable(false);
 }
 
 void MattyNotesMainWindow::buildMattyToolBar()
@@ -191,17 +266,6 @@ void MattyNotesMainWindow::buildMattyToolBar()
 	MattyToolBar->addWidget(AddNoteButton);
 }
 
-void MattyNotesMainWindow::buildNoteOptionsToolbar()
-{
-	NoteOptionsWidget = new QWidget(this);
-	NoteOptionsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-	NoteOptionsWidget->setFixedHeight(100);
-	NoteOptionsWidget->setObjectName(QStringLiteral("NoteOptionsWidget"));
-	ui.verticalLayout_4->addWidget(NoteOptionsWidget, 0);
-	opacity = new QGraphicsOpacityEffect(NoteOptionsWidget);
-	NoteOptionsWidget->setGraphicsEffect(opacity);
-	NoteOptionsWidget->setAutoFillBackground(true);
-}
 
 void MattyNotesMainWindow::setActions()
 {

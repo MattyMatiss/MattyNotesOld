@@ -23,6 +23,23 @@ public:
 private:
 	Ui::MattyNotesMainWindowClass ui;
 
+	QWidget *centralWidget; //
+	QGridLayout *gridLayout_4; //
+	QSplitter *splitter; //
+	QWidget *LeftSide;
+	QGridLayout *LeftGridLayout;
+	QWidget *RightSide;
+	QGridLayout *RightGridLayout;
+
+	QSpacerItem *horizontalSpacer; //
+	QLabel *MotivatorLabel; //
+	QScrollArea *scrollArea; //
+	QWidget *scrollAreaWidgetContents; //
+	QGridLayout *gridLayout_2; //
+	QMenuBar *menuBar; //
+	QToolBar *mainToolBar; //
+	QStatusBar *statusBar; //
+	
 	QToolBar *MattyToolBar;
 	QWidget *NoteOptionsWidget;
 
@@ -52,9 +69,9 @@ private:
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
 
+	void buildBody();
 	void buildMainToolBar();
 	void buildMattyToolBar();
-	void buildNoteOptionsToolbar();
 	void setConnects();
 	void setActions();
 
