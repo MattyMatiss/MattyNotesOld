@@ -190,7 +190,6 @@ void MattyGroupBox::deleteNote()
 {
 	MattyMessageBox WantToDeleteNote(Question);
 	WantToDeleteNote.setText(QString::fromLocal8Bit("\n\nВы точно хотите удалить заметку \n\"") + ThisGroupBoxNote.getTitle() + "\"?");
-	WantToDeleteNote.setFixedWidth(150);
 
 	int answer = WantToDeleteNote.exec();
 	if (answer == QMessageBox::Yes)

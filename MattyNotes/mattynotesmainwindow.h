@@ -17,44 +17,52 @@ public:
 
 	~MattyNotesMainWindow();
 
-	void connectToDb(QString& PathToDb = QStringLiteral(""));
 
 
 private:
 	Ui::MattyNotesMainWindowClass ui;
 
-	QGridLayout *gridLayout_4; //
-	QSplitter *splitter; //
-	QWidget *LeftSide;
-	QGridLayout *LeftGridLayout;
-	QWidget *RightSide;
-	QGridLayout *RightGridLayout;
+	// menuBar:
+	QMenuBar *menuBar; // IsNotUsed
 
-	QLabel *MotivatorLabel; //
-	QScrollArea *scrollArea; //
-	QWidget *scrollAreaWidgetContents; //
-	QGridLayout *gridLayout_2; //
-	QMenuBar *menuBar; //
-	QToolBar *mainToolBar; //
-	QStatusBar *statusBar; //
-	
-	QToolBar *MattyToolBar;
-	QWidget *NoteOptionsWidget;
+	// statusBar:
+	QStatusBar *statusBar;
 
-	QLabel* WindowHeaderLabel;
-
-	QPushButton* CloseWindowButton;
-	QPushButton* MaximizeWindowButton;
-	QPushButton* MinimizeWindowButton;
-	QPushButton *AddNoteButton;
-	QPushButton *RefreshNoteListButton;
-	QPushButton *SettingsButton;
-
+	// MainToolBar:
+	QToolBar *mainToolBar; 
 	QWidget* MainToolBarSpacerLeft;
+	QLabel* WindowHeaderLabel;
 	QWidget* MainToolBarSpacerRight;
-	QWidget* MattyToolBarMainSpacer;
+	QPushButton* MinimizeWindowButton;
+	QPushButton* MaximizeWindowButton;
+	QPushButton* CloseWindowButton;
 
+	// MattyToolBar:
+	QToolBar *MattyToolBar;
 	class MattyClocks* MainClocks;
+	QPushButton *SettingsButton;
+	QWidget* MattyToolBarMainSpacer;
+	QPushButton *RefreshNoteListButton;
+	QPushButton *AddNoteButton;
+
+	// centralWidget:
+	QGridLayout *MainGridLayout;
+	// Splitter:
+	QSplitter *MainSplitter; 
+	QWidget *LeftSideWidget;
+	QWidget *RightSideWidget;
+	// LeftSideWidget:
+	QGridLayout *LeftGridLayout;
+	QVBoxLayout *LeftSideVerLayout;
+	QLabel *MotivatorLabel; 
+	QSpacerItem* LeftSideVerticalSpacer;
+	QSpacerItem* LeftSideHorizontalSpacer;
+	// LeftSideWidget:
+	QGridLayout *RightGridLayout;
+	QWidget *NoteOptionsWidget;
+	QScrollArea *GroupBoxScrollArea;
+	QWidget *GroupBoxScrollAreaWidgetContents;
+	QGridLayout *GroupBoxHolderLayout; 
 
 	QGraphicsOpacityEffect* opacity;
 
@@ -62,11 +70,13 @@ private:
 	QAction *addNewNote;
 	QAction *RefreshMainWindow;
 
+	// dragable window
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	int m_nMouseClick_X_Coordinate;
 	int m_nMouseClick_Y_Coordinate;
 
+	void connectToDb(QString& PathToDb = QStringLiteral(""));
 	void buildBody();
 	void buildMainToolBar();
 	void buildMattyToolBar();
@@ -81,10 +91,8 @@ private:
 	void minimizeWindow();
 	void refreshMainWindow();
 	void openSettings();
-	void resizeMattyToolbarButtons();
+	void resizeMattyToolbarButtons(); // IsNotUsed
 	bool WindowActivatedEvent(QEvent *e);
 };
-
-
 
 #endif // MATTYNOTES_H

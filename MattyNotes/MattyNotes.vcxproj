@@ -225,7 +225,6 @@
     <ClCompile Include="mattynotesmainwindow.cpp" />
     <ClCompile Include="MattySettingsDialog.cpp" />
     <ClCompile Include="MattyStyleSheetEditor.cpp" />
-    <ClCompile Include="MattyTime.cpp" />
     <ClCompile Include="NoteHolder.cpp" />
     <ClCompile Include="QueryConstructor.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -338,7 +337,6 @@
     <ClInclude Include="DbManager.h" />
     <ClInclude Include="GeneratedFiles\ui_mattynotesmainwindow.h" />
     <ClInclude Include="MattyNote.h" />
-    <ClInclude Include="MattyTime.h" />
     <CustomBuild Include="mattynotesmainwindow.h">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing mattynotesmainwindow.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>

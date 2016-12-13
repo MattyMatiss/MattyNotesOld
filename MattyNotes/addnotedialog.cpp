@@ -7,14 +7,13 @@
 #include "NoteHolder.h"
 #include "Constants.h"
 #include "QueryConstructor.h"
+#include "mattymessagebox.h"
 
 addNoteDialog::addNoteDialog(Action DialogTypeIncm, int EditingNoteIdIncm)
 {
 	addNoteDialogUi.setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	//this->setAttribute(Qt::WA_DeleteOnClose); пытается удалить что-то, что уже было удалено
-
-	//DbManager::connect(Constants::PathToDb); // надо ли?
 
 	addNoteDialogUi.noteTypeComboBox->clear();
 	addNoteDialogUi.noteTypeComboBox->addItems(DbManager::getTypes());
@@ -56,7 +55,14 @@ addNoteDialog::~addNoteDialog()
 
 void addNoteDialog::on_cancelAddingNoteButton_clicked()
 {
-	this->close();
+	MattyMessageBox NeedToEnterTitle(Question);
+	NeedToEnterTitle.setText(QString::fromLocal8Bit("Вы хотите выйти без сохранения заметки?"));
+	int answer = NeedToEnterTitle.exec();
+
+	if (answer == QMessageBox::Yes)
+	{
+		this->close();
+	}
 }
 
 
@@ -86,7 +92,10 @@ void addNoteDialog::on_createNoteButton_clicked()
 	}
 	else
 	{
-
+		MattyMessageBox NeedToEnterTitle(Information);
+		NeedToEnterTitle.setText(QString::fromLocal8Bit("У заметки обязательно должен быть заголовок!"));
+		NeedToEnterTitle.exec();
+		addNoteDialogUi.noteTitleText->setFocus();
 	}
 }
 

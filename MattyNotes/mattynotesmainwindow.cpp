@@ -39,7 +39,7 @@ void MattyNotesMainWindow::addNote()
 
 	if (!newAddNoteDialog.exec())
 	{
-		NoteHolder::publishNotes(scrollAreaWidgetContents);
+		NoteHolder::publishNotes(GroupBoxScrollAreaWidgetContents);
 	}
 }
 
@@ -64,7 +64,7 @@ void MattyNotesMainWindow::minimizeWindow()
 void MattyNotesMainWindow::refreshMainWindow()
 {
 	MattyStyleSheetEditor::refreshTheme();
-	NoteHolder::publishNotes(scrollAreaWidgetContents);
+	NoteHolder::publishNotes(GroupBoxScrollAreaWidgetContents);
 }
 
 void MattyNotesMainWindow::openSettings()
@@ -108,70 +108,79 @@ void MattyNotesMainWindow::connectToDb(QString & PathToDb)
 	else
 		Constants::setPathToDb(PathToDb);
 
-	DbManager::connect(Constants::PathToDb);
+	DbManager::connect(Constants::getPathTODb());
 }
 
 void MattyNotesMainWindow::buildBody()
 {
-	gridLayout_4 = new QGridLayout(ui.centralWidget);
-	gridLayout_4->setSpacing(6);
+	MainGridLayout = new QGridLayout(ui.centralWidget);
+	MainGridLayout->setSpacing(6);
 	//gridLayout_4->setContentsMargins(11, 11, 11, 11);
-	gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+	MainGridLayout->setObjectName(QStringLiteral("gridLayout_4"));
 
-	splitter = new QSplitter(ui.centralWidget);
-	splitter->setObjectName(QStringLiteral("splitter"));
-	splitter->setOrientation(Qt::Horizontal);
+	MainSplitter = new QSplitter(ui.centralWidget);
+	MainSplitter->setObjectName(QStringLiteral("splitter"));
+	MainSplitter->setOrientation(Qt::Horizontal);
 
-	LeftSide = new QWidget(splitter);
+	LeftSideWidget = new QWidget(MainSplitter);
 	LeftGridLayout = new QGridLayout;
-	LeftSide->setLayout(LeftGridLayout);
-	splitter->addWidget(LeftSide);
-	LeftSide->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-	LeftSide->setObjectName(QStringLiteral("LeftSide"));
+	LeftSideWidget->setLayout(LeftGridLayout);
+	MainSplitter->addWidget(LeftSideWidget);
+	LeftSideWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	LeftSideWidget->setObjectName(QStringLiteral("LeftSide"));
 
-	RightSide = new QWidget(splitter);
+	RightSideWidget = new QWidget(MainSplitter);
 	RightGridLayout = new QGridLayout;
-	RightSide->setLayout(RightGridLayout);
-	splitter->addWidget(RightSide);
-	RightSide->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-	RightSide->setObjectName(QStringLiteral("RightSide"));
+	RightSideWidget->setLayout(RightGridLayout);
+	MainSplitter->addWidget(RightSideWidget);
+	RightSideWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	RightSideWidget->setObjectName(QStringLiteral("RightSide"));
 
-	MotivatorLabel = new QLabel(LeftSide);
-	MotivatorLabel->setText(QString::fromLocal8Bit("Страшная правда обо мне заключается в том, что я не слишком люблю кофе.Однако пью его ведрами.Дело даже не в бодрящем действии кофеина, которое, строго говоря, требуется только по утрам, да и то не всегда.Вкус кофе успокаивает меня и примеряет с жизнью, возвращает ногам вечно норовящую уйти из - под них твердую почву и придает жизни хоть какое - то подобие смысла.Словом, я не люблю кофе, но когда пью его, я почти счастлив, а только это и важно. \n\n"
+	LeftSideVerLayout = new QVBoxLayout(this);
+	LeftSideVerLayout->setSpacing(6);
 
-		"Макс Фрай"));
+	LeftGridLayout->addLayout(LeftSideVerLayout, 0, 0);
+
+	MotivatorLabel = new QLabel(LeftSideWidget);
+	MotivatorLabel->setText(QString::fromLocal8Bit("Желания имеют свойство сбываться"));
 	MotivatorLabel->setObjectName(QStringLiteral("MotivatorLabel"));
-	MotivatorLabel->setMinimumSize(QSize(150, 0));
-	MotivatorLabel->setMaximumSize(QSize(150, 16777215));
+	MotivatorLabel->setMinimumSize(QSize(250, 0));
+	MotivatorLabel->setMaximumSize(QSize(250, 16777215));
 	MotivatorLabel->setWordWrap(true);
 	MotivatorLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-	LeftGridLayout->addWidget(MotivatorLabel, 0, 0);
+	LeftSideVerticalSpacer = new QSpacerItem(1, 10, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-	scrollArea = new QScrollArea(RightSide);
-	scrollArea->setObjectName(QStringLiteral("scrollArea"));
-	scrollArea->setWidgetResizable(true);
-	scrollAreaWidgetContents = new QWidget(scrollArea);
-	scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-	scrollAreaWidgetContents->setGeometry(QRect(0, 0, 426, 480));
-	gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
-	gridLayout_2->setSpacing(6);
-	gridLayout_2->setContentsMargins(11, 11, 11, 11);
-	gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-	scrollArea->setWidget(scrollAreaWidgetContents);
+	LeftSideVerLayout->addWidget(MotivatorLabel);
+	LeftSideVerLayout->addItem(LeftSideVerticalSpacer);
 
-	NoteOptionsWidget = new QWidget(scrollArea);
+	LeftSideHorizontalSpacer = new QSpacerItem(10, 1, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+	LeftGridLayout->addItem(LeftSideHorizontalSpacer, 1, 0);
+
+	GroupBoxScrollArea = new QScrollArea(RightSideWidget);
+	GroupBoxScrollArea->setObjectName(QStringLiteral("scrollArea"));
+	GroupBoxScrollArea->setWidgetResizable(true);
+	GroupBoxScrollAreaWidgetContents = new QWidget(GroupBoxScrollArea);
+	GroupBoxScrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+	GroupBoxScrollAreaWidgetContents->setGeometry(QRect(0, 0, 426, 480));
+	GroupBoxHolderLayout = new QGridLayout(GroupBoxScrollAreaWidgetContents);
+	GroupBoxHolderLayout->setSpacing(6);
+	GroupBoxHolderLayout->setContentsMargins(11, 11, 11, 11);
+	GroupBoxHolderLayout->setObjectName(QStringLiteral("gridLayout_2"));
+	GroupBoxScrollArea->setWidget(GroupBoxScrollAreaWidgetContents);
+
+	NoteOptionsWidget = new QWidget(GroupBoxScrollArea);
 	NoteOptionsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-	NoteOptionsWidget->setFixedHeight(100);
 	NoteOptionsWidget->setObjectName(QStringLiteral("NoteOptionsWidget"));
 	RightGridLayout->addWidget(NoteOptionsWidget);
-	RightGridLayout->addWidget(scrollArea);
+	RightGridLayout->addWidget(GroupBoxScrollArea);
 
 	opacity = new QGraphicsOpacityEffect(NoteOptionsWidget);
 	NoteOptionsWidget->setGraphicsEffect(opacity);
 	NoteOptionsWidget->setAutoFillBackground(true);
 
-	gridLayout_4->addWidget(splitter, 0, 0, 1, 1);
+	MainGridLayout->addWidget(MainSplitter, 0, 0, 1, 1);
 
 	menuBar = new QMenuBar(this);
 	menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -185,8 +194,8 @@ void MattyNotesMainWindow::buildBody()
 	statusBar->setMinimumSize(QSize(0, 0));
 	this->setStatusBar(statusBar);
 
-	splitter->setStretchFactor(0, 1);
-	splitter->setStretchFactor(1, 3);
+	MainSplitter->setStretchFactor(1, 1);
+	MainSplitter->setStretchFactor(2, 3);
 
 }
 

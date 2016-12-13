@@ -7,6 +7,7 @@ MattyMessageBox::MattyMessageBox(Type Type, QWidget *parent)
 	this->setObjectName(QStringLiteral("MattyMessageBox"));
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setStyleSheet(NULL);
+	this->setFixedWidth(150);
 
 	switch (Type)
 	{

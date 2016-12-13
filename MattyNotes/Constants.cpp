@@ -42,6 +42,11 @@ void Constants::setPathToDb(QString & Path)
 	PathToDb = Path;
 }
 
+QString Constants::getPathTODb()
+{
+	return PathToDb;
+}
+
 Constants::Constants()
 {
 }

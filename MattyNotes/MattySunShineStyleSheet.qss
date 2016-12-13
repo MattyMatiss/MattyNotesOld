@@ -94,8 +94,6 @@ QScrollBar:vertical { margin: 10px 0px 10px 0px; }
 #yesButton, #noButton { height: 53px; width: 53px; }
 #cancelAddingNoteButton, #CancelSettingsButton { height: 60px; width: 60px; }
 #createNoteButton, #ApplySettingsButton { height: 70px; width: 70px; }
-#RightSide { width: 300px; } /*надо ли?*/
-#LeftSide { width: 200px; } /*надо ли?*/
 QScrollBar:vertical { max-width: 10px; }
 QScrollBar:horizontal { max-height: 10px; }
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; max-height: 0px; }
@@ -105,7 +103,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0px; m
 MattyGroupBox { min-width: 300px; }
 
 /*HEIGHT 100*/
-/*MattyGroupBox { height: 150px; }*/
+#NoteOptionsWidget { height: 75px; min-height: 75px; }
 
 /*BACKGROUND POSITION CENTER*/
 QPushButton { background-position: center; }
