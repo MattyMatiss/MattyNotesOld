@@ -2,52 +2,67 @@
 #MattyNotesMainWindowClass, #MattySettingsDialog, #addNoteDialog { background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 255), stop:0.375 rgba(255, 255, 0, 255), stop:0.423533 rgba(251, 255, 0, 255), stop:0.45 rgba(247, 255, 0, 255), stop:0.477581 rgba(255, 244, 71, 255), stop:0.518717 rgba(255, 218, 71, 255), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 255), stop:0.625 rgba(255, 255, 0, 255), stop:1 rgba(255, 255, 0, 255)); }
 
 /*MAIN BACKGROUND COLOR*/
-#MainToolBar, #MattyToolBar, #statusBar, #listWidget, #NoteOptionsWidget, QComboBox QAbstractItemView { background-color: rgb(255, 255, 127); }
+#MainToolBar, #MattyToolBar, #statusBar, #listWidget, #NoteOptionsWidget, QAbstractItemView, QMenu, QScrollBar { background-color: rgb(255, 255, 127); }
 
 /*NOTE BACKGROUND*/
-#MattyGroupBox, #MattyMessageBox, #addNoteDialog QTextEdit, #noteTypeComboBox, #eventTimeEdit, #eventDateEdit { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); }
+#MattyGroupBox, #MattyMessageBox, QTextEdit, QPlainTextEdit, QComboBox, QDateTime, QDateTimeEdit, QSpinBox, #qt_calendar_navigationbar, QScrollBar:handle { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 250, 97, 1), stop:1 rgba(255, 221, 97, 1)); }
 
 /*MAIN TEXT COLOR*/
-#MotivatorLabel, #MainToolBar #WindowHeaderLabel, QPushButton:hover, MattyMessageBox, MattyGroupBox, addNoteDialog {  color: #4d3f3d; }
+#MotivatorLabel, #MainToolBar #WindowHeaderLabel, QPushButton:hover, MattyMessageBox, MattyGroupBox, addNoteDialog, QMenu, QCalendarWidget, QAbstractItemView {  color: #4d3f3d; }
+
+/*SELECTION COLOR*/
+QTextEdit, QAbstractItemView, QMenu::item:selected, QDateEdit, QDateTime, QDateTimeEdit, QSpinBox, QComboBox, QLabel { selection-color: #000000; }
+
+/*SELECTION BACKGROUND COLOR*/
+QTextEdit, QAbstractItemView, QMenu::item:selected, QDateEdit, QDateTime, QDateTimeEdit, QSpinBox, QComboBox, QLabel { selection-background-color: #fffced; }
+
+/*SELECTION BORDER*/
+QComboBox QAbstractItemView { outline: 0px; }
 
 /*TRANSPARENT BACKGROUND*/
-QSplitter::handle, #centralWidget,  QScrollArea, QScrollArea > QWidget > QWidget, QPushButton { background-color: transparent; }
+QSplitter::handle, #centralWidget, QScrollArea, QScrollArea > QWidget > QWidget, QPushButton { background-color: transparent; }
 
 /*TRANSPARENT TEXT*/
 /*QPushButton { color: transparent; }*/
 
 /*TRANSPARENT BORDER*/
-#MattyGroupBox, #addNoteDialog QTextEdit { border-color: transparent; }
+#MattyGroupBox { border-color: transparent; }
 
 /*MAIN BORDER STYLE*/
-#MattyMessageBox, #addNoteDialog QTextEdit, #NoteOptionsWidget { border-style: ridge; }
+#MattyMessageBox, #NoteOptionsWidget, QMenu, QComboBox, QAbstractItemView, QDateEdit, QDateTime, QDateTimeEdit, QSpinBox { border-style: ridge; }
 
-/*BORDER 0 PX*/
+/*SOLID BORDER STYLE*/
+QTextEdit, QPlainTextEdit { border-style: solid; }
+
+/*NO BORDER*/
 QScrollArea, QScrollArea > QWidget > QWidget { border: 0px none transparent; }
 
 /*BORDER 1 PX*/
-/* { border-width: 1px; }*/
+QMenu, QComboBox, QAbstractItemView, QAbstractItemView, QDateEdit, QDateTime, QDateTimeEdit, QSpinBox, QTextEdit, QPlainTextEdit { border-width: 1px; }
 
 /*BORDER 3 PX*/
-#MattyGroupBox, #addNoteDialog QTextEdit, #NoteOptionsWidget { border-width: 3px; }
+#MattyGroupBox, #NoteOptionsWidget { border-width: 3px; }
 
 /*BORDER 4 PX*/
 #MattyMessageBox, MattySettingsDialog, #addNoteDialog { border-width: 4px; }
 
 /*DARK BORDER COLOR*/
-#NoteOptionsWidget { border-color: #9b9a63; }
+#NoteOptionsWidget, QMenu, QComboBox, QAbstractItemView, QDateEdit, QDateTime, QDateTimeEdit, QSpinBox  { border-color: #9b9a63; }
 
 /*LIGHT BORDER COLOR*/
-#statusBar { border-color: #d8d770; }
+#statusBar, QTextEdit, QPlainTextEdit { border-color: #d8d770; }
 
 /*MAIN BORDER IMAGE*/
 #MattyMessageBox, MattySettingsDialog, #addNoteDialog { border-image: url(:/MattyNotes/BorderImage.png) 10 repeat; border-color: transparent; }
 
-/*BORDER RADIUS*/
-#MattyGroupBox, #addNoteDialog QTextEdit, #NoteOptionsWidget { border-radius: 15px; }
+/*BORDER RADIUS 3*/
+/*QScrollBar { border-radius: 3px; }*/
+
+/*BORDER RADIUS 15*/
+#MattyGroupBox, QTextEdit, QPlainTextEdit, #NoteOptionsWidget { border-radius: 15px; }
 
 /*FONT FAMILY*/
-QLabel, QPushButton, QTextEdit, MattyGroupBox, MattyMessageBox {  font-family: Comic Sans MS; }
+QLabel, QPushButton, QTextEdit, QPlainTextEdit, MattyGroupBox, MattyMessageBox {  font-family: Comic Sans MS; }
 
 /*FONT SIZES*/
 #MotivatorLabel { font-size: 13px; }
@@ -61,8 +76,7 @@ QLabel, QPushButton, QTextEdit, MattyGroupBox, MattyMessageBox {  font-family: C
 #MotivatorLabel, #MainToolBar #WindowHeaderLabel, QPushButton, #addNoteDialog QTextEdit, #MattyGroupBox QLabel, #MattyGroupBox { font-style: italic; }
 
 /*UNDERLINED*/
-#MattyGroupBox { text-decoration: none; }
-#MattyGroupBox:hover { text-decoration: underline; }
+#MattyGroupBox { text-decoration: underline; }
 
 /*TEXT ALIGN LEFT*/
 #ApplySettingsButton, #createNoteButton { text-align: left; }
@@ -70,21 +84,22 @@ QLabel, QPushButton, QTextEdit, MattyGroupBox, MattyMessageBox {  font-family: C
 /*ALL PADDINGS 25*/
 #MattyGroupBox { padding: 25px; }
 
-/*TOP MARGIN 10*/
+/*MARGIN*/
 /*#MattyGroupBox { margin-top: 10px; }*/
-
-/*BOTTOM MARGIN 15*/
 #MattyGroupBox { margin-bottom: 15px; }
-
-/*LEFT AND RIGHT  MARGINS 15*/
-#MattyGroupBox { margin-left: 15px; margin-right: 15px; }
+QScrollBar:vertical { margin: 10px 0px 10px 0px; }
+#MattyGroupBox { margin-left: 0px; margin-right: 20px; }
 
 /*SIZES*/
 #yesButton, #noButton { height: 53px; width: 53px; }
 #cancelAddingNoteButton, #CancelSettingsButton { height: 60px; width: 60px; }
 #createNoteButton, #ApplySettingsButton { height: 70px; width: 70px; }
-#RightSide { width: 300px; }
-#LeftSide { width: 200px; }
+#RightSide { width: 300px; } /*надо ли?*/
+#LeftSide { width: 200px; } /*надо ли?*/
+QScrollBar:vertical { max-width: 10px; }
+QScrollBar:horizontal { max-height: 10px; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; max-height: 0px; }
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0px; max-width: 0px; }
 
 /*MINIMUM WIDTH 300*/
 MattyGroupBox { min-width: 300px; }
@@ -138,12 +153,6 @@ QSplitter::handle { background-image: url(:/MattyNotes/VerticalLine.png); }
 
 #deleteNoteButton { background-image: url(:/MattyNotes/DeleteNote.png); }
 #deleteNoteButton:hover { background-image: url(:/MattyNotes/DeleteNoteHover.png); }
-
-#yesButton { border-image: url(:/MattyNotes/CommonYes40x40.png) 50 repeat !important; }
-StandardButton::Yes:hover { background-image: url(:/MattyNotes/CommonYesHover40x40.png) !important; }
-
-StandardButton::No { background-image: url(:/MattyNotes/CommonNo40x40.png) !important; }
-StandardButton::No:hover { background-image: url(:/MattyNotes/CommonNoHover40x40.png) !important; }
 
 #ApplySettingsButton { background-image: url(:/MattyNotes/ApplyAdding.png); }
 #ApplySettingsButton:hover { background-image: url(:/MattyNotes/ApplyAddingHover.png); }

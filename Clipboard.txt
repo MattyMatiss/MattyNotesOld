@@ -25,3 +25,10 @@
 
 Severity	Code	Description	Project	File	Line	Suppression State
 Error	MSB6006	"cmd.exe" exited with code 1.	MattyNotes	C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets	171	
+
+
+#yesButton { border-image: url(:/MattyNotes/CommonYes40x40.png) 50 repeat !important; }
+StandardButton::Yes:hover { background-image: url(:/MattyNotes/CommonYesHover40x40.png) !important; }
+
+StandardButton::No { background-image: url(:/MattyNotes/CommonNo40x40.png) !important; }
+StandardButton::No:hover { background-image: url(:/MattyNotes/CommonNoHover40x40.png) !important; }

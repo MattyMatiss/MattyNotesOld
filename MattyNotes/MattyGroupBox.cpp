@@ -22,13 +22,25 @@ MattyGroupBox::MattyGroupBox(class MattyNote & ThisNote, QWidget* parent)
 void MattyGroupBox::fillFrame(MattyNote & ThisNote)
 {
 	ThisGroupBoxNote = ThisNote;
-	this->setTitle(ThisNote.getTitle());
+
+	QString TitleTemp= ThisNote.getTitle();
+	
+	if (TitleTemp.length() > 40)
+	{
+		this->setTitle(TitleTemp.left(40) + "...");
+	}
+	else
+	{
+		this->setTitle(TitleTemp.left(40));
+	}
+
+	this->setStatusTip(TitleTemp);
+
 	NoteTypeLabel->setText(ThisNote.getType());
 	NoteTextLabel->setText(ThisNote.getText());
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Заметка создана: ")
 		+ ThisNote.getCrDate() + " " + ThisNote.getCrTime() );
 	NoteEventTimeAndDateLabel->setText(ThisNote.getEventDate() +  " " + ThisNote.getEventTime());
-
 }
 
 
@@ -99,10 +111,12 @@ void MattyGroupBox::buildFrame()
 	NoteTypeLabel = new QLabel(this);
 	NoteTypeLabel->setObjectName(QStringLiteral("NoteTypeLabel"));
 	NoteTypeLabel->setText(QString::fromLocal8Bit("Тип"));
+	NoteTypeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
 	NoteCrTimeAndDateLabel = new QLabel(this);
 	NoteCrTimeAndDateLabel->setObjectName(QStringLiteral("NoteCrTimeAndDateLabel"));
 	NoteCrTimeAndDateLabel->setText(QString::fromLocal8Bit("Создано: "));
+	NoteCrTimeAndDateLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
 	horizontalSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum); 
 
@@ -125,6 +139,7 @@ void MattyGroupBox::buildFrame()
 	NoteEventTimeAndDateLabel = new QLabel(this);
 	NoteEventTimeAndDateLabel->setObjectName(QStringLiteral("NoteEventTimeAndDateLabel"));
 	NoteEventTimeAndDateLabel->setText(QString::fromLocal8Bit("Когда"));
+	NoteEventTimeAndDateLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
 	horizontalLayout_1->addWidget(NoteTypeLabel);
 	horizontalLayout_1->addWidget(NoteEventTimeAndDateLabel);
@@ -141,6 +156,7 @@ void MattyGroupBox::buildFrame()
 	NoteTextLabel = new QLabel(this);
 	NoteTextLabel->setObjectName(QStringLiteral("NoteTextLabel"));
 	NoteTextLabel->setMinimumSize(QSize(0, 100));
+	NoteTextLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
 	verticalLayout->addWidget(NoteTextLabel);
 	NoteTextLabel->setText(QString::fromLocal8Bit("Текст"));
@@ -162,7 +178,11 @@ void MattyGroupBox::editNote()
 {
 	addNoteDialog newAddNoteDialog(Edit, ThisGroupBoxNote.getNoteId());
 	newAddNoteDialog.setWindowModality(Qt::ApplicationModal);
-	newAddNoteDialog.exec();
+	if (!newAddNoteDialog.exec())
+	{
+		ThisGroupBoxNote.constructNote(DbManager::showNote(ThisGroupBoxNote.getNoteId()));
+		fillFrame(ThisGroupBoxNote);
+	} // эта обновляшка работает. UPD: блин. не всегда
 	// обновляшка не работает почему-то (та, которая срабатывает при возвращении фокуса к главному окну)
 }
 

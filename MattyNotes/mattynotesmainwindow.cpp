@@ -137,19 +137,16 @@ void MattyNotesMainWindow::buildBody()
 	RightSide->setObjectName(QStringLiteral("RightSide"));
 
 	MotivatorLabel = new QLabel(LeftSide);
-	MotivatorLabel->setText(QString::fromLocal8Bit("Мокко-фраппе Ингредиенты на 1 порцию: 1 ст.ложка кофе тонкого помола, "
-		"100 мл горячего шоколада, "
-		"100 мл молока, "
-		"15 мл шоколадного сиропа, " 
-		"тертый шоколад, "
-		"взбитые сливки."));
-	MotivatorLabel->setObjectName(QStringLiteral("MotivatorLabel"));
-	MotivatorLabel->setMinimumSize(QSize(250, 0));
-	MotivatorLabel->setMaximumSize(QSize(250, 16777215));
-	MotivatorLabel->setAlignment(Qt::AlignLeading | Qt::AlignLeft | Qt::AlignTop);
-	MotivatorLabel->setWordWrap(true);
+	MotivatorLabel->setText(QString::fromLocal8Bit("Страшная правда обо мне заключается в том, что я не слишком люблю кофе.Однако пью его ведрами.Дело даже не в бодрящем действии кофеина, которое, строго говоря, требуется только по утрам, да и то не всегда.Вкус кофе успокаивает меня и примеряет с жизнью, возвращает ногам вечно норовящую уйти из - под них твердую почву и придает жизни хоть какое - то подобие смысла.Словом, я не люблю кофе, но когда пью его, я почти счастлив, а только это и важно. \n\n"
 
-	LeftGridLayout->addWidget(MotivatorLabel);
+		"Макс Фрай"));
+	MotivatorLabel->setObjectName(QStringLiteral("MotivatorLabel"));
+	MotivatorLabel->setMinimumSize(QSize(150, 0));
+	MotivatorLabel->setMaximumSize(QSize(150, 16777215));
+	MotivatorLabel->setWordWrap(true);
+	MotivatorLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+
+	LeftGridLayout->addWidget(MotivatorLabel, 0, 0);
 
 	scrollArea = new QScrollArea(RightSide);
 	scrollArea->setObjectName(QStringLiteral("scrollArea"));
@@ -189,7 +186,7 @@ void MattyNotesMainWindow::buildBody()
 	this->setStatusBar(statusBar);
 
 	splitter->setStretchFactor(0, 1);
-	splitter->setStretchFactor(1, 5);
+	splitter->setStretchFactor(1, 3);
 
 }
 

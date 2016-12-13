@@ -82,7 +82,6 @@ void addNoteDialog::on_createNoteButton_clicked()
 				DbManager::editNote(ThisDialogNote, EditingNoteId);
 			}
 		}
-
 		this->close();
 	}
 	else
